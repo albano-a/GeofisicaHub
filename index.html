@@ -5,18 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geofísica</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/png_jpg/icons8-earth-512.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5KYB9HVVP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-B5KYB9HVVP');
+    </script>
 </head>
 <body>
     <header>
-        <h1>G E O F Í S I C A</h1>
-        <h2>Repositório da Geofísica</h2>
+        <div class="header">
+            <div class="header-image">
+                <img src="images/png_jpg/icons8-earth-512.png" alt="earth's core">
+            </div>
+            <h1 class="header-title">ARQUIVO DA GEOFÍSICA</h1>
+        </div>
     </header>
     <center>
+    <hr>
+    <h2>Repositório da Geofísica</h2>
     <!-- Barra de navegação -->
     <nav>
         <a href="index.html"> <strong>Início</strong> </a>
         <a href="about.html"><strong>Sobre</strong></a>
-        <a href="code.html"><strong>Code</strong></a>
+        <a href="misc/calculadora.html"><strong>Calculadora</strong></a>
+        <a href="code.html"><strong>Tabela Exemplo</strong></a>
         <div class="dropdown">
             <button class="dropbtn"><strong>Recursos</strong></button>
             <div class="dropdown-content">
@@ -29,16 +46,22 @@
                 </div>
             </div>
         </div>
+        <a href="contact.html"><strong>Contato</strong></a>
     </nav>
+    <!------------------------------------------------------------------------------------------------>
     <hr>
-    <p><strong>Seja bem vindo ao repositório da Geofísica</strong></p>
-    <p>O site ainda está em construção! Queria o que? Páginas não nascem em árvores!</p>
+    <h3 style="font-family: 'Helvetica', sans-serif;">
+        <strong>Seja bem vindo!</strong>
+    </h3>
+    <p>
+        O site ainda está em construção! Concluído: 5%. Queria o que? Páginas não nascem em árvores!
+    </p>
     <hr>
     
-    <h2>Links de acesso rápido</h2>
+    <h2>Acesso rápido</h2>
     <section>
-            <a href="https://www.geofisica.uff.br/" target="_blank">Site da Geofísica UFF</a><br><br>
-            <a href="https://www.uff.br/" target="_blank">Site da UFF</a><br><br>
+            <a href="https://www.geofisica.uff.br/" target="_blank">Geofísica UFF</a><br><br>
+            <a href="https://www.uff.br/" target="_blank">UFF</a><br><br>
             <a href="https://drive.google.com/file/d/1bVYZkjQqAkxsr2ffqhNYbWWKvveJwZt3/view?usp=drive_link" target="_blank">Grade Horária do Curso</a><br><br>
             <a href="https://www.uff.br/sites/default/files/paginas-internas-orgaos/bs_calendarios.pdf" target="_blank">Calendário UFF 2024</a><br><br>
             <a href="https://www.geofisica.uff.br/sites/default/files/downloads/aac.pdf" target="_blank">Atividades Complementares</a><br><br>
@@ -48,7 +71,7 @@
     </center>
 
     <footer>
-        &copy; 2024 Arthur Zussman - Powered by Github
+        &copy; 2024 André Albano - Powered by <a href="https://github.com" class="logo-link" target="_blank">Github</a>
     </footer>
 </body>
 </html>

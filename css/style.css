@@ -1,8 +1,9 @@
 /* styles.css */
 body {
-    background-color: #dfdfdf;
+    background-color: #d3d3d3;
     line-height: 1.6;
     margin: 0;
+    font-family: 'Helvetica', sans-serif;
 }
 
 p {
@@ -13,6 +14,7 @@ p {
 
 a {
     font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
     display: inline-block;
     padding: 5px 15px;
     text-decoration: none;
@@ -21,11 +23,22 @@ a {
     border-radius: 15px;
     transition: background-color 0.3s ease;
 }
+/* Making each quick access button the same size */
+section a {
+    display: inline-block;
+    width: 220px; /* Adjust as needed */
+    text-align: center; /* Optional: center the text */
+    white-space: nowrap; /* Prevents the text from wrapping to the next line */
+    overflow: hidden; /* Hides the text that doesn't fit */
+    text-overflow: ellipsis; /* Adds an ellipsis (...) when the text overflows */
+}
 
 header {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+    position: static;
+    margin:auto;
 }
 
 a:hover {
@@ -56,9 +69,17 @@ button {
     color: white;
     border-radius: 15px;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    cursor: pointer;
 }
 
 footer {
+    font-family: 'Helvetica', sans-serif;
     background-color: #00458f;
     color: #ffffff;
     text-align: center;
@@ -68,6 +89,70 @@ footer {
     bottom: 0;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 20px;
+}
+input, textarea {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    margin: 20px 0;
+    opacity: 0.5;
+}
+
+/* classes */
+
+.logo-link {
+    color: inherit; /* Reset text color */
+    text-decoration: none; /* Remove underline */
+    font-family: inherit; /* Reset font family */
+    font-weight: normal; /* Reset font weight */
+    display: inline-flex;
+    padding: 0; /* Reset padding */
+    background-color: transparent; /* Reset background color */
+    border-radius: 0; /* Reset border radius */
+    transition: none; /* Reset transition */
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.header-image img {
+    position: static;
+    top:auto;
+    left: auto;
+    width: 15%;
+}
+
+.header-title {
+    font-family: 'Verdana', Times, serif;
+    color: #002144;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Dropdown styles */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -80,15 +165,8 @@ footer {
     z-index: 1;
 }
 
-.button-group {
-    border-radius: 15px; /* Adjust as needed */
-    overflow: hidden; /* This makes the inner buttons conform to the border radius */
-    border: 0px solid #000; /* Optional: add a border */
-}
-
-.button-group button {
-    border: none; /* Remove individual button borders */
-    /* Add other button styles as needed */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 .dropdown-content a {
@@ -98,12 +176,21 @@ footer {
     display: block;
     border-radius: 0px;
 }
+
 .dropdown-content a:hover {
     background-color: #0056b3;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+/* Button styles */
+.button-group {
+    border-radius: 15px; /* Adjust as needed */
+    overflow: hidden; /* This makes the inner buttons conform to the border radius */
+    border: 0px solid #000; /* Optional: add a border */
+}
+
+.button-group button {
+    border: none; /* Remove individual button borders */
+    /* Add other button styles as needed */
 }
 
 .dropbtn {

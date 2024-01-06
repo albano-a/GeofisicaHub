@@ -3,102 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sine Wave Plot</title>
-    <style>
-        canvas {
-            border: 1px solid #000;
-        }
-    </style>
+    <title>Tabela</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/png_jpg/icons8-earth-512.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5KYB9HVVP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-B5KYB9HVVP');
+    </script>
 </head>
 <body>
-    <canvas id="sineCanvas" width="600" height="300"></canvas>
-    
-
-    <script>
-        const canvas = document.getElementById('sineCanvas');
-        const ctx = canvas.getContext('2d');
-        
-        const amplitude = 50;
-        const frequency = 0.01;
-        let phaseShift = 0;
-
-        function drawGrid() {
-            ctx.strokeStyle = '#ccc';
-            ctx.lineWidth = 0.5;
-
-            // Draw horizontal grid lines
-            for (let y = 0; y < canvas.height; y += 50) {
-                ctx.beginPath();
-                ctx.moveTo(0, y);
-                ctx.lineTo(canvas.width, y);
-                ctx.stroke();
-            }
-
-            // Draw vertical grid lines
-            for (let x = 0; x < canvas.width; x += 50) {
-                ctx.beginPath();
-                ctx.moveTo(x, 0);
-                ctx.lineTo(x, canvas.height);
-                ctx.stroke();
-            }
-        }
-
-        function drawAxes() {
-            ctx.strokeStyle = '#000';
-            ctx.lineWidth = 1;
-
-            // Draw x-axis
-            ctx.beginPath();
-            ctx.moveTo(0, canvas.height / 2);
-            ctx.lineTo(canvas.width, canvas.height / 2);
-            ctx.stroke();
-
-            // Draw y-axis
-            ctx.beginPath();
-            ctx.moveTo(50, 0);
-            ctx.lineTo(50, canvas.height);
-            ctx.stroke();
-        }
-
-        function drawLabels() {
-            ctx.fillStyle = '#000';
-            ctx.font = '14px Arial';
-
-            // Draw x-axis label
-            ctx.fillText('Time', canvas.width - 50, canvas.height / 2 - 10);
-
-            // Draw y-axis label
-            ctx.save();
-            ctx.rotate(-Math.PI / 2);
-            ctx.fillText('Amplitude', -canvas.height / 2, 30);
-            ctx.restore();
-        }
-
-        function drawSineWave() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawGrid();
-            drawAxes();
-            drawLabels();
-
-            ctx.strokeStyle = '#f00';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-
-            for (let x = 0; x < canvas.width; x++) {
-                const y = amplitude * Math.sin(frequency * x + phaseShift) + canvas.height / 2;
-                ctx.lineTo(x, y);
-            }
-
-            ctx.stroke();
-        }
-
-        function animate() {
-            phaseShift -= 0.01;
-            drawSineWave();
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-    </script>
+    <center>
+    <style type="text/css" >
+        .tg  {border-collapse:collapse;border-color:#93a1a1;border-spacing:0;}
+        .tg td{background-color:#fdf6e3;border-color:#93a1a1;border-style:solid;border-width:0px;color:#002b36;
+          font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{background-color:#657b83;border-color:#93a1a1;border-style:solid;border-width:0px;color:#fdf6e3;
+          font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+        </style>
+        <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-c3ow">Type</th>
+            <th class="tg-c3ow">Video Bitrate, Standard Frame Rate<br>(24, 25, 30)</th>
+            <th class="tg-c3ow">Video Bitrate, High Frame Rate<br>(48, 50, 60)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-c3ow">2160p (4K)</td>
+            <td class="tg-c3ow">35-45 Mbps (35000000 - 45000000 bps)</td>
+            <td class="tg-c3ow">53-68 Mbps (53000000 - 68000000 bps)</td>
+          </tr>
+          <tr>
+            <td class="tg-c3ow">1440p (2K)</td>
+            <td class="tg-c3ow">16 Mbps (16000000 bps)</td>
+            <td class="tg-c3ow">24 Mbps (24000000 bps)</td>
+          </tr>
+          <tr>
+            <td class="tg-c3ow">1080p</td>
+            <td class="tg-c3ow">8 Mbps (8000000 bps)</td>
+            <td class="tg-c3ow">12 Mbps (12000000 bps)</td>
+          </tr>
+          <tr>
+            <td class="tg-c3ow">720p</td>
+            <td class="tg-c3ow">5 Mbps (5000000 bps)</td>
+            <td class="tg-c3ow">7.5 Mbps (7500000 bps)</td>
+          </tr>
+          <tr>
+            <td class="tg-c3ow">480p</td>
+            <td class="tg-c3ow">2.5 Mbps (2500000 bps)</td>
+            <td class="tg-c3ow">4 Mbps (4000000 bps)</td>
+          </tr>
+          <tr>
+            <td class="tg-c3ow">360p</td>
+            <td class="tg-c3ow">1 Mbps (1000000 bps)</td>
+            <td class="tg-c3ow">1.5 Mbps (1500000 bps)</td>
+          </tr>
+        </tbody>
+        </table>
+    </center>
+    <footer>
+        &copy; 2024 André Albano - Powered by <a href="https://github.com" class="logo-link" target="_blank">Github</a>
+    </footer>
 </body>
 </html>

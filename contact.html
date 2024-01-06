@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contato</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="images/png_jpg/icons8-earth-512.png">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5KYB9HVVP"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+    
+            gtag('config', 'G-B5KYB9HVVP');
+        </script>
+    </head>
+<body>
+    <header>
+        <div class="header">
+            <h1 class="header-title">Contato</h1>
+        </div>
+    </header>
+    <center>
+    <hr>
+    <!-- Barra de navegação -->
+    <nav>
+        <a href="index.html"> <strong>Início</strong> </a>
+        <a href="about.html"><strong>Sobre</strong></a>
+        <a href="misc/calculadora.html"><strong>Calculadora</strong></a>
+        <a href="code.html"><strong>Tabela Exemplo</strong></a>
+        <div class="dropdown">
+            <button class="dropbtn"><strong>Recursos</strong></button>
+            <div class="dropdown-content">
+                <div class="button-group">
+                    <a href="resources/geofisica/geofisica.html" target="_blank">Geofísica</a>
+                    <a href="resources/geologia/geologia.html" target="_blank">Geologia</a>
+                    <a href="resources/fisica/fisica.html" target="_blank">Física</a>
+                    <a href="resources/calculo/calculo.html" target="_blank">Cálculo</a>
+                    <a href="resources/programacao/programacao.html" target="_blank">Programação</a>
+                </div>
+            </div>
+        </div>
+        <a href="contact.html"><strong>Contato</strong></a>
+    </nav>
+    <h3>Entre em contato se possui sugestões de melhoria ou encontrou algum problema!</h3>
+    <!------------------------------------------------------------------------------------------------>
+    <hr>
+        <div class="container">
+            <form action="https://formspree.io/f/myyryoaq" method="POST">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="message">Sua mensagem:</label>
+                <textarea id="message" name="message" required></textarea>
+                <br>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    <footer>
+        &copy; 2024 André Albano - Powered by <a href="https://github.com" class="logo-link" target="_blank">Github</a>
+    </footer>
+</body>
+</html>
