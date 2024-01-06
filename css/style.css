@@ -38,3 +38,13 @@ h2 {
     font-weight: bold;
     text-decoration:underline;
 }
+
+footer {
+    background-color: #00458f;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
