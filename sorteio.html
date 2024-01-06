@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sorteios - GSS</title>
+    <style>
+        body {
+            font-family: Verdana, serif; /* Substitua por qualquer fonte que você queira usar */
+        }
+
+        #logo {
+            float:bottom;
+            width: 500px;
+            
+        }
+
+        #top-bar, #bottom-bar {
+            background: linear-gradient(to right, #6a31bb, #4f1e8e);
+            height: 50px;
+            width: 100%;
+        }
+        #top-bar {
+            top: 0;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 10px; /* Espaço entre o input e a textarea */
+        }
+
+        .input-container textarea {
+            width: 80%;
+            height: 100px; /* Adjust as needed */
+        }
+
+        .input-container input[type="file"] {
+            position: relative;
+        }
+
+        .custom-file-upload {
+    padding: 10px;
+    background-color: #6a31bb;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.custom-file-upload:hover {
+    background-color: #4f1e8e;
+}
+
+        button {
+            margin-bottom: 10px;
+            border-radius: 10px;
+            background-color: #6a31bb;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+            /* animation: buttonAnimation 1s forwards; */
+            transition: background-color 0.5s ease;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #4f1e8e ;
+        }
+
+        /* @keyframes buttonAnimation {
+    0% {
+        background-color: #6a31bb;
+        width: 100px;
+    }
+    50% {
+        background-color: #4f1e8e;
+        width: 150px;
+    }
+    100% {
+        background-color: #4f1e8e;
+        width: 200px;
+    }
+} */
+
+  /* @-webkit-keyframes buttonAnimation {
+    0% {
+      background-color: #6a31bb;
+      width: 100px;
+    }
+    50% {
+      background-color: #4f1e8e;
+      width: 150px;
+    }
+    100% {
+      background-color: #4f1e8e;
+      width: 200px;
+    }
+  } */
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+    </style>
+</head>
+<body>
+    <div>
+        <div id="top-bar"></div>
+        <h1> SORTEIOS - GSS </h1>
+        <h2>Realize o upload de um arquivo .txt ou .csv com os nomes ou insira os nomes na caixa de texto abaixo:</h2>
+        <div class="input-container">
+            <label for="file-input" class="custom-file-upload">
+            <h4>Upload File</h4>
+            </label>
+            <input id="file-input" type="file" accept=".csv, .txt" style="display: none;" />
+            <textarea></textarea>
+        </div>
+        <center><h3>Numero de pessoas para sortear</h3>
+        <input type="number" id="numOfPeople" min="1" placeholder="Tem que inserir um valor..."></center>
+        <br><br>
+        <button><h3>SORTEAR</h3></button>
+        <br><br>
+        <h1 id="nameResult"></h1>
+        <center><img id="logo" src="https://gss.uff.br/wp-content/uploads/sites/590/2022/10/logo_colorida_completa-1.png" alt="Logo"></center>
+        <div id="bottom-bar"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var generateButton = document.querySelector("button");
+            generateButton.addEventListener("click", generateName);
+
+            var fileInput = document.querySelector('input[type="file"]');
+            fileInput.addEventListener("change", function() {
+                if (fileInput.files && fileInput.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var content = e.target.result;
+                        var textarea = document.querySelector("textarea");
+                        textarea.value = content; // Update the textarea with the file content
+                    };
+                    reader.readAsText(fileInput.files[0]);
+                }
+            });
+        });
+
+        function generateName() {
+            var input = document.querySelector('input[type="file"]');
+            var textarea = document.querySelector("textarea");
+            var numOfPeople = document.getElementById("numOfPeople").value;
+            var nameResult = document.getElementById("nameResult");
+
+            var names = [];
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var content = e.target.result;
+                    var lines = content.split("\n");
+                    for (var i = 0; i < lines.length; i++) {
+                        if (lines[i].trim() !== "") {
+                            names.push(lines[i].trim());
+                        }
+                    }
+                    selectRandomNames(names, numOfPeople, nameResult);
+                };
+                reader.readAsText(input.files[0]);
+            } else {
+                var textContent = textarea.value;
+                var lines = textContent.split("\n");
+                for (var i = 0; i < lines.length; i++) {
+                    if (lines[i].trim() !== "") {
+                        names.push(lines[i].trim());
+                    }
+                }
+                selectRandomNames(names, numOfPeople, nameResult);
+            }
+        }
+
+        function selectRandomNames(names, numOfPeople, nameResult) {
+            var selectedNames = [];
+            for (var i = 0; i < numOfPeople; i++) {
+                if (names.length > 0) {
+                    var randomIndex = Math.floor(Math.random() * names.length);
+                    selectedNames.push(names[randomIndex]);
+                    names.splice(randomIndex, 1); // Remove the selected name from the names array
+                } else {
+                    break;
+                }
+            }
+            nameResult.innerHTML = selectedNames.join("<br>");
+        }
+    </script>
+</body>
+</html>

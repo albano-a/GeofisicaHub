@@ -1,6 +1,8 @@
 /* styles.css */
 body {
     background-color: #dfdfdf;
+    line-height: 1.6;
+    margin: 0;
 }
 
 p {
@@ -20,12 +22,18 @@ a {
     transition: background-color 0.3s ease;
 }
 
+header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
 a:hover {
     background-color: #0056b3;
 }
 
 h1 {
-    font-family: 'Impact', Times, serif;
+    font-family: 'Verdana', Times, serif;
     color: #002144;
     font-size: 32px;
     font-weight: bold;
@@ -39,6 +47,17 @@ h2 {
     text-decoration:underline;
 }
 
+button {
+    font-family: 'Helvetica', sans-serif;
+    display: inline-block;
+    padding: 5px 15px;
+    text-decoration: none;
+    background-color: #00458f;
+    color: white;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
 footer {
     background-color: #00458f;
     color: #ffffff;
@@ -47,4 +66,62 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 15px;
+    z-index: 1;
+}
+
+.button-group {
+    border-radius: 15px; /* Adjust as needed */
+    overflow: hidden; /* This makes the inner buttons conform to the border radius */
+    border: 0px solid #000; /* Optional: add a border */
+}
+
+.button-group button {
+    border: none; /* Remove individual button borders */
+    /* Add other button styles as needed */
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 5px 15px;
+    text-decoration: none;
+    display: block;
+    border-radius: 0px;
+}
+.dropdown-content a:hover {
+    background-color: #0056b3;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn {
+    font-family: 'Helvetica', sans-serif;
+    display: inline-block;
+    padding: 9px 15px;
+    text-decoration: none;
+    background-color: #00458f;
+    color: white;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none; /* Reset border */
+    outline: none; /* Reset outline */
+    box-shadow: none; /* Reset box-shadow */
+    font-size: 16px;
+}
+
+.dropbtn:hover {
+    background-color: #0056b3;
 }
