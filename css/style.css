@@ -50,6 +50,7 @@ h1 {
     color: #002144;
     font-size: 32px;
     font-weight: bold;
+    text-align: center;
 }
 
 h2 {
@@ -152,6 +153,11 @@ hr {
     margin: 0 auto;
 }
 
+.container-about {
+    max-width: 1000px;
+    margin: auto;
+}
+
 /* Dropdown styles */
 .dropdown {
     position: relative;
@@ -211,4 +217,38 @@ hr {
 
 .dropbtn:hover {
     background-color: #0056b3;
+}
+
+.subdropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.subdropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.subdropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.subdropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.subdropdown:hover .subdropdown-content {
+    display: block;
 }
