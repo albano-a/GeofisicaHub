@@ -1,0 +1,45 @@
+.input-container, .input-section, #result-section, #logo-section {
+    max-width: 800px;
+    margin: 0 auto; /* Center the container */
+}
+
+.custom-file-upload, .testbutton {
+    width: 100%;
+    display: block;
+    padding: 0 10px;
+    background-color: #00458F; /* Blue background */
+    color: white; /* White text */
+    font-family: 'Helvetica', sans-serif; /* Set a font family */
+    font-size: 16px; /* Set a font size */
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 20px; /* Add some space between the upload button and the textarea */
+}
+
+.custom-file-upload:hover, .testbutton:hover {
+    background-color: #0056B3; /* Darker blue background on hover */
+}
+
+textarea {
+    width: 100%; /* Make the textarea take up the full width of the container */
+    min-height: 200px; /* Set a minimum height for the textarea */
+}
+
+#numOfPeople {
+    display:block;
+    width: 20%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#logo {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 20%;
+}

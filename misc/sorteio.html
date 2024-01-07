@@ -3,202 +3,88 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sorteios - GSS</title>
-    <style>
-        body {
-            font-family: Verdana, serif; /* Substitua por qualquer fonte que você queira usar */
-        }
+        <title>Sorteios</title>
+        <link rel="stylesheet" href="../css/std_style.css">  <!--For the standard styles */-->
+        <link rel="stylesheet" href="../css/classes_style.css"> <!--For the classes styles */-->
+        <link rel="stylesheet" href="../css/sorteio.css"> <!--For the ids styles */-->
+        <link rel="icon" href="/images/png_jpg/icons8-earth-512.png">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9JMPD2F5G"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-L9JMPD2F5G');
+        </script>
+        <script src="../css/menu_nav.js"></script>
+    </head>
+    <!--###################################################################################################-->
+    <body>
+        <header>
+            <div class="header">
+                <div class="header-image">
+                    <img src="/images/png_jpg/icons8-earth-512.png" alt="earth's core">
+                </div>
+                <h1 class="header-title">ARQUIVO DA GEOFÍSICA</h1>
+            </div>
+        </header>
+        <!-- Barra de navegação -->
+            <nav id='menu'>
+                <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+                <ul>
+                <li><a href='../index.html'>Início</a></li>
+                <li><a href='../o-que-e-geofisica.html'>O que é geofísica?</a></li>
+                <li><a class='dropdown-arrow'>Ferramentas</a>
+                    <ul class='sub-menus'>
+                    <li><a href='/misc/artigos.html'>Artigos</a></li>
+                    <li><a href='/misc/sorteio.html'>Sorteio</a></li>
+                    <li><a href='/misc/calculadora.html'>Calculadora</a></li>
+                    </ul>
+                </li>
+                <li><a href='/code.html'>Tabela Exemplo</a></li>
+                <li><a class='dropdown-arrow'>Recursos</a>
+                    <ul class='sub-menus'>
+                    <li><a href='/resources/geofisica/geofisica.html'>Geofisica</a></li>
+                    <li><a href='/resources/geologia/geologia.html'>Geologia</a></li>
+                    <li><a href='/resources/fisica/fisica.html'>Física</a></li>
+                    <li><a href='/resources/calculo/calculo.html'>Cálculo</a></li>
+                    <li><a href='/resources/programacao/programacao.html'>Programação</a></li>
+                    </ul>
+                </li>
+                <li><a href='/contact.html'>Contato</a></li>
+                </ul>
+            </nav>
+        <div>
+            <h1> SORTEIOS</h1>
+            <p>Esta página tem como objetivo fornecer uma ferramenta que facilita a realização de sorteios simples.</p>
 
-        #logo {
-            float:bottom;
-            width: 500px;
-            
-        }
+            <p>Realize o upload de um arquivo .txt ou insira os nomes na caixa de texto abaixo (Os nomes precisam ser separados por vírgula):</p>
+            <div class="input-container">
+                <label for="file-input" class="custom-file-upload">
+                <h4>Upload File</h4>
+                </label>
+                <input id="file-input" type="file" accept=".csv, .txt" style="display: none;" />
+                <textarea></textarea>
+            </div>
 
-        #top-bar, #bottom-bar {
-            background: linear-gradient(to right, #6a31bb, #4f1e8e);
-            height: 50px;
-            width: 100%;
-        }
-        #top-bar {
-            top: 0;
-        }
-
-        .input-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 10px; /* Espaço entre o input e a textarea */
-        }
-
-        .input-container textarea {
-            width: 80%;
-            height: 100px; /* Adjust as needed */
-        }
-
-        .input-container input[type="file"] {
-            position: relative;
-        }
-
-        .custom-file-upload {
-    padding: 10px;
-    background-color: #6a31bb;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.custom-file-upload:hover {
-    background-color: #4f1e8e;
-}
-
-        button {
-            margin-bottom: 10px;
-            border-radius: 10px;
-            background-color: #6a31bb;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            display: block;
-            margin: 0 auto;
-            /* animation: buttonAnimation 1s forwards; */
-            transition: background-color 0.5s ease;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        }
-        button:hover {
-            background-color: #4f1e8e ;
-        }
-
-        /* @keyframes buttonAnimation {
-    0% {
-        background-color: #6a31bb;
-        width: 100px;
-    }
-    50% {
-        background-color: #4f1e8e;
-        width: 150px;
-    }
-    100% {
-        background-color: #4f1e8e;
-        width: 200px;
-    }
-} */
-
-  /* @-webkit-keyframes buttonAnimation {
-    0% {
-      background-color: #6a31bb;
-      width: 100px;
-    }
-    50% {
-      background-color: #4f1e8e;
-      width: 150px;
-    }
-    100% {
-      background-color: #4f1e8e;
-      width: 200px;
-    }
-  } */
-
-  h1 {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-    </style>
-</head>
-<body>
-    <div>
-        <div id="top-bar"></div>
-        <h1> SORTEIOS - GSS </h1>
-        <h2>Realize o upload de um arquivo .txt ou .csv com os nomes ou insira os nomes na caixa de texto abaixo:</h2>
-        <div class="input-container">
-            <label for="file-input" class="custom-file-upload">
-            <h4>Upload File</h4>
-            </label>
-            <input id="file-input" type="file" accept=".csv, .txt" style="display: none;" />
-            <textarea></textarea>
-        </div>
-        <center><h3>Numero de pessoas para sortear</h3>
-        <input type="number" id="numOfPeople" min="1" placeholder="Tem que inserir um valor..."></center>
-        <br><br>
-        <button><h3>SORTEAR</h3></button>
-        <br><br>
-        <h1 id="nameResult"></h1>
-        <center><img id="logo" src="https://gss.uff.br/wp-content/uploads/sites/590/2022/10/logo_colorida_completa-1.png" alt="Logo"></center>
-        <div id="bottom-bar"></div>
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var generateButton = document.querySelector("button");
-            generateButton.addEventListener("click", generateName);
-
-            var fileInput = document.querySelector('input[type="file"]');
-            fileInput.addEventListener("change", function() {
-                if (fileInput.files && fileInput.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        var content = e.target.result;
-                        var textarea = document.querySelector("textarea");
-                        textarea.value = content; // Update the textarea with the file content
-                    };
-                    reader.readAsText(fileInput.files[0]);
-                }
-            });
-        });
-
-        function generateName() {
-            var input = document.querySelector('input[type="file"]');
-            var textarea = document.querySelector("textarea");
-            var numOfPeople = document.getElementById("numOfPeople").value;
-            var nameResult = document.getElementById("nameResult");
-
-            var names = [];
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    var content = e.target.result;
-                    var lines = content.split("\n");
-                    for (var i = 0; i < lines.length; i++) {
-                        if (lines[i].trim() !== "") {
-                            names.push(lines[i].trim());
-                        }
-                    }
-                    selectRandomNames(names, numOfPeople, nameResult);
-                };
-                reader.readAsText(input.files[0]);
-            } else {
-                var textContent = textarea.value;
-                var lines = textContent.split("\n");
-                for (var i = 0; i < lines.length; i++) {
-                    if (lines[i].trim() !== "") {
-                        names.push(lines[i].trim());
-                    }
-                }
-                selectRandomNames(names, numOfPeople, nameResult);
-            }
-        }
-
-        function selectRandomNames(names, numOfPeople, nameResult) {
-            var selectedNames = [];
-            for (var i = 0; i < numOfPeople; i++) {
-                if (names.length > 0) {
-                    var randomIndex = Math.floor(Math.random() * names.length);
-                    selectedNames.push(names[randomIndex]);
-                    names.splice(randomIndex, 1); // Remove the selected name from the names array
-                } else {
-                    break;
-                }
-            }
-            nameResult.innerHTML = selectedNames.join("<br>");
-        }
-    </script>
-</body>
+            <div class="input-section">
+                <h3>Número de pessoas para sortear</h3>
+                <input type="number" id="numOfPeople" min="1" placeholder="Tem que inserir um valor...">
+                <button class="testbutton"><strong>SORTEAR</strong></button>
+            </div>
+            <div id="result-section">
+                <h1 id="nameResult"></h1>
+            </div>
+            <center>Apoio:</center>
+            <div id="logo-section">
+                <img id="logo" src="https://gss.uff.br/wp-content/uploads/sites/590/2022/10/logo_colorida_completa-1.png" alt="Logo">
+            </div>
+            <div id="bottom-bar"></div>
+        </div><footer>
+            &copy; 2024 Arthur Zussman - Powered by <a href="https://github.com" id="logo-link" target="_blank">Github</a>
+        </footer>
+        <script src="css/menu_nav.js"></script>
+        <script src="sorteio.js"></script>
+    </body>
 </html>
