@@ -3,7 +3,7 @@
 /* General Classes */
 
 /* Usar id logo-link par a fazer links normais*/
-#logo-link {
+#logo-link, #git-logo {
     color: inherit; /* Reset text color */
     text-decoration: none; /* Remove underline */
     font-family: inherit; /* Reset font family */
@@ -16,9 +16,24 @@
     transition: none; /* Reset transition */
 }
 
-#logo-link:hover {
+#git-logo {
+    color: inherit; /* Reset text color */
+    text-decoration: none; /* Remove underline */
+    font-family: inherit; /* Reset font family */
+    font-weight: normal; /* Reset font weight */
+    color: rgb(255, 255, 255);
+    display: inline-flex;
+    padding: 0; /* Reset padding */
+    background-color: transparent; /* Reset background color */
+    border-radius: 0; /* Reset border radius */
+    transition: none; /* Reset transition */
+}
+
+#logo-link:hover, #git-logo:hover {
     text-decoration: underline;
 }
+
+
 
 /* Header styles */
 .header {
@@ -122,7 +137,7 @@
 	height: auto;
 	overflow: hidden;
 	width: 170px;
-	background: #00458F;
+	background: #0056B3;
 	position: absolute;
 	z-index: 99;
 	display: none;
@@ -140,74 +155,44 @@
 	display: block;
     border-radius: 0px;
 }
+/* #0056B3 */
 #menu ul.sub-menus a:hover{
 	background: #0056B3;
 	color: #FFFFFF;
-    border-radius: 0;
+    border-radius: 0px;
 }
+
+/* Computer and Laptops */
+@media screen and (min-width: 801px) {
+    #menu li:hover ul.sub-menus {
+        display: block;
+        border-radius: 0px;
+        left: 50%;  
+        transform: translateX(-50%);
+    }
+}
+/* color #00458F */
+/* Tablets and Smartphones */
 @media screen and (max-width: 800px){
 	#menu {position:relative}
 	#menu ul {background:#00458F;position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none;text-align:left;}
-	#menu ul.sub-menus {width:100%;position:static;}
+	#menu ul.sub-menus {width:100%;position:static}
 	#menu ul.sub-menus a {padding-left:30px;}
-	#menu li {display:block;float:none;width:auto;}
+	#menu li {display:block;float:none;width:auto}
+    #menu li:hover ul.sub-menus {left: 40px;transform: translateX(-3%)}
 	#menu input, #menu label {position:absolute;top:0; bottom:0;left:0;margin:auto;display:block}
 	#menu input {z-index:4}
 	#menu input:checked + label {color:#FFFFFF}
 	#menu input:checked + label:before {content:"\00d7"}
 	#menu input:checked ~ ul {display:block}
-}
-
-/* DARK MODE ------------------------------------------------------------------------------------*/
-
-.dark-mode-toggle {
-    display: inline-block;
-    height: 24px;
-    position: relative;
-    width: 60px;
-}
-
-.checkbox {
-    display: none;
-}
-
-.label {
-    background: #fdcb6e;
-    border-radius: 34px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    transition: background 0.2s;
-    width: 100%;
-    height: 100%;
-    padding: 5px;
-}
-
-.ball {
-    background: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    height: 26px;
-    width: 26px;
-    transition: transform 0.2s;
-}
-
-.checkbox:checked + .label {
-    background: #363636;
-}
-
-.checkbox:checked + .label .ball {
-    transform: translateX(38px);
-}
-
-.label i {
-    color: #ffffff;
-    transition: color 0.1s;
-}
-
-.checkbox:checked + .label i.fa-sun {
-    color: #002b36;
+    #menu li.touch ul.sub-menus {
+        display: block;
+        left: 40px;
+        transform: translateX(-3%);
+    }
+    #menu li.open ul.sub-menus {
+        display: block;
+        left: 40px;
+        transform: translateX(-3%);
+    }
 }

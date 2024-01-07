@@ -1,4 +1,3 @@
-
 function updatemenu() {
     if (document.getElementById('responsive-menu').checked == true) {
       document.getElementById('menu').style.borderBottomRightRadius = '0';
@@ -7,4 +6,5 @@ function updatemenu() {
       document.getElementById('menu').style.borderRadius = '0px';
     }
   }
+
   
