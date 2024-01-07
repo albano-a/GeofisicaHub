@@ -74,6 +74,28 @@
     border-radius: 15px;
 }
 
+.a-index {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    padding: 5px 15px;
+    text-decoration: none;
+    background-color: #00458f;
+    color: white;
+    border-radius: 0;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.a-index:hover {
+    background-color: #0056b3;
+}
+
+.p-justified {
+    text-align: justify;
+    text-justify: auto;
+}
+
 /* NAVIGATION BAR ------------------------------------------------------------------------------------*/
 
 #menu {
