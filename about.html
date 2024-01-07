@@ -1,43 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Geofísica</title>
+    <link rel="stylesheet" href="css/std_style.css">  <!--For the standard styles */-->
+    <link rel="stylesheet" href="css/classes_style.css"> <!--For the classes styles */-->
+    <link id="dark-style" rel="stylesheet" href="css/dark_mode.css" disabled>
     <link rel="icon" href="images/png_jpg/icons8-earth-512.png">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9JMPD2F5G"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-        gtag('config', 'G-L9JMPD2F5G');
+    gtag('config', 'G-L9JMPD2F5G');
     </script>
 </head>
 <body>
-    <h1>Sobre esse repositório</h1>
-    <hr>
-    <center>
-    <nav>
-        <a href="index.html"> <strong>Início</strong> </a>
-        <a href="about.html"><strong>Sobre</strong></a>
-        <a href="misc/calculadora.html"><strong>Calculadora</strong></a>
-        <a href="code.html"><strong>Tabela Exemplo</strong></a>
-        <div class="dropdown">
-            <button class="dropbtn"><strong>Recursos</strong></button>
-            <div class="dropdown-content">
-                <div class="button-group">
-                    <a href="resources/geofisica/geofisica.html" target="_blank">Geofísica</a>
-                    <a href="resources/geologia/geologia.html" target="_blank">Geologia</a>
-                    <a href="resources/fisica/fisica.html" target="_blank">Física</a>
-                    <a href="resources/calculo/calculo.html" target="_blank">Cálculo</a>
-                    <a href="resources/programacao/programacao.html" target="_blank">Programação</a>
-                </div>
+    <header>
+        <div class="header">
+            <div class="header-image">
+                <img src="images/png_jpg/icons8-earth-512.png" alt="earth's core">
             </div>
+            <h1 class="header-title">ARQUIVO DA GEOFÍSICA</h1>
         </div>
-        <a href="contact.html"><strong>Contato</strong></a>
+    </header>
+    <!-- Barra de navegação -->
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <ul>
+          <li><a href='index.html'>Início</a></li>
+          <li><a href='o-que-e-geofisica.html'>O que é geofísica</a></li>
+          <li><a class='dropdown-arrow'>Ferramentas</a>
+            <ul class='sub-menus'>
+              <li><a href='misc/artigos.html'>Artigos</a></li>
+              <li><a href='misc/sorteio.html'>Sorteio</a></li>
+              <li><a href='misc/calculadora.html'>Calculadora</a></li>
+            </ul>
+          </li>
+          <li><a href='code.html'>Tabela Exemplo</a></li>
+          <li><a class='dropdown-arrow'>Recursos</a>
+            <ul class='sub-menus'>
+              <li><a href='resources/geofisica/geofisica.html'>Geofisica</a></li>
+              <li><a href='resources/geologia/geologia.html'>Geologia</a></li>
+              <li><a href='resources/fisica/fisica.html'>Física</a></li>
+              <li><a href='resources/calculo/calculo.html'>Cálculo</a></li>
+              <li><a href='resources/programacao/programacao.html'>Programação</a></li>
+            </ul>
+          </li>
+          <li><a href='contact.html'>Contato</a></li>
+        </ul>
     </nav>
     </center>
     <hr>
@@ -54,8 +67,27 @@
             </p>
         </center>
     </div>
+    <div class="dark-mode-toggle">
+        <input type="checkbox" id="darkMode" class="checkbox">
+        <label for="darkMode" class="label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
     <footer>
         &copy; 2024 André Albano - Powered by <a href="https://github.com" class="logo-link" target="_blank">Github</a>
     </footer>
+    <script>
+        document.getElementById('darkMode').addEventListener('change', function(event){
+            if(event.target.checked){
+                // Enable dark mode
+                document.getElementById('dark-style').disabled = false;
+            } else {
+                // Disable dark mode
+                document.getElementById('dark-style').disabled = true;
+            }
+        });
+    </script>
 </body>
 </html>
