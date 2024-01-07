@@ -179,7 +179,7 @@
 	#menu ul.sub-menus {width:100%;position:static}
 	#menu ul.sub-menus a {padding-left:30px;}
 	#menu li {display:block;float:none;width:auto}
-    #menu li:hover ul.sub-menus {left: 40px;transform: translateX(-3%)}
+    #menu li:hover ul.sub-menus {left: 40px}
 	#menu input, #menu label {position:absolute;top:0; bottom:0;left:0;margin:auto;display:block}
 	#menu input {z-index:4}
 	#menu input:checked + label {color:#FFFFFF}
@@ -188,11 +188,10 @@
     #menu li.touch ul.sub-menus {
         display: block;
         left: 40px;
-        transform: translateX(-3%);
+    
     }
     #menu li.open ul.sub-menus {
         display: block;
         left: 40px;
-        transform: translateX(-3%);
     }
 }
