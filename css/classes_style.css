@@ -63,11 +63,13 @@
 .container {
     max-width: 600px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .container-about {
     max-width: 1000px;
     margin: auto;
+    padding: 0 20px; 
 }
 
 .links-uteis a {
