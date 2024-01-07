@@ -8,6 +8,7 @@
     text-decoration: none; /* Remove underline */
     font-family: inherit; /* Reset font family */
     font-weight: normal; /* Reset font weight */
+    color: rgb(1, 95, 196);
     display: inline-flex;
     padding: 0; /* Reset padding */
     background-color: transparent; /* Reset background color */
