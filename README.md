@@ -9,46 +9,51 @@
     <a href="albano-a.github.io">Site</a>
 </div>
 
-## Índice
+## Table of Contents
 
-- [Índice](#índice)
-- [Visão Geral](#visão-geral)
-- [Funcionalidades](#funcionalidades)
-- [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Como Usar](#como-usar)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+- [Table of Contents](#table-of-contents)
+- [Overview](#overview)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [How to Use](#how-to-use)
+- [Contribution](#contribution)
+- [License](#license)
 
-## Visão Geral
+## Overview
 
-Eu tinha um propósito. Aos 18 anos quando entrei no curso de Geofísica tendo descoberto o curso literalmente no dia das inscrições do SISU, eu não fazia a mínima ideia do que era a Geofísica. E até hoje, muitas pessoas não sabem o que é Geofísica. E esse website é uma tentativa de mudar isso. 
+I had a purpose. At 18, when I enrolled in the Geophysics course after discovering it literally on the day of SISU registrations, I had no clue what Geophysics was. And even today, many people don't know what Geophysics is. This website is an attempt to change that. The website is directed towards geophysics students and professionals, but it can be used by anyone who wants to learn more about Geophysics. It contains study materials, calculators, and links to various databases and articles. The website is still in development, and I plan to add more features in the future. If you want to contribute, feel free to do so.
 
-## Funcionalidades
+## Features
 
-- [Lista as principais funcionalidades ou características do seu projeto.]
+- Access study materials from the top 5 study areas: Geophysics, Geology, Calculus, Physics, and Programming.
+- Access various calculators, from simple ones to calculators for rock physical properties and seismic calculations.
+- Access various links and article databases.
 
-## Pré-requisitos
+## Prerequisites
 
-[Declare qualquer software, bibliotecas ou configurações necessárias para executar seu projeto.]
+None. Just open the website and use it.
 
-## Instalação
+## Installation
 
-[Forneça instruções passo a passo sobre como instalar seu projeto. Inclua qualquer dependência que precisa ser instalada.]
+No need to install anything.
 
-## Como Usar
+## How to Use
 
-[Explique como os usuários podem utilizar seu projeto. Forneça exemplos de código, capturas de tela ou até mesmo GIFs animados para ilustrar o funcionamento.]
+- Access the link [GeofísicaHub](albano-a.github.io).
+- Navigate through the site and use the available tools.
+- If you encounter any issues, contact through the 'Contact' tab.
 
-## Contribuição
+## Contribution
 
-[Explique como os outros podem contribuir para o seu projeto. Isso pode incluir sugestões, relatórios de bugs, ou envio de pull requests.]
+If you want to contribute to the project, follow the steps below:
+- Fork the project
+- Create a branch with your feature: `git checkout -b my-feature`
+- Commit your changes: `git commit -m 'feat: My new feature'`
+- Push your branch: `git push origin my-feature`
+- Open a Pull Request
+- If your Pull Request is approved, it will be merged into the main project.
 
-## Licença
+## License
 
-[Declare a licença sob a qual o seu projeto está disponível. Por exemplo, MIT, Apache 2.0, etc.]
-
----
-
-Sinta-se à vontade para personalizar este esboço de acordo com as necessidades específicas do seu projeto. Certifique-se de adicionar informações relevantes e úteis para os usuários e colaboradores.
-    
+Currently, the project does not have any license.
