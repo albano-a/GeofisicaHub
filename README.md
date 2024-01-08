@@ -56,4 +56,4 @@ If you want to contribute to the project, follow the steps below:
 
 ## License
 
-Currently, the project does not have any license.
+MIT License.
