@@ -40,7 +40,7 @@ No need to install anything.
 
 ## How to Use
 
-- Access the link [GeofísicaHub](albano-a.github.io).
+- Access the link https://albano-a.github.io/.
 - Navigate through the site and use the available tools.
 - If you encounter any issues, contact through the 'Contact' tab.
 
