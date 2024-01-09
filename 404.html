@@ -1,44 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Error 404 - Not Found</title>
-        <link rel="stylesheet" href="css/std_style.css">  <!--For the standard styles */-->
-        <link rel="stylesheet" href="css/classes_style.css"> <!--For the classes styles */-->
-        <link id="dark-style" rel="stylesheet" href="css/dark_mode.css" disabled>
-        <link rel="icon" href="images/png_jpg/icons8-earth-5112.png">
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9JMPD2F5G"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-    
-        gtag('config', 'G-L9JMPD2F5G');
-        </script>
-    </head>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Not Found</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .error-container {
+            text-align: center;
+            padding-top: 10%;
+        }
+        .error-container h1 {
+            font-size: 120px;
+        }
+        .error-container p {
+            color: #6c757d;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="header">
-            <div class="header-image">
-                <a href="index.html">
-                    <img href="index" src="images/png_jpg/geofisica-hub.png" alt="geofisicahub">
-                </a>
-            </div>
-        </div>
-        
-    </header>
-    <div>
-        <h1>Error 404</h1>
-        <p>Sorry, the page you are looking for could not be found.</p>
-        <p style="text-align: center;">
-            <a href="index.html">Voltar</a>
-        </p>
-        
+    <div class="container error-container">
+        <h1 class="display-1">404</h1>
+        <p class="lead">Sorry, the page you are looking for could not be found.</p>
+        <a href="index.html" class="btn btn-secondary btn-lg">Voltar</a>
     </div>
 </body>
 </html>
