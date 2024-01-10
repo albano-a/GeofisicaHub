@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://albano-a.github.io/about.html</loc>
+        <loc>https://geofisicahub.live/404.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/calculadora.html</loc>
+        <loc>https://geofisicahub.live/about.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/calculo.html</loc>
+        <loc>https://geofisicahub.live/calculadora.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/code.html</loc>
+        <loc>https://geofisicahub.live/calculo.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/contact.html</loc>
+        <loc>https://geofisicahub.live/code.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/dicionario.html</loc>
+        <loc>https://geofisicahub.live/contact.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/fisica.html</loc>
+        <loc>https://geofisicahub.live/dicionario.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/geofisica.html</loc>
+        <loc>https://geofisicahub.live/fisica.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/geologia.html</loc>
+        <loc>https://geofisicahub.live/geofisica.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/</loc>
+        <loc>https://geofisicahub.live/geologia.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/o-que-e-geofisica.html</loc>
+        <loc>https://geofisicahub.live/</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/outrasferramentas.html</loc>
+        <loc>https://geofisicahub.live/o-que-e-geofisica.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/programacao.html</loc>
+        <loc>https://geofisicahub.live/outrasferramentas.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/recursos.html</loc>
+        <loc>https://geofisicahub.live/programacao.html</loc>
     </url>
     <url>
-        <loc>https://albano-a.github.io/sorteio.html</loc>
+        <loc>https://geofisicahub.live/recursos.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/sorteio.html</loc>
     </url>
 </urlset>
