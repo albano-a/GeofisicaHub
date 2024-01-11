@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
+        <loc>https://geofisicahub.live/materials/404.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/materials/calculo.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/materials/dicionario.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/materials/fisica.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/materials/geofisica.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/materials/geologia.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/materials/programacao.html</loc>
+    </url>
+    <url>
         <loc>https://geofisicahub.live/petrophysics/404.html</loc>
     </url>
     <url>
         <loc>https://geofisicahub.live/petrophysics/petro_index.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/petrophysics/Porosity_density.html</loc>
     </url>
     <url>
         <loc>https://geofisicahub.live/petrophysics/Porosity_resistivity.html</loc>
@@ -16,7 +40,28 @@
         <loc>https://geofisicahub.live/petrophysics/Porosity_sonic.html</loc>
     </url>
     <url>
+        <loc>https://geofisicahub.live/seismic/404.html</loc>
+    </url>
+    <url>
         <loc>https://geofisicahub.live/seismic/fft.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/tools/404.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/tools/artigos.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/tools/calculadora.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/tools/outrasferramentas.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/tools/recursos.html</loc>
+    </url>
+    <url>
+        <loc>https://geofisicahub.live/tools/sorteio.html</loc>
     </url>
     <url>
         <loc>https://geofisicahub.live/404.html</loc>
@@ -25,48 +70,15 @@
         <loc>https://geofisicahub.live/about.html</loc>
     </url>
     <url>
-        <loc>https://geofisicahub.live/artigos.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/calculadora.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/calculo.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/code.html</loc>
-    </url>
-    <url>
         <loc>https://geofisicahub.live/contact.html</loc>
     </url>
     <url>
-        <loc>https://geofisicahub.live/dicionario.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/fisica.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/geofisica.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/geologia.html</loc>
+        <loc>https://geofisicahub.live/eventos.html</loc>
     </url>
     <url>
         <loc>https://geofisicahub.live/</loc>
     </url>
     <url>
         <loc>https://geofisicahub.live/o-que-e-geofisica.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/outrasferramentas.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/programacao.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/recursos.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/sorteio.html</loc>
     </url>
 </urlset>
