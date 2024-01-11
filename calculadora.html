@@ -3,6 +3,18 @@
 
 <head>
     <meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9JMPD2F5G"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L9JMPD2F5G');
+    </script>
+
+<link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.2.1/math.js" integrity="sha512-ekTDuSaAE9sFxbDUSIgOT0OK+iInxoziYIA03oVHFWC7edmuSwngpR/FTu7ome+sfcZgFePphvGDkRTav62lMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Sobre - GeofísicaHub</title>
     <link rel="canonical" href="https://geofisicahub.live/calculadora.html">
@@ -33,6 +45,7 @@
     <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css">
     <link rel="stylesheet" href="assets/css/Bootstrap-Theme-Switchers.css">
     <link rel="stylesheet" href="assets/css/Custom-File-Upload.css">
+    <link rel="stylesheet" href="assets/css/Projects-Grid-images.css">
 </head>
 
 <body style="background:#d4d4d4;">
@@ -70,17 +83,17 @@
                 <ul>
                     <li style="text-align:left;font-family:'Ubuntu', sans-serif;font-size:20px;"><strong>Calculadora e Matemática</strong>
                         <ul>
-                            <li style="color: var(--bs-primary);"><a href="https://www.mathway.com/pt/Calculus" target="_blank" style="color: var(--bs-primary);">Mathway (simples)</a></li>
-                            <li style="color: var(--bs-primary);"><a href="https://pt.symbolab.com/" target="_blank" style="color: var(--bs-primary);">Symbolab (simples)</a></li>
-                            <li style="color: var(--bs-primary);"><a href="https://www.wolframalpha.com/" target="_blank" style="color: var(--bs-primary);">WolframAlpha (difícil)</a></li>
-                            <li style="color: var(--bs-primary);"><a href="https://www.malmath.com/" target="_blank" style="color: var(--bs-primary);">MalMath (simples, mobile)</a></li>
+                            <li style="color: var(--bs-primary);"><a href="https://www.mathway.com/pt/Calculus" target="_blank" style="color: var(--bs-primary);text-decoration:  underline;">Mathway (simples)</a></li>
+                            <li style="color: var(--bs-primary);"><a href="https://pt.symbolab.com/" target="_blank" style="color: var(--bs-primary);text-decoration:  underline;">Symbolab (simples)</a></li>
+                            <li style="color: var(--bs-primary);"><a href="https://www.wolframalpha.com/" target="_blank" style="color: var(--bs-primary);text-decoration:  underline;">WolframAlpha (difícil)</a></li>
+                            <li style="color: var(--bs-primary);"><a href="https://www.malmath.com/" target="_blank" style="color: var(--bs-primary);text-decoration:  underline;">MalMath (simples, mobile)</a></li>
                         </ul>
                     </li>
                 </ul>
                 <p style="text-align: justify;padding: 0px;padding-right: 15px;padding-left: 15px;font-family: Ubuntu, sans-serif;font-size: 20px;color: var(--bs-primary);"><span style="color:rgb(0, 0, 0);">- </span><span style="color:rgb(0, 0, 0);">Álgebra Linear </span><span style="color:rgb(0, 0, 0);">-&nbsp;</span><a href="http://www.math.odu.edu/~bogacki/cgi-bin/lat.cgi?c=det" target="_blank" style="color: var(--bs-primary);">Linear Algebra Toolkit</a></p>
                 <p style="text-align: justify;padding: 0px;padding-right: 15px;padding-left: 15px;font-family: Ubuntu, sans-serif;font-size: 20px;color: var(--bs-primary-text-emphasis);"><span style="color:rgb(0, 0, 0);">- </span><span style="color:rgb(0, 0, 0);">Geometria </span><span style="color:rgb(0, 0, 0);">-&nbsp;</span><span style="color:rgb(0, 0, 0);"></span><a href="https://www.calculatorsoup.com/" target="_blank" style="color: var(--bs-primary);">CalculatorSoup</a></p>
                 <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;"><span style="color:rgb(0, 0, 0);">- </span><span style="color:rgb(0, 0, 0);">Petrofísica </span><span style="color:rgb(0, 0, 0);">-&nbsp;<a href="petrophysics/petro_index.html" style="color: var(--bs-primary);">Acesse aqui!</a></span></p>
-                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;"><span style="color:rgb(0, 0, 0);">- </span><span style="color:rgb(0, 0, 0);">Cálculo avançado e Sinais e Sistemas</span><span style="color:rgb(0, 0, 0);"> - (em breve)</span></p>
+                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;"><span style="color:rgb(0, 0, 0);">- </span><span style="color:rgb(0, 0, 0);">Cálculo avançado e Sinais e Sistemas</span><span style="color:rgb(0, 0, 0);"> - (em breve) -&nbsp;</span><a href="seismic/fft.html" style="color: var(--bs-link-color);text-decoration:  underline;">Transformada de Fourier</a>&nbsp;</p>
                 <div id="disqus_thread"></div><script>
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -111,6 +124,7 @@
     <script src="assets/js/js/paperclip.js"></script>
     <script src="assets/js/js/sorteio.js"></script>
     <script src="assets/js/js/disqus.js"></script>
+    <script src="assets/js/js/fft.js"></script>
     <script src="assets/js/js/remove_link.js"></script>
 </body>
 
