@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Transformada de Fourier - GeofísicaHub</title>
-    <link rel="canonical" href="https://geofisicahub.live/seismic/fft.html">
-    <meta property="og:url" content="https://geofisicahub.live/seismic/fft.html">
-    <meta name="description" content="Ferramenta que reúne tudo sobre Geofísica em um só lugar!">
+    <title>Porosidade por densidade - GeofisicaHub</title>
+    <link rel="canonical" href="https://geofisicahub.live/petrophysics/vshale_igr.html">
+    <meta property="og:url" content="https://geofisicahub.live/petrophysics/vshale_igr.html">
     <meta name="twitter:title" content="GeofisicaHub - Tudo sobre Geofísica">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://geofisicahub.live/assets/img/nucleo_terra.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://geofisicahub.live/assets/img/plataforma-petroleo.jpg">
     <meta name="twitter:description" content="Ferramenta que reúne tudo sobre Geofísica em um só lugar!">
+    <meta name="description" content="Para o cálculo da porosidade derivada de registros de densidade, a equação leva em consideração os valores de densidade da matriz e do fluido (previamente conhecidos na literatura) e a densidade da formação na área de estudo.">
     <link rel="icon" type="image/png" sizes="512x512" href="../assets/img/icons8-earth-512.png">
     <link rel="icon" type="image/png" sizes="512x512" href="../assets/img/icons8-earth-512.png" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/png" sizes="512x512" href="../assets/img/icons8-earth-512.png">
@@ -57,8 +57,8 @@
 
 <body style="background:#d4d4d4;">
     <nav class="navbar navbar-expand-md sticky-top bg-primary text-center navbar-dark" style="background: #00458f;height: 120px;">
-        <div class="container-fluid"><a class="navbar-brand d-md-none" href="#"><img class="img-fluid" src="../assets/img/geo_hub_bg.png" width="100" height="100" alt="geo_hub_logo"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="position: relative;transform: translateZ(0px);"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse d-md-flex" id="navcol-1" style="background: var(--bs-primary);">
+        <div class="container-fluid"><a class="navbar-brand d-md-none" href="#"><img class="img-fluid" src="../assets/img/geo_hub_bg.png" width="100" height="100" alt="geo_hub_logo"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2" style="position: relative;transform: translateZ(0px);"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse d-md-flex" id="navcol-2" style="background: var(--bs-primary);">
                 <ul class="navbar-nav d-flex justify-content-evenly mx-auto w-100">
                     <li class="nav-item"><a class="nav-link text-center" href="../index.html"><i class="fas fa-home"></i>&nbsp;Início</a></li>
                     <li class="nav-item"><a class="nav-link text-center" href="../o-que-e-geofisica.html"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-globe-europe-africa">
@@ -85,18 +85,35 @@
     <div class="container d-inline" style="width:800px;padding-top:0px;margin-top:0px;">
         <div class="row">
             <div class="col-md-6 col-xl-10 text-center mx-auto" style="width:1000px;">
-                <p style="font-size: 48px;font-weight: bold;">Transformada de Fourier</p>
-                <p style="font-family: Ubuntu, sans-serif;font-size: 20px;">Insira um sinal no formato x[n] = [1,2,3,..,n] e clique para realizar a Transformada de Fourier (FFT) e observar o gráfico gerado.</p>
-                <div class="row mt-5">
-                    <div class="col-12"><input type="text" id="inputSignal" class="form-control" placeholder="Entre com um sinal com números separados por vírgula"></div>
+                <p class="text-center" style="font-size: 30px;font-family: Ubuntu, sans-serif;font-weight: bold;border-style: none;text-decoration:  underline;">Volume de Shale (IGR)</p>
+                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;">O Índice de Gamma Ray (IGR) é calculado a partir do log de Gamma Ray. Esse índice leva em consideração o Gamma Ray mínimo (zona mais limpa), o Gamma Ray máximo (zona mais suja), e o valor do Gamma Ray da área de estudo. A expressão é a seguinte:</p><img src="../assets/img/petrofisica_eq/arcillosidadgr.gif" style="border: 1px solid var(--bs-primary-text-emphasis) ;">
+                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;">Onde:<br>- IGR - Índice de gamma ray;<br>- GRlog - Leitura do Gamma Ray da formação;<br>- GRmin - Gamma Ray mínimo (areia limpa ou carbonato);<br>- GRmax - Gamma Ray máximo (shale, folhelho).</p>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center">
+                        <thead class="table-info">
+                            <tr>
+                                <th colspan="8" scope="col" style="background: var(--bs-primary);color: var(--bs-secondary-bg-subtle);font-size: 20px;font-family: Ubuntu, sans-serif;"><strong>Calcular o Índice de Gamma Ray (IGR)</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4"><label class="form-label" for="grlog" style="font-family: Ubuntu, sans-serif;font-size: 16px;"><strong>GRlog</strong>: <input type="number" autocomplete="off" class="rounded text-center border border-secondary" id="grlog" min="0"> API </label></td>
+                                <td colspan="4"><label class="form-label" for="grmin" style="font-family: Ubuntu, sans-serif;"><strong>GRmin</strong>: <input type="number" autocomplete="off" class="rounded text-center border border-secondary" id="grmin" min="0"> API </label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="8"><label class="form-label" for="grmax" style="font-family: Ubuntu, sans-serif;"><strong>GRmax</strong>: <input type="number" autocomplete="off" class="rounded text-center border border-secondary" id="grmax" min="0"> API </label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="8"><button class="btn btn-dark" id="calculateButton" type="button" style="font-family: Ubuntu, sans-serif;background: var(--bs-primary);border-radius: 25px;font-weight: bold;">Calcular</button></td>
+                            </tr>
+                            <tr>
+                                <td colspan="8"><input type="text" class="rounded text-center border border-secondary mb-2 mb-md-0" disabled="" id="result" placeholder="Resultado (dec)" style="width:200px;"><input type="text" class="rounded text-center border border-secondary" disabled="" id="resultPorc" placeholder="Resultado (%)" style="width:200px;">
+                                    <div id="errorMessage"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-12"><button class="btn btn-primary" onclick="processSignal()">Gerar gráfico de FFT</button></div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col-12" style="background: var(--bs-white);"><canvas id="fftChart"></canvas></div>
-                </div>
-                <div id="fftResult" style="font-size: 24px;font-family: Ubuntu, sans-serif;font-weight: bold;text-align: center;"></div>
             </div>
         </div>
     </div>
@@ -109,6 +126,7 @@
     <script src="../assets/js/js/paperclip.js"></script>
     <script src="../assets/js/js/disqus.js"></script>
     <script src="../assets/js/js/petro/clavier_shale_volume.js"></script>
+    <script src="../assets/js/js/petro/igr.js"></script>
     <script src="../assets/js/js/fft.js"></script>
 </body>
 
