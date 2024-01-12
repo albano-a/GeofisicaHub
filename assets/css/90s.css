@@ -1,0 +1,33 @@
+.container {
+  border: 1px solid black;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  font-family: 'Roboto Mono', serif;
+}
+
+.container-lf {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  padding: 20px;
+  font-family: 'Roboto Mono';
+}
+
+.nav-bar {
+  border: 1px solid #000000;
+  background-color: #ffc700;
+  color: white;
+  padding: 10px;
+}
+
+.header {
+  font-size: 2em;
+  color: #0000FF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Courier Prime';
+}
+
