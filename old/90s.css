@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ensure full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack the children vertically */
+    align-items: center;
+    justify-content: center;
+    font-family: 'Ubuntu', sans-serif; /* Use Ubuntu font */
+}
+
+.theHeader, .theContent {
+    border: 1px solid #000000;
+    border-radius: 10px; /* Add rounded corners */
+    text-align: center;
+    padding: 20px; /* Add some padding */
+}
+
+.wholePage {
+    text-align: center;
+    width: 80%; /* Limit the width */
+    margin: 0 auto; /* Center the element */
+}
+
+.theNavBar {
+    text-align: center;
+}
+
+.theLinks {
+    text-align: left;
+}
+

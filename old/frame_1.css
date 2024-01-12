@@ -1,0 +1,300 @@
+/*
+	@name frame_1
+*/
+/* Only edit this if you know what you are doing! */
+body { margin: 0px; padding: 0px; font-family:"Arial"; overflow-x:hidden; }
+
+/* Only edit this if you know what you are doing! */
+img { position: absolute; display: block; margin: 0px; border: none; padding: 0px; }
+
+/* Only edit this if you know what you are doing! */
+div { position: absolute; }
+
+#content-container { display: block; position: relative; width: 1336px; width: 1336px; height: 793px; overflow: hidden; display: block;  margin-left: auto; margin-right: auto;  }
+
+
+#page_frame_1_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 1336px;
+	height: 793px;
+}
+
+#_bg__frame_1_ek2 {
+	top: 0px;
+	left: 0px;
+	width: 1336px;
+	height: 793px;
+	background:rgba(255,255,255,1);
+}
+
+
+#rectangle_1 {
+	top: 42px;
+	left: 35px;
+	width: 1264px;
+	height: 707px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	border: 1px solid #000000;
+	-ms-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	-o-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	-webkit-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	background:rgba(255,255,255,1);
+}
+
+
+#rectangle_2 {
+	top: 109px;
+	left: 481px;
+	width: 124px;
+	height: 35px;
+	border: 1px solid #000000;
+	-ms-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	-o-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	-webkit-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	background:rgba(255,255,255,1);
+}
+
+
+#in_cio {
+	top: 118px;
+	left: 524px;
+	width: 54.6px;
+	height: 25.6px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 16px;
+	text-align: left;
+	color:#000000;
+}
+
+
+#rectangle_4 {
+	top: 109px;
+	left: 729px;
+	width: 124px;
+	height: 35px;
+	border: 1px solid #000000;
+	-ms-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	-o-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	-webkit-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	background:rgba(255,255,255,1);
+}
+
+
+#recursos {
+	top: 118px;
+	left: 757px;
+	width: 84.6px;
+	height: 25.6px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 16px;
+	text-align: left;
+	color:#000000;
+}
+
+
+#rectangle_8 {
+	top: 59px;
+	left: 46px;
+	width: 1242px;
+	height: 50px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	border: 1px solid #000000;
+	-ms-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	-o-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	-webkit-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	background:rgba(255,255,255,1);
+}
+
+
+#rectangle_9 {
+	top: 165px;
+	left: 46px;
+	width: 1242px;
+	height: 561px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	border: 1px solid #000000;
+	-ms-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	-o-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	-webkit-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	box-shadow:4px 4px 5px 1px rgba(0,0,0,0.25);
+	background:rgba(255,255,255,1);
+}
+
+
+#o_conselho {
+	top: 58px;
+	left: 565px;
+	width: 249px;
+	height: 64px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 40px;
+	text-align: left;
+	color:#000000;
+}
+
+
+#introdu__o {
+	top: 174px;
+	left: 548px;
+	width: 269px;
+	height: 64px;
+	overflow: hidden;
+	font-family: JetBrains Mono;
+	font-size: 40px;
+	text-align: left;
+	color:#000000;
+}
+
+#group_4 {
+	top: 110px;
+	left: 606px;
+	width: 124px;
+	height: 35px;
+}
+
+#_bg__group_4 {
+	top: 0px;
+	left: 0px;
+	width: 124px;
+	height: 35px;
+	-ms-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	-o-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	-webkit-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	box-shadow:0px 4px 5px 1px rgba(0,0,0,0.25);
+	background:#;
+}
+
+#group_2 {
+	top: 0px;
+	left: 0px;
+	width: 124px;
+	height: 35px;
+}
+
+#_bg__group_2_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 124px;
+	height: 35px;
+	background:#;
+}
+
+#group_1 {
+	top: 0px;
+	left: 0px;
+	width: 124px;
+	height: 35px;
+}
+
+#_bg__group_1_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 124px;
+	height: 35px;
+	background:#;
+}
+
+
+#rectangle_3 {
+	top: -1px;
+	left: -1px;
+	width: 124px;
+	height: 35px;
+	border: 1px solid #000000;
+	background:rgba(255,255,255,1);
+}
+
+
+#sobre {
+	top: 8px;
+	left: 40px;
+	width: 59.6px;
+	height: 23.6px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 16px;
+	text-align: left;
+	color:#000000;
+}
+
+
+#recursos_ek1 {
+	top: 312px;
+	left: 572px;
+	width: 221px;
+	height: 65px;
+	overflow: hidden;
+	font-family: JetBrains Mono;
+	font-size: 40px;
+	text-align: left;
+	color:#000000;
+}
+
+
+#voc__provavelmente_est__aqui_pois___um_escolhido_designado__este_site_plataforma_possui_diversos_materiais_valiosos_estimados__sinta_se___vontade_para_aproveit__los__tome_cuidado_para_n_o_desaparecer_ser_eliminado_ {
+	top: 248px;
+	left: 81px;
+	width: 1175px;
+	height: 46.6px;
+	overflow: hidden;
+	font-family: JetBrains Mono;
+	font-size: 16px;
+	text-align: center;
+	color:#000000;
+}
+
+
+#acesse_os_links_abaixo_com_cuidado_divers_o {
+	top: 365px;
+	left: 81px;
+	width: 1175px;
+	height: 25.6px;
+	overflow: hidden;
+	font-family: JetBrains Mono;
+	font-size: 16px;
+	text-align: center;
+	color:#000000;
+}
+
+
+#drive_central_da_geof_sica___uma_pasta_com_todo_o_material_da_geof_sica_da_uff__acesse_com_cuidado__pois_pode_ser_que_voc__n_o_saia_mais_de_l___library_genesis___livros__artigos_e_outras_coisas_de_gra_a__sci_hub___artigos_cient_ficos_de_gra_a__adblock___adblock_para_bloquear_qualquer_an_ncio__inclusive_os_do_youtube__ublock_origin___use_em_conjunto_com_o_adblock_para_nem_lembrar_mais_que_existem_propagandas_na_internet__revanced___youtube__spotify_e_youtube_music_de_gra_a_ {
+	top: 415px;
+	left: 84px;
+	width: 1182.6px;
+	height: 151.6px;
+	overflow: hidden;
+	font-family: JetBrains Mono;
+	font-size: 16px;
+	text-align: left;
+	color:#000000;
+}
+
+
+
+/* Add your custom CSS here */
