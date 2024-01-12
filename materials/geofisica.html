@@ -52,8 +52,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.2.1/math.js" integrity="sha512-ekTDuSaAE9sFxbDUSIgOT0OK+iInxoziYIA03oVHFWC7edmuSwngpR/FTu7ome+sfcZgFePphvGDkRTav62lMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<body style="background:#d4d4d4;">
-    <nav class="navbar navbar-expand-md sticky-top bg-primary text-center navbar-dark" style="background: #00458f;height: 120px;">
+<body style="background: #d4d4d4;">
+    <nav class="navbar navbar-expand-md sticky-top bg-primary text-center navbar-dark" style="background: #00458f;height: 120px;box-shadow: 0px 4px 5px;">
         <div class="container-fluid"><a class="navbar-brand d-md-none" href="#"><img class="img-fluid" src="../assets/img/geo_hub_bg.png" width="100" height="100" alt="geo_hub_logo"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="position: relative;transform: translateZ(0px);"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse d-md-flex" id="navcol-1" style="background: var(--bs-primary);">
                 <ul class="navbar-nav d-flex justify-content-evenly mx-auto w-100">
@@ -77,72 +77,51 @@
                 </ul>
             </div>
         </div>
-    </nav>
-    <p></p>
-    <div class="container d-inline" style="width:800px;padding-top:0px;margin-top:0px;">
-        <div class="row">
-            <div class="col-md-6 col-xl-10 text-center mx-auto" style="width:1000px;">
-                <p class="text-center" style="font-size:48px;font-family:Ubuntu, sans-serif;font-weight:bold;border-style:none;">Geofísica</p>
-                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;"><span style="color:rgb(0, 0, 0);">Nessa página há a intenção de ter todo o conteúdo de Geofísica. Por enquanto, há alguns livros importantes para quem quer estudar Geofísica.</span></p>
-                <div style="border:2px solid rgb(0,0,0);">
-                    <h1 style="font-family:'Ubuntu', sans-serif;font-weight:bold;">Livros</h1>
-                    <ul class="accordion" style="text-align:left;">
-                        <li><strong>Para entender a Terra- Press, Siever, Grotzinger e Jordan (2006)</strong> -&nbsp;<a href="https://edisciplinas.usp.br/pluginfile.php/7296004/mod_resource/content/1/Para%20Entender%20a%20TerraPara%20Entender%20a%20Terra.pdf">PDF</a>- Um dos livros mais importantes para o início do curso. Vale tanto para parte Geofísica quanto Geológica.</li>
-                        <li><strong>Geofísica de Exploração - Philip Kearey, Michael Brooks, Ian Hill (2002)&nbsp;</strong>-&nbsp;<a href="https://drive.google.com/file/d/1TwTX6nfDyOg7FHwfY9AdgCWd3l2gQ2qt/view?usp=sharing" target="_blank">PDF</a> - Livro importante que explica os principais métodos de Geofísica.<div class="accordion-content"></div>
+    </nav><br>
+    <div class="container">
+        <div class="row d-xl-flex justify-content-xl-center">
+            <div class="col-md-4 col-xl-3">
+                <div style="border-radius: 15px;background: #ffffff;box-shadow: 5px 5px 5px rgb(122,122,122);border: 1px double rgb(122,122,122) ;border-bottom: 0px solid rgb(153,153,153) ;"><br>
+                    <h2 style="font-family: 'Ubuntu', sans-serif;text-align: center;font-weight: bold;">Acesso Rápido</h2>
+                    <ul class="list-unstyled text-center accordion" style="padding-right: 0px;padding-left: 0px;">
+                        <li><a href="geofisica.html" style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;">Geofísica</a></li>
+                        <li><a href="geologia.html" style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;">Geologia</a></li>
+                        <li style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;"><a href="calculo.html" style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;">Cálculo</a></li>
+                        <li style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;"><a href="fisica.html" style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;">Física</a></li>
+                        <li style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;"><a href="programacao.html" style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;">Programação</a></li>
+                        <li style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;"><a href="../tools/calculadora.html" style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;">Calculadoras</a></li>
+                        <li style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;"><a href="../tools/artigos.html" style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;">Artigos</a></li>
+                        <li style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;"><a href="../tools/recursos.html" style="font-weight: bold;font-size: 19px;font-family: Ubuntu, sans-serif;">Recursos</a></li>
+                    </ul><br>
+                </div><br>
+            </div>
+            <div class="col-md-8 col-xl-9">
+                <div style="border-radius: 15px;background: #ffffff;border: 1px double rgb(122,122,122);border-bottom: 0px solid rgb(153,153,153);box-shadow: 5px 5px 5px rgb(122,122,122);">
+                    <p class="text-center" id="whiteSpace" style="font-size:48px;font-family:Ubuntu, sans-serif;font-weight:bold;border-style:none;"></p>
+                    <p class="text-center" style="font-size:48px;font-family:Ubuntu, sans-serif;font-weight:bold;border-style:none;">GEOFÍSICA</p>
+                    <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;"><span style="color:rgb(0, 0, 0);">Nessa página há a intenção de ter todos os tipos de conteúdo da Geofísica. Por enquanto, há alguns livros importantes para quem quer estudar Geofísica.</span></p>
+                    <hr class="mx-auto">
+                    <h1 style="font-family: 'Ubuntu', sans-serif;font-weight: bold;text-align: center;">Livros</h1>
+                    <ul class="list-unstyled accordion" style="text-align: left;padding: 0px;padding-left: 12px;">
+                        <li style="font-size: 18px;font-family: Ubuntu, sans-serif;"><strong>Para entender a Terra - Press, Siever, Grotzinger e Jordan (2006)</strong> -&nbsp;<a href="https://edisciplinas.usp.br/pluginfile.php/7296004/mod_resource/content/1/Para%20Entender%20a%20TerraPara%20Entender%20a%20Terra.pdf">PDF</a>- Um dos livros mais importantes para o início do curso. Vale tanto para parte Geofísica quanto Geológica.</li>
+                        <li style="font-size: 18px;font-family: Ubuntu, sans-serif;"><strong>Geofísica de Exploração - Philip Kearey, Michael Brooks, Ian Hill (2002)&nbsp;</strong>-&nbsp;<a href="https://drive.google.com/file/d/1TwTX6nfDyOg7FHwfY9AdgCWd3l2gQ2qt/view?usp=sharing" target="_blank">PDF</a> - Livro importante que explica os principais métodos de Geofísica.<div class="accordion-content"></div>
                         </li>
-                        <li><strong>Fundamentals of Geophysics - William Lowrie (2007)</strong> - <a href="https://drive.google.com/file/d/1oCDidkIe577SdOLzdbglrOtzQEDXspiH/view?usp=drive_link" target="_blank">PDF</a>&nbsp;- Inglês, mas é um bom livro, parecido com o de Geofísica da Exploração.</li>
-                        <li><strong>Schaum's Outlines Digital Signal Processing - Monson H. Hayes (1999)&nbsp;</strong>-&nbsp;<a href="https://drive.google.com/file/d/1oCDidkIe577SdOLzdbglrOtzQEDXspiH/view?usp=drive_link" target="_blank">PDF</a>&nbsp;- Inglês. Livro importantíssimo para o entendimento de sinais e sistemas, e sua aplicação na sísmica.</li>
+                        <li style="font-size: 18px;font-family: Ubuntu, sans-serif;"><strong>Fundamentals of Geophysics - William Lowrie (2007)</strong> - <a href="https://drive.google.com/file/d/1oCDidkIe577SdOLzdbglrOtzQEDXspiH/view?usp=drive_link" target="_blank">PDF</a>&nbsp;- Inglês, mas é um bom livro, parecido com o de Geofísica da Exploração.</li>
+                        <li style="font-size: 18px;font-family: Ubuntu, sans-serif;"><strong>Schaum's Outlines Digital Signal Processing - Monson H. Hayes (1999)&nbsp;</strong>-&nbsp;<a href="https://drive.google.com/file/d/1oCDidkIe577SdOLzdbglrOtzQEDXspiH/view?usp=drive_link" target="_blank">PDF</a>&nbsp;- Inglês. Livro importantíssimo para o entendimento de sinais e sistemas, e sua aplicação na sísmica.<br><br></li>
                     </ul>
-                </div>
-                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;"></p>
-                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;"><strong>Dicionário da Geofísica - Society of Exploration Geophysicists (SEG)</strong> - Dicionário em inglês que contém inúmeros termos da área, e que podem ajudar com aquelas palavras bem específicas que a Geofísica tende a ter.&nbsp;<a href="./dicionario.html">Clique aqui para acessar!</a><br></p>
-                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;"><span style="color:rgb(0, 0, 0);">Esta página está sempre em constante expansão. Então sempre lembre de checá-la de vez em quando. Também há uma área de comentários abaixo, caso queira deixar alguma sugestão. </span><br><span style="color:rgb(0, 0, 0);">Ultima atualização da página - 09/01/2024</span></p><br>
-                <div id="disqus_thread"></div><script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://geofisicahub.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br>
+                    <hr>
+                    <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;"></p>
+                    <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;"><strong><span style="text-decoration: underline;">Dicionário da Geofísica - Society of Exploration Geophysicists (SEG)</span></strong> - Dicionário em inglês que contém inúmeros termos da área, e que podem ajudar com aquelas palavras bem específicas que a Geofísica tende a ter.&nbsp;<a href="./dicionario.html">Clique aqui para acessar!</a><br></p>
+                    <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;"><span style="color:rgb(0, 0, 0);">Esta página está sempre em constante expansão. Então sempre lembre de checá-la de vez em quando. Também há uma área de comentários abaixo, caso queira deixar alguma sugestão. </span><br><span style="color: rgb(0, 0, 0);font-size: 16px;">Ultima atualização da página - 12/01/2024</span></p><br>
+                </div><br>
             </div>
         </div>
     </div>
-    <div class="container d-inline" style="width:800px;padding-top:0px;margin-top:0px;">
-        <div class="row">
-            <div class="col-md-6 col-xl-10 text-center mx-auto" style="width:600px;"><br>
-                <div id="disqus_thread"></div><script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://geofisicahub.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br>
-            </div>
-        </div>
+    <div style="box-shadow: 0px -4px 5px;">
+        <footer class="text-center text-bg-primary" style="position:relative;display:block;background:rgb(0,58,122);overflow:auto;">
+            <p class="text-center" style="color: var(--bs-secondary);position: relative;height: 150px;background: var(--bs-primary);margin-bottom: 16px;margin-right: 0px;margin-top: 0px;box-shadow: 0px 0px;"><br>© 2024 André Albano - Powered by&nbsp;<a href="https://github.com/" target="_blank" style="color:var(--bs-btn-hover-color);">Github</a><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewbox="0 0 16 16" class="bi bi-github text-dark"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg><br><br></p>
+        </footer>
     </div>
-    <footer class="text-center text-bg-primary" style="position:relative;display:block;background:rgb(0,58,122);overflow:auto;">
-        <p class="text-center" style="color:var(--bs-secondary);position:relative;height:150px;background:var(--bs-primary);margin-bottom:16px;margin-right:0px;margin-top:0px;"><br>© 2024 André Albano - Powered by&nbsp;<a href="https://github.com/" target="_blank" style="color:var(--bs-btn-hover-color);">Github</a><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewbox="0 0 16 16" class="bi bi-github text-dark"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg><br><br></p>
-    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/js/jquery.min.js"></script>
