@@ -82,29 +82,25 @@
     <div class="container d-inline" style="width:800px;padding-top:0px;margin-top:0px;">
         <div class="row">
             <div class="col-md-6 col-xl-10 text-center mx-auto" style="width:1000px;">
-                <p class="text-center" style="font-size: 30px;font-family: Ubuntu, sans-serif;font-weight: bold;border-style: none;text-decoration:  underline;">Volume de Shale (Larionov)</p>
-                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;">O Índice de Gamma Ray (IGR) é calculado a partir do log de Gamma Ray. Esse índice leva em consideração o Gamma Ray mínimo (zona mais limpa), o Gamma Ray máximo (zona mais suja), e o valor do Gamma Ray da área de estudo. A expressão é a seguinte:</p><img src="../assets/img/petrofisica_eq/arcillosidadgr.gif" style="border: 1px solid var(--bs-primary-text-emphasis) ;">
-                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;">Onde:<br>- IGR - Índice de gamma ray;<br>- GRlog - Leitura do Gamma Ray da formação;<br>- GRmin - Gamma Ray mínimo (areia limpa ou carbonato);<br>- GRmax - Gamma Ray máximo (shale, folhelho).</p>
-                <div class="table-responsive">
+                <p class="text-center" style="font-size: 30px;font-family: Ubuntu, sans-serif;font-weight: bold;border-style: none;text-decoration:  underline;">Volume de Shale (Larionov - 1969)</p>
+                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;">A equação de Larionov (1969) para rochas do Cenozoico (ou previamente conhecidas como rochas do terciário) para o cálculo do Volume de Shale é a seguinte:</p><img src="../assets/img/petrofisica_eq/arcillosidadlarinov1969.gif" style="border: 1px solid var(--bs-primary-text-emphasis);width: 24%;">
+                <p style="text-align:justify;padding:0px;padding-right:15px;padding-left:15px;font-family:Ubuntu, sans-serif;font-size:20px;">Onde:<br>- IGR - Índice de gamma ray;<br>- Vsh - Volume de Shale;</p>
+                <div>
                     <table class="table table-bordered text-center">
                         <thead class="table-info">
                             <tr>
-                                <th colspan="8" scope="col" style="background: var(--bs-primary);color: var(--bs-secondary-bg-subtle);font-size: 20px;font-family: Ubuntu, sans-serif;"><strong>Calculate Gamma Ray Index (IGR)</strong></th>
+                                <th colspan="4" style="background: var(--bs-primary);color: rgb(255,255,255);border-radius: 0px;font-family: Ubuntu, sans-serif;font-weight: bold;font-size: 20px;"><strong>Calcular o Volume de Shale (Vsh) - Larionov (1969)</strong></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="4"><label class="form-label" for="grlog" style="font-family: Ubuntu, sans-serif;font-size: 16px;"><strong>GRlog</strong>: <input type="number" autocomplete="off" class="rounded text-center border border-secondary" id="grlog" min="0"> API </label></td>
-                                <td colspan="4"><label class="form-label" for="grmin" style="font-family: Ubuntu, sans-serif;"><strong>GRmin</strong>: <input type="number" autocomplete="off" class="rounded text-center border border-secondary" id="grmin" min="0"> API </label></td>
+                                <td colspan="4"><label class="form-label" for="igr" style="font-size: 16px;font-family: Ubuntu, sans-serif;"><strong>IGR</strong>: <input type="number" autocomplete="off" class="rounded text-center border border-secondary" id="igr" min="0"> Decimal </label></td>
                             </tr>
                             <tr>
-                                <td colspan="8"><label class="form-label" for="grmax" style="font-family: Ubuntu, sans-serif;"><strong>GRmax</strong>: <input type="number" autocomplete="off" class="rounded text-center border border-secondary" id="grmax" min="0"> API </label></td>
+                                <td colspan="4"><button class="btn btn-dark" id="calculateButton" type="button" style="border-radius: 25px;background: var(--bs-primary);">Calcular</button></td>
                             </tr>
                             <tr>
-                                <td colspan="8"><button class="btn btn-dark" id="calculateButton" type="button" style="font-family: Ubuntu, sans-serif;background: var(--bs-primary);border-radius: 25px;font-weight: bold;">Calculate</button></td>
-                            </tr>
-                            <tr>
-                                <td colspan="8"><input type="text" class="rounded text-center border border-secondary mb-2 mb-md-0" disabled="" id="result" placeholder="Resultado (dec)" style="width:200px;"><input type="text" class="rounded text-center border border-secondary" disabled="" id="resultPorc" placeholder="Resultado (%)" style="width:200px;">
+                                <td colspan="4"><input type="text" class="rounded text-center border border-secondary mb-2 mb-md-0" disabled="" id="result" placeholder="Resultado (dec)" style="width:200px;"><input type="text" class="rounded text-center border border-secondary" disabled="" id="resultPorc" placeholder="Resultado (%)" style="width:200px;">
                                     <div id="errorMessage"></div>
                                 </td>
                             </tr>
@@ -122,7 +118,8 @@
     <script src="../assets/js/js/jquery.min.js"></script>
     <script src="../assets/js/js/paperclip.js"></script>
     <script src="../assets/js/js/disqus.js"></script>
-    <script src="../assets/js/js/petro/clavier_shale_volume.js"></script>
+    <script src="../assets/js/js/petro/larionov_shale.js"></script>
+    <script src="../assets/js/js/petro/steiber.shale.volumes.js"></script>
     <script src="../assets/js/js/fft.js"></script>
 </body>
 
