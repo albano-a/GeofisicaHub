@@ -2,3 +2,20 @@
   object-fit: cover;
 }
 
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.btn {
+  font-weight: bold;
+  padding: 0.5em 1em;
+  border-radius: 15px;
+  transition: transform 1s;
+  border-style: none;
+  box-shadow: 5px 5px 5px #aeaeae;
+}
+
