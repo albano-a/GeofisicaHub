@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/img/gh_full_logo.png" width="200" height="200">
+  <img src="assets/img/gh_full_logo.png">
 </p>
 
 ----------------------------------------
