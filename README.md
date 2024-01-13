@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="assets/img/geo_hub_bg.png" width="200" height="200">
+  <img src="assets/img/gh_full_logo.png" width="200" height="200">
 </p>
 
 ----------------------------------------
 <div style="text-align: center;">
     <strong>A website directed towards geophysics students and professionals.</strong>
     <br>
-    <a href="albano-a.github.io">Site</a>
+    <a href="geofisicahub.live">Site</a>
 </div>
 
 ## Table of Contents
