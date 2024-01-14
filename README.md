@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/img/gh_full_logo.png">
+  <img src="assets/img/geofisicahub_white.png">
 </p>
 
 ----------------------------------------
