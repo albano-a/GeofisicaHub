@@ -7,9 +7,9 @@
     <title>GeofísicaHub - Tudo sobre Geofísica</title>
     <link rel="canonical" href="https://geofisicahub.live/">
     <meta property="og:url" content="https://geofisicahub.live/">
-    <meta property="og:image" content="https://geofisicahub.live/assets/img/Light Mode (4).png">
+    <meta property="og:image" content="https://geofisicahub.live/assets/img/black_logo.png">
     <meta name="twitter:description" content="Ferramenta que reúne tudo sobre Geofísica em um só lugar!">
-    <meta name="twitter:image" content="https://geofisicahub.live/assets/img/plataforma-petroleo.jpg">
+    <meta name="twitter:image" content="https://geofisicahub.live/assets/img/oqgeofisica/plataforma-petroleo.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:type" content="website">
     <meta name="twitter:title" content="GeofisicaHub - Tudo sobre Geofísica">
@@ -22,13 +22,94 @@
             "url": "https://geofisicahub.live/"
         }
     </script>
-    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/Light%20Mode%20(4).png">
-    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/Light%20Mode%20(4).png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/Light%20Mode%20(4).png">
-    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/Light%20Mode%20(4).png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/Light%20Mode%20(4).png">
-    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/Light%20Mode%20(4).png">
-    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/Light%20Mode%20(4).png">
+    <script>
+        (function() {
+
+            // JavaScript snippet handling Dark/Light mode switching
+
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+
+            const getPreferredTheme = () => {
+
+                if (forcedTheme) return forcedTheme;
+
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
+
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (pageTheme) {
+                    return pageTheme;
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
+
+            setTheme(getPreferredTheme());
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+                if (!themeSwitchers.length) return;
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active');
+                    element.setAttribute('aria-pressed', 'false');
+                });
+
+                for (const themeSwitcher of themeSwitchers) {
+
+                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+                    if (btnToActivate) {
+                        btnToActivate.classList.add('active');
+                        btnToActivate.setAttribute('aria-pressed', 'true');
+                    }
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/black_logo.png">
+    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/black_logo.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/black_logo.png">
+    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/black_logo.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/black_logo.png">
+    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/black_logo.png">
+    <link rel="icon" type="image/png" sizes="365x285" href="assets/img/black_logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier+Prime&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans&amp;display=swap">
@@ -45,9 +126,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css">
     <link rel="stylesheet" href="assets/css/Projects-Grid-images.css">
-    <link rel="stylesheet" href="assets/css/Navbar-Right-Links-icons.css">
-    <link rel="stylesheet" href="assets/css/SIdebar-Responsive-2-ResponsiveSideBar-2.css">
-    <link rel="stylesheet" href="assets/css/SIdebar-Responsive-2.css">
+    <link rel="stylesheet" href="assets/css/light-dark-theme.css">
+    <link rel="stylesheet" href="assets/css/navbar-icons.css">
     <link rel="stylesheet" href="assets/css/Sidebar.css">
     <link rel="stylesheet" href="assets/css/simple-footer.css">
 <!-- Google tag (gtag.js) -->
@@ -64,11 +144,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.2.1/math.js" integrity="sha512-ekTDuSaAE9sFxbDUSIgOT0OK+iInxoziYIA03oVHFWC7edmuSwngpR/FTu7ome+sfcZgFePphvGDkRTav62lMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<body style="overflow-x: hidden">
+<body style="overflow-x: hidden;background: var(--bs-body-bg);">
     <nav class="navbar navbar-expand-lg bg-body py-3" style="height: 70px;z-index: 1;border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span style="font-size: 20px;margin-bottom: 0px;font-family: Ubuntu, sans-serif;"><a href="../index.html"><img data-bss-hover-animate="pulse" class="img-fluid" src="assets/img/gh_logo.png" width="91" height="91" href="index.html"></a></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#">
+                <div><span style="font-size: 20px;margin-bottom: 0px;font-family: Ubuntu, sans-serif;"><a href="../index.html"><img data-bss-hover-animate="pulse" class="img-fluid" src="assets/img/black_logo.png" width="79" height="62" href="index.html"></a></span></div>
+            </a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
-                <ul class="navbar-nav ms-auto" data-aos="fade-down" style="position: relative;border-radius: 15px;border: 1px solid #aeaeae;box-shadow: 5px 5px #e4e9f7;background: #ffffff;padding-left: 15px;padding-right: 15px;">
+                <ul class="navbar-nav ms-auto" data-aos="fade-down" style="border-radius: 15px;border: 1px solid #aeaeae;box-shadow: 5px 5px var(--bs-danger);padding-left: 15px;padding-right: 15px;background: var(--bs-body-bg);">
                     <li class="nav-item"><a class="nav-link active" data-bss-hover-animate="pulse" href="index.html" style="font-family: Poppins, sans-serif;"><i class="fas fa-home"></i>&nbsp;Início</a></li>
                     <li class="nav-item"><a class="nav-link" data-bss-hover-animate="pulse" href="o-que-e-geofisica.html" style="font-family: Poppins, sans-serif;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-globe-europe-africa">
                                 <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M3.668 2.501l-.288.646a.847.847 0 0 0 1.479.815l.245-.368a.809.809 0 0 1 1.034-.275.809.809 0 0 0 .724 0l.261-.13a1 1 0 0 1 .775-.05l.984.34c.078.028.16.044.243.054.784.093.855.377.694.801-.155.41-.616.617-1.035.487l-.01-.003C8.274 4.663 7.748 4.5 6 4.5 4.8 4.5 3.5 5.62 3.5 7c0 1.96.826 2.166 1.696 2.382.46.115.935.233 1.304.618.449.467.393 1.181.339 1.877C6.755 12.96 6.674 14 8.5 14c1.75 0 3-3.5 3-4.5 0-.262.208-.468.444-.7.396-.392.87-.86.556-1.8-.097-.291-.396-.568-.641-.756-.174-.133-.207-.396-.052-.551a.333.333 0 0 1 .42-.042l1.085.724c.11.072.255.058.348-.035.15-.15.415-.083.489.117.16.43.445 1.05.849 1.357L15 8A7 7 0 1 1 3.668 2.501Z"></path>
@@ -83,28 +165,40 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" data-bss-hover-animate="pulse" href="#" style="font-family: Poppins, sans-serif;"><i class="fas fa-book-open"></i>&nbsp;Materiais</a>
-                        <div class="dropdown-menu" style="box-shadow: 5px 5px 0px #e4e9f7;"><a class="dropdown-item" href="../materials/geofisica.html" style="text-align: center;font-family: Poppins, sans-serif;">Geofísica</a><a class="dropdown-item" href="../materials/geologia.html" style="text-align: center;font-family: Poppins, sans-serif;">Geologia</a><a class="dropdown-item" href="../materials/calculo.html" style="text-align: center;font-family: Poppins, sans-serif;">Cálculo</a><a class="dropdown-item" href="../materials/fisica.html" style="text-align: center;font-family: Poppins, sans-serif;">Física</a><a class="dropdown-item" href="../materials/programacao.html" style="text-align: center;font-family: Poppins, sans-serif;">Programação</a></div>
+                        <div class="dropdown-menu" style="box-shadow: 5px 5px 0px #e4e9f7;transition: 0.3s ease-in-out;"><a class="dropdown-item" href="../materials/geofisica.html" style="text-align: center;font-family: Poppins, sans-serif;">Geofísica</a><a class="dropdown-item" href="../materials/geologia.html" style="text-align: center;font-family: Poppins, sans-serif;">Geologia</a><a class="dropdown-item" href="../materials/calculo.html" style="text-align: center;font-family: Poppins, sans-serif;">Cálculo</a><a class="dropdown-item" href="../materials/fisica.html" style="text-align: center;font-family: Poppins, sans-serif;">Física</a><a class="dropdown-item" href="../materials/programacao.html" style="text-align: center;font-family: Poppins, sans-serif;">Programação</a></div>
                     </li>
                     <li class="nav-item"><a class="nav-link" data-bss-hover-animate="pulse" href="eventos.html" style="font-family: Poppins, sans-serif;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-calendar-event">
                                 <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"></path>
                                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"></path>
                             </svg>&nbsp;Eventos</a></li>
                     <li class="nav-item"><a class="nav-link" data-bss-hover-animate="pulse" href="contact.html" style="font-family: Poppins, sans-serif;"><i class="fas fa-at"></i>&nbsp;Contato</a></li>
+                    <li class="theme-switcher nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill mb-1">
+                                <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                            </svg></a>
+                        <div class="dropdown-menu"><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="light"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill opacity-50 me-2">
+                                    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                                </svg>Light</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="dark"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-moon-stars-fill opacity-50 me-2">
+                                    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278"></path>
+                                    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+                                </svg>Dark</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="auto"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-circle-half opacity-50 me-2">
+                                    <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"></path>
+                                </svg>Auto</a></div>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav><br><br>
     <section>
-        <div style="padding-right: 0px;border-radius: 15px;box-shadow: 5px 5px 0px #e4e9f7;padding-left: 0px;margin-left: 20px;margin-right: 20px;position: relative;border: 1px solid #aeaeae;border-left-width: 1px;border-left-color: #aeaeae;">
+        <div style="padding-right: 0px;border-radius: 15px;box-shadow: 5px 5px var(--bs-danger);padding-left: 0px;margin-left: 20px;margin-right: 20px;position: relative;border: 1px solid #aeaeae;border-left-width: 1px;border-left-color: #aeaeae;margin-bottom: 0px;padding-bottom: 30px;">
             <div class="container d-xl-flex">
                 <div class="row">
                     <div class="col-md-6 col-xxl-6 text-center d-flex justify-content-center" style="border-width: 0px;">
                         <div class="justify-content-center"><br>
-                            <h1 data-aos="fade-down" data-aos-duration="650" style="font-size: 53px;font-weight: bold;font-family: Ubuntu, sans-serif;"><img class="img-fluid" src="assets/img/gh_full_logo.png" style="z-index: 1;margin-bottom: -30px;" width="498" height="147"></h1>
-                            <p data-aos="fade-right" data-aos-duration="650" style="font-family: Poppins, sans-serif;font-size: 18px;text-align: center;z-index: 2;">Você já se sentiu perdido ao tentar entender Geofísica? Ou precisa de ajuda para se orientar? Seja qual for a sua situação, você está no lugar certo! Bem-vindo ao GeofisicaHub, onde você encontrará tudo o que precisa para seus estudos e trabalhos na área. Clique abaixo para saber mais! E se você não conhece a Geofísica e chegou aqui por acaso, venha descobrir mais sobre essa ciência fascinante! Se você é aluno da Geofísica da UFF,&nbsp;<a href="uff.html" style="font-weight: bold;">clique aqui!</a></p><a class="btn btn-primary btn-lg me-2" role="button" data-aos="zoom-in-up" data-aos-duration="1000" href="about.html" style="background: var(--bs-body-color);font-family: Poppins, sans-serif;box-shadow: 5px 5px 0px #e4e9f7;">Saiba mais!</a><a class="btn btn-light btn-lg" role="button" data-aos="zoom-in-up" data-aos-duration="1000" href="o-que-e-geofisica.html" style="font-family: Poppins, sans-serif;box-shadow: 5px 5px 0px #e4e9f7;border-style: solid;border-color: #aeaeae;">O que é Geofísica?</a>
+                            <h1 data-aos="fade-down" data-aos-duration="650" style="font-size: 53px;font-weight: bold;font-family: Ubuntu, sans-serif;"><img id="logo" class="img-fluid" src="assets/img/black_full_logo.svg" style="z-index: 1;margin-bottom: -30px;" width="498" height="147"></h1>
+                            <p data-aos="fade-right" data-aos-duration="650" style="font-family: Poppins, sans-serif;font-size: 18px;text-align: center;z-index: 2;">Você já se sentiu perdido ao tentar entender Geofísica? Ou precisa de ajuda para se orientar? Seja qual for a sua situação, você está no lugar certo! Bem-vindo ao GeofisicaHub, onde você encontrará tudo o que precisa para seus estudos e trabalhos na área. Clique abaixo para saber mais! E se você não conhece a Geofísica e chegou aqui por acaso, venha descobrir mais sobre essa ciência fascinante! Se você é aluno da Geofísica da UFF,&nbsp;<a href="uff.html" style="font-weight: bold;">clique aqui!</a></p><a class="btn btn-primary btn-lg me-2" role="button" data-aos="zoom-in-up" data-aos-duration="300" href="about.html" style="background: var(--bs-info);font-family: Poppins, sans-serif;box-shadow: 5px 5px var(--bs-danger);color: var(--bs-light);">Saiba mais!</a><a class="btn btn-light btn-lg" role="button" data-aos="zoom-in-up" data-aos-duration="300" href="o-que-e-geofisica.html" style="font-family: Poppins, sans-serif;box-shadow: 5px 5px var(--bs-danger);border-style: solid;border-color: #aeaeae;">O que é Geofísica?</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xxl-6 d-flex justify-content-center"><img class="img-fluid" data-aos="fade-left" data-aos-duration="650" src="assets/img/earth.gif"></div>
+                    <div class="col-md-6 col-xxl-6 d-flex justify-content-center"><img class="img-fluid" data-aos="fade-left" data-aos-duration="650" src="assets/img/gifs/earth.gif"></div>
                 </div>
             </div>
         </div>
@@ -118,10 +212,10 @@
                     <p class="w-lg-50" style="font-family: Poppins, sans-serif;">O GeofisicaHub oferece uma variedade de recursos e ferramentas projetadas para aprimorar seus estudos e facilitar sua vida. Aqui, você encontrará uma extensa coleção de materiais didáticos, calculadoras extremamente úteis, e acesso a publicações científicas de qualidade.</p>
                 </div>
             </div>
-            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" style="border-radius: 30px;box-shadow: 5px 5px 0px #e4e9f7;margin-left: 0px;margin-right: 0px;border: 1px solid #aeaeae;border-left-color: #aeaeae;margin-top: -25px;margin-bottom: 0px;">
+            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" style="border-radius: 30px;box-shadow: 5px 5px var(--bs-danger);margin-left: 0px;margin-right: 0px;border: 1px solid #aeaeae;border-left-color: #aeaeae;margin-top: -25px;margin-bottom: 0px;">
                 <div class="col">
                     <div class="text-center d-flex flex-column align-items-center align-items-xl-center">
-                        <div class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon lg" style="background: var(--bs-light);border: 1px solid var(--bs-emphasis-color) ;"><img src="assets/img/books.gif" style="width: 75%"></div>
+                        <div class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon lg" style="background: var(--bs-light);border: 1px solid var(--bs-emphasis-color) ;"><img src="assets/img/gifs/books.gif" style="width: 75%"></div>
                         <div class="px-3">
                             <h4 style="color: var(--bs-body-color);font-weight: bold;font-family: Poppins, sans-serif;">Materiais Didáticos</h4>
                             <p style="color: var(--bs-body-color);font-family: Poppins, sans-serif;">Explorando recursos educacionais, apresentamos a seção de 'Materiais Didáticos' - uma fonte enriquecedora para impulsionar seu aprendizado.</p><a href="materials/geofisica.html" style="font-family: Poppins, sans-serif;">Saiba Mais&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
@@ -132,10 +226,10 @@
                 </div>
                 <div class="col">
                     <div class="text-center d-flex flex-column align-items-center align-items-xl-center">
-                        <div class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon lg" style="background: var(--bs-light);border: 1px solid var(--bs-emphasis-color) ;"><img src="assets/img/calculator.gif" style="width: 75%"></div>
+                        <div class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon lg" style="background: var(--bs-light);border: 1px solid var(--bs-emphasis-color) ;"><img src="assets/img/gifs/calculator.gif" style="width: 75%"></div>
                         <div class="px-3">
                             <h4 style="font-weight: bold;font-family: Poppins, sans-serif;">Calculadoras</h4>
-                            <p style="color: var(--bs-body-color);font-family: Poppins, sans-serif;">Explore nossas ferramentas de cálculo, simplificando conceitos complexos em Geofísica. Aprecie a praticidade das nossas calculadoras.</p><a href="tools/calculadora.html" style="font-family: Poppins, sans-serif;">Saiba Mais&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                            <p style="color: var(--bs-body-color);font-family: Poppins, sans-serif;">Explore as ferramentas de cálculo, simplificando conceitos complexos em Geofísica. Aprecie a praticidade das nossas calculadoras.</p><a href="tools/calculadora.html" style="font-family: Poppins, sans-serif;">Saiba Mais&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
                                     <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
                                 </svg></a>
                         </div>
@@ -143,7 +237,7 @@
                 </div>
                 <div class="col-xl-4">
                     <div class="text-center d-flex flex-column align-items-center align-items-xl-center">
-                        <div class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon lg" style="background: var(--bs-light);border: 1px solid var(--bs-emphasis-color) ;"><img src="assets/img/research.gif" style="width: 75%"></div>
+                        <div class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon lg" style="background: var(--bs-light);border: 1px solid var(--bs-emphasis-color) ;"><img src="assets/img/gifs/research.gif" style="width: 75%"></div>
                         <div class="px-3">
                             <h4 style="color: var(--bs-body-color);font-family: Poppins, sans-serif;font-weight: bold;">Publicações Científicas</h4>
                             <p style="color: var(--bs-body-color);font-family: Poppins, sans-serif;">Exploramos avanços científicos, revelando insights profundos e contribuindo para o conhecimento acadêmico.</p><a href="tools/artigos.html" style="font-family: Poppins, sans-serif;">Saiba Mais&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
@@ -155,7 +249,7 @@
             </div>
         </div>
     </section>
-    <div class="footer-2" style="background: var(--bs-body-bg);color: var(--bs-emphasis-color);box-shadow: 0px -7px 5px #e4e9f7;border-top-left-radius: 15px;border-top-right-radius: 15px;">
+    <div class="footer-2" style="background: var(--bs-body-bg);color: var(--bs-emphasis-color);box-shadow: 0px -5px var(--bs-danger);border-top-left-radius: 15px;border-top-right-radius: 15px;">
         <div class="container">
             <div class="row">
                 <div class="col-8 col-sm-6 col-md-6">

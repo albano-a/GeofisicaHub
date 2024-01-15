@@ -14,7 +14,7 @@
   font-weight: bold;
   padding: 0.5em 1em;
   border-radius: 15px;
-  transition: transform 1s;
+  transition: 0.3s;
   border-style: none;
   box-shadow: 5px 5px 5px #aeaeae;
 }
