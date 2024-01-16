@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://geofisicahub.live/materials/404.html</loc>
-    </url>
-    <url>
         <loc>https://geofisicahub.live/materials/calculo.html</loc>
     </url>
     <url>
@@ -23,9 +20,6 @@
     </url>
     <url>
         <loc>https://geofisicahub.live/old/90s.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/petrophysics/404.html</loc>
     </url>
     <url>
         <loc>https://geofisicahub.live/petrophysics/pdensity.html</loc>
@@ -58,13 +52,7 @@
         <loc>https://geofisicahub.live/petrophysics/vshale_steiber.html</loc>
     </url>
     <url>
-        <loc>https://geofisicahub.live/seismic/404.html</loc>
-    </url>
-    <url>
         <loc>https://geofisicahub.live/seismic/fft.html</loc>
-    </url>
-    <url>
-        <loc>https://geofisicahub.live/tools/404.html</loc>
     </url>
     <url>
         <loc>https://geofisicahub.live/tools/artigos.html</loc>
