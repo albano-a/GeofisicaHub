@@ -19,10 +19,10 @@
   --bs-danger-text-emphasis: #5B5D63;
   --bs-danger-bg-subtle: #FAFBFD;
   --bs-danger-border-subtle: #F4F6FC;
-  --bs-link-color: #6e89d5;
-  --bs-link-color-rgb: 110,137,213;
-  --bs-link-hover-color: #212121;
-  --bs-link-hover-color-rgb: 33,33,33;
+  --bs-link-color: #000000;
+  --bs-link-color-rgb: 0,0,0;
+  --bs-link-hover-color: #515151;
+  --bs-link-hover-color-rgb: 81,81,81;
   --bs-border-style: solid;
   --bs-border-color: #aeaeae;
 }
