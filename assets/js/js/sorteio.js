@@ -48,28 +48,34 @@ function generateName() {
   }
 }
 
-function selectRandomNames(names, numOfPeople, nameResult) {
-  var selectedNames = [];
-  for (var i = 0; i < numOfPeople; i++) {
-    if (names.length > 0) {
-      var randomIndex = Math.floor(Math.random() * names.length);
-      selectedNames.push(names[randomIndex]);
-      names.splice(randomIndex, 1); // Remove the selected name from the names array
-    } else {
-      break;
-    }
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
+}
 
-  // Start the countdown
-  var countdown = 5;
-  nameResult.style.fontSize = "3em";
-  var countdownInterval = setInterval(function () {
-    nameResult.innerHTML = countdown;
-    countdown--;
-    if (countdown < 0) {
-      clearInterval(countdownInterval);
-      // Show the results after the countdown
-      nameResult.innerHTML = selectedNames.join("<br>");
-    }
-  }, 1000);
+function selectRandomNames(names, numOfPeople, nameResult) {
+  shuffleArray(names);
+  var selectedNames = names.slice(0, numOfPeople);
+
+  // Check if the countdown checkbox is checked
+  var countdownCheckbox = document.getElementById("cdowncheck");
+  if (countdownCheckbox.checked) {
+    // Start the countdown
+    var countdown = 5;
+    nameResult.style.fontSize = "3em";
+    var countdownInterval = setInterval(function () {
+      nameResult.innerHTML = countdown;
+      countdown--;
+      if (countdown < 0) {
+        clearInterval(countdownInterval);
+        // Show the results after the countdown
+        nameResult.innerHTML = selectedNames.join("<br>");
+      }
+    }, 1000);
+  } else {
+    // If the checkbox is not checked, show the results immediately
+    nameResult.innerHTML = selectedNames.join("<br>");
+  }
 }
