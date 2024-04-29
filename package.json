@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "bulma": "^1.0.0",
+    "sass": "^1.75.0"
+  },
+  "scripts": {
+    "build-bulma": "sass --load-path=node_modules assets/scss/geofisicahub.scss assets/css/geofisicahub.css",
+    "start": "npm run build-bulma -- --watch"
+  }
+}
