@@ -3,7 +3,10 @@
     "axios": "^1.6.8",
     "bulma": "^1.0.0",
     "cheerio": "^1.0.0-rc.12",
-    "sass": "^1.75.0"
+    "sass": "^1.75.0",
+    "ts-node": "^10.9.2",
+    "tsc": "^2.0.4",
+    "typescript-graph": "^0.3.0"
   },
   "scripts": {
     "build-bulma": "sass --load-path=node_modules assets/scss/geofisicahub.scss assets/css/geofisicahub.css",
