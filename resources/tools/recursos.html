@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Recursos - GeofisicaHub</title>
+    <link
+      rel="canonical"
+      href="https://geofisicahub.live/resources/tools/recursos.html"
+    />
+    <meta
+      property="og:url"
+      content="https://geofisicahub.live/resources/tools/recursos.html"
+    />
+    <meta property="og:image" content="black_logo.png" />
+    <meta
+      name="twitter:description"
+      content="Ferramenta que reúne tudo sobre Geofísica em um só lugar!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://geofisicahub.live/assets/img/oqgeofisica/plataforma-petroleo.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:title" content="Sorteio - GeofisicaHub" />
+    <meta
+      name="description"
+      content="Ferramenta que reúne tudo sobre Geofísica em um só lugar!"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": "GeofísicaHub",
+        "url": "https://geofisicahub.live/"
+      }
+    </script>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="124x126"
+      href="../../assets/img/G.svg"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="124x126"
+      href="../../assets/img/G.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" />
+    <link rel="stylesheet" href="../../assets/css/geofisicahub.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-L9JMPD2F5G"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-L9JMPD2F5G");
+    </script>
+
+    <link
+      rel="stylesheet"
+      href="https://s.pageclip.co/v1/pageclip.css"
+      media="screen"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/61000256a0.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar has-shadow"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../../index.html">
+            <img
+              src="../../assets/img/logotipo_final.svg"
+              alt="GeofisicaHub"
+              class="image"
+            />
+          </a>
+          <a class="navbar-burger" id="nav-burger">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="navbar-menu fullwidth" id="nav-menu-items">
+          <div class="navbar-start">
+            <a href="../../index.html" class="navbar-item">Início</a>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Sobre</a>
+              <div class="navbar-dropdown">
+                <a href="../../src/about.html" class="navbar-item"
+                  >Sobre o site</a
+                >
+                <a href="../../src/o-que-e-geofisica.html" class="navbar-item"
+                  >O que é Geofísica?</a
+                >
+                <a href="../../src/uff.html" class="navbar-item"
+                  >Geofísica UFF</a
+                >
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Ferramentas</a>
+              <div class="navbar-dropdown">
+                <a href="../tools/pesquisa.html" class="navbar-item">Artigos</a>
+                <hr class="navbar-divider" />
+                <a href="../tools/calculadora.html" class="navbar-item"
+                  >Calculadora Geral</a
+                >
+                <a href="../petrophysics/petro_index.html" class="navbar-item"
+                  >Petrofísica</a
+                >
+                <hr class="navbar-divider" />
+                <a href="../tools/recursos.html" class="navbar-item"
+                  >Recursos</a
+                >
+                <a href="../../src/eventos.html" class="navbar-item">Eventos</a>
+                <a href="../tools/sorteio.html" class="navbar-item">Sorteio</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Materiais</a>
+              <div class="navbar-dropdown">
+                <a href="../materials/geofisica.html" class="navbar-item"
+                  >Geofísica</a
+                >
+                <a href="../materials/geologia.html" class="navbar-item"
+                  >Geologia</a
+                >
+                <a href="../materials/calculo.html" class="navbar-item"
+                  >Cálculo</a
+                >
+                <a href="../materials/fisica.html" class="navbar-item"
+                  >Física</a
+                >
+                <a href="../materials/programacao.html" class="navbar-item"
+                  >Programação</a
+                >
+              </div>
+            </div>
+            <a href="../../src/contact.html" class="navbar-item">Contato</a>
+          </div>
+          <div class="navbar-end">
+            <div id="dropdown-btn" class="dropdown mt-1 ml-2">
+              <div class="dropdown-trigger">
+                <button
+                  class="button"
+                  aria-haspopup="true"
+                  aria-controls="dropdown-menu"
+                >
+                  <span>Tema</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content" id="activeDropdown">
+                  <a class="dropdown-item"
+                    ><i class="fa-solid fa-computer"></i> Sistema
+                  </a>
+                  <a class="dropdown-item"
+                    ><i class="fas fa-sun" style="color: yellow"></i> Claro
+                  </a>
+                  <a class="dropdown-item"
+                    ><i class="fas fa-moon" style="color: gray"></i> Escuro
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="content has-text-centered">
+        <h1 class="is-size-2 has-text-weight-black has-text-primary">
+          Recursos
+        </h1>
+        <p class="is-size-4">
+          Aqui você encontra diversos recursos para auxiliar nos estudos e
+          pesquisas em Geofísica.
+        </p>
+        <div class="columns box">
+          <div class="column mx-2 mb-3 pb-3">
+            <h1 class="is-size-3 has-text-weight-bold has-text-primary">
+              <i class="fa-solid fa-globe"></i> Sites
+            </h1>
+            <ul class="is-size-6 has-text-justified px-6 mx-1">
+              <li>
+                <a href="http://www.sbgf.org.br/"
+                  ><b>Sociedade Brasileira de Geofísica - SBGf</b></a
+                >
+                - Maior sociedade de Geofísica da América Latina.
+              </li>
+              <li>
+                <a href="https://geosgb.sgb.gov.br/"
+                  ><b>GeoSBG - Serviço Geológico do Brasil</b></a
+                >
+                - Site que possui diversos dados, informações e produtos do
+                Serviço Geológico Brasileiro.
+              </li>
+              <li>
+                <a href="https://www.sgb.gov.br/"
+                  ><b>Companhia de Pesquisa de Recursos Minerais (CPRM)</b></a
+                >
+              </li>
+              <li>
+                <a href="https://seg.org/"
+                  ><b>Society of Exploration Geophysicists (SEG)</b></a
+                >
+                - Uma das maiores sociedades de Geofísica do mundo.
+              </li>
+              <li>
+                <a href="https://pubs.geoscienceworld.org/"
+                  ><b>GeoScienceWorld</b></a
+                >
+                - Site de Publicações Geofísicas
+              </li>
+              <li>
+                <a href="http://icgem.gfz-potsdam.de/home"
+                  ><b
+                    >International Centre for Global Earth Models (ICGEM)</b
+                  ></a
+                >
+                - Centro internacional que fornece modelos globais da Terra,
+                especialmente modelos gravitacionais e magnéticos, para apoiar
+                pesquisas em geociências e disciplinas relacionadas.
+              </li>
+              <li>
+                <a href="https://museuhe.com.br/"
+                  ><b>Museu de Minerais, Minérios e Rochas Heinz Ebert</b></a
+                >
+                - Museu que possui diversas informações sobre centenas de
+                minerais.
+              </li>
+            </ul>
+          </div>
+          <div class="column mx-2">
+            <h1 class="is-size-3 has-text-weight-bold has-text-primary">
+              <i class="fa-solid fa-desktop"></i> Softwares
+            </h1>
+            <ul class="is-size-6 has-text-justified px-6 mx-1 pb-2">
+              <li>
+                <a
+                  href="https://www.geosoft.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><b>Geosoft</b></a
+                >
+                - Análise e interpretação de dados geocientíficos.
+              </li>
+              <li>
+                <a
+                  href="https://www.agisoft.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><b>Agisoft Metashape (Fotogrametria)</b></a
+                >
+                - Permite a criação de modelos tridimensionais a partir de
+                fotografias
+              </li>
+              <li>
+                <a
+                  href="https://qgis.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><b>QGIS (Open Source GIS)</b></a
+                >
+                - Software muito utilizado para análise espacial e mapeamento.
+              </li>
+              <li>
+                <a
+                  href="https://www.opendtect.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><b>OpendTect</b></a
+                >
+                - Software especializado em interpretação e visualização de
+                dados sísmicos, facilitando a análise geofísica tridimensional.
+              </li>
+              <li>
+                <a
+                  href="https://wiki.seismic-unix.org/start"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><b>Seismic Unix (SU)</b></a
+                >
+                - Ferramenta para processamento e análise de dados sísmicos,
+                amplamente utilizada na indústria da geofísica.
+              </li>
+              <li>
+                <a
+                  href="https://www.generic-mapping-tools.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><b>GMT (Generic Mapping Tools)</b></a
+                >
+                - Conjunto de ferramentas para criar mapas e gráficos
+                geofísicos, útil para visualização e análise de dados espaciais.
+              </li>
+              <li>
+                <a
+                  href="https://simpeg.xyz/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><b
+                    >SimPEG (Simulation and Parameter Estimation in
+                    Geophysics)</b
+                  ></a
+                >
+                - Software especializado em interpretação e visualização de
+                dados sísmicos, facilitando a análise geofísica tridimensional.
+              </li>
+              <li>
+                <a
+                  href="https://www.python.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><b>Python</b></a
+                >
+                - Linguagem de programação especializada em análise de dados.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="box">
+          <h1 class="is-size-3 has-text-weight-bold has-text-primary">
+            <i class='bx bxs-data'></i> Bancos de Dados Geofísicos
+          </h1>
+          <p class="is-size-4">
+            Referências à bancos de dados que fornecem conjuntos de dados
+            geofísicos para pesquisa e prática.
+          </p>
+          <ul class="is-size-6 has-text-justified px-6 mx-1">
+            <li>
+              <a
+                href="https://geomaps.anp.gov.br/geoanp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><b>GeoMaps | ANP</b></a
+              >
+              - Mapa da Agência Nacional do Petróleo (ANP) que contém diversas
+              informações sobre bacias terrestres e marítimas.
+            </li>
+            <li>
+              <a
+                href="https://www.gebco.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><b>GEBCO</b></a
+              >
+              - Site que possui diversos dados de batimetria de diversas áreas
+              do mundo.
+            </li>
+            <li>
+              <a
+                href="https://ds.iris.edu/ds/nodes/dmc/tools/##"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><b
+                  >IRIS (Incorporated Research Institutions for Seismology)</b
+                ></a
+              >
+              - Fornece dados sísmicos globais e recursos educacionais, sendo
+              uma fonte abrangente para estudos relacionados a terremotos.
+            </li>
+            <li>
+              <a
+                href="https://earthquake.usgs.gov/earthquakes/search/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><b
+                  >USGS (U.S. Geological Survey) Earthquake Hazards Program</b
+                ></a
+              >
+              - Catálogo de terremotos mantidos pelo USGS, oferecendo
+              informações detalhadas sobre eventos sísmicos em todo o mundo.
+            </li>
+            <li>
+              <a
+                href="https://www.ncei.noaa.gov/products/marine-trackline-geophysical-data"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><b
+                  >NOAA Nactional Centers for Environmental Information
+                  (NCEI)</b
+                ></a
+              >
+              - Oferece uma ampla gama de conjuntos de dados geofísicos,
+              incluindo informações sobre o ambiente marinho, clima e
+              geociências.
+            </li>
+            <li>
+              <a
+                href="https://www.emdat.be/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><b>EM-DAT (Emergency Events Database)</b></a
+              >
+              - Base de dados que registra informações sobre desastres naturais
+              e tecnológicos em todo o mundo, facilitando estudos de impacto e
+              resposta.
+            </li>
+            <li>
+              <a
+                href="https://wiki.seg.org/wiki/Open_data"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><b>SEG Wiki - Data Repositories</b></a
+              >
+              - Lista de repositórios de dados geofísicos mantida pela SEG,
+              abrangendo várias disciplinas da geofísica.
+            </li>
+            <li>
+              <a
+                href="http://tech.usgin.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><b>NGDS (National Geothermal Data System)</b></a
+              >
+              - Exploração de dados geotérmicos, oferecendo acesso a conjuntos
+              de dados relacionados à energia geotérmica.
+            </li>
+            <li>
+              <a
+                href="https://search.earthdata.nasa.gov/search?lat=-23.073447711857426&long=-43.91015625&zoom=7"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><b>NASA Earthdata</b></a
+              >
+              - Portal da NASA para acesso a uma ampla variedade de dados
+              terrestres, incluindo observações por satélite e informações
+              ambientais.
+            </li>
+            <li>
+              <a
+                href="https://www.ga.gov.au/data-pubs/nmfc"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><b
+                  >Geoscience Australia - National Mineral and Fossil Collection
+                  Database</b
+                ></a
+              >
+              - Banco de dados abrangente contendo informações sobre a coleção
+              nacional de minerais e fósseis da Geoscience Australia.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+      <div class="container has-text-centered">
+        <p class="is-size-6">
+          <strong>Geofisica<i>Hub</i></strong> by
+          <a target="_blank" href="https://github.com/albano-a">André Albano</a>
+          © 2024
+          <a
+            href="https://github.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </p>
+        <p class="mt-2">
+          <a href="../../src/contact.html">Contato</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../assets/js/index.js"></script>
+    <script src="../../assets/js/navbar_burger.js"></script>
+    <script src="../../assets/js/js/sorteio.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/js/jquery.min.js"></script>
+    <script src="assets/js/js/paperclip.js"></script>
+  </body>
+</html>

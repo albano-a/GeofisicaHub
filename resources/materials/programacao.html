@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="pt-br" data-bss-forced-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Programação - GeofisicaHub</title>
+    <link
+      rel="canonical"
+      href="https://geofisicahub.live/resources/materials/programacao.html"
+    />
+    <meta
+      property="og:url"
+      content="https://geofisicahub.live/resources/materials/programacao.html"
+    />
+    <meta property="og:image" content="black_logo.png" />
+    <meta
+      name="twitter:description"
+      content="Ferramenta que reúne tudo sobre Geofísica em um só lugar!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://geofisicahub.live/assets/img/oqgeofisica/plataforma-petroleo.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:title" content="Calculo - GeofisicaHub" />
+    <meta
+      name="description"
+      content="Ferramenta que reúne tudo sobre Geofísica em um só lugar!"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": "GeofísicaHub",
+        "url": "https://geofisicahub.live/"
+      }
+    </script>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="124x126"
+      href="../../assets/img/G.svg"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="124x126"
+      href="../../assets/img/G.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" />
+    <link rel="stylesheet" href="../../assets/css/geofisicahub.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-L9JMPD2F5G"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-L9JMPD2F5G");
+    </script>
+
+    <link
+      rel="stylesheet"
+      href="https://s.pageclip.co/v1/pageclip.css"
+      media="screen"
+    />
+    <script
+      src="https://kit.fontawesome.com/61000256a0.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar has-shadow">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../index.html">
+            <img
+              src="../../assets/img/logotipo_final.svg"
+              alt="GeofisicaHub"
+              class="image"
+            />
+          </a>
+          <a class="navbar-burger" id="nav-burger">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="navbar-menu fullwidth" id="nav-menu-items">
+          <div class="navbar-start">
+            <a href="../../index.html" class="navbar-item">Início</a>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Sobre</a>
+              <div class="navbar-dropdown">
+                <a href="../../src/about.html" class="navbar-item"
+                  >Sobre o site</a
+                >
+                <a href="../../src/o-que-e-geofisica.html" class="navbar-item"
+                  >O que é Geofísica?</a
+                >
+                <a href="../../src/uff.html" class="navbar-item"
+                  >Geofísica UFF</a
+                >
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Ferramentas</a>
+              <div class="navbar-dropdown">
+                <a href="../tools/pesquisa.html" class="navbar-item">Artigos</a>
+                <hr class="navbar-divider" />
+                <a href="../tools/calculadora.html" class="navbar-item"
+                  >Calculadora Geral</a
+                >
+                <a href="../petrophysics/petro_index.html" class="navbar-item"
+                  >Petrofísica</a
+                >
+                <hr class="navbar-divider" />
+                <a href="../tools/recursos.html" class="navbar-item"
+                  >Recursos</a
+                >
+                <a href="../../src/eventos.html" class="navbar-item">Eventos</a>
+                <a href="../tools/sorteio.html" class="navbar-item">Sorteio</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Materiais</a>
+              <div class="navbar-dropdown">
+                <a href="../materials/geofisica.html" class="navbar-item"
+                  >Geofísica</a
+                >
+                <a href="../materials/geologia.html" class="navbar-item"
+                  >Geologia</a
+                >
+                <a href="../materials/calculo.html" class="navbar-item"
+                  >Cálculo</a
+                >
+                <a href="../materials/fisica.html" class="navbar-item"
+                  >Física</a
+                >
+                <a href="../materials/programacao.html" class="navbar-item"
+                  >Programação</a
+                >
+              </div>
+            </div>
+            <a href="../../src/contact.html" class="navbar-item">Contato</a>
+          </div>
+          <div class="navbar-end">
+            <div id="dropdown-btn" class="dropdown mt-1 ml-2">
+              <div class="dropdown-trigger">
+                <button
+                  class="button"
+                  aria-haspopup="true"
+                  aria-controls="dropdown-menu"
+                >
+                  <span>Tema</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content" id="activeDropdown">
+                  <a class="dropdown-item is-active"
+                    ><i class="fa-solid fa-computer"></i> Sistema
+                  </a>
+                  <a class="dropdown-item"
+                    ><i class="fas fa-sun" style="color: yellow"></i> Claro
+                  </a>
+                  <a class="dropdown-item"
+                    ><i class="fas fa-moon" style="color: gray"></i> Escuro
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- BARRA LATERAL -->
+    <section class="section">
+      <div class="container">
+        <!-- BREADCRUMBS -->
+        <nav class="breadcrumb has-succeeds-separator" aria-label="bradcrumbs">
+          <ul>
+            <li><a href="../../index.html">GeofisicaHub</a></li>
+            <li><a href="">Materiais</a></li>
+            <li class="is-active">
+              <a href="./programacao.html" aria-current="page">Programação</a>
+            </li>
+          </ul>
+        </nav>
+        <!------------------------------------->
+        <div class="columns">
+          <!-- MAIN CONTENT -->
+          <div class="column">
+            <div class="content">
+              <h1
+                class="is-size-1 has-text-primary has-text-centered has-text-weight-black"
+              >
+                PROGRAMAÇÃO
+              </h1>
+              <p class="has-text-justified is-size-4">
+                Se você é daqueles malucos que adora programação e não vê a hora
+                de passar horas olhando para uma tela preta (tipo o
+                desenvolvedor desse site) aqui é o lugar certo. A principal
+                linguagem utilizada na Geofísica atualmente é Python, uma
+                linguagem de programação de alto nível, interpretada e de
+                propósito geral. Ela é bem popular e bem fácil de aprender.
+                Então, apesar de haver livros nesta página, principalmente
+                haverão vídeos e outros recursos. Infelizmente, grande parte do
+                conteúdo de Programação está em inglês, então os vídeos vão
+                estar predominantemente nessa linguagem.
+              </p>
+              <!-- Seção de Livros -->
+              <h1
+                class="is-size-2 has-text-link has-text-centered has-text-weight-bold"
+              >
+                <i class="fa-brands fa-python" style="color: #ffd43b"></i>
+                Python
+                <i class="fa-brands fa-python" style="color: #3f7cae"></i>
+              </h1>
+              <ul class="is-size-5 has-text-justified">
+                <li class="mb-4">
+                  <b>Playlist - Curso de Python em português</b> -
+                  <a
+                    href="https://www.youtube.com/watch?v=S9uPNppGsGo&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >PDF</a
+                  >
+                </li>
+                <li class="mb-4">
+                  <b>Python Full Course for Free - Bro Code </b> -
+                  <a
+                    href="https://www.youtube.com/watch?v=XKHEtdqhLK8&pp=ygUHUHl0aG9uIA%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >PDF</a
+                  >
+                  - Um dos melhores jeitos de aprender, assistindo e codificando
+                  junto
+                </li>
+                <li class="mb-4">
+                  <b>Python Basics - A Practical Introduction to Python 3</b> -
+                  <a
+                    href="https://drive.google.com/file/d/1w2lhXt0-yXyxyBvLo1K2pbinXwQYICNj/view?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >PDF</a
+                  >
+                </li>
+                <li class="mb-4">
+                  <b
+                    >Python Programming For Beginners - The Absolute Complete
+                    Beginner's Guide</b
+                  >
+                  -
+                  <a
+                    href="https://drive.google.com/file/d/1k2iA86tARqSrKB3isgt5uDs56567-v2Y/view?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >PDF</a
+                  >
+                </li>
+                <li class="mb-4">
+                  <b>High Performance Python</b> -
+                  <a
+                    href="https://drive.google.com/file/d/12GdHBGREh3J86SHUHm7kE9LKBWxyXeHq/view?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >PDF</a
+                  >
+                </li>
+              </ul>
+
+              <h1
+                class="is-size-2 has-text-link has-text-centered has-text-weight-bold"
+              >
+                C/C++
+              </h1>
+              <ul class="is-size-5 has-text-justified">
+                <li class="mb-4">
+                  <b>Recursos para aprender C/C++</b>
+                </li>
+                <li class="mb-4">
+                  <a
+                    href="https://www.freecodecamp.org/portuguese/news/o-manual-do-iniciante-em-c-aprenda-o-basico-sobre-a-linguagem-de-programacao-c-em-apenas-algumas-horas/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >O manual do iniciante em C</a
+                  >
+                  - Este manual segue a regra dos 80/20, onde você aprenderá 80%
+                  da linguagem de programação C em 20% do tempo. Ele se
+                  concentra no básico da linguagem, tentando simplificar os
+                  tópicos mais complexos
+                </li>
+                <li class="mb-4">
+                  <a
+                    href="https://www.udemy.com/pt/topic/c-plus-plus/free/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Cursos e tutoriais gratuitos de C++ - Udemy</a
+                  >
+                  -A Udemy oferece cursos gratuitos de C++, do básico até o
+                  avançado.
+                </li>
+                <li class="mb-4">
+                  <a
+                    href="https://www.cursou.com.br/informatica/programacao/c-cc/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Cursos e tutoriais gratuitos de C++ - Outros site</a
+                  >
+                  - Este site oferece vários cursos gratuitos de C/C++,
+                  incluindo programação em C, C++ e QT Creator.
+                </li>
+              </ul>
+              <h1
+                class="is-size-2 has-text-link has-text-centered has-text-weight-bold"
+              >
+                R
+              </h1>
+              <ul class="is-size-5 has-text-justified">
+                <li class="mb-4">
+                  <b>Em breve...</b>
+                </li>
+              </ul>
+              <h1
+                class="is-size-2 has-text-link has-text-centered has-text-weight-bold"
+              >
+                MATLAB
+              </h1>
+              <ul class="is-size-5 has-text-justified">
+                <li class="mb-4">
+                  <b>Em breve...</b>
+                </li>
+              </ul>
+
+              <p class="has-text-justified is-size-5">
+                Esta página é regularmente atualizada, por isso, lembre-se de
+                visitá-la de tempos em tempos para obter as informações mais
+                recentes.
+              </p>
+            </div>
+          </div>
+          <div
+            class="column has-text-centered is-full-mobile is-one-half-tablet is-5-desktop is-one-quarter-fullhd"
+          >
+            <div class="box mx-3 has-background-primary-soft">
+              <h1 class="is-size-3 has-text-weight-bold">Acesso Rápido</h1>
+
+              <ul class="my-2">
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../../index.html"
+                  >
+                    Início</a
+                  >
+                </li>
+              </ul>
+              <h1 class="is-size-3 has-text-weight-bold mb-3">Materiais</h1>
+              <ul>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../materials/geofisica.html"
+                    >Geofísica</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../materials/geologia.html"
+                  >
+                    Geologia</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../materials/calculo.html"
+                  >
+                    Cálculo</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../materials/fisica.html"
+                  >
+                    Física</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link is-large is-focused"
+                    style="width: 250px"
+                    href="../materials/programacao.html"
+                  >
+                    Programação
+                  </a>
+                </li>
+              </ul>
+              <h1 class="is-size-3 has-text-weight-bold mb-3">Ferramentas</h1>
+              <ul>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../tools/pesquisa.html"
+                  >
+                    Artigos
+                  </a>
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../tools/calculadora.html"
+                    >Calculadoras
+                  </a>
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../tools/recursos.html"
+                  >
+                    Recursos</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container has-text-centered">
+        <p class="is-size-5">
+          <strong>GeofisicaHub</strong> by
+          <a target="_blank" href="https://github.com/albano-a">André Albano</a>
+          © 2024
+        </p>
+        <p class="mt-2">
+          <a href="../../src/contact.html">Contato</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../assets/js/index.js"></script>
+    <script src="../../assets/js/navbar_burger.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="../../assets/js/bs-init.js"></script>
+    <script src="../../assets/js/js/jquery.min.js"></script>
+    <script src="../../assets/js/js/paperclip.js"></script>
+  </body>
+</html>

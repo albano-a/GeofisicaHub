@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Cálculo - GeofisicaHub</title>
+    <link
+      rel="canonical"
+      href="https://geofisicahub.live/resources/materials/calculo.html"
+    />
+    <meta
+      property="og:url"
+      content="https://geofisicahub.live/resources/materials/calculo.html"
+    />
+    <meta property="og:image" content="black_logo.png" />
+    <meta
+      name="twitter:description"
+      content="Ferramenta que reúne tudo sobre Geofísica em um só lugar!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://geofisicahub.live/assets/img/oqgeofisica/plataforma-petroleo.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:title" content="Calculo - GeofisicaHub" />
+    <meta
+      name="description"
+      content="Ferramenta que reúne tudo sobre Geofísica em um só lugar!"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": "GeofísicaHub",
+        "url": "https://geofisicahub.live/"
+      }
+    </script>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="124x126"
+      href="../../assets/img/G.svg"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="124x126"
+      href="../../assets/img/G.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" />
+    <link rel="stylesheet" href="../../assets/css/geofisicahub.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-L9JMPD2F5G"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-L9JMPD2F5G");
+    </script>
+
+    <link
+      rel="stylesheet"
+      href="https://s.pageclip.co/v1/pageclip.css"
+      media="screen"
+    />
+    <script
+      src="https://kit.fontawesome.com/61000256a0.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <nav class="navbar has-shadow">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../index.html">
+            <img
+              src="../../assets/img/logotipo_final.svg"
+              alt="GeofisicaHub"
+              class="image"
+            />
+          </a>
+          <a class="navbar-burger" id="nav-burger">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="navbar-menu fullwidth" id="nav-menu-items">
+          <div class="navbar-start">
+            <a href="../../index.html" class="navbar-item">Início</a>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Sobre</a>
+              <div class="navbar-dropdown">
+                <a href="../../src/about.html" class="navbar-item"
+                  >Sobre o site</a
+                >
+                <a href="../../src/o-que-e-geofisica.html" class="navbar-item"
+                  >O que é Geofísica?</a
+                >
+                <a href="../../src/uff.html" class="navbar-item"
+                  >Geofísica UFF</a
+                >
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Ferramentas</a>
+              <div class="navbar-dropdown">
+                <a href="../tools/pesquisa.html" class="navbar-item">Artigos</a>
+                <hr class="navbar-divider" />
+                <a href="../tools/calculadora.html" class="navbar-item"
+                  >Calculadora Geral</a
+                >
+                <a href="../petrophysics/petro_index.html" class="navbar-item"
+                  >Petrofísica</a
+                >
+                <hr class="navbar-divider" />
+                <a href="../tools/recursos.html" class="navbar-item"
+                  >Recursos</a
+                >
+                <a href="../../src/eventos.html" class="navbar-item">Eventos</a>
+                <a href="../tools/sorteio.html" class="navbar-item">Sorteio</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Materiais</a>
+              <div class="navbar-dropdown">
+                <a href="../materials/geofisica.html" class="navbar-item"
+                  >Geofísica</a
+                >
+                <a href="../materials/geologia.html" class="navbar-item"
+                  >Geologia</a
+                >
+                <a href="../materials/calculo.html" class="navbar-item"
+                  >Cálculo</a
+                >
+                <a href="../materials/fisica.html" class="navbar-item"
+                  >Física</a
+                >
+                <a href="../materials/programacao.html" class="navbar-item"
+                  >Programação</a
+                >
+              </div>
+            </div>
+            <a href="../../src/contact.html" class="navbar-item">Contato</a>
+          </div>
+          <div class="navbar-end">
+            <div id="dropdown-btn" class="dropdown mt-1 ml-2">
+              <div class="dropdown-trigger">
+                <button
+                  class="button"
+                  aria-haspopup="true"
+                  aria-controls="dropdown-menu"
+                >
+                  <span>Tema</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content" id="activeDropdown">
+                  <a class="dropdown-item is-active"
+                    ><i class="fa-solid fa-computer"></i> Sistema
+                  </a>
+                  <a class="dropdown-item"
+                    ><i class="fas fa-sun" style="color: yellow"></i> Claro
+                  </a>
+                  <a class="dropdown-item"
+                    ><i class="fas fa-moon" style="color: gray"></i> Escuro
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- BARRA LATERAL -->
+    <section class="section">
+      <div class="container">
+        <!-- BREADCRUMBS -->
+        <nav class="breadcrumb has-succeeds-separator" aria-label="bradcrumbs">
+          <ul>
+            <li><a href="../../index.html">GeofisicaHub</a></li>
+            <li><a href="">Materiais</a></li>
+            <li class="is-active">
+              <a href="./calculo.html" aria-current="page">Cálculo</a>
+            </li>
+          </ul>
+        </nav>
+        <!------------------------------------->
+        <div class="columns">
+          <!-- MAIN CONTENT -->
+          <div class="column">
+            <div class="content">
+              <h1
+                class="is-size-1 has-text-primary has-text-centered has-text-weight-black"
+              >
+                CÁLCULO
+              </h1>
+              <p class="has-text-justified is-size-4">
+                Cálculo é uma fera de outro mundo. Uma das disciplinas mais
+                difíceis de todos os cursos de STEM (Ciência, Tecnologia,
+                Engenharia e Matemática). É a matéria que faz o filho chorar e a
+                mãe não ver. Mas nem tudo está perdido. Os livros abaixo são uma
+                boa fonte de estudos
+              </p>
+              <!-- Seção de Livros -->
+              <h1
+                class="is-size-2 has-text-link has-text-centered has-text-weight-bold"
+              >
+                Livros
+              </h1>
+              <ul class="is-size-5 has-text-justified">
+                <li class="mb-4">
+                  <b>Cálculo - Hamilton Guidorizzi (2001)</b>
+                  <i
+                    class="fa-solid fa-star fa-flip-horizontal"
+                    style="color: #ffd700"
+                  ></i>
+                  <ul>
+                    <li>
+                      Um curso de Cálculo - <b>Vol.1</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/1ceJ8_GVSY3PPHTJ7-tRWWbdwhvyHHONI/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                    <li>
+                      Um curso de Cálculo - <b>Vol.2</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/1IYhGxWyrV3ko23Sks64MPFAFNfKD-gZD/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                    <li>
+                      Um curso de Cálculo - <b>Vol.3</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/1GX4fF2QbaCdUNk58PfWuLy19Sg2kMqeM/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                    <li>
+                      Um curso de Cálculo - <b>Vol.4</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/10SxVU-HTMKprD-VKDz6NZZxz0wwTir0U/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="mb-4">
+                  <b>Cálculo - James Stewart (2014)</b>
+                  <!-- STEWART -->
+                  <i
+                    class="fa-solid fa-star fa-flip-horizontal"
+                    style="color: #ffd700"
+                  ></i>
+                  <ul>
+                    <li>
+                      Cálculo - <b>Vol.1</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/1L69Gjjzc0WMc7KmTX3foeouu3n44bl94/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                    <li>
+                      Cálculo - <b>Vol.2</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/1a7d5x3F7IIKkFJ4ZZl18BzAe0hx4mXCN/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="mb-4">
+                  <b>Cálculo para Leigos - Mark Ryan (2011)</b>
+                  <ul>
+                    <li>
+                      Cálculo para Leigos -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/1BZdNDG4koOuLFqZmRKhF9BZ8kQUR9jl-/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="mb-4">
+                  <b>Cálculo e Álgebra Linear - Wilfred Kaplan (1972)</b>
+                  <ul>
+                    <li>
+                      Cálculo e álgebra linear - <b>Vol.1</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/1-aRs7Vb07Q_c2Py6IvzwVfdOrNWSmEkj/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                    <li>
+                      Cálculo e álgebra linear - <b>Vol.2</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/1aNGzpcOLAoJTN5kixoE58sblJAKv0pS_/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                    <li>
+                      Cálculo e álgebra linear - <b>Vol.3</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/1gSK0hSbf_gjAbcQaWq-4vvWs3oLD_Rhd/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                    <li>
+                      Cálculo e álgebra linear - <b>Vol.4</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/12EINsT-50LbSsTFxr1R8ZFYFYg1-RMiW/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="mb-4">
+                  <b>Calculus - Tom Apostol (1967) - Inglês</b>
+                  <ul>
+                    <li>
+                      Calculus - <b>Volume I</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/199Zmf8kowTUUQflAzV2cA0h5PW6uRoJO/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                      - One-Variable Calculus
+                    </li>
+                    <li>
+                      Cálculo - <b>Volume II</b> -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/1HGnM5Q09JYUIVDxyzWnNqkP2a5_zZ2yI/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                      - Multi-Variable Calculus and Linear Algebra
+                    </li>
+                  </ul>
+                </li>
+                <li class="mb-4">
+                  <b>Apostila de Geometria Analítica - GGM</b>
+                  <ul>
+                    <li>
+                      Apostila feita pelo Departamento de Geometria Analítica da
+                      UFF -
+                      <a
+                        target="_blank"
+                        href="https://drive.google.com/file/d/15aHdWTc0yQBuTT2Abc2NmBdM1O4sHiqZ/view?usp=drive_link"
+                        class="has-text-weight-bold"
+                        >PDF</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <p class="has-text-justified is-size-5">
+                Esta página é regularmente atualizada, por isso, lembre-se de
+                visitá-la de tempos em tempos para obter as informações mais
+                recentes. Os PDFs fornecidos acima não devem ser redistribuídos.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="column has-text-centered is-full-mobile is-one-half-tablet is-5-desktop is-one-quarter-fullhd"
+          >
+            <div class="box mx-3 has-background-primary-soft">
+              <h1 class="is-size-3 has-text-weight-bold">Acesso Rápido</h1>
+
+              <ul class="my-2">
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../../index.html"
+                  >
+                    Início</a
+                  >
+                </li>
+              </ul>
+              <h1 class="is-size-3 has-text-weight-bold mb-3">Materiais</h1>
+              <ul>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../materials/geofisica.html"
+                    >Geofísica</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../materials/geologia.html"
+                  >
+                    Geologia</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link is-large is-focused"
+                    style="width: 250px"
+                    href="../materials/calculo.html"
+                  >
+                    Cálculo</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../materials/fisica.html"
+                  >
+                    Física</a
+                  >
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../materials/programacao.html"
+                  >
+                    Programação
+                  </a>
+                </li>
+              </ul>
+              <h1 class="is-size-3 has-text-weight-bold mb-3">Ferramentas</h1>
+              <ul>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../tools/pesquisa.html"
+                  >
+                    Artigos
+                  </a>
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../tools/calculadora.html"
+                    >Calculadoras
+                  </a>
+                </li>
+                <li class="mb-3">
+                  <a
+                    class="button is-rounded is-link"
+                    style="width: 250px"
+                    href="../tools/recursos.html"
+                  >
+                    Recursos</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container has-text-centered">
+        <p class="is-size-5">
+          <strong>GeofisicaHub</strong> by
+          <a target="_blank" href="https://github.com/albano-a">André Albano</a>
+          © 2024
+        </p>
+        <p class="mt-2">
+          <a href="../../src/contact.html">Contato</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../assets/js/index.js"></script>
+    <script src="../../assets/js/navbar_burger.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="../../assets/js/bs-init.js"></script>
+    <script src="../../assets/js/js/jquery.min.js"></script>
+    <script src="../../assets/js/js/paperclip.js"></script>
+  </body>
+</html>
