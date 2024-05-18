@@ -1,6 +1,7 @@
 ---
 import "../style/geofisico.css";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const {pageTitle, pageURL, description } = Astro.props;
 ---
@@ -29,5 +30,7 @@ const {pageTitle, pageURL, description } = Astro.props;
             </div>
         </div>
     </section>
+
+    <Footer />
 </body>
 </html>

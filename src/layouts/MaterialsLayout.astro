@@ -1,10 +1,12 @@
 ---
 import "../style/geofisico.css";
 import Header from "../components/Header.astro";
+import ExpandableSideBar from "../components/ExpandableSideBar";
+import Footer from "../components/Footer.astro";
 
 const {pageTitle, pageURL, description } = Astro.props;
 ---
-i
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,15 +26,23 @@ i
     
     <section class="section">
         <div class="container">
-            <div class="content">
-                <h1 class="is-size-1 has-text-centered has-text-weight-black">
-                    {pageTitle}
-                </h1>
+            <div class="columns">
+                <div class="column">
+                    <div class="content">
+                        <h1 class="is-size-1 has-text-centered has-text-weight-black">
+                            {pageTitle}
+                        </h1>
+                        <slot />
+                    </div>
+                </div>
+                <div class="column is-3">
+                    <!-- Create a component that opens and closes -->
+                    <ExpandableSideBar client:load />
+                </div>
             </div>
         </div>
-        <div class="content">
-            <slot />
-        </div>
     </section>
+
+    <Footer />
 </body>
 </html>
