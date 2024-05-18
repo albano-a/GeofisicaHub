@@ -1,53 +1,47 @@
-<p align="center">
-  <img src="assets/img/geofisicahub_white.png">
-</p>
+# Astro Starter Kit: Minimal
 
-----------------------------------------
-<div style="text-align: center;">
-    <strong>A website directed towards geophysics students and professionals.</strong>
-    <br>
-    <a href="geofisicahub.live">Site</a>
-</div>
+```sh
+npm create astro@latest -- --template minimal
+```
 
-## Table of Contents
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
 
-- [Table of Contents](#table-of-contents)
-- [Overview](#overview)
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [How to Use](#how-to-use)
-- [Contribution](#contribution)
-- [License](#license)
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## Overview
+## 🚀 Project Structure
 
-When I enrolled in the Geophysics course after discovering it literally on the day of SISU registrations, I had no clue what Geophysics was. And even today, many people don't know what Geophysics is. This website is an attempt to change that. The website is directed towards geophysics students and professionals, but it can be used by anyone who wants to learn more about Geophysics. It contains study materials, calculators, and links to various databases and articles. The website is still in development, and I plan to add more features in the future. If you want to contribute, feel free to do so.
+Inside of your Astro project, you'll see the following folders and files:
 
-## Features
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-- Access study materials from the top 5 study areas: Geophysics, Geology, Calculus, Physics, and Programming.
-- Access various calculators, from simple ones to calculators for rock physical properties and seismic calculations.
-- Access various links and article databases.
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## Prerequisites
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-None. Just open the website and use it.
+Any static assets, like images, can be placed in the `public/` directory.
 
-## Installation
+## 🧞 Commands
 
-No need to install anything.
+All commands are run from the root of the project, from a terminal:
 
-## How to Use
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-- Access [GeofisicaHub](https://geofisicahub.live/).
-- Navigate through the site and use the available tools.
-- If you encounter any issues, contact through the 'Contact' tab.
+## 👀 Want to learn more?
 
-## Contribution
-
-If you want to contribute to the project, feel free to do so.
-
-## License
-
-MIT License.
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
