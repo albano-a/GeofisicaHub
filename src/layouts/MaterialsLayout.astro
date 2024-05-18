@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 
 const {pageTitle, pageURL, description } = Astro.props;
 ---
-
+i
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,10 +23,15 @@ const {pageTitle, pageURL, description } = Astro.props;
     <Header />
     
     <section class="section">
-        <div class="container is-size-4">
+        <div class="container">
             <div class="content">
-                <slot />
+                <h1 class="is-size-1 has-text-centered has-text-weight-black">
+                    {pageTitle}
+                </h1>
             </div>
+        </div>
+        <div class="content">
+            <slot />
         </div>
     </section>
 </body>

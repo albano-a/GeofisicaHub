@@ -1,0 +1,14 @@
+---
+import MainLayout from "../layouts/MainLayout.astro"
+import ContactForm from "../components/ContactForm"
+const pageTitle = "Contato"
+---
+
+<MainLayout pageTitle={pageTitle}>
+	<p class="is-size-5 has-text-weight-bold has-text-centered">
+        Se você tiver qualquer sugestão ou críticas sobre o GeofisicaHub, sinta-se à vontade para entrar em contato!
+    </p>
+    <ContactForm client:load />
+
+
+</MainLayout>
