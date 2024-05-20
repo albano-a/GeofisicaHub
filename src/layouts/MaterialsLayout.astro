@@ -1,7 +1,6 @@
 ---
 import "../style/geofisico.css";
 import Header from "../components/Header.astro";
-import ExpandableSideBar from "../components/ExpandableSideBar";
 import Footer from "../components/Footer.astro";
 
 const {pageTitle, pageURL, description } = Astro.props;
@@ -37,7 +36,7 @@ const {pageTitle, pageURL, description } = Astro.props;
                 </div>
                 <div class="column is-3">
                     <!-- Create a component that opens and closes -->
-                    <ExpandableSideBar client:load />
+                    
                 </div>
             </div>
         </div>

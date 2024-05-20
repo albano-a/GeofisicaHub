@@ -59,17 +59,17 @@ class Navbar extends Component {
                 <a class="navbar-link">Ferramentas</a>
 
                 <div class="navbar-dropdown">
-                  <h2 class="navbar-item has-text-centered has-text-weight-bold is-size-6">
+                  <h2 class="navbar-item has-text-weight-bold is-size-6">
                     Pesquisa
                   </h2>
                   <Link
-                    class="navbar-item has-text-centered"
+                    class="navbar-item"
                     href="tools/research/articles"
                   >
                     Artigos
                   </Link>
                   <hr class="navbar-divider" />
-                  <h2 class="navbar-item has-text-centered has-text-weight-bold is-size-6">
+                  <h2 class="navbar-item has-text-weight-bold is-size-6">
                     Calculadoras
                   </h2>
                   <Link
@@ -82,7 +82,7 @@ class Navbar extends Component {
                     PetroCalc
                   </Link>
                   <hr class="navbar-divider" />
-                  <h2 class="navbar-item has-text-centered has-text-weight-bold is-size-6">
+                  <h2 class="navbar-item has-text-weight-bold is-size-6">
                     Mais ferramentas
                   </h2>
                   <Link class="navbar-item" href="/tools/other-tools/resources">
