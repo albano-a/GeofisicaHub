@@ -1,17 +1,103 @@
 ---
-import Social from "./Social.astro";
+// import "../style/website.min.css";
+import SmallButton from "./Button";
 ---
 
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      <strong>Geofisica<i class="has-text-primary">Hub</i></strong> by <a
-        href="https://github.com/albano-a"><b>André Albano</b></a
-      >. Me siga nesses locais:
-    </p>
-    <div class="buttons are-medium is-justify-content-center">
-      <Social platform="github" username="albano-a" />
-      <Social platform="linkedin" username="andre-albano" />
+  <div class="container">
+    <div class="content has-text-centered">
+      <h1 class="title">
+        Como apoiar o Geofisica<i class="has-text-primary">Hub</i>
+      </h1>
+      <div class="columns has-text-centered">
+        <div class="column">
+          <p>
+            <strong>Geofisica<i class="has-text-primary">Hub</i></strong> by <a
+              href="https://github.com/albano-a"><b>André Albano</b></a
+            >. Me siga nesses locais:
+          </p>
+          <div class="buttons are-medium is-justify-content-center"></div>
+        </div>
+        <div class="column is-half has-text-center">
+          <p class="is-size-4">Visite o <b>Repositório</b></p>
+          <button class="button is-large is-animated is-danger">
+            <i class="fa-brands fa-github"></i> &nbsp; <span
+              class="has-text-weight-bold">GitHub</span
+            >
+          </button>
+        </div>
+        <div class="column has-text-right">
+          <div class="container has-text-centered">
+            <p class="is-size-4 has-text-weight-bold">Donate</p>
+            <p>
+              <a href="https://www.buymeacoffee.com/andrealbano">
+                <img
+                  src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                  height="40"
+                  width="180"
+                  alt="https://www.buymeacoffee.com/andrealbano"
+                /></a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="columns mt-4">
+        <div class="column has-text-centered is-one-third">
+          <b>GeofisicaHub</b> by <a
+            href="https://albano-dev.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer">André Albano</a
+          >
+          <a
+            href="https://x.com/geof_albano"
+            class="button is-twitter"
+            data-related="onablaerdna:Creator of GeofisicaHub"
+          >
+            <span class="icon"><i class="fab fa-twitter"></i></span>
+            <p>Follow @geof_albano</p>
+          </a>
+        </div>
+
+        <div class="column is-half is-one-third">
+          Source code licensed <a href="https://opensource.org/license/mit"
+            >MIT</a
+          >
+        </div>
+        <div class="column is-one-third">
+          <strong>Share</strong> on social media
+          <div class="buttons are-small is-centered">
+            <SmallButton client:load href="https://twitter.com/share" color="is-dark"
+              >
+              <i class="fab fa-twitter"></i> &nbsp; Twitter
+              </SmallButton
+            >
+            <SmallButton
+              client:load
+              href="https://www.facebook.com/sharer.php?u=https://geofisicahub.live"
+              color="is-dark">
+              <i class="fab fa-facebook"></i> &nbsp; Facebook
+              </SmallButton
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="content has-text-centered"></div>
 </footer>
+
+<style>
+  .is-animated {
+    background-color: hsl(216, 28%, 98%);
+    transition:
+      background-color 294ms,
+      transform 294ms;
+    transform-origin: center;
+  }
+  .is-animated:hover {
+    background-color: hsl(216, 28%, 97%);
+    transform: scale(1.2);
+  }
+</style>

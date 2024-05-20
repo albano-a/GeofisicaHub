@@ -1,15 +1,14 @@
 ---
 import LandingPageLayout from "../layouts/LandingPageLayout.astro"
-
+import SmallButton from "../components/Button"
 
 ---
 
 <LandingPageLayout >
-	
 	<div class="columns is-centered">
 		<div class="column is-full has-text-centered">
 		  <figure class="image is-inline-block">
-			<img src="./assets/img/gifs/earth.gif">
+			<img src="/images/gifs/earth.gif">
 		  </figure>
 		</div>
 	  </div>
@@ -29,9 +28,9 @@ import LandingPageLayout from "../layouts/LandingPageLayout.astro"
 			  por acaso, venha descobrir mais sobre essa ciência fascinante!
 			  Se você é aluno da Geofísica da UFF,&nbsp;<a href="./src/uff.html" style="font-weight: bold">clique aqui!</a>
 			</p>
-			<div class="buttons are-large is-centered mt-5 has-addons">
-			  <a class="button is-rounded is-primary" href="./src/about.html">Saiba mais!</a>
-			  <a class="button is-rounded is-inverted" href="./src/o-que-e-geofisica.html">Geofísica?</a>
+			<div class="buttons are-large is-centered mt-5 ">
+				<SmallButton client:load href="/about/about-site" color="is-primary">Saiba mais!</SmallButton>
+				<SmallButton client:load href="/about/about-geophysics" color="is-primary">Geofísica?</SmallButton>
 			</div>
 		  </div>
 		</div>

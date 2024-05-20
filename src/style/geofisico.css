@@ -48,7 +48,7 @@
   --bulma-scheme-invert-bis-l: 7%;
   --bulma-scheme-invert-l: 4%;
   --bulma-family-primary: "Poppins", sans-serif;
-  --bulma-family-secondary: Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
+  --bulma-family-secondary: "Georgia", serif;
   --bulma-family-code: Inconsolata, Hack, SF Mono, Roboto Mono, Source Code Pro, Ubuntu Mono, monospace;
   --bulma-size-small: 0.75rem;
   --bulma-size-normal: 1rem;
@@ -948,7 +948,7 @@
     --bulma-scheme-invert-bis-l: 7%;
     --bulma-scheme-invert-l: 4%;
     --bulma-family-primary: "Poppins", sans-serif;
-    --bulma-family-secondary: Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
+    --bulma-family-secondary: "Georgia", serif;
     --bulma-family-code: Inconsolata, Hack, SF Mono, Roboto Mono, Source Code Pro, Ubuntu Mono, monospace;
     --bulma-size-small: 0.75rem;
     --bulma-size-normal: 1rem;
@@ -1865,7 +1865,7 @@
   --bulma-scheme-invert-bis-l: 7%;
   --bulma-scheme-invert-l: 4%;
   --bulma-family-primary: "Poppins", sans-serif;
-  --bulma-family-secondary: Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
+  --bulma-family-secondary: "Georgia", serif;
   --bulma-family-code: Inconsolata, Hack, SF Mono, Roboto Mono, Source Code Pro, Ubuntu Mono, monospace;
   --bulma-size-small: 0.75rem;
   --bulma-size-normal: 1rem;
@@ -21923,11 +21923,11 @@ has-background-danger.is-hoverable:active {
 }
 
 .is-family-secondary {
-  font-family: "Inter", "SF Pro", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+  font-family: '"Georgia", serif' !important;
 }
 
 .is-family-sans-serif {
-  font-family: "Inter", "SF Pro", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+  font-family: '"Georgia", serif' !important;
 }
 
 .is-family-monospace {
