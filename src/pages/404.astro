@@ -1,12 +1,13 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro"
-const pageTitle = "404"
-
+import MainLayout from "../layouts/MainLayout.astro";
+const pageTitle = "404";
 ---
 
 <MainLayout pageTitle={pageTitle}>
-	<h1 class="is-size-1 has-text-weight-bold">Olá, Mundo GeofisicaHub!</h1>
-
-
-
+  <div class="content has-text-centered">
+    <h1 class="is-size-2 has-text-weight-bold has-text-centered">
+      Putz, a página que você está procurando não se encontra mais disponível.
+    </h1>
+    <a class="has-text-weight-bold" href="/">Retornar para a página inicial</a>
+  </div>
 </MainLayout>
