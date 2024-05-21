@@ -1,0 +1,1 @@
+import"./hoisted.DZL4CV8D.js";const r=[{id:"geophy",url:"./geophysics"},{id:"geol",url:"./geology"},{id:"calc",url:"./calculus"},{id:"phy",url:"./physics"},{id:"pro",url:"./programming"}];r.forEach(({id:c,url:i})=>{const o=document.querySelector(`#${c}`);o&&o.addEventListener("click",()=>{window.location.href=i})});
