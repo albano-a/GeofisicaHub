@@ -1,0 +1,45 @@
+---
+import MaterialsLayout from "../../layouts/MaterialsLayout.astro";
+import Card from "../../components/Card.astro";
+
+import SmallButton from "../../components/Button";
+---
+
+<MaterialsLayout pageTitle="PROGRAMAÇÃO">
+  <div class="buttons has-addons are-large is-centered">
+    <button class="button" id="geophy">Geofísica</button>
+    <button class="button" id="geol">Geologia</button>
+    <button class="button" id="calc">Cálculo</button>
+    <button class="button" id="phy">Física</button>
+    <button class="button is-primary is-selected" id="pro">Programação </button>
+  </div>
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column is-two-thirds">
+      <p class="has-text-centered is-size-5">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, ad
+        laboriosam asperiores neque labore rem corporis ab id eius est?
+      </p>
+    </div>
+    <div class="column"></div>
+  </div>
+</MaterialsLayout>
+
+<script>
+  const buttons = [
+    { id: "geophy", url: "./geophysics" },
+    { id: "geol", url: "./geology" },
+    { id: "calc", url: "./calculus" },
+    { id: "phy", url: "./physics" },
+    { id: "pro", url: "./programming" },
+  ];
+
+  buttons.forEach(({ id, url }) => {
+    const button = document.querySelector(`#${id}`);
+    if (button) {
+      button.addEventListener("click", () => {
+        window.location.href = url;
+      });
+    }
+  });
+</script>

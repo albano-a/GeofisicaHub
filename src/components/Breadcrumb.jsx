@@ -1,23 +1,24 @@
-import { h } from 'preact';
+import { h } from "preact";
 
 const Breadcrumb = ({ crumbs }) => (
-  <nav aria-label="breadcrumb">
-    <ol>
+  <nav className="breadcrumb" aria-label="breadcrumbs">
+    <ul>
       {crumbs.map((crumb, index) => (
-        <li>
+        <li className={index === crumbs.length - 1 ? "is-active" : ""}>
           <a href={crumb.link}>{crumb.name}</a>
-          {index < crumbs.length - 1 && ' / '}
         </li>
       ))}
-    </ol>
+    </ul>
   </nav>
 );
 
 export default Breadcrumb;
 
 // Use
-{/* <Breadcrumb crumbs={[
+{
+  /* <Breadcrumb crumbs={[
   { name: 'Home', link: '/' },
   { name: 'Page 1', link: '/page1' },
   { name: 'Page 2', link: '/page2' },
-]} /> */}
+]} /> */
+}

@@ -1,17 +1,20 @@
 ---
 import MaterialsLayout from "../../layouts/MaterialsLayout.astro";
+import Card from "../../components/Card.astro";
+
+import SmallButton from "../../components/Button";
 ---
 
 <MaterialsLayout pageTitle="HUB">
-
-    <h1>Hello World</h1>
-    <p class="has-text-justified">Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-        Labore tempora repellendus magnam culpa, beatae officiis quas saepe ab necessitatibus 
-        blanditiis nulla totam, commodi aperiam nesciunt ipsum reiciendis. Iusto tempore cupiditate 
-        fugiat reprehenderit. Eligendi quae quaerat quia adipisci expedita. Consequatur obcaecati eaque 
-        corrupti reiciendis necessitatibus iure, asperiores dignissimos qui. Facilis tempora dolore ratione 
-        sapiente aspernatur cumque iusto, accusamus ipsa sed vero, mollitia totam veritatis. 
-        Dolorum excepturi voluptates animi, ipsa rem, fuga inventore hic autem quasi, consequuntur 
-        necessitatibus laudantium blanditiis ea. Architecto officiis ullam, quod maxime commodi iure ex? 
-        Fuga, doloremque eveniet! Quidem deleniti corporis sapiente, ipsam maiores esse soluta velit. Quis!</p>
+  <div class="buttons has-addons are-large is-centered">
+    <a href="./geophysics"><button class="button">Geofísica</button></a>
+    <a href="./geology"><button class="button">Geologia</button></a>
+    <a href="./calculus"><button class="button">Cálculo</button></a>
+    <a href="./physics"><button class="button">Física</button></a>
+    <a href="./programming"><button class="button">Programação</button></a>
+  </div>
+  <p class="has-text-centered is-size-5">
+    Bom, o site não se chama Geofisica<b>HUB</b> por nada, então nessa página você
+    encontra o HUB onde poderá acessar os materiais de cada página.
+  </p>
 </MaterialsLayout>
