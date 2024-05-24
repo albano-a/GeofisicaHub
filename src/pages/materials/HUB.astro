@@ -7,14 +7,33 @@ import SmallButton from "../../components/Button";
 
 <MaterialsLayout pageTitle="HUB">
   <div class="buttons has-addons are-large is-centered">
-    <a href="./geophysics"><button class="button">Geofísica</button></a>
-    <a href="./geology"><button class="button">Geologia</button></a>
-    <a href="./calculus"><button class="button">Cálculo</button></a>
-    <a href="./physics"><button class="button">Física</button></a>
-    <a href="./programming"><button class="button">Programação</button></a>
+    <button class="button" id="geophy">Geofísica</button>
+    <button class="button" id="geol">Geologia</button>
+    <button class="button" id="calc">Cálculo</button>
+    <button class="button" id="phy">Física</button>
+    <button class="button" id="pro">Programação </button>
   </div>
   <p class="has-text-centered is-size-5">
     Bom, o site não se chama Geofisica<b>HUB</b> por nada, então nessa página você
     encontra o HUB onde poderá acessar os materiais de cada página.
   </p>
 </MaterialsLayout>
+
+<script>
+  const buttons = [
+    { id: "geophy", url: "./geophysics" },
+    { id: "geol", url: "./geology" },
+    { id: "calc", url: "./calculus" },
+    { id: "phy", url: "./physics" },
+    { id: "pro", url: "./programming" },
+  ];
+
+  buttons.forEach(({ id, url }) => {
+    const button = document.querySelector(`#${id}`);
+    if (button) {
+      button.addEventListener("click", () => {
+        window.location.href = url;
+      });
+    }
+  });
+</script>

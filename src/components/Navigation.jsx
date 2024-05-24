@@ -31,11 +31,12 @@ class Navbar extends Component {
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
             </a>
           </div>
 
           <div class={`navbar-menu ${isActive ? "is-active" : ""}`}>
-            <div class="navbar-start">
+            <div class="navbar-end">
               <Link class="navbar-item" href="/">
                 Início
               </Link>
@@ -64,7 +65,7 @@ class Navbar extends Component {
                   </h2>
                   <Link
                     class="navbar-item"
-                    href="tools/research/articles"
+                    href="/tools/research/articles"
                   >
                     Artigos
                   </Link>
@@ -102,22 +103,22 @@ class Navbar extends Component {
               <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">Materiais</a>
                 <div class="navbar-dropdown">
-                  <Link class="navbar-item" href="materials/HUB">
+                  <Link class="navbar-item" href="/materials/HUB">
                     HUB
                   </Link>
-                  <Link class="navbar-item" href="materials/geophysics">
+                  <Link class="navbar-item" href="/materials/geophysics">
                     Geofísica
                   </Link>
-                  <Link class="navbar-item" href="materials/geology">
+                  <Link class="navbar-item" href="/materials/geology">
                     Geologia
                   </Link>
-                  <Link class="navbar-item" href="materials/calculus">
+                  <Link class="navbar-item" href="/materials/calculus">
                     Cálculo
                   </Link>
-                  <Link class="navbar-item" href="materials/physics">
+                  <Link class="navbar-item" href="/materials/physics">
                     Física
                   </Link>
-                  <Link class="navbar-item" href="materials/programming">
+                  <Link class="navbar-item" href="/materials/programming">
                     Programação
                   </Link>
                 </div>
