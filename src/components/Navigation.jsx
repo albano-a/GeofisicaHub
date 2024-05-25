@@ -18,7 +18,7 @@ class Navbar extends Component {
         <div className="container">
           <div class="navbar-brand">
             <a class="navbar-item" href="/">
-              <img src="https://geofisicahub.live/assets/img/logotipo_final.svg" />
+              <img src="/logotipo_final.svg" />
             </a>
 
             <a
@@ -63,10 +63,7 @@ class Navbar extends Component {
                   <h2 class="navbar-item has-text-weight-bold is-size-6">
                     Pesquisa
                   </h2>
-                  <Link
-                    class="navbar-item"
-                    href="/tools/research/articles"
-                  >
+                  <Link class="navbar-item" href="/tools/research/articles">
                     Artigos
                   </Link>
                   <hr class="navbar-divider" />
