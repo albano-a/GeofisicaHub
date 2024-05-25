@@ -1,7 +1,6 @@
 ---
 import MaterialsLayout from "../../layouts/MaterialsLayout.astro";
-
-import Card from "../../components/Card.astro";
+import CardMaterials from "../../components/CardMaterials";
 
 import SmallButton from "../../components/Button";
 ---
@@ -18,9 +17,135 @@ import SmallButton from "../../components/Button";
     <div class="column"></div>
     <div class="column is-two-thirds">
       <p class="has-text-centered is-size-5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, ad
-        laboriosam asperiores neque labore rem corporis ab id eius est?
+        Cálculo é uma fera de outro mundo. Uma das disciplinas mais difíceis de
+        todos os cursos de STEM (Ciência, Tecnologia, Engenharia e Matemática).
+        É a matéria que faz o filho chorar e a mãe não ver. Mas nem tudo está
+        perdido. Os livros abaixo são uma boa fonte de estudos.
       </p>
+      <hr />
+      <h1 class="is-size-2 has-text-weight-bold">
+        Cálculo - Hamilton Guidorizzi (2001)
+      </h1>
+      <div class="columns">
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Um curso de Cálculo - Vol.1"
+            description=`
+            Inequações e Antiderivadas.
+            `
+            href="https://drive.google.com/file/d/1ceJ8_GVSY3PPHTJ7-tRWWbdwhvyHHONI/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F31lTJSnoOPL.jpg&f=1&nofb=1&ipt=51fe2a7861f29d4a5f187ddc145989950b180916d78c30df5ed316bf11d353bd&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Um curso de Cálculo - Vol.2"
+            description=`
+            Inequações e Antiderivadas.
+            `
+            href="https://drive.google.com/file/d/1IYhGxWyrV3ko23Sks64MPFAFNfKD-gZD/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.s-bol.com%2FDB4kpxwAKQB%2F550x776.jpg&f=1&nofb=1&ipt=89587a2b908718ee857a018f4fdcbfd2c909bc11a07c037beb4cbc8528836ee4&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Um curso de Cálculo - Vol.3"
+            description=`
+            Inequações e Antiderivadas.`
+            href="https://drive.google.com/file/d/1GX4fF2QbaCdUNk58PfWuLy19Sg2kMqeM/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F714Pt9pkw0L._SL1500_.jpg&f=1&nofb=1&ipt=442b556b95bedba1fd53cb18ad681b90ec82352bd69dd01e5a8e297cce1a5ee3&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Um curso de Cálculo - Vol.4"
+            description=`
+            Inequações e Antiderivadas.`
+            href="https://drive.google.com/file/d/10SxVU-HTMKprD-VKDz6NZZxz0wwTir0U/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F31ilwYpm0ML.jpg&f=1&nofb=1&ipt=6d2311eca91425f43af59933de6642c902f854ab6dfb3c82fc77cdee6c90bc88&ipo=images"
+          />
+        </div>
+      </div>
+      <h1 class="is-size-2 has-text-weight-bold">
+        Cálculo - James Stewart (2014)
+      </h1>
+      <div class="columns">
+        <div class="column is-one-third">
+          <CardMaterials
+            client:load
+            title="Cálculo - Vol.1"
+            description=`
+            Inequações e Antiderivadas.
+            `
+            href="https://drive.google.com/file/d/1L69Gjjzc0WMc7KmTX3foeouu3n44bl94/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-aU9nJukTRHY%2FVmYv9CD-ivI%2FAAAAAAAABKs%2FXRZN64dAvuk%2Fs1600%2FCalculo%252BVolume%252B1%252B-%252BJames%252BStewart%252B-%252B7%252BEdi%2525C3%2525A7%2525C3%2525A3o.jpg&f=1&nofb=1&ipt=efa0179913784d089e7be1730f45b18e87c48e35cca82d79586153ad7dd90bbc&ipo=images"
+          />
+        </div>
+        <div class="column is-one-third">
+          <CardMaterials
+            client:load
+            title="Cálculo - Vol.2"
+            description=`
+            Inequações e Antiderivadas.
+            `
+            href="https://drive.google.com/file/d/1a7d5x3F7IIKkFJ4ZZl18BzAe0hx4mXCN/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-OfEJ19cabZ0%2FVmYxYcOtRLI%2FAAAAAAAABK4%2FHBZ1u2qtL3c%2Fs1600%2FCalculo%252BVolume%252B2%252B-%252BJames%252BStewart%252B-%252B7%252BEdi%2525C3%2525A7%2525C3%2525A3o.jpg&f=1&nofb=1&ipt=cc3cc9298ef0f3930c325b882d01b8b4598da09559a553e752644e4061b44dcd&ipo=images"
+          />
+        </div>
+      </div>
+      <h1 class="is-size-2 has-text-weight-bold">
+        Cálculo e Álgebra Linear - Wilfred Kaplan (1972)
+      </h1>
+      <div class="columns">
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Cálculo e álgebra linear - Vol.1"
+            description=`
+            Inequações e Antiderivadas.
+            `
+            href="https://drive.google.com/file/d/1-aRs7Vb07Q_c2Py6IvzwVfdOrNWSmEkj/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.traca.com.br%2Fcapas%2F970%2F970844.jpg&f=1&nofb=1&ipt=05973b606416a35b1442bd9fdbfd90965272a4466562b1ff4f6da5b569b92bd9&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Cálculo e álgebra linear - Vol.2"
+            description=`
+            Inequações e Antiderivadas.
+            `
+            href="https://drive.google.com/file/d/1aNGzpcOLAoJTN5kixoE58sblJAKv0pS_/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.traca.com.br%2Fcapas%2F1512%2F1512939.jpg&f=1&nofb=1&ipt=272eaf64f77a7b9f805a9f0cc392e7afe28b4a15b2e7528fec09049d3c3c83b0&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Cálculo e álgebra linear - Vol.3"
+            description=`
+            Inequações e Antiderivadas.
+            `
+            href="https://drive.google.com/file/d/1gSK0hSbf_gjAbcQaWq-4vvWs3oLD_Rhd/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.traca.com.br%2Fcapas%2F623%2F623082.jpg&f=1&nofb=1&ipt=eda9c2d2b548085961e1177dcc4594bd84943edd10461a9f216d863450b45ea0&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Cálculo e álgebra linear - Vol.4"
+            description=`
+            Inequações e Antiderivadas.
+            `
+            href="https://drive.google.com/file/d/12EINsT-50LbSsTFxr1R8ZFYFYg1-RMiW/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.traca.com.br%2Fcapas%2F1452%2F1452591_mini.jpg&f=1&nofb=1&ipt=4e30335257096d21fde7a2e46d6407c6b68a0b3f3b4783af1abe40b2bbaebeab&ipo=images"
+          />
+        </div>
+      </div>
     </div>
     <div class="column"></div>
   </div>
