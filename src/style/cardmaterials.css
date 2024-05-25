@@ -1,0 +1,21 @@
+.custom-card {
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-card:hover {
+  transform: scale(1.05);
+}
+
+.a-placeholder {
+  color: #d7d7d7;
+}
+
+.custom-footer {
+  background-color: hsl(204, 84%, 10%);
+  transition: all 0.3s ease-in-out;
+}
+.custom-footer:hover {
+  background-color: hsl(204, 84%, 20%);
+}
+
+
