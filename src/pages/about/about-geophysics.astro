@@ -230,11 +230,11 @@ import SmallButton from "../../components/Button";
           </figure>
         </div>
         <div class="column has-text-left">
-          <div class="box custom-box">
+          <div class="box has-text-weight-bold custom-box has-background-black">
             <ol type="I">
               <li><a href="#oqueegeofisica">O que é Geofísica?</a></li>
               <hr />
-              <li><a href="#aplicacoes">Quais são as aplicações?</a></li>
+              <li><a href="#aplicacoes">Quais as aplicações?</a></li>
               <hr />
               <li>
                 <a href="#universidades"
@@ -278,19 +278,23 @@ import SmallButton from "../../components/Button";
   window.addEventListener("DOMContentLoaded", (event) => {
     const btn = document.getElementById("returnTop");
 
-    btn.addEventListener("click", function () {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
+    if (btn != null) {
+      btn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       });
-    });
+    }
 
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 300) {
-        btn.style.display = "block";
-      } else {
-        btn.style.display = "none";
-      }
-    });
+    if (btn != null) {
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+          btn.style.display = "block";
+        } else {
+          btn.style.display = "none";
+        }
+      });
+    }
   });
 </script>

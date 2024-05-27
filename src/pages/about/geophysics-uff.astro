@@ -1,0 +1,101 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import SmallButton from "../../components/Button";
+import GenderChart from "../../components/Genre";
+import AgeChart from "../../components/Age";
+---
+
+<MainLayout pageTitle="Geofísica UFF">
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column is-three-quarters">
+      <p class="is-size-5 has-text-justified">
+        Se você é estudante da UFF, bem-vindo a área do site focada em qualquer
+        assunto envolvendo o curso de Geofísica. Essa parte serve como um acesso
+        rápido aos principais serviços da UFF e da Geofísica UFF. Aproveite! Ah,
+        e se você for de outro universidade, e quiser que os links para as
+        páginas do seu curso de Geofísica estejam aqui, é só entrar em contato e
+        me enviar os links que eu adiciono aqui.
+      </p>
+      <h2 class="is-size-3 has-text-weight-bold has-text-centered">Área UFF</h2>
+      <hr />
+      <div class="columns">
+        <div class="column">
+          <a
+            href="https://www.geofisica.uff.br/"
+            class="button is-fullwidth is-primary"
+          >
+            Geofísica UFF
+          </a>
+        </div>
+        <div class="column">
+          <a href="https://www.uff.br/" class="button is-fullwidth is-primary">
+            UFF
+          </a>
+        </div>
+        <div class="column">
+          <a
+            href="https://drive.google.com/file/d/1bVYZkjQqAkxsr2ffqhNYbWWKvveJwZt3/view?usp=drive_link"
+            class="button is-fullwidth is-primary"
+          >
+            Grade Horária
+          </a>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <a
+            href="https://www.uff.br/sites/default/files/paginas-internas-orgaos/bs_calendarios.pdf"
+            class="button is-fullwidth is-primary"
+          >
+            Calendário UFF 2024
+          </a>
+        </div>
+        <div class="column">
+          <a
+            href="https://www.geofisica.uff.br/sites/default/files/downloads/aac.pdf"
+            class="button is-fullwidth is-primary"
+          >
+            Atividades Complementares
+          </a>
+        </div>
+      </div>
+      <hr />
+
+      <h2 class="is-size-3 has-text-weight-bold has-text-centered">
+        Algumas informações
+      </h2>
+      <div class="columns has-text-centered">
+        <div class="column">
+          <div class="card has-background-black">
+            <div class="card-content">
+              <h1 class="title mb-2">Nota de Corte</h1>
+              <p class="subtitle">664.41</p>
+              <p class="is-size-6">Informações atualizadas em 5/2024</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card has-background-black">
+            <div class="card-content">
+              <h1 class="title mb-2">Número de Alunos Ativos</h1>
+              <p class="subtitle">~200 pessoas</p>
+              <p class="is-size-6">Informações atualizadas em 5/2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns has-text-centered">
+        <div class="column">
+          <h1 class="title mb-2">Relação de Gênero</h1>
+          <GenderChart client:load />
+        </div>
+        <div class="column">
+          <h1 class="title mb-2">Relação de Idade</h1>
+          <AgeChart client:load />
+        </div>
+      </div>
+    </div>
+    <div class="column"></div>
+  </div>
+</MainLayout>
