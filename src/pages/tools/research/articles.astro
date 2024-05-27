@@ -1,0 +1,46 @@
+---
+import CardResearch from "../../../components/CardResearch";
+import MainLayout from "../../../layouts/MainLayout.astro";
+---
+
+<MainLayout pageTitle="Pesquisa">
+  <p class="is-size-5 has-text-centered">
+    Nesta página você poderá acessar vários tipos diferentes de artigos,
+    pesquisas, dissertações, teses, revistas e etc.
+  </p>
+  <div class="columns">
+    <div class="column">
+      <CardResearch
+        client:load
+        title="Artigos"
+        description=`
+                    Na seção de artigos, você encontrará os últimos artigos publicados sobre Geofísica, de todas as áreas.
+                        `
+        href="/tools/research/articles-site"
+        imgSrc="/public/images/articles/artigos.jpg"
+      />
+    </div>
+    <div class="column">
+      <CardResearch
+        client:load
+        title="Congresso"
+        description=`
+            Links para os principais congressos e eventos brasileiros de Geofísica. (EM CONSTRUÇÃO)
+            `
+        href="/tools/research/congress"
+        imgSrc="/public/images/articles/congresso.jpg"
+      />
+    </div>
+    <div class="column">
+      <CardResearch
+        client:load
+        title="Materiais Didáticos"
+        description=`
+            Na seção de materiais didáticos, você encontrará as principais referências de cada área dentro da Geofísica. 
+            `
+        href="/materials/HUB"
+        imgSrc="/public/images/articles/monografias.jpg"
+      />
+    </div>
+  </div>
+</MainLayout>
