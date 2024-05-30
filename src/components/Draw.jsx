@@ -1,79 +1,115 @@
-import { h, Component } from "preact";
+import { h } from "preact";
+import { useState } from "preact/hooks";
+import "bulma/css/bulma.min.css";
 
+const Sorteios = () => {
+  const [fileContent, setFileContent] = useState("");
+  const [numOfPeople, setNumOfPeople] = useState(1);
+  const [nameResult, setNameResult] = useState("");
+  const [countdown, setCountdown] = useState(false);
 
-class Draw extends Component {
-  state = {
-    file: null,
-    names: '',
-    numNames: 0,
-    countdown: 5
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setFileContent(e.target.result);
+      };
+      reader.readAsText(file);
+    }
   };
 
-  handleFileChange = (e) => {
-    this.setState({ file: e.target.files[0] });
+  const generateName = () => {
+    const names = fileContent
+      .split(",")
+      .map((name) => name.trim())
+      .filter((name) => name !== "");
+    selectRandomNames(names, numOfPeople);
   };
 
-  handleNamesChange = (e) => {
-    this.setState({ names: e.target.value });
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   };
 
-  handleNumNamesChange = (e) => {
-    this.setState({ numNames: e.target.value });
+  const selectRandomNames = (names, numOfPeople) => {
+    shuffleArray(names);
+    const selectedNames = names.slice(0, numOfPeople);
+    if (countdown) {
+      let countdownValue = 5;
+      setNameResult(countdownValue);
+      const countdownInterval = setInterval(() => {
+        countdownValue--;
+        if (countdownValue >= 0) {
+          setNameResult(countdownValue);
+        } else {
+          clearInterval(countdownInterval);
+          setNameResult(selectedNames.join(", "));
+        }
+      }, 1000);
+    } else {
+      setNameResult(selectedNames.join(", "));
+    }
   };
 
-  handleCountdownChange = (e) => {
-    this.setState({ countdown: e.target.value });
-  };
-
-  handleDraw = () => {
-    // Implement the draw functionality here
-  };
-
-  render() {
-    return (
-      <div class="container">
-        <div class="field">
-          <div class="file is-info">
-            <label class="file-label">
-              <input
-                class="file-input"
-                type="file"
-                name="resume"
-                accept=".txt,.csv"
-                onChange={this.handleFileChange}
-              />
-              <span class="file-cta">
-                <span class="file-icon">
-                  <i class="fas fa-upload"></i>
-                </span>
-                <span class="file-label">Choose a file…</span>
-              </span>
-            </label>
-          </div>
-        </div>
-        <div class="field">
-          <textarea class="textarea" placeholder="Add names here" onChange={this.handleNamesChange}></textarea>
-        </div>
-        <div class="field">
-          <label class="label">How many names would you like to draw?</label>
-          <input class="input" type="number" placeholder="Number of names" onChange={this.handleNumNamesChange} />
-        </div>
-        <div class="field">
-          <label class="label">Countdown option</label>
-          <div class="select">
-            <select onChange={this.handleCountdownChange}>
-              <option>5</option>
-              <option>10</option>
-              <option>15</option>
-            </select>
-          </div>
-        </div>
-        <div class="field">
-          <button class="button is-primary" onClick={this.handleDraw}>Draw</button>
+  return (
+    <div class="container">
+      <div class="field">
+        <label class="label">Arquivo de nomes</label>
+        <div class="control">
+          <input class="input" type="file" onChange={handleFileChange} />
         </div>
       </div>
-    );
-  }
-}
+      <div class="field">
+        <label class="label">Número de pessoas</label>
+        <div class="control">
+          <input
+            class="input"
+            type="number"
+            value={numOfPeople}
+            onInput={(e) => setNumOfPeople(e.target.value)}
+          />
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input
+              type="checkbox"
+              checked={countdown}
+              onChange={(e) => setCountdown(e.target.checked)}
+            />
+            Contagem regressiva
+          </label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary" onClick={generateName}>
+            Gerar Nome
+          </button>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <textarea class="textarea" readOnly value={fileContent}></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <div
+            class="box"
+            id="nameResult"
+            style={{ fontSize: countdown ? "3em" : "initial" }}
+          >
+            {nameResult}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Draw;
+export default Sorteios;
