@@ -3,15 +3,18 @@ import "../style/geofisico.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
+import HeadInformation from "../components/HeadInformation.astro";
 
-const { pageTitle, pageName, urlBread } = Astro.props;
+const { pageTitle, pageName, urlBread, pageUrl, pageDescription } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <HeadInformation
+      pageTitle={pageTitle}
+      pageDescription={pageDescription}
+      pageUrl={pageUrl}
+    />
     <title>{pageTitle} - GeofisicaHub</title>
     <ViewTransitions />
 

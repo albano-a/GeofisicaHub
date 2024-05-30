@@ -1,6 +1,48 @@
 ---
-
-
+const { pageTitle, pageUrl, pageDescription } = Astro.props;
 ---
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+/>
+<link rel="canonical" href={pageUrl} />
+<meta property="og:url" content={pageUrl} />
+<meta property="og:image" content="logotipo_final.svg" />
+<meta name="twitter:description" content={pageDescription} />
+<meta name="twitter:image" content="/images/plataforma-petroleo.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:type" content="website" />
+<meta name="twitter:title" content=`${pageTitle} - Tudo sobre Geofísica` />
+<meta name="description" content={pageDescription} />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "GeofísicaHub",
+    "url": "https://geofisicahub.live/"
+  }
+</script>
+<link rel="icon" type="image/svg+xml" sizes="124x126" href="/Geo.svg" />
+<link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L9JMPD2F5G"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-L9JMPD2F5G");
+</script>
+
+<link
+  rel="stylesheet"
+  href="https://s.pageclip.co/v1/pageclip.css"
+  media="screen"
+/>
+<script src="https://kit.fontawesome.com/61000256a0.js" crossorigin="anonymous"
+></script>

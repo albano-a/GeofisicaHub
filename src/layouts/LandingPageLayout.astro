@@ -2,39 +2,37 @@
 import "../style/geofisico.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import HeadInformation from "../components/HeadInformation.astro";
 
-
-const favicon = "/Geo.svg"
-const {pageTitle, pageURL, description } = Astro.props;
+const favicon = "/Geo.svg";
+const { pageTitle, pageUrl, pageDescription } = Astro.props;
 ---
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href={favicon} type="image/svg+xml" />
-    
-    <title>{pageTitle}</title>
-
+  <head>
+    <HeadInformation
+      pageTitle={pageTitle}
+      pageDescription={pageDescription}
+      pageUrl={pageUrl}
+    />
+    <title>{pageTitle} - Tudo sobre Geofísica!</title>
 
     <script
       is:inline
       src="https://kit.fontawesome.com/61000256a0.js"
-      crossorigin="anonymous"
-    ></script>
-</head>
-<body>
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
     <Header />
-    
+
     <section class="section">
-        
-        <div class="container is-size-4">
-            <div class="content">
-                <slot />
-            </div>
+      <div class="container is-size-4">
+        <div class="content">
+          <slot />
         </div>
+      </div>
     </section>
 
     <Footer />
-</body>
+  </body>
 </html>
