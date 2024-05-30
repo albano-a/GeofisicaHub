@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 
+const favicon = "/Geo.svg"
 const {pageTitle, pageURL, description } = Astro.props;
 ---
 
@@ -11,6 +12,7 @@ const {pageTitle, pageURL, description } = Astro.props;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href={favicon} type="image/svg+xml" />
     
     <title>{pageTitle}</title>
 
