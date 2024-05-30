@@ -4,7 +4,7 @@ import "../style/cardmaterials.css";
 
 class CardResearch extends Component {
   render() {
-    const { title, description, href, imgSrc } = this.props;
+    const { title, description, href } = this.props;
 
     return (
       <div className="card custom-card">
@@ -14,14 +14,9 @@ class CardResearch extends Component {
           href={href}
           rel="noopener noreferrer"
         >
-          <div className="card-image">
-            <figure className="image">
-              <img src={imgSrc} alt={title} />
-            </figure>
-          </div>
           <div className="card-content">
-            <h1 className="title has-text-centered">{title}</h1>
-            <p className="is-size-5 has-text-centered">{description}</p>
+            <h1 className="title has-text-left">{title}</h1>
+            <p className="is-size-5 has-text-justified">{description}</p>
           </div>
           <footer className="card-footer custom-footer">
             <Link
