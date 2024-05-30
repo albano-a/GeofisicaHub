@@ -1,0 +1,39 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+let num1 = 88;
+let num2 = 80;
+let array = "1,2,3,3,5";
+let sum, arr, errorMessage;
+
+try {
+  const response = await fetch(
+    `http://localhost:3000/sum?num1=${num1}&num2=${num2}`
+  );
+  const response1 = await fetch(`http://localhost:3000/array?arr=${array}`);
+
+  if (!response.ok || !response1.ok) {
+    throw new Error("The server is offline");
+  }
+
+  sum = await response.text();
+  arr = await response1.text();
+} catch (error) {
+  errorMessage = "The server is offline"
+  console.error(errorMessage);
+}
+---
+
+<MainLayout pageTitle="Server Capabilities">
+  <div class="is-size-2 has-text-centered">
+    {
+      sum && (
+        <div>
+          The sum of {num1} and {num2} is {sum}.
+        </div>
+      )
+    }
+    {arr && <div>The array is {arr}</div>}
+    {errorMessage && <div class="has-text-danger">{errorMessage}</div>}
+  </div>
+</MainLayout>

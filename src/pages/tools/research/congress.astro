@@ -1,0 +1,78 @@
+---
+import CardResearch from "../../../components/CardResearch";
+import MainLayout from "../../../layouts/MainLayout.astro";
+
+const currentYear = new Date().getFullYear();
+const previousYear = currentYear - 1;
+
+const congressoInternacional = "https://sbgf.org.br/congresso/";
+const simposiosbgf = "https://sbgf.org.br/xsimposio/index.php";
+const eageannual = "https://eageannual.org/";
+const eagepresalt =
+  "https://eage.eventsair.com/fourth-eage-conference-on-pre-salt-reservoir";
+---
+
+<MainLayout pageTitle="Congressos">
+  <p class="is-size-4 has-text-justified">
+    Nessa página você encontrará regularmente links para os principais
+    congressos da Geofísica. Como todo ano os links normalmente mudam, essa
+    página estará em constante evolução.
+  </p>
+  <div class="box custom-box">
+    <dl class="is-size-4">
+      <dt class="title">
+        Congresso Internacional da Sociedade Brasileira de Geofísica
+      </dt>
+      <dd class="is-size-5">
+        A última edição ({previousYear}) foi a 18ª edição, que ocorreu no Rio de
+        Janeiro.<br />
+        <a href={congressoInternacional}>Veja mais informações aqui</a>
+      </dd>
+    </dl>
+  </div>
+  <div class="box custom-box">
+    <dl class="is-size-4">
+      <dt class="title">Simpósio da Sociedade Brasileira de Geofísica</dt>
+      <dd class="is-size-5">
+        A edição desse ano ({currentYear}) é a décima edição e será sediada em
+        Salvador, na Bahia.<br />
+        <a href={simposiosbgf}>Veja mais informações aqui</a>
+      </dd>
+    </dl>
+  </div>
+  <div class="box custom-box">
+    <dl class="is-size-4">
+      <dt class="title">EAGE Annual</dt>
+      <dd class="is-size-5">
+        Evento anual da EAGE (European Association of Geoscientists and
+        Engineers) que ocorre em um local da Europa diferente. Esse ano ({
+          currentYear
+        }) é em Oslo, na Noruega.<br />
+        <a href={eageannual}>Veja mais informações aqui</a>
+      </dd>
+    </dl>
+  </div>
+  <div class="box custom-box">
+    <dl class="is-size-4">
+      <dt class="title">EAGE Conference on Presalt Reservoir</dt>
+      <dd class="is-size-5">
+        A edição desse ano ({currentYear}) será sediada no Rio de Janeiro e terá
+        a parceria da SBGf<br />
+        <a href={eagepresalt}>Veja mais informações aqui</a>
+      </dd>
+    </dl>
+  </div>
+</MainLayout>
+
+<style>
+  .custom-box {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #14161a;
+  }
+
+  .custom-box:hover {
+    transform: translateY(-10px) scale(1);
+    border: 1px solid #1077bc;
+    box-shadow: 0 0.5em 1em -0.125em #0a4974; /* Adjust as needed */
+  }
+</style>
