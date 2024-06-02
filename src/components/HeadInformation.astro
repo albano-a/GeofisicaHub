@@ -44,10 +44,12 @@ const { pageTitle, pageUrl, pageDescription } = Astro.props;
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9JMPD2F5G"
 ></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
+  (window as any).dataLayer = (window as any).dataLayer || [];
+
+  function gtag(...args: any[]) {
+    (window as any).dataLayer.push(args);
   }
+
   gtag("js", new Date());
   gtag("config", "G-L9JMPD2F5G");
 </script>
