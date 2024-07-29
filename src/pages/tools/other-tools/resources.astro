@@ -1,75 +1,10 @@
 ---
-// TODO: FINISH THIS PAGE!!!
 import MainLayout from "../../../layouts/MainLayout.astro";
+import ResourcesTab from "../../../components/ResourcesTab";
 
 const title = "Recursos";
-const siteLinks = [
-  {
-    href: "http://www.sbgf.org.br/",
-    title: "Sociedade Brasileira de Geofísica - SBGf",
-    description: "Maior sociedade de Geofísica da América Latina.",
-  },
-  {
-    href: "https://geosgb.sgb.gov.br/",
-    title: "GeoSBG - Serviço Geológico do Brasil",
-    description:
-      "Site que possui diversos dados, informações e produtos do Serviço Geológico Brasileiro.",
-  },
-  {
-    href: "https://www.sgb.gov.br/",
-    title: "Companhia de Pesquisa de Recursos Minerais (CPRM)",
-  },
-  {
-    href: "https://seg.org/",
-    title: "Society of Exploration Geophysicists (SEG)",
-    description: "Uma das maiores sociedades de Geofísica do mundo.",
-  },
-  {
-    href: "https://pubs.geoscienceworld.org/",
-    title: "GeoScienceWorld",
-    description: "Site de Publicações Geofísicas",
-  },
-  {
-    href: "http://icgem.gfz-potsdam.de/home",
-    title: "International Centre for Global Earth Models (ICGEM)",
-    description:
-      "Centro internacional que fornece modelos globais da Terra, especialmente modelos gravitacionais e magnéticos, para apoiar pesquisas em geociências e disciplinas relacionadas.",
-  },
-  {
-    href: "https://museuhe.com.br/",
-    title: "Museu de Minerais, Minérios e Rochas Heinz Ebert",
-    description:
-      "Museu que possui diversas informações sobre centenas de minerais.",
-  },
-];
 ---
 
 <MainLayout pageTitle={title}>
-  <p class="is-size-5 has-text-justified">
-    Aqui você encontra diversos recursos para auxiliar nos estudos e pesquisas
-    em Geofísica.
-  </p>
-  <div class="columns has-text-centered">
-    <div class="column"></div>
-    <div class="column is-three-quarters">
-      <div class="box">
-        <h1 class="is-size-3 has-text-wight-bold has-text-primary">
-          <i class="fa-solid fa-globe"></i>Sites
-        </h1>
-        <ul class="is-size-6 has-text-justified px-6 mx-1">
-          {
-            siteLinks.map((link) => (
-              <li>
-                <a href={link.href}>
-                  <b>{link.title}</b>
-                </a>
-                {link.description ? ` - ${link.description}` : ""}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-    <div class="column"></div>
-  </div>
+  <ResourcesTab client:load />
 </MainLayout>
