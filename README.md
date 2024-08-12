@@ -1,13 +1,9 @@
 <p align="center">
-  <img src="assets/img/geofisicahub_white.png">
+    <img src="https://geofisicahub.live/assets/img/logotipo_final.svg" alt="">
 </p>
 
-----------------------------------------
-<div style="text-align: center;">
-    <strong>A website directed towards geophysics students and professionals.</strong>
-    <br>
-    <a href="geofisicahub.live">Site</a>
-</div>
+This is the repository that holds all the source code of GeofisicaHub, a website directed towards Geophysics students and
+professionals. [Access](https://geofisicahub.live/)
 
 ## Table of Contents
 
@@ -42,11 +38,11 @@ No need to install anything.
 
 - Access [GeofisicaHub](https://geofisicahub.live/).
 - Navigate through the site and use the available tools.
-- If you encounter any issues, contact through the 'Contact' tab.
+- If you encounter any issues, contact me through the 'Contact' tab.
 
 ## Contribution
 
-If you want to contribute to the project, feel free to do so.
+If you want to contribute to the project, feel free to do so opening a pull request.
 
 ## License
 

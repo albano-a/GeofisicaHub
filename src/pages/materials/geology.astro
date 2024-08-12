@@ -1,0 +1,131 @@
+---
+import MaterialsLayout from "../../layouts/MaterialsLayout.astro";
+import CardMaterials from "../../components/CardMaterials";
+
+import SmallButton from "../../components/Button";
+---
+
+<MaterialsLayout
+  pageTitle="GEOLOGIA"
+  pageUrl="https://geofisicahub.live/materials/geology"
+  pageDescription="Materiais de Geologia - GeofisicaHub"
+>
+  <div class="buttons has-addons are-large is-centered">
+    <button class="button" id="geophy">Geofísica</button>
+    <button class="button is-primary is-selected" id="geol">Geologia</button>
+    <button class="button" id="calc">Cálculo</button>
+    <button class="button" id="phy">Física</button>
+    <button class="button" id="pro">Programação </button>
+  </div>
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column is-two-thirds">
+      <p class="has-text-justified is-size-5">
+        Geologia é uma das partes mais importantes da Geofísica. A Geofísica
+        nasceu como uma área da Geologia, e depois, com o avanço da tecnologia,
+        se tornou ciência. É importante saber alguns conceitos geológicos se
+        você quiser ser um bom profissional em Geofísica. Abaixo, se encontram
+        os principais livros de Geologia, Sedimentologia, Mineralogia,
+        Estratigrafia, entre outros.
+      </p>
+      <hr />
+      <div class="columns">
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Para entender a Terra - Press, Siever, Grotzinger e Jordan (2006)"
+            description=`
+            Um dos livros mais importantes para a Geofísica (e Geologia)
+            `
+            href="https://edisciplinas.usp.br/pluginfile.php/7296004/mod_resource/content/1/Para%20Entender%20a%20TerraPara%20Entender%20a%20Terra.pdf"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.rgstatic.net%2Fpublication%2F283349728_Para_Entender_a_Terra_By_Press_Siever_Grotzinger_Jordan_-_4ed_Traducao%2Flinks%2F5636208b08aeb786b703ee97%2Flargepreview.png&f=1&nofb=1&ipt=c75da2d56f4d1452dc128f9604175b2baf3b85678d674bc7b63fa38be6fe5991&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Sedimentology and Stratigraphy - Gary Nichols (1999)"
+            description=`
+            Recurso essencial para compreender estratigrafia. 
+            `
+            href="https://drive.google.com/file/d/15IIcz-GuzmNVUlaWUxOVTGcTHL10DncI/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F61LHkluRG0L.jpg&f=1&nofb=1&ipt=3fde135f1e5d9a64e4f90edd79e791e3bfe762be3f336c3e6441779c9509b091&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Tectônica Global - Philip Kearey (2014)"
+            description=`
+            Fundamental para entender Geologia Estrutural.`
+            href="https://drive.google.com/file/d/1DjUqGE6liurD4zrmy1VKn3mQWdJ05s5f/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdl4326nmjp5rc.cloudfront.net%2FCustom%2FContent%2FProducts%2F98%2F86%2F988678_tectonica-global-ebook_l3_636846538973641473.jpg&f=1&nofb=1&ipt=a59157ccc51ddd8a72b37d12a059af1943170988ad59635a2d615bb9921f1edc&ipo=images"
+          />
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Well Logging for Earth Scientists - Darwin V. Ellis e Julian M. Singer (2007)"
+            description=`
+            Importante para o entender perfis geofísicos.
+            `
+            href="https://drive.google.com/file/d/1KUa6KlhgyQnqYgaoItXxNd3crnXCXOiO/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmediacdn.nhbs.com%2Fjackets%2Fjackets_resizer_xlarge%2F16%2F165856.jpg&f=1&nofb=1&ipt=0425bdf30f3ea068ef01ff819211c0e9a59b76d5923e17902da8724548df921b&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Manual de Ciência dos Minerais - Klein & Dutrow (2012)"
+            description=`
+            Importante para a mineralogia dos materiais. 
+            `
+            href="https://drive.google.com/file/d/1BASBGP2Qe-XUFg5HfhopDS9znV_SXt_M/view?usp=drive_linkk"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimgv2-2-f.scribdassets.com%2Fimg%2Fdocument%2F560204032%2Foriginal%2F7aba936fd5%2F1688616166%3Fv%3D1&f=1&nofb=1&ipt=d16308fd4fc54616a4983265042e9ae00896e71132aa3b7b730bb4436cb8b230&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Principles of Sequence Stratigraphy - Octavian Catuneanu (2006)"
+            description=`
+            Também sobre sequências estratigráficas.`
+            href="https://drive.google.com/file/d/1qZW5z4Ue0eKrS7gQmBbt5nhdeDDGUwLa/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd16jkos453if22.cloudfront.net%2F9780444515681.jpg&f=1&nofb=1&ipt=01b03ab9e44e8d7f89ca6f222f3c318f0db7c6f0ead556239076605b1e99f432&ipo=images"
+          />
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-one-third">
+          <CardMaterials
+            client:load
+            title="Sedimentary Petrology: An Intro. to the Origin of Sedimentary Rocks - Maurice E. Tucker (2001)"
+            description=`
+            Livro importante para a Petrologia.
+            `
+            href="https://drive.google.com/file/d/1qZW5z4Ue0eKrS7gQmBbt5nhdeDDGUwLa/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.standardsmedia.com%2Fbook_images%2F4917_9788126532995.jpg&f=1&nofb=1&ipt=9e9a155be383a93cf71ec79ba319b82779df7a76d7106a995f9695d9a08f8a44&ipo=images"
+          />
+        </div>
+        <div class="column is-one-third">
+          <CardMaterials
+            client:load
+            title="Geologia Sedimentar - Kenitiro Suguio (1998)"
+            description=`
+            Tipos de rochas, geologias e etc. 
+            `
+            href="https://drive.google.com/file/d/1qZW5z4Ue0eKrS7gQmBbt5nhdeDDGUwLa/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstaticbv.am4.com.br%2Fpublicacoes%2F172603%2Fthumbs%2Fthumbnail_397_x_595.jpg&f=1&nofb=1&ipt=05dc184b211ec9799ce879c88613b6707e5db264bac576ee5dfa0312aa912670&ipo=images"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="column"></div>
+  </div>
+</MaterialsLayout>
+
+<script>
+  import "../../scripts/hubnavigation.js";
+</script>

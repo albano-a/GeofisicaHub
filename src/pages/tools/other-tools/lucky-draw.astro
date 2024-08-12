@@ -1,0 +1,201 @@
+---
+import Sorteios from "../../../components/Draw";
+import MainLayout from "../../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  pageTitle="Sorteio"
+  pageUrl="https://geofisicahub.live/tools/other-tools/lucky-draw"
+  pageDescription="Realize sorteios de nomes aqui!"
+>
+  <div class="container has-text-centered">
+    <p class="is-size-4">
+      Esta página tem como objetivo fornecer uma ferramenta que facilitar a
+      realização de sorteios.
+    </p>
+    <p class="is-size-4 mt-6 mb-3">
+      Realize o upload de um arquivo .txt ou insira os nomes na caixa de texto
+      abaixo (Os nomes precisam ser separados por vírgula):
+    </p>
+    <div class="columns">
+      <div class="column"></div>
+      <div class="column is-half">
+        <span
+          class="has-text-centerd is-size-3 my-5 has-text-weight-bold"
+          id="nameResult"></span>
+
+        <div class="file has-name is-fullwidth">
+          <label for="file-upload" class="file-label">
+            <input type="file" class="file-input" id="file-upload" hidden="" />
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">Escolha um arquivo...</span>
+            </span>
+            <span class="file-name" id="filename"></span>
+          </label>
+        </div>
+
+        <button class="button block" id="clean">Limpar upload</button>
+
+        <div class="field">
+          <label class="label is-size-5" for="textarea"
+            >Ou escreva os nomes abaixo:</label
+          >
+          <div class="control">
+            <textarea
+              class="textarea"
+              id="textarea"
+              placeholder="Insira os nomes aqui..."></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label is-size-5" for="numOfPeople"
+            >Número de pessoas a serem sorteadas:</label
+          >
+          <div class="control has-text-centered">
+            <input
+              class="input"
+              type="number"
+              id="numOfPeople"
+              min="1"
+              placeholder="Insira um valor..."
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <input
+            type="checkbox"
+            name="countDownCheckBox"
+            id="cdowncheck"
+            class="is-checkradio"
+          />
+          <label class="has-text-weight-bold is-size-5" for="cdowncheck"
+            >Contagem regressiva?</label
+          >
+        </div>
+        <button class="button is-link my-5" id="generateName" type="button">
+          Clique aqui para sortear!
+        </button>
+      </div>
+      <div class="column"></div>
+    </div>
+  </div>
+</MainLayout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const generateButton = document.querySelector(
+      "#generateName"
+    ) as HTMLButtonElement;
+    generateButton.addEventListener("click", generateName);
+
+    const fileInput = document.querySelector(
+      'input[type="file"]'
+    ) as HTMLInputElement;
+    fileInput.addEventListener("change", function () {
+      if (fileInput.files && fileInput.files.length > 0) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const content = e.target?.result as string;
+          const textarea = document.querySelector(
+            "textarea"
+          ) as HTMLTextAreaElement;
+          textarea.value = content; // Update the textarea with the file content
+        };
+        reader.readAsText(fileInput.files[0]);
+
+        const filenameElement = document.querySelector(
+          "#filename"
+        ) as HTMLElement;
+        filenameElement.textContent = fileInput.files[0].name;
+      }
+    });
+
+    const clearButton = document.querySelector("#clean") as HTMLButtonElement;
+    clearButton.addEventListener("click", function () {
+      fileInput.value = ""; // Clear the file input
+      const filenameElement = document.querySelector(
+        "#filename"
+      ) as HTMLElement;
+      filenameElement.textContent = ""; // Clear the filename display
+    });
+  });
+
+  function generateName() {
+    const input = document.querySelector(
+      'input[type="file"]'
+    ) as HTMLInputElement;
+    const textarea = document.querySelector("textarea") as HTMLTextAreaElement;
+    const numOfPeopleElement = document.getElementById(
+      "numOfPeople"
+    ) as HTMLInputElement;
+    const numOfPeople = parseInt(numOfPeopleElement.value);
+    const nameResult = document.getElementById("nameResult") as HTMLElement;
+
+    let names: string[] = [];
+    if (input.files && input.files.length > 0) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const content = e.target?.result as string;
+        const lines = content.split(",");
+        for (let i = 0; i < lines.length; i++) {
+          if (lines[i].trim() !== "") {
+            names.push(lines[i].trim());
+          }
+        }
+        selectRandomNames(names, numOfPeople, nameResult);
+      };
+      reader.readAsText(input.files[0]);
+    } else {
+      const textContent = textarea.value;
+      const lines = textContent.split(",");
+      for (let i = 0; i < lines.length; i++) {
+        if (lines[i].trim() !== "") {
+          names.push(lines[i].trim());
+        }
+      }
+      selectRandomNames(names, numOfPeople, nameResult);
+    }
+  }
+
+  function shuffleArray(array: string[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  function selectRandomNames(
+    names: string[],
+    numOfPeople: number,
+    nameResult: HTMLElement
+  ) {
+    shuffleArray(names);
+    const selectedNames = names.slice(0, numOfPeople);
+
+    // Check if the countdown checkbox is checked
+    const countdownCheckbox = document.getElementById(
+      "cdowncheck"
+    ) as HTMLInputElement;
+    if (countdownCheckbox.checked) {
+      // Start the countdown
+      let countdown = 5;
+      nameResult.style.fontSize = "3em";
+      const countdownInterval = setInterval(function () {
+        nameResult.innerHTML = countdown.toString();
+        countdown--;
+        if (countdown < 0) {
+          clearInterval(countdownInterval);
+          // Show the results after the countdown
+          nameResult.innerHTML = selectedNames.join("<br>");
+        }
+      }, 1000);
+    } else {
+      // If the checkbox is not checked, show the results immediately
+      nameResult.innerHTML = selectedNames.join("<br>");
+    }
+  }
+</script>

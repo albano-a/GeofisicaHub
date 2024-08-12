@@ -1,0 +1,52 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Game from "../../components/Tictactoe.jsx";
+---
+
+<MainLayout
+  pageTitle="Sobre"
+  pageUrl="https://geofisicahub.live/about/about-site"
+  pageDescription="Sobre o GeofisicaHub"
+>
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column is-three-quarters">
+      <p class="is-size-5 has-text-justified block">
+        Olá. Seja bem-vindo ao meu site, o GeofisicaHub. O site foi criado em
+        Janeiro de 2024 com o intuito de organizar o conteúdo de Geofísica em um
+        lugar só. A princípio, seria apenas para a Geofísica da Universidade
+        Federal Fluminense. Mas a medida que fui montando o site, percebi que
+        poderia ser mais legal se fosse algo mais geral (apesar do site ter
+        bastante conteúdo da área que a Geofísica da UFF é focada). Então,
+        apesar de basicamente não haver diferenças no site em si, o site é
+        voltado para a Geofísica em geral. O site está em constante atualização
+        e a atual versão dele é a v1.0.1.
+      </p>
+      <p class="is-size-5 has-text-justified">
+        No momento, o conteúdo do site está disponível de forma gratuita, ou vem
+        de fontes gratuitas. Certas funcionalidades, como as calculadoras, são
+        linkadas de outro site, e o conteúdo deles é de responsabilidade deles.
+        Os recursos e os artigos são de locais que oferecem eles gratuitamente.
+        O site não tem fins lucrativos, e eu acredito que não deveríamos ter que
+        pagar valores absurdos para ter acesso a qualquer tipo de informação.
+      </p>
+      <p class="is-size-5 has-text-justified">
+        Então entre no site, aproveite o seu conteúdo, e se você quiser fazer
+        contribuições para o site, veja como no repositório do <a
+          class="has-text-weight-bold"
+          href="https://github.com/albano-a/GeofisicaHub"
+          target="_blank"
+          rel="noopener noreferrer">GitHub</a
+        >
+      </p>
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column is-half">
+          <Game client:load />
+        </div>
+        <div class="column"></div>
+      </div>
+    </div>
+    <div class="column"></div>
+  </div>
+</MainLayout>

@@ -1,0 +1,10 @@
+---
+import MainLayout from "../../../layouts/MainLayout.astro";
+import ResourcesTab from "../../../components/ResourcesTab";
+
+const title = "Recursos";
+---
+
+<MainLayout pageTitle={title}>
+  <ResourcesTab client:load />
+</MainLayout>

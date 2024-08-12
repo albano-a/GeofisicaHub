@@ -1,0 +1,49 @@
+---
+import CardResearch from "../../../components/CardResearch";
+import MainLayout from "../../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  pageTitle="Pesquisa"
+  pageUrl="https://geofisicahub.live/tools/research/articles"
+  pageDescription="Seção com as principais fontes de pesquisa!"
+>
+  <p class="is-size-4 has-text-justified">
+    Abaixo você encontrará links que levarão você aos principais recursos de
+    artigos, materiais didáticos, informações sobre congressos e etc. Ainda
+    estou pensando no que mais colocar aqui, mas por enquanto, acho que isso é
+    suficiente.
+  </p>
+  <div class="columns">
+    <div class="column">
+      <CardResearch
+        client:load
+        title="Artigos"
+        description=`
+                    Últimos artigos publicados sobre Geofísica, de todas as áreas.
+                        `
+        href="/tools/research/papers"
+      />
+    </div>
+    <div class="column">
+      <CardResearch
+        client:load
+        title="Congresso"
+        description=`
+            Links para os principais congressos e eventos brasileiros de Geofísica.
+            `
+        href="/tools/research/congress"
+      />
+    </div>
+    <div class="column">
+      <CardResearch
+        client:load
+        title="Materiais Didáticos"
+        description=`
+            Principais referências de cada área dentro da Geofísica. 
+            `
+        href="/materials/HUB"
+      />
+    </div>
+  </div>
+</MainLayout>

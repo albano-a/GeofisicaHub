@@ -1,0 +1,47 @@
+---
+import "../style/geofisico.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+import HeadInformation from "../components/HeadInformation.astro";
+
+const { pageTitle, pageName, urlBread, pageUrl, pageDescription } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <HeadInformation
+      pageTitle={pageTitle}
+      pageDescription={pageDescription}
+      pageUrl={pageUrl}
+    />
+    <title>{pageTitle} - GeofisicaHub</title>
+    <ViewTransitions />
+
+    <script
+      is:inline
+      src="https://kit.fontawesome.com/61000256a0.js"
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <Header />
+
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <div class="content has-text-centered">
+              <h1 class="is-size-1 has-text-centered has-text-weight-black">
+                {pageTitle}
+              </h1>
+              <slot />
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>

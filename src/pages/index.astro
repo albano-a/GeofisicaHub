@@ -1,0 +1,110 @@
+---
+import LandingPageLayout from "../layouts/LandingPageLayout.astro";
+import SmallButton from "../components/Button";
+import Card from "../components/Card.astro";
+
+const website_title = "GeofisicaHub"
+---
+
+<LandingPageLayout
+  pageTitle={website_title}
+  pageUrl="https://geofisicahub.live/"
+  pageDescription="Ferramenta que reúne tudo sobre Geofísica em um só lugar!"
+>
+  <div class="custom">
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered">
+        <figure class="image is-inline-block">
+          <img src="/images/gifs/earth.gif" />
+        </figure>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column is-fullwidth">
+        <div class="has-text-centered">
+          <br />
+          <h5 class="title is-2 has-text-centered">
+            Você já se sentiu perdido na Geofísica? Ou precisa de ajuda para se
+            orientar?
+          </h5>
+          <p class="has-text-centered is-size-5 is-family-sans-serif">
+            Seja qual for a sua situação, você está no lugar certo! Bem-vindo ao
+            GeofisicaHub, onde você encontrará tudo o que precisa para seus
+            estudos e trabalhos na área. Clique abaixo para saber mais! Se você
+            não conhece a Geofísica e chegou aqui por acaso, venha descobrir
+            mais sobre essa ciência fascinante! Se você é aluno da Geofísica da
+            UFF,&nbsp;<a href="./src/uff.html" style="font-weight: bold"
+              >clique aqui!</a
+            >
+          </p>
+          <div class="buttons are-large is-centered mt-5">
+            <SmallButton client:load href="/about/about-site" color="is-primary"
+              >Saiba mais!</SmallButton
+            >
+            <SmallButton
+              client:load
+              href="/about/about-geophysics"
+              color="is-primary">Geofísica?</SmallButton
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-1 has-text-centered has-text-weight-bold">
+          Principais ferramentas
+        </h2>
+        <p class="is-size-4 has-text-centered pb-5">
+          O GeofisicaHub oferece recursos e ferramentas projetadas para melhorar
+          seus estudos e facilitar sua vida. Aqui, você encontrará uma extensa
+          coleção de materiais didáticos, calculadoras com ótimas
+          funcionalidades, e acesso a publicações científicas de várias fontes.
+        </p>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <Card
+            iconCard="fa-book"
+            titleCard="Materiais Didáticos"
+            descriptionCard=`
+		A seção de 'Materiais Didáticos' possui diversos livros sobre Geofísica, Geologia
+		Cálculo, e etc, e é lá que você vai encontrar as principais fontes de estudos. 
+		A parte de Geofísica é a que possui mais livros pois, obviamente, 
+		é a mais importante.
+	  `
+            linkCard="/materials/HUB"
+          />
+        </div>
+        <div class="column">
+          <Card
+            iconCard="fa-calculator"
+            titleCard="Calculadoras e Recursos"
+            descriptionCard=`
+		  Nossa seção de 'Calculadoras' oferece uma variedade de ferramentas
+          para te ajudar a resolver problemas de geofísica de forma rápida e
+          eficiente. Além disso, você também pode acessar a página de recursos
+          para encontrar os principais websites e softwares de geofísica.
+		  `
+            linkCard="/tools/calculator/calculator-hub"
+          />
+        </div>
+        <div class="column">
+          <Card
+            iconCard="fa-newspaper"
+            titleCard="Publicações Científicas"
+            descriptionCard=`
+		Na seção de publicações você encontrará diversas fontes de artigos,
+		papers, e dissertações que abordam temas de geofísica. Use essa seção
+		caso queira pesquisar alguma fonte, ou encontrar alguma referência
+		para seu trabalho.
+		`
+            linkCard="/tools/research/articles"
+          />
+        </div>
+      </div>
+    </section>
+  </div>
+</LandingPageLayout>

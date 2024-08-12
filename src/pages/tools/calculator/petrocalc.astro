@@ -1,0 +1,583 @@
+---
+import MainLayout from "../../../layouts/MainLayout.astro";
+---
+
+<MainLayout pageTitle="PetroCalc">
+  <div class="content">
+    <p class="has-text-justified is-size-5">
+      Nesta página você pode encontrar links para o site
+      <a href="https://petrophysicsequations.blogspot.com/"
+        ><i>Petrophysics Equations</i></a
+      >
+      que é um blog de um professor venezuelano, que adaptou diversas funções utilizadas
+      para cálculos de porosidade, permeabilidade, volume de shale e saturação de
+      água para um formato online, porém com alguns limites. Eu tentei implementar
+      as funções diretamente no site, porém acho que uma opção melhor seria apenas
+      colocar links para o site, pois pouparia tempo, e seria apenas um cópia do
+      que o site já oferece.
+    </p>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="tabs is-centered is-medium is-toggle is-toggle-rounded">
+          <ul>
+            <li class="is-active" data-target="porosidade">
+              <a><b>Porosidade</b></a>
+            </li>
+            <li data-target="permeabilidade">
+              <a><b>Permeabilidade</b></a>
+            </li>
+            <li data-target="resistividade">
+              <a><b>Resistividade</b></a>
+            </li>
+            <li data-target="aguasaturacao">
+              <a><b>Saturação de Água</b></a>
+            </li>
+            <li data-target="shalevolume">
+              <a><b>Volume de Shale</b></a>
+            </li>
+            <li data-target="reservas">
+              <a><b>Reservas</b></a>
+            </li>
+          </ul>
+        </div>
+        <div class="px-2" id="tab-content">
+          <div id="porosidade">
+            <div class="columns">
+              <div class="column">
+                <div class="box is-shadowless">
+                  <h1 class="is-size-3 has-text-centered has-text-primary">
+                    Perfil Sônico
+                  </h1>
+                  <div class="buttons is-centered">
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/registro-sonico-wyllie-et-al-1958.html', '_blank');"
+                    >
+                      Wyllie et al. (1958)
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/registro-sonico-raymer-et-al-1980.html', '_blank');"
+                    >
+                      Raymer et al. (1980)
+                    </button>
+                  </div>
+                  <div class="buttons is-centered">
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/compresibilidad.html', '_blank');"
+                    >
+                      Formações Não-Consolidadas
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-sonico-efecto-hidrocarburos.html', '_blank');"
+                    >
+                      Hidrocarbonetos
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="box is-shadowless">
+                  <h1 class="is-size-3 has-text-centered has-text-primary">
+                    Perfil de Densidade
+                  </h1>
+                  <div class="buttons is-centered">
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-densidad.html', '_blank');"
+                    >
+                      Porosidade por Densidade
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-densidad-neutron.html', '_blank');"
+                    >
+                      Densidade-Neutrão
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column">
+                <div class="box is-shadowless">
+                  <h1 class="is-size-3 has-text-centered has-text-primary">
+                    Perfil de Resistividade
+                  </h1>
+                  <div class="buttons is-centered">
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-derivada-de-la-resistividad_26.html', '_blank');"
+                    >
+                      Porosidade
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-de-resistividad-sw-1.html', '_blank');"
+                    >
+                      Porosidade com Sw=1
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-derivada-de-la-resistividad.html', '_blank');"
+                    >
+                      Porosidade da Zona Invadida
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-derivada-de-resistividad-zona.html', '_blank');"
+                    >
+                      Porosidade com Sw=1
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="box is-shadowless">
+                  <h1 class="is-size-3 has-text-centered has-text-primary">
+                    Porosidade Shale Corrected
+                  </h1>
+                  <div class="buttons is-centered">
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-efectiva-de-sonico-dresser.html', '_blank');"
+                    >
+                      Sônico - Dresser Atlas (1979)
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-efectiva-de-sonico-dewan-1983.html', '_blank');"
+                    >
+                      Sônico - Dewan (1983)
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-del-registro-de-neutron_26.html', '_blank');"
+                    >
+                      Neutrão - Schlumberger (1975)
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-del-registro-de-densidad_26.html', '_blank');"
+                    >
+                      Densidade - Schlumberger (1975)
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-del-registro-de-neutron.html', '_blank');"
+                    >
+                      Neutrão - Dewan (1983)
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-del-registro-de-densidad.html', '_blank');"
+                    >
+                      Densidade - Dewan (1983)
+                    </button>
+                    <button
+                      class="button"
+                      onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/porosidad-de-neutron-densidad-corregida.html', '_blank');"
+                    >
+                      Densidade-Neutrão - Dewan (1983)
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="is-size-5 has-text-justified">
+              Porosidade é um importante parâmetro petrofísico da rocha, que é
+              definido como a relação entre o volume dos poros da rocha e o
+              volume total da rocha.<br /><br />
+              Porosidade = volume dos poros / volume total da rocha
+              <br /><br />
+              Essa propriedade física limita a rocha no momento de acumular hidrocarbonetos
+              (óleo, condensados ou gás), porém, a porosidade deve estar interconectada
+              para adicionar valor comercial a um reservatório. Existem porosidade
+              total e porosidade efetiva, onde a primeira está relacionada a todos
+              os poros de uma rocha, e a segunda, apenas aos poros interconectados,
+              que são mais importantes no momento da produção de hidrocarbonetos.
+              <br />
+              Além disso, o volume de folhelho afeta a qualidade dos reservatórios,
+              e é por isso que correções têm que ser feitas ao calcular a porosidade,
+              conhecidas como valores corrigidos para folhelho.
+            </p>
+          </div>
+          <div id="permeabilidade" class="is-hidden">
+            <div class="buttons is-centered">
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/permeabilidad-wyllie-rose-1950-petroleo.html', '_blank');"
+              >
+                Wyllie & Rose (1950) - M.Gravity Oil
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/permeabilidad-wyllie-rose-1950-gas-seco.html', '_blank');"
+              >
+                Wyllie & Rose (1950) - Gás Seco
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/permeabilidad-timur-1968.html', '_blank');"
+              >
+                Timur (1968)
+              </button>
+            </div>
+            <div class="buttons is-centered">
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/permeabilidad-coates-dumanoir-1973.html', '_blank');"
+              >
+                Coates & Dumanoir (1968)
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/permeabilidad-de-nmr-modelo-de-tres.html', '_blank');"
+              >
+                NMR - Coates
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/permeabilidad-nmr.html', '_blank');"
+              >
+                NMR
+              </button>
+            </div>
+            <p class="is-size-5 has-text-justified">
+              Permeabilidade é um parâmetro que é definido pela facilidade com
+              que um fluido flui através de um meio poroso.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Essa propriedade física foi definida por Darcy, e daí vem o nome
+              das unidades que são usadas para os valores de permeabilidade.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              A permeabilidade tem sido usada como um parâmetro de corte para
+              diferenciar entre reservatórios convencionais e não convencionais,
+              mas isso dependerá do tipo de fluido que será produzido (óleo ou
+              gás).
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Geralmente, a permeabilidade é calculada por métodos
+              laboratoriais, onde uma amostra de rocha é testada com diferentes
+              técnicas que medem o quão facilmente um fluido se move através dos
+              poros das rochas. No entanto, essas medições tendem a ser
+              imprecisas devido às condições das rochas após terem sido
+              extraídas do poço, que em alguns casos são muito diferentes das
+              condições originais.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Há diferentes equações que foram criadas por diversos autores para
+              calcular a permeabilidade, mas as medições laboratoriais não foram
+              substituídas por elas.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Também existem medições de permeabilidade derivadas de registros
+              de poços por ressonância magnética nuclear (NMR), e algumas
+              empresas de serviços de petróleo também oferecem valores de
+              porosidade efetiva através desses registros de poços, que são
+              estimados a partir do conteúdo de hidrogênio medido nos poros da
+              rocha.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Dependerá do critério do petrofísico ou do reservatório quais
+              valores serão usados para fazer estimativas, se a partir de dados
+              de laboratório ou de valores derivados de equações.
+            </p>
+          </div>
+          <div id="resistividade" class="is-hidden">
+            <div class="buttons is-centered">
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/resistividad-del-agua-rw-archie.html', '_blank');"
+              >
+                Resistividade da Água Rw - Archie
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/resistividad-del-agua-western-atlas-1985.html', '_blank');"
+              >
+                Resistividade da Água - Western Atlas
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/resistividad-del-agua-rw-sp.html', '_blank');"
+              >
+                Resistividade da Água - SP
+              </button>
+            </div>
+            <div class="buttons is-centered">
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/resistividad-de-agua-aparente-rwa-archie.html', '_blank');"
+              >
+                Resistividade da Água Aparente (Rwa) - Archie
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/resistividad-total-rt.html', '_blank');"
+              >
+                Resistividade Total (Rt)
+              </button>
+            </div>
+            <p class="is-size-5 has-text-justified">
+              Resistividade é definida como a oposição ou resistência que um
+              material tem para interferir no fluxo de uma corrente elétrica.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              No caso das rochas sedimentares, estas contêm fluidos em seus
+              poros que têm diferentes tipos de resistividades.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Um volume de poros da rocha pode conter igualmente óleo, gás ou
+              água. Óleo e gás têm um valor de resistividade mais alto do que a
+              água, o que permite detectar a presença de hidrocarbonetos em um
+              poço usando ferramentas de registro de resistividade, por exemplo.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              No entanto, a salinidade da água também afeta a resistividade da
+              água, e ela pode ter uma ampla gama de valores. A água salgada tem
+              uma resistividade menor do que a água doce, portanto, tem um valor
+              de resistividade mais baixo.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Além de ajudar a detectar a presença de hidrocarbonetos, a
+              resistividade da água é amplamente utilizada para o cálculo da
+              saturação de água, que é um valor muito importante na estimativa
+              de reservas de hidrocarbonetos.
+            </p>
+          </div>
+          <div id="aguasaturacao" class="is-hidden">
+            <div class="buttons is-centered">
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/saturacion-de-agua-de-archie-sw-formula.html', '_blank');"
+              >
+                Archie (1942)
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/saturacion-de-agua-compensada-dewan-1983.html', '_blank');"
+              >
+                Sw Compensada - Dewan (1983)
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/saturacion-de-agua-dewan-1983-modelo-de.html', '_blank');"
+              >
+                Shale Dispersado - Dewan (1983)
+              </button>
+            </div>
+            <div class="buttons is-centered">
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/saturacion-de-agua-ferlt-1975.html', '_blank');"
+              >
+                Ferlt (1975)
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/saturacion-de-agua-schlumberger-1975.html', '_blank');"
+              >
+                Schlumberger (1975)
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/saturacion-de-agua-simandoux-1963.html', '_blank');"
+              >
+                Simandoux (1963)
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/saturacion-de-agua-total-corregida-por.html', '_blank');"
+              >
+                Saturação de Água Total
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/saturacion-de-agua-zona-lavada-sxo.html', '_blank');"
+              >
+                Zona Invadida Rxo
+              </button>
+            </div>
+            <p class="is-size-5 has-text-justified">
+              A saturação de um fluido é definida como a razão entre o volume
+              que um fluido ocupa em um espaço poroso e o volume total desse
+              meio poroso.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Saturação = volume do fluido / volume do poro
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Assim, a saturação de água é definida como a razão entre o volume
+              de água acumulado em uma rocha porosa e o volume total de poros
+              dessa rocha.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              O valor da saturação de água diminui para valores mínimos nas
+              zonas de saturação de água irreversível, onde em rochas oleosas
+              (leia sobre molhabilidade) os valores mais baixos estão em torno
+              de 0,15 (15%), e em rochas que molham a água (molhável pela água),
+              os valores de saturação de água são superiores a 0,2 (20%). Esses
+              valores nos ajudam como guia quando calculamos a saturação de
+              água, porque se obtermos um valor de saturação de água inferior a
+              20% em uma rocha molhada pela água, podemos inferir que algo está
+              errado com nossos cálculos. Normalmente, rochas sedimentares são
+              rochas molhadas pela água, mas no caso dos carbonatos, há uma
+              proporção considerável de rochas oleosas. No entanto, também
+              existe a molhabilidade mista.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              É importante saber como obter um valor confiável de saturação de
+              água, pois isso impactará consideravelmente na estimativa de
+              reservas de hidrocarbonetos.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Para calcular a saturação de água a partir de registros de poços,
+              podemos usar registros de resistividade e potencial espontâneo
+              (SP).
+            </p>
+          </div>
+          <div id="shalevolume" class="is-hidden">
+            <div class="buttons is-centered">
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/igr.html', '_blank');"
+              >
+                Índice de GR (IGR)
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/larionov-1969.html', '_blank');"
+              >
+                Larionov (1969)
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/larionov-1969-rocas-viejas.html', '_blank');"
+              >
+                Larionov (1969) - Old Rocks
+              </button>
+            </div>
+            <div class="buttons is-centered">
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/steiber-1970.html', '_blank');"
+              >
+                Steiber (1970)
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/clavier-1971.html', '_blank');"
+              >
+                Clavier (1971)
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/arcillosidad-sp.html', '_blank');"
+              >
+                Shale Volume SP
+              </button>
+            </div>
+            <p class="is-size-5 has-text-justified">
+              O volume de folhelho é um valor fundamental para avaliar a
+              qualidade de uma rocha reservatório.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              De acordo com o volume de folhelho que uma rocha reservatório
+              possui, será determinado o quão explorável um reservatório é ou
+              não.
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Existem diferentes métodos para calcular o volume de folhelho,
+              onde podemos citar algumas dessas equações: Larionov,
+              Larionov-rochas antigas, Steiber, Clavier. Algumas dessas equações
+              utilizam os valores de registro de poço de raio gama, e algumas
+              delas utilizam valores da ferramenta de registro de potencial
+              espontâneo (SP).
+            </p>
+
+            <p class="is-size-5 has-text-justified">
+              Além disso, esse valor é usado para fazer correção de folhelho
+              para valores de porosidade derivados de diferentes ferramentas de
+              registro de poços, para que possamos ter um valor de porosidade
+              mais confiável.
+            </p>
+          </div>
+          <div id="reservas" class="is-hidden">
+            <div class="buttons is-centered">
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/reservas-de-petroleo.html', '_blank');"
+              >
+                Reservas de Óleo
+              </button>
+              <button
+                class="button"
+                onclick="window.open('https://petrophysicsequations.blogspot.com/2017/12/reservas-de-gas.html', '_blank');"
+              >
+                Reservas de Gás
+              </button>
+            </div>
+            <p class="is-size-5 has-text-justified">
+              O cálculo da porosidade e da saturação de água desempenha um papel
+              importante no momento de estimar as reservas de petróleo e gás,
+              pois um erro considerável ao calcular esses dois valores pode
+              trazer sérios problemas econômicos se estivermos falando de um
+              reservatório gigante.
+            </p>
+            <p class="is-size-5 has-text-justified">
+              O fator de recuperação é outro parâmetro importante nos cálculos
+              de estimativa de reservas, e esse valor dependerá do(s)
+              mecanismo(s) de drenagem natural do reservatório (capa de gás,
+              aquífero, etc.), que são muito diferentes entre eles. Além disso,
+              o fator de recuperação pode aumentar com a aplicação de técnicas
+              de recuperação secundária e terciária no reservatório, mas essa
+              melhoria adiciona mais custos ao orçamento de exploração.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<script>
+  const tabs = document.querySelectorAll(".tabs li");
+  const tabContentBoxes = document.querySelectorAll("#tab-content > div");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((item) => item.classList.remove("is-active"));
+      tab.classList.add("is-active");
+
+      const target = (tab as HTMLElement).dataset.target;
+      tabContentBoxes.forEach((box) => {
+        if (box.getAttribute("id") === target) {
+          box.classList.remove("is-hidden");
+        } else {
+          box.classList.add("is-hidden");
+        }
+      });
+    });
+  });
+</script>

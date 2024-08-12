@@ -1,0 +1,98 @@
+---
+import MaterialsLayout from "../../layouts/MaterialsLayout.astro";
+import CardMaterials from "../../components/CardMaterials";
+---
+
+<MaterialsLayout
+  pageTitle="PROGRAMAÇÃO"
+  pageUrl="https://geofisicahub.live/materials/programming"
+  pageDescription="Materiais de Programação - GeofisicaHub"
+>
+  <div class="buttons has-addons are-large is-centered">
+    <button class="button" id="geophy">Geofísica</button>
+    <button class="button" id="geol">Geologia</button>
+    <button class="button" id="calc">Cálculo</button>
+    <button class="button" id="phy">Física</button>
+    <button class="button is-primary is-selected" id="pro">Programação </button>
+  </div>
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column is-two-thirds">
+      <p class="has-text-justified is-size-5">
+        Se você é daqueles malucos que adora programação e não vê a hora de
+        passar horas olhando para uma tela preta (tipo eu) aqui é o lugar certo.
+        A principal linguagem utilizada na Geofísica atualmente é Python, uma
+        linguagem de programação de alto nível, interpretada e de propósito
+        geral. Ela é bem popular e bem fácil de aprender. Então, apesar de haver
+        livros nesta página, principalmente haverão vídeos e outros recursos.
+        Infelizmente, grande parte do conteúdo de Programação está em inglês, e
+        realmente, na Geofísica, não vai ter como escapar disso.
+      </p>
+      <hr />
+      <div class="columns">
+        <div class="column">
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/S9uPNppGsGo?si=N3eTM_cBpGnmnPaF"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+        <div class="column">
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/XKHEtdqhLK8?si=Y6epbaL4G5BTgsaw"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Python Basics - A Practical Introduction to Python 3"
+            description=`
+                Uma introdução ao Python `
+            href="https://drive.google.com/file/d/1w2lhXt0-yXyxyBvLo1K2pbinXwQYICNj/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd20ohkaloyme4g.cloudfront.net%2Fimg%2Fdocument_thumbnails%2F0ba206b96738a15126c7eb5a3f9b83d8%2Fthumb_1200_1800.png&f=1&nofb=1&ipt=e807ed233f8dbbf84297ed682defa7d86c2942bb69872ed41e4e374f431a935d&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="Python Programming For Beginners - The Absolute Complete Beginner's Guide"
+            description=`
+            Guia completo de iniciante
+            `
+            href="https://drive.google.com/file/d/1k2iA86tARqSrKB3isgt5uDs56567-v2Y/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fcompressed.photo.goodreads.com%2Fbooks%2F1610626892i%2F56664771.jpg&f=1&nofb=1&ipt=ba48fc42c750356df04c39c6ed50a62095605df7e981e6f11a2fc9e22c2f1456&ipo=images"
+          />
+        </div>
+        <div class="column">
+          <CardMaterials
+            client:load
+            title="High Performance Python"
+            description=`
+                Python avançado `
+            href="https://drive.google.com/file/d/12GdHBGREh3J86SHUHm7kE9LKBWxyXeHq/view?usp=drive_link"
+            imgSrc="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsanet.pics%2Fstorage-6%2F0520%2FwZBSbQTnmtor7TlkIRrTrfkhKmdmj1Kk.jpg&f=1&nofb=1&ipt=7c3511718e8f2540a9d466e7d836a7af123a8540e39e3f46c55aea3450c265de&ipo=images"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="column"></div>
+  </div>
+</MaterialsLayout>
+
+<script>
+  import "../../scripts/hubnavigation.js";
+</script>

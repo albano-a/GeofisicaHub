@@ -1,0 +1,43 @@
+---
+const { titleCard, descriptionCard, linkCard, iconCard } = Astro.props;
+---
+
+<div class="card custom-card">
+  <header class="card-header">
+    <p class="custom-card-title card-header-title is-size-4 is-centered">
+      <i class=`fa ${iconCard}`></i> &nbsp;
+      {titleCard}
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content is-size-6 has-text-justified">
+      {descriptionCard}
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a href={linkCard} class="custom-card-footer card-footer-item has-text-weight-bold"
+      >Saiba Mais</a
+    >
+  </footer>
+</div>
+
+<style>
+  .custom-card {
+    transition:
+      background-color 294ms,
+      transform 294ms;
+    transform-origin: center;
+    border: 1px solid #222427;
+    box-shadow: 4px 4px 5px hsla(0, 0%, 0%, 0.2);
+  }
+  .custom-card:hover {
+    transform: scale(1.05);
+  }
+  .custom-card-footer {
+    background-color: hsl(204, 84%, 10%);
+    border-radius: 0rem 0rem 0.75rem 0.75rem;
+  }
+  .custom-card-footer:hover {
+    background-color: hsl(204, 84%, 15%);
+  }
+</style>

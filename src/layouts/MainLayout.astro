@@ -1,0 +1,43 @@
+---
+import "../style/geofisico.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeadInformation from "../components/HeadInformation.astro";
+
+const { pageTitle, pageUrl, pageDescription } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <HeadInformation
+      pageTitle={pageTitle}
+      pageDescription={pageDescription}
+      pageUrl={pageUrl}
+    />
+
+    <title>{pageTitle} - GeofisicaHub</title>
+
+    <script
+      is:inline
+      src="https://kit.fontawesome.com/61000256a0.js"
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <Header />
+
+    <section class="section">
+      <div class="container">
+        <div class="content">
+          <h1 class="is-size-1 has-text-centered has-text-weight-black">
+            {pageTitle}
+          </h1>
+        </div>
+        <div class="content">
+          <slot />
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>
