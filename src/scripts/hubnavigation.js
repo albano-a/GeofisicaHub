@@ -1,9 +1,9 @@
 const buttons = [
-  { id: "geophy", url: "./geophysics" },
-  { id: "geol", url: "./geology" },
-  { id: "calc", url: "./calculus" },
-  { id: "phy", url: "./physics" },
-  { id: "pro", url: "./programming" },
+  { id: "geophy", url: "../geophysics" },
+  { id: "geol", url: "../geology" },
+  { id: "calc", url: "../calculus" },
+  { id: "phy", url: "../physics" },
+  { id: "pro", url: "../programming" },
 ];
 
 buttons.forEach(({ id, url }) => {
