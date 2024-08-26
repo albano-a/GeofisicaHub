@@ -8,88 +8,98 @@
 
 
 <url>
-  <loc>https://geofisicahub.live/index.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/src/about.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/about/about-site/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/src/o-que-e-geofisica.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/about/about-geophysics/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/src/uff.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/about/geophysics-uff/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/resources/tools/pesquisa.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/tools/research/articles/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/resources/tools/calculadora.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/tools/calculator/calculator-hub/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/resources/petrophysics/petro_index.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/tools/calculator/petrocalc/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/resources/tools/recursos.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/tools/other-tools/resources/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/src/eventos.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/tools/other-tools/events/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/resources/tools/sorteio.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/tools/other-tools/lucky-draw/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/resources/materials/geofisica.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/materials/HUB/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/resources/materials/geologia.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/materials/geophysics/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/resources/materials/calculo.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/materials/geology/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/resources/materials/fisica.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/materials/calculus/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/resources/materials/programacao.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/materials/physics/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/src/contact.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/materials/programming/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://geofisicahub.live/resources/materials/dicionario.html</loc>
-  <lastmod>2024-05-03T22:24:15+00:00</lastmod>
+  <loc>https://geofisicahub.live/contact/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://geofisicahub.live/tools/research/papers/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://geofisicahub.live/tools/research/congress/</loc>
+  <lastmod>2024-08-16T15:00:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
