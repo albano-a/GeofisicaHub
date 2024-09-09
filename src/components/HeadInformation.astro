@@ -41,16 +41,17 @@ const { pageTitle, pageUrl, pageDescription } = Astro.props;
 </script>
 
 <!-- Google Tag Manager -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L9JMPD2F5G"
-></script>
-<script>
-  (window as any).dataLayer = (window as any).dataLayer || [];
-
-  function gtag(...args: any[]) {
-    (window as any).dataLayer.push(args);
+<script
+  type="text/partytown"
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-L9JMPD2F5G"></script>
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
   }
-
   gtag("js", new Date());
+
   gtag("config", "G-L9JMPD2F5G");
 </script>
 
