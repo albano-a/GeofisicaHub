@@ -1,6 +1,7 @@
 ---
 import MaterialsLayout from "../../layouts/MaterialsLayout.astro";
 import Card from "../../components/Card.astro";
+import HubButtons from "../../components/ButtonHub";
 
 import SmallButton from "../../components/Button";
 ---
@@ -10,34 +11,8 @@ import SmallButton from "../../components/Button";
   pageUrl="https://geofisicahub.live/materials/hub"
   pageDescription="HUB - GeofisicaHub"
 >
-  <div class="buttons has-addons are-large is-centered">
-    <button class="button" id="geophy">Geofísica</button>
-    <button class="button" id="geol">Geologia</button>
-    <button class="button" id="calc">Cálculo</button>
-    <button class="button" id="phy">Física</button>
-    <button class="button" id="pro">Programação </button>
-  </div>
   <p class="has-text-centered is-size-5">
     Bom, o site não se chama Geofisica<b>HUB</b> por nada, então nessa página você
     encontra o HUB onde poderá acessar os materiais de cada página.
   </p>
 </MaterialsLayout>
-
-<script>
-  const buttons = [
-    { id: "geophy", url: "../geophysics" },
-    { id: "geol", url: "../geology" },
-    { id: "calc", url: "../calculus" },
-    { id: "phy", url: "../physics" },
-    { id: "pro", url: "../programming" },
-  ];
-
-  buttons.forEach(({ id, url }) => {
-    const button = document.querySelector(`#${id}`);
-    if (button) {
-      button.addEventListener("click", () => {
-        window.location.href = url;
-      });
-    }
-  });
-</script>
