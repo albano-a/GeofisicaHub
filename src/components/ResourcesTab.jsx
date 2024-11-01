@@ -179,7 +179,6 @@ const ResourcesTab = () => {
         <ul>
           <li className={activeTab === "sites" ? "is-active" : ""}>
             <a onClick={() => setActiveTab("sites")}>
-              {" "}
               <i className="fa-solid fa-globe"></i> &nbsp; Sites
             </a>
           </li>
@@ -199,9 +198,42 @@ const ResourcesTab = () => {
         <div className="column"></div>
         <div className="column is-three-quarters">
           <div>
-            {activeTab === "sites" && <>{renderLinks(siteLinks)}</>}
-            {activeTab === "softwares" && <>{renderLinks(softwareLinks)}</>}
-            {activeTab === "databases" && <>{renderLinks(databaseLinks)}</>}
+            {activeTab === "sites" && (
+              <ul className="is-size-6 has-text-justified px-6 mx-1">
+                {siteLinks.map((link) => (
+                  <li key={link.href}>
+                    <a href={link.href}>
+                      <b>{link.title}</b>
+                    </a>
+                    {link.description ? ` - ${link.description}` : ""}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {activeTab === "softwares" && (
+              <ul className="is-size-6 has-text-justified px-6 mx-1">
+                {softwareLinks.map((link) => (
+                  <li key={link.href}>
+                    <a href={link.href}>
+                      <b>{link.title}</b>
+                    </a>
+                    {link.description ? ` - ${link.description}` : ""}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {activeTab === "databases" && (
+              <ul className="is-size-6 has-text-justified px-6 mx-1">
+                {databaseLinks.map((link) => (
+                  <li key={link.href}>
+                    <a href={link.href}>
+                      <b>{link.title}</b>
+                    </a>
+                    {link.description ? ` - ${link.description}` : ""}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
         <div className="column"></div>
