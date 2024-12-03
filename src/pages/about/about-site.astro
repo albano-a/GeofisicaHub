@@ -2,7 +2,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Game from "../../components/Tictactoe.jsx";
 
-const version = "v1.0.1"
+const version = "v1.1.0"
 ---
 
 <MainLayout
@@ -16,7 +16,7 @@ const version = "v1.0.1"
       <p class="is-size-5 has-text-justified block">
         Olá. Seja bem-vindo ao meu site, o GeofisicaHub. O site foi criado em
         Janeiro de 2024 com o intuito de organizar o conteúdo de Geofísica em um
-        lugar só. A princípio, seria apenas para a Geofísica da Universidade
+        só lugar. A princípio, seria apenas para a Geofísica da Universidade
         Federal Fluminense. Mas a medida que fui montando o site, percebi que
         poderia ser mais legal se fosse algo mais geral (apesar do site ter
         bastante conteúdo da área que a Geofísica da UFF é focada). Então,
@@ -44,6 +44,7 @@ const version = "v1.0.1"
       <div class="columns">
         <div class="column"></div>
         <div class="column is-half">
+          <br>
           <Game client:load />
         </div>
         <div class="column"></div>
