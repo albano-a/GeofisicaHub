@@ -1,0 +1,60 @@
+---
+import MaterialsLayout from "../../layouts/MaterialsLayout.astro";
+import CardExercises from "../../components/CardExercises";
+---
+
+<MaterialsLayout
+  pageTitle="EXERCÍCIOS"
+  pageUrl="https://geofisicahub.live/materials/exercises"
+  pageDescription="Listas de Exercícios - GeofisicaHub"
+>
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column is-two-thirds">
+      <p class="has-text-justified is-size-5">
+        Aqui, você achará exercícios das matérias importantes para a geofísica.
+        Selecione abaixo a matéria que deseja estudar.
+      </p>
+      <div class="columns">
+        <div class="column">
+          <CardExercises
+            title="Geofísica"
+            description="The quick brown fox"
+            href="/materials/exercise-pages/geophysics-exercises"
+          />
+        </div>
+        <div class="column">
+          <CardExercises
+            title="Geologia"
+            description="The quick brown fox"
+            href="/materials/exercise-pages/geology-exercises"
+          />
+        </div>
+        <div class="column">
+          <CardExercises
+            title="Cálculo"
+            description="The quick brown fox"
+            href="/materials/exercise-pages/calculus-exercises"
+          />
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <CardExercises
+            title="Física"
+            description="The quick brown fox"
+            href="/materials/exercise-pages/physics-exercises"
+          />
+        </div>
+        <div class="column">
+          <CardExercises
+            title="Programação"
+            description="The quick brown fox"
+            href="/materials/exercise-pages/programming-exercises"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="column"></div>
+  </div>
+</MaterialsLayout>

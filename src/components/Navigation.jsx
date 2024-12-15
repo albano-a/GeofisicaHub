@@ -118,6 +118,10 @@ class Navbar extends Component {
                   <Link class="navbar-item" href="/materials/programming">
                     Programação
                   </Link>
+                  <hr class="navbar-divider" />
+                  <Link class="navbar-item" href="/materials/exercises">
+                    Exercícios
+                  </Link>
                 </div>
               </div>
               <Link class="navbar-item" href="/contact">
