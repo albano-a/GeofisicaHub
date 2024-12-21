@@ -1,0 +1,51 @@
+[
+  {
+    "question": "Qual é o tipo de onda sísmica que se propaga apenas através de sólidos?",
+    "options": ["Onda P", "Onda S", "Onda de superfície", "Onda Rayleigh"],
+    "correctIndex": 1
+  },
+  {
+    "question": "As bacias sedimentares formadas por riftes apresentam, como características sedimentares e estruturais, sedimentos...",
+    "options": [
+      "transicionais e dobras compressionais",
+      "predominantemente marinho e falhas reversas",
+      "predominantemente carbonáticos e falhas de empurrão",
+      "predominantemente continentais e falhas normais",
+      "predominantemente evaporíticos com dobras sintectônicas"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "question": "Os esforços tectônicos distensivos atuantes na crosta continental podem resultar na quebra da crosta e desenvolver vales em rifte sobre os quais depositam-se sedimentos e, muitas vezes, rochas magmáticas sob a forma de diques e derrames. Esse estágio tectônico caracteriza-se por apresentar estruturas do tipo...",
+    "options": [
+      "falhas normais",
+      "falhas inversas",
+      "falhas de empurrão",
+      "dobras de empurrão",
+      "dobras simétricas"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Os estilos estruturais compressivos, distensivos e transcorrentes desenvolvem-se, preferencial e respectivamente, nos seguintes limites das placas tectônicas:",
+    "options": [
+      "divergentes, conservativos e convergentes.",
+      "divergentes, conservativos e divergentes.",
+      "convergentes, conservativos e divergentes.",
+      "convergentes, divergentes e conservativos.",
+      "conservativos, convergentes e divergentes."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "question": "Os sistemas deposicionais evaporíticos são os responsáveis pela sedimentação de depósitos salinos formados a partir da evaporação da água do mar em salinas marinhas, lagunas e mares reliquiares. Dentre as condições mais propicias para a formação de evaporitos, NÃO devem ser incluídos:",
+    "options": [
+      "locais com limitada circulação de água e clima seco.",
+      "locais onde a evaporação é maior do que a precipitação.",
+      "ambientes marinhos.",
+      "ambientes litorâneos de alta energia.",
+      "lagos desérticos tipo playa"
+    ],
+    "correctIndex": 3
+  }
+]

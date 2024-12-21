@@ -1,21 +1,23 @@
 ---
 import ExercisesLayout from "../../../layouts/ExercisesLayout.astro";
 import CardExercises from "../../../components/CardExercises";
-// import CardQuestion from "../../../components/CardQuestion";
+import QuizCard from "../../../components/CardQuestion";
+
+import questions from "../../../data/geophysics-questions.json";
 ---
 
 <ExercisesLayout
   pageTitle="GEOFÍSICA"
   pageUrl="https://geofisicahub.live/materials/exercise-pages/geophysics-exercises"
   pageDescription="Exercícios de Geofísica - GeofisicaHub"
-  >
-  <div class="columns">
-    <div class="column"></div>
-    <div class="column is-two-thirds">
-        <p class="has-text-justified is-size-5">
-            Faça os exercícios abaixo
-        </p>
-    </div>
-    <div class="column"></div>
+>
+  <div class="columns is-multiline">
+    {
+      questions.map((questionData) => (
+        <div class="column is-full">
+          <QuizCard client:load {...questionData} />
+        </div>
+      ))
+    }
   </div>
 </ExercisesLayout>
