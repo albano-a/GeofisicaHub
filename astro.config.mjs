@@ -5,7 +5,7 @@ import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://geofisicahub.live/",
+  site: "https://geofisicahub.me/",
   integrations: [
     preact(),
     partytown({
