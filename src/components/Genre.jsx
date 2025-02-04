@@ -21,7 +21,7 @@ function GenderChart() {
       console.log("Plotly is defined:", Plotly);
       const data = [
         {
-          values: [179, 56],
+          values: [168, 55],
           labels: ["Homem", "Mulher"],
           type: "pie",
           textinfo: "label+percent",

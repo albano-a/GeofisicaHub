@@ -19,7 +19,7 @@ function AgeChart() {
     if (Plotly) {
       const data = [
         {
-          values: [35, 94, 61, 24, 8, 13],
+          values: [21, 93, 60, 26, 12, 11],
           labels: [
             "16 A 19 Anos",
             "20 A 23 Anos",
