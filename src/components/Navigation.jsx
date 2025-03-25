@@ -100,9 +100,9 @@ class Navbar extends Component {
               <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">Materiais</a>
                 <div class="navbar-dropdown">
-                  <Link class="navbar-item" href="/materials/HUB">
+                  {/* <Link class="navbar-item" href="/materials/HUB">
                     HUB
-                  </Link>
+                  </Link> */}
                   <Link class="navbar-item" href="/materials/geophysics">
                     Geofísica
                   </Link>
