@@ -15,11 +15,11 @@ class CardMaterials extends Component {
             </figure>
           </div>
           <div className="card-content">
-            <p className="is-size-5 has-text-centered">{description}</p>
+            <p className="is-size-5 has-text-primary has-text-weight-bold has-text-centered">{description}</p>
           </div>
           <footer className="card-footer custom-footer">
             <Link
-              className="card-footer-item has-text-weight-bold "
+              className="card-footer-item has-text-weight-bold"
               href={href}
               target="_blank"
               rel="noopener noreferrer"
