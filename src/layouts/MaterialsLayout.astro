@@ -7,9 +7,10 @@ import { ViewTransitions } from "astro:transitions";
 import HeadInformation from "../components/HeadInformation.astro";
 
 const { pageTitle, pageName, urlBread, pageUrl, pageDescription } = Astro.props;
+const brand_logo = "/logotipo_final.svg";
 ---
 
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <HeadInformation
       pageTitle={pageTitle}
@@ -25,7 +26,7 @@ const { pageTitle, pageName, urlBread, pageUrl, pageDescription } = Astro.props;
       crossorigin="anonymous"></script>
   </head>
   <body>
-    <Header />
+    <Header logoSrc={brand_logo} />
 
     <section class="section">
       <div class="container">

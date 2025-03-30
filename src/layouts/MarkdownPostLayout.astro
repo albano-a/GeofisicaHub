@@ -1,0 +1,53 @@
+---
+import BlogPostLayout from "./BlogPostLayout.astro";
+
+const { frontmatter } = Astro.props;
+
+const formattedDate = new Date(frontmatter.pubDate).toLocaleString("pt-BR", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+  hour12: true,
+});
+---
+
+<BlogPostLayout
+  pageTitle={frontmatter.title}
+  pageDescription={frontmatter.description}
+  pageUrl={`https://geofisicahub.me/blog/posts/${frontmatter.slug}`}
+>
+  <div class="container has-text-centered block">
+    <p class="is-size-6">
+      Publicado em: <b>{formattedDate}</b>
+    </p>
+    <p class="is-size-5 has-text-centered">
+      <em>{frontmatter.description}</em>
+    </p>
+    <!-- <p class="subtitle">Escrito por: <b>{frontmatter.author}</b></p> -->
+
+    <!-- <div class="tags is-flex is-justify-content-center">
+      Tags:
+      {
+        frontmatter.tags.map((tag) => (
+          <span class="tag is-medium has-background-success-dark is-rounded">
+            <a href={`/tags/${tag}`}>{tag}</a>
+          </span>
+        ))
+      }
+    </div> -->
+  </div>
+  <hr />
+  <div class="columns">
+    <div class="column"></div>
+    <div class="column is-three-fifths">
+      <div class="container is-size-6 has-text-justified block">
+        <slot />
+        <hr />
+        <div id="disqus_thread"></div>
+      </div>
+    </div>
+    <div class="column"></div>
+  </div>
+</BlogPostLayout>

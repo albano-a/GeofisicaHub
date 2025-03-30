@@ -1,9 +1,11 @@
 ---
 import Navbar from "./Navigation";
+
+const logo_source = Astro.props.logoSrc
 ---
 
 <header>
     <nav>
-        <Navbar client:load/>
+        <Navbar logoSrc={logo_source} client:load/>
     </nav>
 </header>

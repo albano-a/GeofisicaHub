@@ -5,10 +5,11 @@ import Footer from "../components/Footer.astro";
 import HeadInformation from "../components/HeadInformation.astro";
 
 const favicon = "/Geo.svg";
+const brand_logo = "/logotipo_final.svg";
 const { pageTitle, pageUrl, pageDescription } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <HeadInformation
       pageTitle={pageTitle}
@@ -23,7 +24,7 @@ const { pageTitle, pageUrl, pageDescription } = Astro.props;
       crossorigin="anonymous"></script>
   </head>
   <body>
-    <Header />
+    <Header logoSrc={brand_logo} />
 
     <section class="section">
       <div class="container is-size-4">

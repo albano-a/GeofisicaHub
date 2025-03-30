@@ -1,0 +1,54 @@
+---
+import BlogMainLayout from "../../layouts/GeofisicaBlogMainLayout.astro";
+import BlogPost from "../../components/BlogPost.astro";
+
+const website_title = "GeofisicaBlog";
+const allPosts = Object.values(
+  import.meta.glob<{
+    frontmatter: { pubDate: string; title: string; description: string; imgurl?: string };
+    url: string;
+  }>("./posts/*.{md,mdx}", { eager: true })
+);
+allPosts.sort(
+  (a, b) =>
+    new Date(a.frontmatter.pubDate).getTime() -
+    new Date(b.frontmatter.pubDate).getTime()
+);
+---
+
+<BlogMainLayout
+  pageTitle={website_title}
+  pageUrl="https://geofisicahub.me/blog"
+  pageDescription="Blog sobre geofísica, geologia e ciências da terra."
+>
+  <h2 class="is-size-3 has-text-weight-bold mb-5">Last posts</h2>
+
+  {
+    [...allPosts]
+      .reverse()
+      .reduce((rows: any[][], post, index) => {
+        if (index % 3 === 0) {
+          rows.push([]);
+        }
+        rows[rows.length - 1].push(
+          <div class="column is-one-third">
+            <BlogPost
+              url={post.url}
+              title={post.frontmatter.title}
+              date={post.frontmatter.pubDate}
+              description={post.frontmatter.description}
+              imgurl={post.frontmatter.imgurl}
+            />
+          </div>
+        );
+        return rows;
+      }, [])
+      .map((row, index) => {
+        // Preencher a linha com colunas vazias, se necessário
+        while (row.length < 3) {
+          row.push(<div class="column is-one-third"></div>);
+        }
+        return <div class="columns">{row}</div>;
+      })
+  }
+</BlogMainLayout>

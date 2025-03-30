@@ -8,7 +8,7 @@ class Navbar extends Component {
     this.setState((prevState) => ({ isActive: !prevState.isActive }));
   };
 
-  render({}, { isActive }) {
+  render({ logoSrc }, { isActive }) {
     return (
       <nav
         class="navbar has-shadow"
@@ -18,7 +18,7 @@ class Navbar extends Component {
         <div className="container">
           <div class="navbar-brand">
             <a class="navbar-item" href="/">
-              <img src="/logotipo_final.svg" />
+              <img src={logoSrc} alt="logotipo" />
             </a>
 
             <a

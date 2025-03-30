@@ -1,11 +1,12 @@
 ---
 import "../style/geofisico.css";
+
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeadInformation from "../components/HeadInformation.astro";
 
-const brand_logo = "/logotipo_final.svg";
 const { pageTitle, pageUrl, pageDescription } = Astro.props;
+const brand_logo = "/geofisicablog-logo.svg";
 ---
 
 <html lang="en" data-theme="dark">
@@ -16,7 +17,7 @@ const { pageTitle, pageUrl, pageDescription } = Astro.props;
       pageUrl={pageUrl}
     />
 
-    <title>{pageTitle} - GeofisicaHub</title>
+    <title>{pageTitle} - GeofisicaBlog</title>
 
     <script
       is:inline
@@ -29,9 +30,12 @@ const { pageTitle, pageUrl, pageDescription } = Astro.props;
     <section class="section">
       <div class="container">
         <div class="content">
-          <h1 class="is-size-1 has-text-centered has-text-weight-black">
+          <h1
+            class="has-text-text-light is-size-1 has-text-centered has-text-weight-black"
+          >
             {pageTitle}
           </h1>
+          <hr />
         </div>
         <div class="content">
           <slot />
