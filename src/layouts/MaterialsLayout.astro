@@ -3,7 +3,7 @@ import "../style/geofisico.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HubButtons from "../components/ButtonHub";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import HeadInformation from "../components/HeadInformation.astro";
 
 const { pageTitle, pageName, urlBread, pageUrl, pageDescription } = Astro.props;
@@ -18,7 +18,7 @@ const brand_logo = "/logotipo_final.svg";
       pageUrl={pageUrl}
     />
     <title>{pageTitle} - GeofisicaHub</title>
-    <ViewTransitions />
+    <ClientRouter />
 
     <script
       is:inline
@@ -36,7 +36,7 @@ const brand_logo = "/logotipo_final.svg";
               <h1 class="is-size-1 has-text-centered has-text-weight-black">
                 {pageTitle}
               </h1>
-              <HubButtons client:load />
+              <HubButtons client:visible />
               <slot />
             </div>
           </div>
