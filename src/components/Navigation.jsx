@@ -70,14 +70,14 @@ class Navbar extends Component {
                   <h2 class="navbar-item has-text-weight-bold is-size-6">
                     Calculadoras
                   </h2>
+                  <Link class="navbar-item" href="https://geofisica.streamlit.app/" target="_blank">
+                    GeofisicaApp
+                  </Link>
                   <Link
                     class="navbar-item"
                     href="/tools/calculator/calculator-hub"
                   >
                     Geral
-                  </Link>
-                  <Link class="navbar-item" href="/tools/calculator/petrocalc">
-                    PetroCalc
                   </Link>
                   <hr class="navbar-divider" />
                   <h2 class="navbar-item has-text-weight-bold is-size-6">
