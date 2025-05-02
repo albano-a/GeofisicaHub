@@ -1,7 +1,9 @@
 ---
 import BlogPostLayout from "./BlogPostLayout.astro";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, url } = Astro.props;
+
+const slug = Astro.url.pathname.split("/").filter(Boolean).pop();
 
 const formattedDate = new Date(frontmatter.pubDate).toLocaleString("pt-BR", {
   year: "numeric",

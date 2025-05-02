@@ -4,6 +4,7 @@ title: "Terremoto em Mianmar"
 pubDate: 2024-03-29T22:00:00
 description: "Terremoto foi de magnitude 7.7 na escala Richter."
 author: "André Albano"
+draft: false
 imgurl: "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/6e6f/live/aac711c0-0ccc-11f0-ba12-8d27eb561761.jpg.webp"
 tags: ["astro", "blogging", "learning in public"]
 ---
