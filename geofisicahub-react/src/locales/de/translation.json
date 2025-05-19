@@ -1,0 +1,22 @@
+{
+  "Navbar": {
+    "Home": "Startseite",
+    "About": "Über uns",
+    "Hub": "Hub",
+    "Tools": "Werkzeuge"
+  },
+  "HomePage": {
+    "Welcome": "Hast du dich in der Geophysik schon mal verloren gefühlt und brauchst Hilfe?",
+    "Intro": "Egal, in welcher Situation du bist – du bist hier genau richtig! Willkommen bei GeofisicaHub, deinem umfassenden Leitfaden für Studium und Arbeit im Bereich. Klicke unten und entdecke! Wenn du zufällig hier gelandet bist, entdecke diese faszinierende Wissenschaft!",
+    "GetStarted": "Jetzt starten"
+  },
+  "Features": {
+    "PowerfulFeatures": "Leistungsstarke Funktionen",
+    "StudyMaterials": "Lernmaterialien",
+    "StudyMaterialsdesc": "Der HUB-Bereich enthält mehrere Bücher über Geophysik, Geologie, Mathematik usw. Hier findest du die wichtigsten Quellen für dein Studium. Der Geophysik-Teil enthält die meisten Bücher, weil er offensichtlich der wichtigste ist.",
+    "CalculatorsResources": "Rechner und Ressourcen",
+    "CalculatorsResourcesdesc": "Unser Rechner-Bereich bietet eine Vielzahl von Tools, um geophysikalische Probleme schnell und effizient zu lösen. Du kannst auch die Ressourcenseite besuchen, um wichtige Geophysik-Webseiten und Software zu finden.",
+    "ScientificPubli": "Wissenschaftliche Veröffentlichungen",
+    "ScientificPublidesc": "Im Bereich Veröffentlichungen findest du verschiedene Quellen für Artikel, Aufsätze und Abschlussarbeiten zu geophysikalischen Themen. Nutze diesen Bereich, um nach Referenzen zu suchen oder Quellen für deine Arbeit zu finden."
+  }
+}

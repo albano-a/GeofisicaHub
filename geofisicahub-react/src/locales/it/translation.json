@@ -1,0 +1,22 @@
+{
+  "Navbar": {
+    "Home": "Home",
+    "About": "Chi siamo",
+    "Hub": "Hub",
+    "Tools": "Strumenti"
+  },
+  "HomePage": {
+    "Welcome": "Ti sei mai sentito perso nella geofisica e hai bisogno di aiuto?",
+    "Intro": "Qualunque sia la tua situazione, sei nel posto giusto! Benvenuto su GeofisicaHub, la tua guida completa per lo studio e il lavoro nel settore. Clicca qui sotto ed esplora! Se sei arrivato qui per caso, scopri questa scienza straordinaria!",
+    "GetStarted": "Inizia ora"
+  },
+  "Features": {
+    "PowerfulFeatures": "Funzionalità avanzate",
+    "StudyMaterials": "Materiali di studio",
+    "StudyMaterialsdesc": "La sezione HUB contiene diversi libri su geofisica, geologia, calcolo, ecc. Qui troverai le principali fonti per i tuoi studi. La sezione di geofisica ha più libri perché, ovviamente, è la più importante.",
+    "CalculatorsResources": "Calcolatrici e Risorse",
+    "CalculatorsResourcesdesc": "La nostra sezione Calcolatrici offre una varietà di strumenti per aiutarti a risolvere problemi di geofisica in modo rapido ed efficiente. Puoi anche visitare la pagina delle Risorse per trovare i principali siti web e software di geofisica.",
+    "ScientificPubli": "Pubblicazioni scientifiche",
+    "ScientificPublidesc": "Nella sezione Pubblicazioni troverai varie fonti di articoli, documenti e tesi che trattano argomenti di geofisica. Usa questa sezione per cercare riferimenti o trovare fonti per il tuo lavoro."
+  }
+}
