@@ -28,10 +28,9 @@ export default function Home() {
             <Button
               variant="contained"
               sx={{
-                backgroundColor: "inherit", // Replace with your desired color
                 borderRadius: "15px", // Rounded corners
               }}
-              className="mt-4  !bg-geo-primary hover:!bg-geo-darkprimary dark:!bg-geo-darkprimary dark:!text-geo-lightbg dark:hover:!bg-geo-primary"
+              className="mt-4  !bg-geo-primary hover:!bg-geo-darkprimary dark:!bg-geo-primary dark:!text-geo-lightbg dark:hover:!bg-geo-darkprimary"
               size="large"
             >
               {t("HomePage.GetStarted")}!
