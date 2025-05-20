@@ -1,9 +1,0 @@
-# build output
-dist/
-# generated types
-.astro/
-
-/node_modules
-/dist
-database.db
-
