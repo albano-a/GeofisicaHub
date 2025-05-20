@@ -17,6 +17,35 @@
     "CalculatorsResources": "Calculatrices et ressources",
     "CalculatorsResourcesdesc": "Notre section Calculatrices propose une variété d’outils pour vous aider à résoudre rapidement et efficacement des problèmes de géophysique. Vous pouvez également visiter la page Ressources pour trouver les principaux sites et logiciels de géophysique.",
     "ScientificPubli": "Publications scientifiques",
-    "ScientificPublidesc": "Dans la section Publications, vous trouverez diverses sources d’articles, de papiers et de thèses sur des sujets liés à la géophysique. Utilisez cette section pour rechercher des références ou trouver des sources pour vos travaux."
+    "ScientificPublidesc": "Dans la section Publications, vous trouverez diverses sources d'articles, de papiers et de thèses sur des sujets liés à la géophysique. Utilisez cette section pour rechercher des références ou trouver des sources pour vos travaux."
+  },
+  "About": {
+    "Title": "À propos",
+    "Section1": "Bonjour. Bienvenue sur mon site, GeofisicaHub. Le site a été créé en janvier 2024 dans le but d'organiser le contenu de la géophysique en un seul endroit. Initialement, il était destiné uniquement au programme de géophysique de l'Université Fédérale Fluminense. Mais au fur et à mesure de la construction du site, j'ai réalisé qu'il pourrait être plus intéressant s'il avait une portée plus large (même si une grande partie du contenu reflète encore les domaines mis en avant par le programme de géophysique de l'UFF). Ainsi, bien qu'il n'y ait pas eu de changements majeurs dans la structure elle-même, le site est désormais destiné à la géophysique dans son ensemble. Il est constamment mis à jour, et la version actuelle est la v2.0.0, en date de mai 2025.",
+    "Section2": "Actuellement, tout le contenu du site est disponible gratuitement ou provient de sources gratuites. Certaines fonctionnalités, telles que les calculateurs, sont liées à des sites externes, et leur contenu est de la responsabilité de ces sources respectives. Les ressources et les articles proviennent de plateformes qui les offrent gratuitement. Le site est à but non lucratif, et je crois que nous ne devrions pas avoir à payer des montants absurdes pour accéder à tout type d'information.",
+    "Section3": "Alors, n'hésitez pas à explorer le site, à profiter de son contenu, et si vous souhaitez contribuer au projet, consultez comment vous pouvez le faire sur le dépôt à"
+  },
+  "WhatGeophysics": {
+    "Title": "Qu'est-ce que la géophysique ?",
+    "Section1": "La géophysique est la science qui étudie le sous-sol de la Terre et ses caractéristiques à travers des méthodes indirectes basées sur diverses propriétés physiques (telles que la résistivité, la conductivité électrique, la densité, la susceptibilité magnétique, entre autres). Elle explore le sous-sol des couches peu profondes aux plus profondes, visant à comprendre la structure, la composition, les systèmes et les processus dynamiques de la Terre.",
+    "Section2": "De plus, la géophysique observe et calcule les mouvements du sol et du sous-sol, enquête sur l'origine et l'activité des volcans, la courbure de la planète et d'autres caractéristiques géophysiques du globe. Elle détecte et mesure l'intensité des tremblements de terre et des tsunamis, étudie la structure des formations rocheuses et les propriétés physico-chimiques des mers. La géophysique est généralement divisée en géophysique pure, qui fournit des informations sur la structure et la composition internes de la Terre, et en géophysique appliquée, qui implique des méthodes et des techniques pratiques utilisées pour résoudre des problèmes réels tels que l'exploration des hydrocarbures, des minéraux et des eaux souterraines, ainsi que des études environnementales et d'ingénierie."
+  },
+  "Applications": {
+    "Title": "Applications",
+    "Section1": "Le géophysicien étudie les propriétés physiques de la Terre, sa structure, sa composition et ses phénomènes dynamiques. Son rôle inclut l'investigation des phénomènes électriques, magnétiques, gravitationnels, sismiques et thermiques, le calcul des mouvements du sol et des volcans, la mesure de l'intensité des tremblements de terre et des tsunamis, et l'analyse de la composition des océans et des formations rocheuses. Pour ce faire, il utilise les lois de la physique et des mathématiques pour planifier et exécuter des levés géophysiques. Les principales domaines d'application incluent :",
+    "Section2": {
+      "BoxTitle1": "Industrie pétrolière et gazière",
+      "BoxDesc1": "Le principal domaine de la géophysique. La géophysique appliquée est utilisée pour localiser et caractériser les réservoirs de pétrole, principalement par des méthodes sismiques, mais aussi par d'autres méthodes.",
+      "BoxTitle2": "Exploitation minière",
+      "BoxDesc2": "Le deuxième plus grand domaine. Les méthodes géophysiques sont utilisées pour identifier les gisements minéraux, les éventails alluviaux, les rivières souterraines, et plus encore.",
+      "BoxTitle3": "Génie civil",
+      "BoxDesc3": "Utilisé pour évaluer les conditions du sous-sol pour la construction. La géotechnique est un domaine important en géologie et en géophysique.",
+      "BoxTitle4": "Préservation de l'environnement",
+      "BoxDesc4": "Appliqué à la surveillance de la pollution du sol en utilisant des méthodes telles que la résistivité électrique, la magnétométrie et la radiométrie."
+    }
+  },
+  "JobMarket": {
+    "Title": "Marché du travail",
+    "Section1": "Le marché de l'emploi en géophysique est en pleine expansion à l'échelle mondiale, porté par la demande dans des secteurs tels que l'exploration pétrolière, les ressources minérales, la surveillance environnementale et l'ingénierie géotechnique. L'accent croissant mis sur le développement durable a également renforcé l'importance des méthodes géophysiques dans les applications environnementales. Les salaires de début de carrière varient généralement entre 50 000 € et 70 000 € par an, selon la région, le secteur et la taille de l'entreprise. Dans de nombreux pays, la profession n'est pas encore réglementée officiellement, bien que les géophysiciens soient employés par de grandes entreprises, des instituts de recherche et des organismes publics. Des démarches sont en cours dans plusieurs régions pour établir une reconnaissance et une réglementation officielles."
   }
 }
