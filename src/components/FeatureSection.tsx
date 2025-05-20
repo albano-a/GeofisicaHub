@@ -74,11 +74,8 @@ const FeatureSection: React.FC = () => {
                   fontWeight: 600,
                   boxShadow: "none",
                   textTransform: "none",
-                  "&:hover": {
-                    bgcolor: "geo.primary",
-                  },
                 }}
-                className="!bg-geo-primary hover:!bg-geo-darkprimary !text-geo-lightbg dark:!bg-geo-darkprimary dark:!text-geo-lightbg"
+                className="!bg-geo-primary hover:!bg-geo-darkprimary !text-geo-lightbg dark:!bg-geo-primary dark:!text-geo-lightbg dark:hover:!bg-geo-darkprimary"
               >
                 {t("HomePage.GetStarted")}
               </Button>
