@@ -1,0 +1,84 @@
+{
+  "geophysics": [
+    {
+      "cover": "https://example.com/images/book-cover.jpg",
+      "title": "The Art of Programming",
+      "description": "An in-depth guide to mastering the art of programming, covering various languages and paradigms.",
+      "link": "https://example.com/the-art-of-programming"
+    }
+  ],
+  "geology": [
+    {
+      "cover": "https://example.com/images/book-cover.jpg",
+      "title": "The Art of Programming",
+      "description": "An in-depth guide to mastering the art of programming, covering various languages and paradigms.",
+      "link": "https://example.com/the-art-of-programming"
+    }
+  ],
+  "programming": [
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd20ohkaloyme4g.cloudfront.net%2Fimg%2Fdocument_thumbnails%2F0ba206b96738a15126c7eb5a3f9b83d8%2Fthumb_1200_1800.png&f=1&nofb=1&ipt=e807ed233f8dbbf84297ed682defa7d86c2942bb69872ed41e4e374f431a935d&ipo=images",
+      "title": "A Practical Introduction to Python 3",
+      "description": "A python introduction",
+      "link": "https://drive.google.com/file/d/1w2lhXt0-yXyxyBvLo1K2pbinXwQYICNj/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fcompressed.photo.goodreads.com%2Fbooks%2F1610626892i%2F56664771.jpg&f=1&nofb=1&ipt=ba48fc42c750356df04c39c6ed50a62095605df7e981e6f11a2fc9e22c2f1456&ipo=images",
+      "title": "Python Programming for Beginners",
+      "description": "Complete starter guide",
+      "link": "https://drive.google.com/file/d/1k2iA86tARqSrKB3isgt5uDs56567-v2Y/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsanet.pics%2Fstorage-6%2F0520%2FwZBSbQTnmtor7TlkIRrTrfkhKmdmj1Kk.jpg&f=1&nofb=1&ipt=7c3511718e8f2540a9d466e7d836a7af123a8540e39e3f46c55aea3450c265de&ipo=images",
+      "title": "High Performance Python",
+      "description": "Advanced Python for Pythonists",
+      "link": "https://drive.google.com/file/d/12GdHBGREh3J86SHUHm7kE9LKBWxyXeHq/view?usp=drive_link"
+    }
+  ],
+  "calculus": [
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F31lTJSnoOPL.jpg&f=1&nofb=1&ipt=51fe2a7861f29d4a5f187ddc145989950b180916d78c30df5ed316bf11d353bd&ipo=images",
+      "title": "Um Curso de Cálculo - Vol. 1",
+      "description": "Limits, Derivative and Integrals",
+      "link": "https://drive.google.com/file/d/1ceJ8_GVSY3PPHTJ7-tRWWbdwhvyHHONI/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.s-bol.com%2FDB4kpxwAKQB%2F550x776.jpg&f=1&nofb=1&ipt=89587a2b908718ee857a018f4fdcbfd2c909bc11a07c037beb4cbc8528836ee4&ipo=images",
+      "title": "Um Curso de Cálculo - Vol. 2",
+      "description": "Continuação do Vol. 1, derivabilidade e soluções de EDO.",
+      "link": "https://drive.google.com/file/d/1IYhGxWyrV3ko23Sks64MPFAFNfKD-gZD/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F714Pt9pkw0L._SL1500_.jpg&f=1&nofb=1&ipt=442b556b95bedba1fd53cb18ad681b90ec82352bd69dd01e5a8e297cce1a5ee3&ipo=images",
+      "title": "Um Curso de Cálculo - Vol. 3",
+      "description": "Rotacional, Integral de Linha, Teorema de Green e Stokes.",
+      "link": "https://drive.google.com/file/d/1GX4fF2QbaCdUNk58PfWuLy19Sg2kMqeM/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F31ilwYpm0ML.jpg&f=1&nofb=1&ipt=6d2311eca91425f43af59933de6642c902f854ab6dfb3c82fc77cdee6c90bc88&ipo=images",
+      "title": "Um Curso de Cálculo - Vol. 4",
+      "description": "Séries, Sequências e Transformadas (Laplace e Fourier)",
+      "link": "https://drive.google.com/file/d/10SxVU-HTMKprD-VKDz6NZZxz0wwTir0U/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-aU9nJukTRHY%2FVmYv9CD-ivI%2FAAAAAAAABKs%2FXRZN64dAvuk%2Fs1600%2FCalculo%252BVolume%252B1%252B-%252BJames%252BStewart%252B-%252B7%252BEdi%2525C3%2525A7%2525C3%2525A3o.jpg&f=1&nofb=1&ipt=efa0179913784d089e7be1730f45b18e87c48e35cca82d79586153ad7dd90bbc&ipo=images",
+      "title": "Cálculo Vol. 1",
+      "description": "Limites, Derivadas, Integrais, e Técnicas de Integração",
+      "link": "https://drive.google.com/file/d/1L69Gjjzc0WMc7KmTX3foeouu3n44bl94/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-OfEJ19cabZ0%2FVmYxYcOtRLI%2FAAAAAAAABK4%2FHBZ1u2qtL3c%2Fs1600%2FCalculo%252BVolume%252B2%252B-%252BJames%252BStewart%252B-%252B7%252BEdi%2525C3%2525A7%2525C3%2525A3o.jpg&f=1&nofb=1&ipt=cc3cc9298ef0f3930c325b882d01b8b4598da09559a553e752644e4061b44dcd&ipo=images",
+      "title": "Cálculo Vol. 2",
+      "description": "Equações Diferenciais, Séries Infinitas, Derivadas Parciais",
+      "link": "https://drive.google.com/file/d/1a7d5x3F7IIKkFJ4ZZl18BzAe0hx4mXCN/view?usp=drive_link"
+    }
+  ],
+  "physics": [
+    {
+      "cover": "https://example.com/images/book-cover.jpg",
+      "title": "The Art of Programming",
+      "description": "An in-depth guide to mastering the art of programming, covering various languages and paradigms.",
+      "link": "https://example.com/the-art-of-programming"
+    }
+  ]
+}
