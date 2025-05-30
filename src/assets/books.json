@@ -15,6 +15,13 @@
       "link": "https://example.com/the-art-of-programming"
     }
   ],
+
+
+
+
+
+
+
   "programming": [
     {
       "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd20ohkaloyme4g.cloudfront.net%2Fimg%2Fdocument_thumbnails%2F0ba206b96738a15126c7eb5a3f9b83d8%2Fthumb_1200_1800.png&f=1&nofb=1&ipt=e807ed233f8dbbf84297ed682defa7d86c2942bb69872ed41e4e374f431a935d&ipo=images",
@@ -35,6 +42,10 @@
       "link": "https://drive.google.com/file/d/12GdHBGREh3J86SHUHm7kE9LKBWxyXeHq/view?usp=drive_link"
     }
   ],
+
+
+
+
   "calculus": [
     {
       "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F31lTJSnoOPL.jpg&f=1&nofb=1&ipt=51fe2a7861f29d4a5f187ddc145989950b180916d78c30df5ed316bf11d353bd&ipo=images",
@@ -61,24 +72,96 @@
       "link": "https://drive.google.com/file/d/10SxVU-HTMKprD-VKDz6NZZxz0wwTir0U/view?usp=drive_link"
     },
     {
-      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-aU9nJukTRHY%2FVmYv9CD-ivI%2FAAAAAAAABKs%2FXRZN64dAvuk%2Fs1600%2FCalculo%252BVolume%252B1%252B-%252BJames%252BStewart%252B-%252B7%252BEdi%2525C3%2525A7%2525C3%2525A3o.jpg&f=1&nofb=1&ipt=efa0179913784d089e7be1730f45b18e87c48e35cca82d79586153ad7dd90bbc&ipo=images",
+      "cover": "https://image.isu.pub/130611114738-5bff8861dbf3edccc0714dfb8403330d/jpg/page_1_social_preview.jpg",
       "title": "Cálculo Vol. 1",
       "description": "Limites, Derivadas, Integrais, e Técnicas de Integração",
       "link": "https://drive.google.com/file/d/1L69Gjjzc0WMc7KmTX3foeouu3n44bl94/view?usp=drive_link"
     },
     {
-      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-OfEJ19cabZ0%2FVmYxYcOtRLI%2FAAAAAAAABK4%2FHBZ1u2qtL3c%2Fs1600%2FCalculo%252BVolume%252B2%252B-%252BJames%252BStewart%252B-%252B7%252BEdi%2525C3%2525A7%2525C3%2525A3o.jpg&f=1&nofb=1&ipt=cc3cc9298ef0f3930c325b882d01b8b4598da09559a553e752644e4061b44dcd&ipo=images",
+      "cover": "https://m.media-amazon.com/images/I/61oaBUaZwiL._AC_UF1000,1000_QL80_.jpg",
       "title": "Cálculo Vol. 2",
       "description": "Equações Diferenciais, Séries Infinitas, Derivadas Parciais",
       "link": "https://drive.google.com/file/d/1a7d5x3F7IIKkFJ4ZZl18BzAe0hx4mXCN/view?usp=drive_link"
+    },
+    {
+      "cover": "https://m.media-amazon.com/images/I/61hrwyeaZ8L._AC_UF894,1000_QL80_.jpg",
+      "title": "Geometria Analítica",
+      "description": "De Alfredo Steinbruch. 297 problemas propostos.",
+      "link": "https://drive.google.com/file/d/1nB2ArFZggZhDuFg6Cf1kUqSDFvAtgjec/view?usp=drive_link"
+    },
+    {
+      "cover": "https://m.media-amazon.com/images/I/51r7VQhm4jL._AC_UF1000,1000_QL80_.jpg",
+      "title": "Pré-Cálculo",
+      "description": "De Demana, Waits, Foley e Kennedy.",
+      "link": "https://drive.google.com/file/d/1104hymbz061vEwLqoXbJdjrebjzH86TB/view?usp=drive_link"
+    },
+    {
+      "cover": "https://static.docsity.com/documents_first_pages/2020/05/22/4288e8cda537e196eb01e5c6a1b4c36c.png",
+      "title": "Apostila de Geometria Analítica",
+      "description": "Apostila feita pelo Departamento de Geometria da UFF.",
+      "link": "https://drive.google.com/file/d/15aHdWTc0yQBuTT2Abc2NmBdM1O4sHiqZ/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.elsolucionario.me%2Fwp-content%2Farchivos%2F2019%2F09%2Fcalculus-vol-1-tom-m-apostol-2da-edicion.jpg&f=1&nofb=1&ipt=0fdae25aae2e7185a38ac7c4810622d6a9b06e63c0e001b0f63e4e5944770dbb&ipo=images",
+      "title": "Calculus I",
+      "description": "One-Variable Calculus, with an Introduction to Linear Algebra",
+      "link": "https://drive.google.com/file/d/199Zmf8kowTUUQflAzV2cA0h5PW6uRoJO/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.elsolucionario.me%2Fwp-content%2Farchivos%2F2019%2F09%2Fcalculus-vol-2-tom-m-apostol-2da-edicion.jpg&f=1&nofb=1&ipt=f9e476f181fac87848cdec30a94148ec5be8fbde2390ae4783b97bc0c2011ee1&ipo=images",
+      "title": "Calculus II",
+      "description": "Multi-Variable Calculus and Linear Algebra",
+      "link": "https://drive.google.com/file/d/1HGnM5Q09JYUIVDxyzWnNqkP2a5_zZ2yI/view?usp=drive_link"
     }
   ],
+
+
+
+
   "physics": [
     {
-      "cover": "https://example.com/images/book-cover.jpg",
-      "title": "The Art of Programming",
-      "description": "An in-depth guide to mastering the art of programming, covering various languages and paradigms.",
-      "link": "https://example.com/the-art-of-programming"
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-EbOto2edctU%2FXRJRY7o8CTI%2FAAAAAAAAAf0%2FUye1TVPVQUM35RV0LZIZlvTifRFbcrymQCLcBGAs%2Fs1600%2FF%2525C3%2525ADsica%252B-%252BUma%252BAbordagem%252BEstrat%2525C3%2525A9gica%252B-%252BVol%252B1%252B-%252B2%2525C2%2525AA%252BEd%252B2009_P%2525C3%2525A1gina_001.jpg&f=1&nofb=1&ipt=547e6cc6fa0be84fbb46f93195c47467fff4acd152570ce424e1469904f3b9f1&ipo=images",
+      "title": "Física - Vol. 1",
+      "description": "Mecânica Newtoniana e Gravitacao",
+      "link": "https://drive.google.com/file/d/15VdiN_f9bKpfV5KtK1pocaQBVOYixWHc/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F0.academia-photos.com%2Fattachment_thumbnails%2F68073149%2Fmini_magick20220705-11430-3lewqu.png%3F1657029063&f=1&nofb=1&ipt=18bdb24282ba226b639f4f863622bd85c73516fc16bcf369103b4631bbf8cbbf&ipo=images",
+      "title": "Física - Vol. 2",
+      "description": "Termodinâmica, Óptica",
+      "link": "https://drive.google.com/file/d/15VdiN_f9bKpfV5KtK1pocaQBVOYixWHc/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.torob.com%2Fbase%2Fimages%2F69%2FY7%2F69Y7RczUblcI0S4Y.jpg_%2F560x560.webp&f=1&nofb=1&ipt=ac1a35b205d3b7022c06332c771ba01f2e91e0337caecef67740e31fbf70cd11&ipo=images",
+      "title": "Física - Vol. 3",
+      "description": "Eletricidade e Magnetismo",
+      "link": "https://drive.google.com/file/d/15VdiN_f9bKpfV5KtK1pocaQBVOYixWHc/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F3.bp.blogspot.com%2F-zISOI9D-Cuo%2FT8ZItUDqUEI%2FAAAAAAAAAUk%2FSSVsjFEReQs%2Fs1600%2Fhalliday%2B1.jpg&f=1&nofb=1&ipt=9e906ba9cb4671408e22d5e478f378b96a16a67042d26b58ce856f6c62f6ae91&ipo=images",
+      "title": "Fundamentos de Física - Vol. 1",
+      "description": "Mecânica Newtoniana",
+      "link": "https://drive.google.com/file/d/15VdiN_f9bKpfV5KtK1pocaQBVOYixWHc/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-M-8WrsXCd-o%2FU-wAf-_4MBI%2FAAAAAAAABpE%2FXXMBJiRbTLg%2Fs1600%2FHalliday%252Bcapa%252Bv2%252B8ed.jpg&f=1&nofb=1&ipt=e7c228457daced1fef54ec715f91456656ba9eea0807fdeccceabc8d01bedc99&ipo=images",
+      "title": "Fundamentos de Física - Vol. 2",
+      "description": "Gravitacao, Ondas e Termodinâmica",
+      "link": "https://drive.google.com/file/d/15VdiN_f9bKpfV5KtK1pocaQBVOYixWHc/view?usp=drive_link"
+    },
+    {
+        "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-0GFIfvRUrWk%2FU1AiwSMACnI%2FAAAAAAAAAMI%2FOAiZFatLinU%2Fs1600%2Fhalliday%2Bvol%2B3.JPG&f=1&nofb=1&ipt=25a89aaecc1d8bcebf8be6e438fab9fbb6a1d44ef3d83eaa1d348490c55200d0&ipo=images",
+        "title": "Fundamentos de Física - Vol. 3",
+        "description": "Eletricidade e Magnetismo",
+        "link": "https://drive.google.com/file/d/1a6I9JAGv4nR9pIsbPV77pcov2Xod1dOs/view?usp=drive_link"
+    },
+    {
+        "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-gI5iTjw-lHY%2FVhVl5qfoKdI%2FAAAAAAAAEuI%2F7mokiWXrfR0%2Fs1600%2Ffundamentos-de-fisica-vol-4%252Bms-matematica.jpg&f=1&nofb=1&ipt=f12f59574128ceac343fca02ecc3125a43bc49d67dee107ece7a0f84469fadf7&ipo=images",
+        "title": "Fundamentos de Física - Vol. 4",
+        "description": "Óptica e Física Moderna",
+        "link": "https://drive.google.com/file/d/1SlAWp2Pof7po3JTZ8dVM1jhGkWGjBXkF/view?usp=drive_link"
     }
+
+
   ]
 }

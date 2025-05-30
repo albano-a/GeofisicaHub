@@ -6,7 +6,7 @@ export default function Calculus() {
 
   return (
     <>
-      <div className="min-h-screen bg-geo-lightbg dark:bg-geo-darkbg flex flex-col items-center justify-center">
+      <div className="min-h-screen bg-geo-lightbg dark:bg-geo-darkbg pb-5 flex flex-col items-center justify-center">
         <h1 className="text-4xl py-10 font-bold text-geo-primary dark:text-geo-darkprimary mb-8">
           Calculus
         </h1>

@@ -6,7 +6,7 @@ export default {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    "./src/**/*.{css}", // Updated to include all CSS files in src folder
+    "./src/**/*.css" // Updated to include all CSS files in src folder
   ],
   theme: {
     extend: {

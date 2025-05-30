@@ -25,10 +25,10 @@ export default function BookCard({
           className="absolute top-0 left-0 w-full h-full object-cover"
         />
       </div>
-      <h2 className="text-lg font-semibold text-geo-primary dark:text-geo-darkprimary truncate">
+      <h2 className="text-lg font-semibold text-geo-primary dark:text-geo-darkprimary ">
         {title}
       </h2>
-      <p className="text-gray-600 dark:text-gray-400 mb-3 text-sm line-clamp-3">
+      <p className="text-gray-600 dark:text-gray-400 mb-3 text-md line-clamp-3">
         {description}
       </p>
     </a>
