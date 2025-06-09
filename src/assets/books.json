@@ -1,26 +1,146 @@
 {
   "geophysics": [
     {
-      "cover": "https://example.com/images/book-cover.jpg",
-      "title": "The Art of Programming",
-      "description": "An in-depth guide to mastering the art of programming, covering various languages and paradigms.",
-      "link": "https://example.com/the-art-of-programming"
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.rgstatic.net%2Fpublication%2F283349728_Para_Entender_a_Terra_By_Press_Siever_Grotzinger_Jordan_-_4ed_Traducao%2Flinks%2F5636208b08aeb786b703ee97%2Flargepreview.png&f=1&nofb=1&ipt=c75da2d56f4d1452dc128f9604175b2baf3b85678d674bc7b63fa38be6fe5991&ipo=images",
+      "title": "Para Entender a Terra",
+      "description": "Um dos livros mais importantes para Geofísica (e Geologia)",
+      "link": "https://edisciplinas.usp.br/pluginfile.php/7296004/mod_resource/content/1/Para%20Entender%20a%20TerraPara%20Entender%20a%20Terra.pdf"
+    },
+    {
+      "cover": "https://m.media-amazon.com/images/I/51aTvVj0DwL._SY445_SX342_.jpg",
+      "title": "Geofísica de Exploração",
+      "description": "Resume todos os métodos utilizados na Geofísica",
+      "link": "https://drive.google.com/file/d/1BOq_IAkVaSfnrm5Zp2zrWrN8X1acfI2J/view?usp=sharing"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstaticbv.am4.com.br%2Fpublicacoes%2F2352%2Fthumbs%2Fthumbnail_397_x_595.jpg&f=1&nofb=1&ipt=8db516277f6f00b0eb4d34d397a3f03c31cd460eac7be9b85c27d169de0d09d6&ipo=images",
+      "title": "Sinais e Sistemas",
+      "description": "Cobre o processamento de sinais e sísmica",
+      "link": "https://drive.google.com/file/d/1FiSQWzfVe_75-dtTJ17NsE5sZsC2yo_g/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.ebooks.com%2Fcover%2F96035986.jpg%3Fwidth%3D664%26height%3D1000%26quality%3D85&f=1&nofb=1&ipt=268485e7b3a72579fb14090eb4fb3b6272305d068dce50e64dbad24569610dc3&ipo=images",
+      "title": "Acquisition and Processing of Marine Seismic Data",
+      "description": "Guia do Processamento Sísmico",
+      "link": "https://drive.google.com/file/d/1qZjPlScY3x1XDkRL-MGZIq4B-hz2-aNP/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F71HwZOS3H3L._SL1360_.jpg&f=1&nofb=1&ipt=17c26203da883ff43b13581fbb176ab25a4871ed7fd8570bff7f20cfbf3cd8a6&ipo=images",
+      "title": "Fundamentals of Geophysics",
+      "description": "Semelhante ao Geofísica de Exploração",
+      "link": "https://drive.google.com/file/d/1oCDidkIe577SdOLzdbglrOtzQEDXspiH/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.OvX595vsFxiU1BELAB1amAHaKR%26pid%3DApi&f=1&ipt=39ce07e34ab00e42547086cb88c6d24ced473eba388a2d5ea3101cd92febf9a3&ipo=images",
+      "title": "Digital Signal Processing",
+      "description": "Tão bom quanto o outro livro sobre sinais e sistemas",
+      "link": "https://drive.google.com/file/d/1HTTyIWhtZXpzlfh7qIOu67o4EcfmYE-F/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.s-bol.com%2FmqLlEy0RMwzA%2F550x834.jpg&f=1&nofb=1&ipt=c173e1210e9637620baa21ca7cc8c865aca2c97d161bd9fb65418c0d324cc559&ipo=images",
+      "title": "Atlas of Typical Seismic and Geological Sections for Major Petroliferous Basins in China",
+      "description": "Importante referência para Geofísicos",
+      "link": "https://drive.google.com/file/d/1z9pEuwQf9zczVM0u7c1LXhiT0DiUBNr2/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.rgstatic.net%2Fpublication%2F264739818_Seismic_Stratigraphy_Basin_Analysis_and_Reservoir_Characterisation%2Flinks%2F5bbef94292851c4efd563d9a%2Flargepreview.png&f=1&nofb=1&ipt=566750c1a845c9208efe0d125fbf1fca2b26534e76d990320580c33d0607cf18&ipo=images",
+      "title": "Seismic Stratigraphy, Basin Analysis and Reservoir Characterization",
+      "description": "Manual de exploração Geofísica e estratigrafia",
+      "link": "https://drive.google.com/file/d/1kV_YyaBv46DsR_2meHq45mebgg-xkzED/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81WMbSEVjeL._SL1500_.jpg&f=1&nofb=1&ipt=7ee1b82d8f550ef67ee8cc11f1e80b355dfe8012acf662051c29558b021eb37a&ipo=images",
+      "title": "Sinais e Sistemas Lineares",
+      "description": "Mais um livro sobre sinais e sistemas",
+      "link": "https://drive.google.com/file/d/1tyok8U_txtstRKTR4Zpdvec2LoXqyVlW/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmediacdn.nhbs.com%2Fjackets%2Fjackets_resizer_xlarge%2F16%2F165856.jpg%3Fheight%3D620&f=1&nofb=1&ipt=3ac5732849a440ae13e3e3d09aab731de29e9561f7ec3af7c4a91cb4d9920a59&ipo=images",
+      "title": "Well Logging for Earth Scientists",
+      "description": "Importante para análise de perfil de poço",
+      "link": "https://drive.google.com/file/d/1KUa6KlhgyQnqYgaoItXxNd3crnXCXOiO/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-Mlr4N-fXcJg%2FUirraJYa5CI%2FAAAAAAAAAto%2FGbMCzjjE_gI%2Fs1600%2FLog%2BInterpretation%2Bchats%2BBy%2BSchlumberger.bmp&f=1&nofb=1&ipt=7b5d73432ea8f584927e07eb2fbe6d711dbf76cde36162057abcfc4ef0477c8b&ipo=images",
+      "title": "Log Interpretation Charts",
+      "description": "Guia completo para as operações geológicas",
+      "link": "https://drive.google.com/file/d/1B8UKGJd8h9wPby1txbHn3K6F3DFN6Lgh/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmediacdn.nhbs.com%2Fjackets%2Fjackets_resizer_xlarge%2F20%2F208971.jpg&f=1&nofb=1&ipt=587869da85bcd9341a00cd124a97a163f9bc53ba68cc7a95496c360a2b7db8f3&ipo=images",
+      "title": "Seismic Amplitude: An Interpreter's Handbook",
+      "description": "Um dos principais livros da Geofísica de Reservatório",
+      "link": "https://drive.google.com/file/d/1aLWX2DcZUTbr3QEKqpLijg-hnr-8snBI/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmediacdn.nhbs.com%2Fjackets%2Fjackets_resizer_xlarge%2F20%2F208163.jpg&f=1&nofb=1&ipt=eedad63c314fdfa84066a9ac536a9fadadbb3ff68f1507a1f74bc5109ba059e9&ipo=images",
+      "title": "Seismic Reflections of Rock Properties",
+      "description": "Outro livro sobre Geofísica de Reservatório",
+      "link": "https://drive.google.com/file/d/1OQhZqdeGyRHCTWxaJwqFOD0XqEFuJM3v/view?usp=drive_link"
+    },
+    {
+      "cover": "https://jncinc.co.uk/cdn/shop/products/0521468264.01._SS500_SCLZZZZZZZ_V1056466915_360x.jpg?v=1576884766",
+      "title": "Exploration Seismology",
+      "description": "Importante para Sismologia e Exploração",
+      "link": "https://drive.google.com/file/d/1YGVxjSsim0ecPKjw3uVNpR-D0IBQzvQb/view?usp=drive_link"
+    },
+    {
+      "cover": "https://m.media-amazon.com/images/I/51TbxKwBwZL._AC_UF1000,1000_QL80_.jpg",
+      "title": "Introduction to Petroleum Seismology",
+      "description": "Outro importante para Geofísica de Reservatório",
+      "link": "https://drive.google.com/file/d/11uHe1-kdOXDVLpLyYBLSlTsqaV7r4eOp/view?usp=drive_link"
     }
   ],
   "geology": [
     {
-      "cover": "https://example.com/images/book-cover.jpg",
-      "title": "The Art of Programming",
-      "description": "An in-depth guide to mastering the art of programming, covering various languages and paradigms.",
-      "link": "https://example.com/the-art-of-programming"
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.rgstatic.net%2Fpublication%2F283349728_Para_Entender_a_Terra_By_Press_Siever_Grotzinger_Jordan_-_4ed_Traducao%2Flinks%2F5636208b08aeb786b703ee97%2Flargepreview.png&f=1&nofb=1&ipt=c75da2d56f4d1452dc128f9604175b2baf3b85678d674bc7b63fa38be6fe5991&ipo=images",
+      "title": "Para Entender a Terra",
+      "description": "Um dos livros mais importantes para Geofísica (e Geologia)",
+      "link": "https://edisciplinas.usp.br/pluginfile.php/7296004/mod_resource/content/1/Para%20Entender%20a%20TerraPara%20Entender%20a%20Terra.pdf"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F61LHkluRG0L.jpg&f=1&nofb=1&ipt=3fde135f1e5d9a64e4f90edd79e791e3bfe762be3f336c3e6441779c9509b091&ipo=images",
+      "title": "Sedimentology and Stratigraphy",
+      "description": "Recurso essencial para compreender estratigrafia",
+      "link": "https://drive.google.com/file/d/15IIcz-GuzmNVUlaWUxOVTGcTHL10DncI/view?usp=drive_link"
+    },
+    {
+      "cover": "https://m.media-amazon.com/images/I/91Dk5sh4hDL._AC_UF894,1000_QL80_.jpg",
+      "title": "Tectônica Global",
+      "description": "Fundamental para entender Geologia Estrutural",
+      "link": "https://drive.google.com/file/d/1DjUqGE6liurD4zrmy1VKn3mQWdJ05s5f/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmediacdn.nhbs.com%2Fjackets%2Fjackets_resizer_xlarge%2F16%2F165856.jpg&f=1&nofb=1&ipt=0425bdf30f3ea068ef01ff819211c0e9a59b76d5923e17902da8724548df921b&ipo=images",
+      "title": "Well Loggin for Earth Scientists",
+      "description": "Importante para entender perfis geofísicos",
+      "link": "https://drive.google.com/file/d/1KUa6KlhgyQnqYgaoItXxNd3crnXCXOiO/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimgv2-2-f.scribdassets.com%2Fimg%2Fdocument%2F560204032%2Foriginal%2F7aba936fd5%2F1688616166%3Fv%3D1&f=1&nofb=1&ipt=d16308fd4fc54616a4983265042e9ae00896e71132aa3b7b730bb4436cb8b230&ipo=images",
+      "title": "Manual de Ciência dos Minerais",
+      "description": "Importante para a mineralogia dos materiais",
+      "link": "https://drive.google.com/file/d/1BASBGP2Qe-XUFg5HfhopDS9znV_SXt_M/view?usp=drive_linkk"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd16jkos453if22.cloudfront.net%2F9780444515681.jpg&f=1&nofb=1&ipt=01b03ab9e44e8d7f89ca6f222f3c318f0db7c6f0ead556239076605b1e99f432&ipo=images",
+      "title": "Principles of Sequence Stratigraphy",
+      "description": "Também sobre sequências estratigráficas",
+      "link": "https://drive.google.com/file/d/11m4pM01SqoJpI7ndmS_UpOU-ikKgvqkp/view?usp=drive_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.standardsmedia.com%2Fbook_images%2F4917_9788126532995.jpg&f=1&nofb=1&ipt=9e9a155be383a93cf71ec79ba319b82779df7a76d7106a995f9695d9a08f8a44&ipo=images",
+      "title": "Sedimentary Petrology",
+      "description": "Livro importante para a Petrologia",
+      "link": "https://drive.google.com/file/d/1SEk7BFwPb5Ahs3OlCuWVqhSA8tXD8M_J/view?usp=driver_link"
+    },
+    {
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstaticbv.am4.com.br%2Fpublicacoes%2F172603%2Fthumbs%2Fthumbnail_397_x_595.jpg&f=1&nofb=1&ipt=05dc184b211ec9799ce879c88613b6707e5db264bac576ee5dfa0312aa912670&ipo=images",
+      "title": "Geologia Sedimentar",
+      "description": "Tipos de rochas, geologias e etc.",
+      "link": "https://drive.google.com/file/d/1RSBnPhEUBMlN_7NkN0xree3Nt8AoBCqd/view?usp=drive_link"
     }
   ],
-
-
-
-
-
-
 
   "programming": [
     {
@@ -42,9 +162,6 @@
       "link": "https://drive.google.com/file/d/12GdHBGREh3J86SHUHm7kE9LKBWxyXeHq/view?usp=drive_link"
     }
   ],
-
-
-
 
   "calculus": [
     {
@@ -115,9 +232,6 @@
     }
   ],
 
-
-
-
   "physics": [
     {
       "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-EbOto2edctU%2FXRJRY7o8CTI%2FAAAAAAAAAf0%2FUye1TVPVQUM35RV0LZIZlvTifRFbcrymQCLcBGAs%2Fs1600%2FF%2525C3%2525ADsica%252B-%252BUma%252BAbordagem%252BEstrat%2525C3%2525A9gica%252B-%252BVol%252B1%252B-%252B2%2525C2%2525AA%252BEd%252B2009_P%2525C3%2525A1gina_001.jpg&f=1&nofb=1&ipt=547e6cc6fa0be84fbb46f93195c47467fff4acd152570ce424e1469904f3b9f1&ipo=images",
@@ -150,18 +264,16 @@
       "link": "https://drive.google.com/file/d/15VdiN_f9bKpfV5KtK1pocaQBVOYixWHc/view?usp=drive_link"
     },
     {
-        "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-0GFIfvRUrWk%2FU1AiwSMACnI%2FAAAAAAAAAMI%2FOAiZFatLinU%2Fs1600%2Fhalliday%2Bvol%2B3.JPG&f=1&nofb=1&ipt=25a89aaecc1d8bcebf8be6e438fab9fbb6a1d44ef3d83eaa1d348490c55200d0&ipo=images",
-        "title": "Fundamentos de Física - Vol. 3",
-        "description": "Eletricidade e Magnetismo",
-        "link": "https://drive.google.com/file/d/1a6I9JAGv4nR9pIsbPV77pcov2Xod1dOs/view?usp=drive_link"
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-0GFIfvRUrWk%2FU1AiwSMACnI%2FAAAAAAAAAMI%2FOAiZFatLinU%2Fs1600%2Fhalliday%2Bvol%2B3.JPG&f=1&nofb=1&ipt=25a89aaecc1d8bcebf8be6e438fab9fbb6a1d44ef3d83eaa1d348490c55200d0&ipo=images",
+      "title": "Fundamentos de Física - Vol. 3",
+      "description": "Eletricidade e Magnetismo",
+      "link": "https://drive.google.com/file/d/1a6I9JAGv4nR9pIsbPV77pcov2Xod1dOs/view?usp=drive_link"
     },
     {
-        "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-gI5iTjw-lHY%2FVhVl5qfoKdI%2FAAAAAAAAEuI%2F7mokiWXrfR0%2Fs1600%2Ffundamentos-de-fisica-vol-4%252Bms-matematica.jpg&f=1&nofb=1&ipt=f12f59574128ceac343fca02ecc3125a43bc49d67dee107ece7a0f84469fadf7&ipo=images",
-        "title": "Fundamentos de Física - Vol. 4",
-        "description": "Óptica e Física Moderna",
-        "link": "https://drive.google.com/file/d/1SlAWp2Pof7po3JTZ8dVM1jhGkWGjBXkF/view?usp=drive_link"
+      "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-gI5iTjw-lHY%2FVhVl5qfoKdI%2FAAAAAAAAEuI%2F7mokiWXrfR0%2Fs1600%2Ffundamentos-de-fisica-vol-4%252Bms-matematica.jpg&f=1&nofb=1&ipt=f12f59574128ceac343fca02ecc3125a43bc49d67dee107ece7a0f84469fadf7&ipo=images",
+      "title": "Fundamentos de Física - Vol. 4",
+      "description": "Óptica e Física Moderna",
+      "link": "https://drive.google.com/file/d/1SlAWp2Pof7po3JTZ8dVM1jhGkWGjBXkF/view?usp=drive_link"
     }
-
-
   ]
 }
