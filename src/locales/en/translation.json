@@ -53,5 +53,11 @@
     "Desc2": "materials and educational resources",
     "Desc3": "designed to guide your journey as a geophysicist.",
     "Warning": "Unfortunately, this is the last page translated into other languages. The cards above contain books that are mostly in Portuguese (with a few in English), because I couldn't find a way to have all the files available in English. Eventually, this will happen, so hold on tight."
+  },
+  "Tools": {
+    "GeofisicaApp": {
+      "Title": "GeofisicaApp",
+      "Desc": "An interactive web app offering essential tools for geophysics students and professionals. From seismic analysis to petrophysical calculations, it simplifies common workflows in an intuitive interface."
+    }
   }
 }
