@@ -6,8 +6,9 @@
     "Tools": "Werkzeuge"
   },
   "HomePage": {
+    "Alert": "Die Website hat ein neues Design. Schau es dir an!",
     "Welcome": "Hast du dich in der Geophysik schon mal verloren gefühlt und brauchst Hilfe?",
-    "Intro": "Egal, in welcher Situation du bist – du bist hier genau richtig! Willkommen bei GeofisicaHub, deinem umfassenden Leitfaden für Studium und Arbeit im Bereich. Klicke unten und entdecke! Wenn du zufällig hier gelandet bist, entdecke diese faszinierende Wissenschaft!",
+    "Intro": "Egal, in welcher Situation du bist, du bist hier genau richtig! Willkommen bei GeofisicaHub, deinem umfassenden Leitfaden für Studium und Arbeit im Bereich. Klicke unten und entdecke! Wenn du zufällig hier gelandet bist, entdecke diese faszinierende Wissenschaft!",
     "GetStarted": "Jetzt starten"
   },
   "Features": {
@@ -53,5 +54,24 @@
     "Desc2": "Materialien und Lernressourcen",
     "Desc3": "die deine Reise als Geophysiker begleiten sollen.",
     "Warning": "Leider ist dies die letzte Seite, die in andere Sprachen übersetzt wurde. Die obenstehenden Karten enthalten Bücher hauptsächlich auf Portugiesisch (und einige auf Englisch), da ich keinen Weg gefunden habe, alle Dateien auf Englisch verfügbar zu machen. Irgendwann wird das passieren – bitte noch etwas Geduld."
+  },
+  "Tools": {
+    "Title": "Werkzeuge",
+    "Subtitle": "Entdecken Sie unten die Sammlung von Geophysik-Werkzeugen",
+    "ToolsCard": {
+      "OpenLink": "Werkzeug öffnen"
+    },
+    "GeofisicaApp": {
+      "Title": "GeofisicaApp",
+      "Desc": "Eine interaktive Web-App, die wesentliche Werkzeuge für Geophysik-Studierende und Fachleute bietet. Von seismischer Analyse bis zu petrophysikalischen Berechnungen vereinfacht sie gängige Arbeitsabläufe in einer intuitiven Oberfläche."
+    },
+    "Symbolab": {
+      "Title": "Symbolab",
+      "Desc": "Ein Taschenrechner für symbolische Mathematik mit vielen nützlichen Funktionen für alle, die Analysis studieren. Er kann Grenzwerte, Ableitungen, Integrale usw. berechnen."
+    },
+    "Wolfram": {
+      "Title": "Wolfram|Alpha",
+      "Desc": "Wolfram Alpha ist eine Rechenmaschine, die fachkundige Antworten, Datenanalysen und Berechnungen in Wissenschaft, Mathematik und mehr liefert."
+    }
   }
 }

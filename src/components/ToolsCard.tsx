@@ -1,4 +1,5 @@
-import { Backdrop, Button } from "@mui/material";
+import { Backdrop } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   open: boolean;
@@ -17,6 +18,8 @@ export default function CustomBackdrop({
   image,
   buttonLink,
 }: Props) {
+  const { t } = useTranslation();
+
   return (
     <Backdrop
       sx={(theme) => ({
@@ -47,7 +50,7 @@ export default function CustomBackdrop({
           rel="noopener noreferrer"
           className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition duration-300"
         >
-          Open Link
+          {t("Tools.ToolsCard.OpenLink")}
         </a>
       </div>
     </Backdrop>

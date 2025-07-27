@@ -6,6 +6,7 @@
     "Tools": "Ferramentas"
   },
   "HomePage": {
+    "Alert": "O site está de cara nova. Confira!",
     "Welcome": "Já se sentiu perdido em Geofísica e precisou de ajuda?",
     "Intro": "Seja qual for sua situação, você está no lugar certo! Bem-vindo ao GeofisicaHub, seu guia completo para estudos e trabalho na área. Clique abaixo e explore! Se chegou aqui por acaso, descubra essa ciência incrível!",
     "GetStarted": "Começar agora"
@@ -55,9 +56,22 @@
     "Warning": "Infelizmente, esta é a última página traduzida para outros idiomas. Os cards acima contêm livros principalmente em português (com alguns em inglês), porque não encontrei uma forma de ter todos os arquivos disponíveis em inglês. Eventualmente isso será resolvido, então aguarde."
   },
   "Tools": {
+    "Title": "Ferramentas",
+    "Subtitle": "Explore a coleção de ferramentas de Geofísica abaixo",
+    "ToolsCard": {
+      "OpenLink": "Abrir ferramenta"
+    },
     "GeofisicaApp": {
       "Title": "GeofisicaApp",
-      "Desc": "Um aplicativo web interativo que oferece ferramentas essenciais para estudantes e profissionais de geofísica. Desde análise sísmica até cálculos petrofísicos, simplifica fluxos de trabalho comuns em uma interface intuitiva."
+      "Desc": "Um aplicativo web interativo que oferece ferramentas essenciais para estudantes e profissionais de geofísica. De análise sísmica a cálculos petrofísicos, simplifica fluxos comuns em uma interface intuitiva."
+    },
+    "Symbolab": {
+      "Title": "Symbolab",
+      "Desc": "Uma calculadora para matemática simbólica com muitos recursos úteis para quem estuda cálculo. Pode calcular limites, derivadas, integrais, etc."
+    },
+    "Wolfram": {
+      "Title": "Wolfram|Alpha",
+      "Desc": "Wolfram Alpha é um motor computacional que fornece respostas de nível especialista, análise de dados e cálculos em ciência, matemática e mais."
     }
   }
 }

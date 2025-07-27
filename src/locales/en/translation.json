@@ -6,6 +6,7 @@
     "Tools": "Tools"
   },
   "HomePage": {
+    "Alert": "The website has a new look. Check it out!",
     "Welcome": "Ever felt lost in Geophysics and need some help?",
     "Intro": "Whatever your situation, you're in the right place! Welcome to GeofisicaHub, your complete guide for studies and work in the field. Click below and explore! If you arrived here by chance, discover this amazing science!",
     "GetStarted": "Get started"
@@ -55,9 +56,22 @@
     "Warning": "Unfortunately, this is the last page translated into other languages. The cards above contain books that are mostly in Portuguese (with a few in English), because I couldn't find a way to have all the files available in English. Eventually, this will happen, so hold on tight."
   },
   "Tools": {
+    "Title": "Tools",
+    "Subtitle": "Explore the collection of Geophysics tools below",
+    "ToolsCard": {
+      "OpenLink": "Open tool"
+    },
     "GeofisicaApp": {
       "Title": "GeofisicaApp",
       "Desc": "An interactive web app offering essential tools for geophysics students and professionals. From seismic analysis to petrophysical calculations, it simplifies common workflows in an intuitive interface."
+    },
+    "Symbolab": {
+      "Title": "Symbolab",
+      "Desc": "A calculator for symbolic math with many useful features for anyone studying calculus. It can calculate limits, derivatives, integrals, etc."
+    },
+    "Wolfram": {
+      "Title": "Wolfram|Alpha",
+      "Desc": "Wolfram Alpha is a computational engine that provides expert-level answers, data analysis, and calculations across science, math, and more."
     }
   }
 }
