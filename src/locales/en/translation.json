@@ -47,5 +47,11 @@
   "JobMarket": {
     "Title": "Job Market",
     "Section1": "The geophysics job market is expanding globally, driven by demand in sectors such as petroleum exploration, mineral resources, environmental monitoring, and geotechnical engineering. The growing focus on sustainable development has also increased the relevance of geophysical methods in environmental applications. Entry-level salaries typically range from $55,000 to $75,000 per year, varying by region, industry, and company size. In many countries, the profession is not formally regulated, although geophysicists are employed by major corporations, research institutions, and government agencies. Efforts to establish official recognition and regulatory frameworks are ongoing in several regions."
+  },
+  "HUB": {
+    "Desc1": "Each section is packed with",
+    "Desc2": "materials and educational resources",
+    "Desc3": "designed to guide your journey as a geophysicist.",
+    "Warning": "Unfortunately, this is the last page translated into other languages. The cards above contain books that are mostly in Portuguese (with a few in English), because I couldn't find a way to have all the files available in English. Eventually, this will happen, so hold on tight."
   }
 }

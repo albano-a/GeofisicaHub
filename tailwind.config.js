@@ -6,10 +6,19 @@ export default {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    "./src/**/*.css" // Updated to include all CSS files in src folder
+    "./src/**/*.css", // Updated to include all CSS files in src folder
   ],
   theme: {
     extend: {
+      animation: {
+        gradient: "gradient 4s ease infinite",
+      },
+      keyframes: {
+        gradient: {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+      },
       colors: {
         geo: {
           primary: "#1077bc",

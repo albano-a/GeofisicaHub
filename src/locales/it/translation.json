@@ -47,5 +47,11 @@
   "JobMarket": {
     "Title": "Mercato del lavoro",
     "Section1": "Il mercato del lavoro in geofisica è in crescita a livello globale, trainato dalla domanda nei settori dell'esplorazione petrolifera, delle risorse minerarie, del monitoraggio ambientale e dell'ingegneria geotecnica. L'attenzione crescente verso lo sviluppo sostenibile ha inoltre aumentato la rilevanza dei metodi geofisici nelle applicazioni ambientali. Gli stipendi iniziali si aggirano solitamente tra i 50.000 € e 70.000 € all'anno, a seconda della regione, del settore e delle dimensioni dell'azienda. In molti paesi, la professione non è ancora formalmente regolamentata, anche se i geofisici lavorano in grandi aziende, istituti di ricerca e enti governativi. Sono in corso iniziative in varie regioni per stabilire un riconoscimento ufficiale e quadri normativi."
+  },
+  "HUB": {
+    "Desc1": "Ogni sezione è piena di",
+    "Desc2": "materiali e risorse educative",
+    "Desc3": "progettate per guidarti nel tuo percorso da geofisico.",
+    "Warning": "Purtroppo, questa è l'ultima pagina tradotta in altre lingue. Le schede sopra contengono libri principalmente in portoghese (e alcuni in inglese), perché non sono riuscito a rendere disponibili tutti i file in inglese. Prima o poi sarà fatto, quindi abbi pazienza."
   }
 }

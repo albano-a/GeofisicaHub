@@ -47,5 +47,11 @@
   "JobMarket": {
     "Title": "Mercado de Trabalho",
     "Section1": "O mercado de trabalho em geofísica está em expansão globalmente, impulsionado pela demanda em setores como exploração de petróleo, recursos minerais, monitoramento ambiental e engenharia geotécnica. O foco crescente no desenvolvimento sustentável também aumentou a relevância dos métodos geofísicos em aplicações ambientais. Salários iniciais geralmente variam entre R$ 270.000 e R$ 370.000 por ano, dependendo da região, setor e porte da empresa. Em muitos países, a profissão ainda não é formalmente regulamentada, embora geofísicos atuem em grandes empresas, instituições de pesquisa e agências governamentais. Esforços para estabelecer reconhecimento oficial e estruturas regulatórias estão em andamento em diversas regiões."
+  },
+  "HUB": {
+    "Desc1": "Cada seção está repleta de",
+    "Desc2": "materiais e recursos educacionais",
+    "Desc3": "projetados para guiar sua jornada como geofísico.",
+    "Warning": "Infelizmente, esta é a última página traduzida para outros idiomas. Os cards acima contêm livros principalmente em português (com alguns em inglês), porque não encontrei uma forma de ter todos os arquivos disponíveis em inglês. Eventualmente isso será resolvido, então aguarde."
   }
 }

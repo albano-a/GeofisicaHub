@@ -47,5 +47,11 @@
   "JobMarket": {
     "Title": "Marché du travail",
     "Section1": "Le marché de l'emploi en géophysique est en pleine expansion à l'échelle mondiale, porté par la demande dans des secteurs tels que l'exploration pétrolière, les ressources minérales, la surveillance environnementale et l'ingénierie géotechnique. L'accent croissant mis sur le développement durable a également renforcé l'importance des méthodes géophysiques dans les applications environnementales. Les salaires de début de carrière varient généralement entre 50 000 € et 70 000 € par an, selon la région, le secteur et la taille de l'entreprise. Dans de nombreux pays, la profession n'est pas encore réglementée officiellement, bien que les géophysiciens soient employés par de grandes entreprises, des instituts de recherche et des organismes publics. Des démarches sont en cours dans plusieurs régions pour établir une reconnaissance et une réglementation officielles."
+  },
+  "HUB": {
+    "Desc1": "Chaque section est remplie de",
+    "Desc2": "matériaux et ressources pédagogiques",
+    "Desc3": "conçus pour guider votre parcours de géophysicien.",
+    "Warning": "Malheureusement, c'est la dernière page traduite dans d'autres langues. Les cartes ci-dessus contiennent des livres principalement en portugais (avec quelques-uns en anglais), car je n'ai pas trouvé de moyen d'avoir tous les fichiers en anglais. Cela viendra avec le temps, alors soyez patient."
   }
 }
