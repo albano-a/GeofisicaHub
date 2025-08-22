@@ -10,7 +10,7 @@ export default function About() {
   return (
     <>
       <div className="min-h-screen pb-10 bg-geo-lightbg dark:bg-geo-darkbg">
-        <section className="w-full max-w-7xl mx-auto p-10 flex flex-col items-center space-y-10">
+        <section className="w-full mx-auto p-10 flex flex-col items-center space-y-10">
           <div className="flex flex-col items-center justify-center ">
             <h1 className="text-4xl md:text-5xl text-center font-bold text-geo-primary dark:text-geo-darkprimary mt-10">
               {t("About.Title")}

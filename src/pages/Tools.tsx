@@ -19,7 +19,7 @@ const getTools = (t: any) => [
     title: t("Tools.Wolfram.Title"),
     description: t("Tools.Wolfram.Desc"),
     image: "/math/wolfram_ex.png",
-    link: "https://symbolab.com/",
+    link: "https://www.wolframalpha.com/",
   },
 ];
 

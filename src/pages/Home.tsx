@@ -41,7 +41,7 @@ export default function Home() {
 
         <section className="w-full max-w-5xl mx-auto p-10 flex flex-col items-center space-y-10">
           {showAlert && (
-            <Box className="absolute w-full max-w-5xl">
+            <Box className="fixed w-full max-w-5xl">
               <Alert
                 severity="info"
                 sx={{ backgroundColor: "#bfdbfe", color: "#1e3a8a" }}
