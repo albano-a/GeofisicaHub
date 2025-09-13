@@ -45,6 +45,7 @@ export default function Home() {
         <Divider />
         {/* Features Section */}
         <FeatureSection />
+        
 
         {/* Footer */}
       </div>
