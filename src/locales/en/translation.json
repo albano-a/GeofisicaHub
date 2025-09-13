@@ -1,0 +1,77 @@
+{
+  "Navbar": {
+    "Home": "Home",
+    "About": "About",
+    "Hub": "Hub",
+    "Tools": "Tools"
+  },
+  "HomePage": {
+    "Alert": "The website has a new look. Check it out!",
+    "Welcome": "Ever felt lost in Geophysics and need some help?",
+    "Intro": "Whatever your situation, you're in the right place! Welcome to GeofisicaHub, your complete guide for studies and work in the field. Click below and explore! If you arrived here by chance, discover this amazing science!",
+    "GetStarted": "Get started"
+  },
+  "Features": {
+    "PowerfulFeatures": "Powerful Features",
+    "StudyMaterials": "Study Materials",
+    "StudyMaterialsdesc": "The HUB section contains several books on Geophysics, Geology, Calculus, etc. This is where you'll find the main sources for your studies. The Geophysics part has the most books because it's the main part of this science.",
+    "CalculatorsResources": "Calculators and Resources",
+    "CalculatorsResourcesdesc": "Our Calculators section offers a variety of tools to help you solve geophysics problems quickly and efficiently. You can also visit the Resources page to find key geophysics websites and software.",
+    "ScientificPubli": "Scientific Publications",
+    "ScientificPublidesc": "In the Publications section, you'll find various sources of articles, papers, and theses covering geophysics topics. Use this section to search for references or find sources for your work."
+  },
+  "About": {
+    "Title": "About",
+    "Section1": "Hello. Welcome to my website, GeofisicaHub. The site was created in January 2024 with the goal of organizing geophysics content in one place. Initially, it was intended only for the geophysics program at Fluminense Federal University. But as I was building the site, I realized it could be more interesting if it had a broader focus (even though much of the content still reflects the areas emphasized by UFF's geophysics program). So, while there are no major changes to the structure itself, the site is now aimed at geophysics as a whole. It is constantly being updated, and the current version is v2.0.0, as of May 2025.",
+    "Section2": "Currently, all content on the site is available for free or comes from free sources. Certain features, such as the calculators, are linked from external sites, and their content is the responsibility of those respective sources. The resources and articles come from platforms that offer them at no cost. The site is non-profit, and I believe we shouldn't have to pay absurd amounts to access any kind of information.",
+    "Section3": "So go ahead and explore the site, enjoy its content, and if you'd like to contribute to the project, check out how you can do so on the repository at"
+  },
+  "WhatGeophysics": {
+    "Title": "What is Geophysics?",
+    "Section1": "Geophysics is the science that studies the Earth's subsurface and its characteristics through indirect methods based on various physical properties (such as resistivity, electrical conductivity, density, magnetic susceptibility, among others). It explores the underground from shallow to deep layers, aiming to understand the Earth's structure, composition, systems, and dynamic processes.",
+    "Section2": "In addition, geophysics observes and calculates ground and subsurface movements, investigates the origin and activity of volcanoes, the planet's curvature, and other geophysical features of the globe. It detects and measures the intensity of earthquakes and tsunamis, studies the structure of rock formations, and the physicochemical properties of the seas. Geophysics is typically divided into Pure Geophysics, which provides insights into the Earth's internal structure and composition, and Applied Geophysics, which involves practical methods and techniques used to solve real-world problems such as hydrocarbon, mineral, and groundwater exploration, as well as environmental and engineering studies."
+  },
+  "Applications": {
+    "Title": "Applications",
+    "Section1": "The geophysicist studies the Earth's physical properties, structure, composition, and dynamic phenomena. Their role includes investigating electric, magnetic, gravitational, seismic, and thermal phenomena, calculating ground and volcanic movements, measuring the intensity of earthquakes and tsunamis, and analyzing oceanic and rock formation compositions. To do this, they use mathematical and physical laws to plan and execute geophysical surveys. Key application areas include:",
+    "Section2": {
+      "BoxTitle1": "Oil and Gas Industry",
+      "BoxDesc1": "The main field for geophysics. Applied geophysics is used to locate and characterize petroleum reservoirs, mainly through seismic methods, but also using others.",
+      "BoxTitle2": "Mining",
+      "BoxDesc2": "The second largest field. Geophysical methods are used to identify mineral deposits, alluvial fans, underground rivers, and more.",
+      "BoxTitle3": "Civil Engineering",
+      "BoxDesc3": "Used to assess subsurface conditions for construction. Geotechnics is a major area in geology and geophysics.",
+      "BoxTitle4": "Environmental Preservation",
+      "BoxDesc4": "Applied to monitor soil pollution using methods like electrical resistivity, magnetometry, and radiometry."
+    }
+  },
+  "JobMarket": {
+    "Title": "Job Market",
+    "Section1": "The geophysics job market is expanding globally, driven by demand in sectors such as petroleum exploration, mineral resources, environmental monitoring, and geotechnical engineering. The growing focus on sustainable development has also increased the relevance of geophysical methods in environmental applications. Entry-level salaries typically range from $55,000 to $75,000 per year, varying by region, industry, and company size. In many countries, the profession is not formally regulated, although geophysicists are employed by major corporations, research institutions, and government agencies. Efforts to establish official recognition and regulatory frameworks are ongoing in several regions."
+  },
+  "HUB": {
+    "Desc1": "Each section is packed with",
+    "Desc2": "materials and educational resources",
+    "Desc3": "designed to guide your journey as a geophysicist.",
+    "Warning": "Unfortunately, this is the last page translated into other languages. The cards above contain books that are mostly in Portuguese (with a few in English), because I couldn't find a way to have all the files available in English. Eventually, this will happen, so hold on tight."
+  },
+  "Tools": {
+    "Title": "Tools",
+    "Subtitle": "Explore the collection of Geophysics tools below",
+    "ToolsCard": {
+      "OpenLink": "Open tool"
+    },
+    "GeofisicaApp": {
+      "Title": "GeofisicaApp",
+      "Desc": "An interactive web app offering essential tools for geophysics students and professionals. From seismic analysis to petrophysical calculations, it simplifies common workflows in an intuitive interface."
+    },
+    "Symbolab": {
+      "Title": "Symbolab",
+      "Desc": "A calculator for symbolic math with many useful features for anyone studying calculus. It can calculate limits, derivatives, integrals, etc."
+    },
+    "Wolfram": {
+      "Title": "Wolfram|Alpha",
+      "Desc": "Wolfram Alpha is a computational engine that provides expert-level answers, data analysis, and calculations across science, math, and more."
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "Navbar": {
+    "Home": "Startseite",
+    "About": "Über uns",
+    "Hub": "Hub",
+    "Tools": "Werkzeuge"
+  },
+  "HomePage": {
+    "Alert": "Die Website hat ein neues Design. Schau es dir an!",
+    "Welcome": "Hast du dich in der Geophysik schon mal verloren gefühlt und brauchst Hilfe?",
+    "Intro": "Egal, in welcher Situation du bist, du bist hier genau richtig! Willkommen bei GeofisicaHub, deinem umfassenden Leitfaden für Studium und Arbeit im Bereich. Klicke unten und entdecke! Wenn du zufällig hier gelandet bist, entdecke diese faszinierende Wissenschaft!",
+    "GetStarted": "Jetzt starten"
+  },
+  "Features": {
+    "PowerfulFeatures": "Leistungsstarke Funktionen",
+    "StudyMaterials": "Lernmaterialien",
+    "StudyMaterialsdesc": "Der HUB-Bereich enthält mehrere Bücher über Geophysik, Geologie, Mathematik usw. Hier findest du die wichtigsten Quellen für dein Studium. DDer Bereich Geophysik enthält die meisten Bücher, da er den Hauptteil dieser Wissenschaft darstellt.",
+    "CalculatorsResources": "Rechner und Ressourcen",
+    "CalculatorsResourcesdesc": "Unser Rechner-Bereich bietet eine Vielzahl von Tools, um geophysikalische Probleme schnell und effizient zu lösen. Du kannst auch die Ressourcenseite besuchen, um wichtige Geophysik-Webseiten und Software zu finden.",
+    "ScientificPubli": "Wissenschaftliche Veröffentlichungen",
+    "ScientificPublidesc": "Im Bereich Veröffentlichungen findest du verschiedene Quellen für Artikel, Aufsätze und Abschlussarbeiten zu geophysikalischen Themen. Nutze diesen Bereich, um nach Referenzen zu suchen oder Quellen für deine Arbeit zu finden."
+  },
+  "About": {
+    "Title": "Über",
+    "Section1": "Hallo. Willkommen auf meiner Website, GeofisicaHub. Die Website wurde im Januar 2024 mit dem Ziel erstellt, geophysikalische Inhalte an einem Ort zu organisieren. Ursprünglich war sie nur für das Geophysik-Programm der Universidade Federal Fluminense gedacht. Doch im Laufe der Entwicklung wurde mir klar, dass sie noch interessanter wäre, wenn sie breiter gefasst wäre (auch wenn viele Inhalte noch stark vom UFF-Programm beeinflusst sind). Somit richtet sich die Website heute an die Geophysik insgesamt. Sie wird ständig aktualisiert, die aktuelle Version ist v2.0.0 (Stand Mai 2025).",
+    "Section2": "Der gesamte Inhalt der Website ist derzeit kostenlos verfügbar oder stammt aus kostenlosen Quellen. Einige Funktionen wie Rechner sind mit externen Seiten verlinkt, deren Inhalte in der Verantwortung dieser Quellen liegen. Ressourcen und Artikel stammen von Plattformen, die sie frei anbieten. Die Website ist gemeinnützig, und ich bin der Meinung, dass man keine absurden Summen zahlen sollte, um Zugang zu Informationen zu erhalten.",
+    "Section3": "Fühl dich also frei, die Website zu erkunden, nutze die Inhalte und wenn du zum Projekt beitragen willst, erfährst du im Repository wie."
+  },
+  "WhatGeophysics": {
+    "Title": "Was ist Geophysik?",
+    "Section1": "Geophysik ist die Wissenschaft, die den Untergrund der Erde und dessen Eigenschaften mittels indirekter Methoden untersucht, die auf physikalischen Eigenschaften wie elektrischer Widerstand, Dichte, magnetischer Suszeptibilität usw. beruhen. Sie erforscht sowohl oberflächennahe als auch tiefere Schichten, um Struktur, Zusammensetzung und dynamische Prozesse der Erde zu verstehen.",
+    "Section2": "Darüber hinaus beobachtet und berechnet die Geophysik Bodenbewegungen, untersucht die Entstehung und Aktivität von Vulkanen, die Krümmung der Erde und weitere geophysikalische Eigenschaften. Sie erfasst die Stärke von Erdbeben und Tsunamis, analysiert Gesteinsformationen und physikalisch-chemische Eigenschaften der Meere. Die Geophysik wird üblicherweise unterteilt in reine Geophysik, die sich mit Struktur und Zusammensetzung des Erdinneren befasst, und angewandte Geophysik, die praktische Methoden zur Lösung realer Probleme wie Öl- und Mineralexploration sowie Umwelt- und Ingenieurstudien einsetzt."
+  },
+  "Applications": {
+    "Title": "Anwendungsbereiche",
+    "Section1": "Geophysiker analysieren die physikalischen Eigenschaften der Erde, ihre Struktur, Zusammensetzung und dynamischen Phänomene. Dazu gehören elektrische, magnetische, gravitative, seismische und thermische Untersuchungen, Bewegungsanalysen von Boden und Vulkanen, sowie Meeres- und Gesteinsanalysen. Die Hauptanwendungsbereiche sind:",
+    "Section2": {
+      "BoxTitle1": "Öl- und Gasindustrie",
+      "BoxDesc1": "Das Hauptfeld der Geophysik. Angewandte Geophysik dient der Lokalisierung und Charakterisierung von Lagerstätten, meist mittels seismischer Verfahren.",
+      "BoxTitle2": "Bergbau",
+      "BoxDesc2": "Das zweitgrößte Feld. Geophysikalische Methoden helfen bei der Erkennung von Erzlagerstätten, unterirdischen Flüssen etc.",
+      "BoxTitle3": "Bauingenieurwesen",
+      "BoxDesc3": "Bewertung von Baugrundbedingungen. Geotechnik ist ein wichtiges Feld in der Geophysik.",
+      "BoxTitle4": "Umweltschutz",
+      "BoxDesc4": "Einsatz zur Erkennung von Bodenverschmutzung mit Verfahren wie elektrischer Widerstandsmessung, Magnetometrie und Radiometrie."
+    }
+  },
+  "JobMarket": {
+    "Title": "Arbeitsmarkt",
+    "Section1": "Der Arbeitsmarkt für Geophysik wächst weltweit, angetrieben durch die Nachfrage in Bereichen wie Erdölexploration, Rohstoffgewinnung, Umweltüberwachung und Geotechnik. Das zunehmende Bewusstsein für nachhaltige Entwicklung hat auch die Bedeutung geophysikalischer Methoden in Umweltanwendungen gesteigert. Einstiegsgehälter liegen in der Regel zwischen 55.000 € und 75.000 € pro Jahr, abhängig von Region, Branche und Unternehmensgröße. In vielen Ländern ist der Beruf noch nicht offiziell reguliert, obwohl Geophysiker in großen Unternehmen, Forschungseinrichtungen und staatlichen Behörden tätig sind. In mehreren Regionen laufen Bestrebungen, eine offizielle Anerkennung und rechtliche Rahmenbedingungen zu schaffen."
+  },
+  "HUB": {
+    "Desc1": "Jeder Abschnitt ist vollgepackt mit",
+    "Desc2": "Materialien und Lernressourcen",
+    "Desc3": "die deine Reise als Geophysiker begleiten sollen.",
+    "Warning": "Leider ist dies die letzte Seite, die in andere Sprachen übersetzt wurde. Die obenstehenden Karten enthalten Bücher hauptsächlich auf Portugiesisch (und einige auf Englisch), da ich keinen Weg gefunden habe, alle Dateien auf Englisch verfügbar zu machen. Irgendwann wird das passieren – bitte noch etwas Geduld."
+  },
+  "Tools": {
+    "Title": "Werkzeuge",
+    "Subtitle": "Entdecken Sie unten die Sammlung von Geophysik-Werkzeugen",
+    "ToolsCard": {
+      "OpenLink": "Werkzeug öffnen"
+    },
+    "GeofisicaApp": {
+      "Title": "GeofisicaApp",
+      "Desc": "Eine interaktive Web-App, die wesentliche Werkzeuge für Geophysik-Studierende und Fachleute bietet. Von seismischer Analyse bis zu petrophysikalischen Berechnungen vereinfacht sie gängige Arbeitsabläufe in einer intuitiven Oberfläche."
+    },
+    "Symbolab": {
+      "Title": "Symbolab",
+      "Desc": "Ein Taschenrechner für symbolische Mathematik mit vielen nützlichen Funktionen für alle, die Analysis studieren. Er kann Grenzwerte, Ableitungen, Integrale usw. berechnen."
+    },
+    "Wolfram": {
+      "Title": "Wolfram|Alpha",
+      "Desc": "Wolfram Alpha ist eine Rechenmaschine, die fachkundige Antworten, Datenanalysen und Berechnungen in Wissenschaft, Mathematik und mehr liefert."
+    }
+  }
+}

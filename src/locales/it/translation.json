@@ -1,0 +1,77 @@
+{
+  "Navbar": {
+    "Home": "Home",
+    "About": "Chi siamo",
+    "Hub": "Hub",
+    "Tools": "Strumenti"
+  },
+  "HomePage": {
+    "Alert": "Il sito ha un nuovo aspetto. Dai un'occhiata!",
+    "Welcome": "Ti sei mai sentito perso nella geofisica e hai bisogno di aiuto?",
+    "Intro": "Qualunque sia la tua situazione, sei nel posto giusto! Benvenuto su GeofisicaHub, la tua guida completa per lo studio e il lavoro nel settore. Clicca qui sotto ed esplora! Se sei arrivato qui per caso, scopri questa scienza straordinaria!",
+    "GetStarted": "Inizia ora"
+  },
+  "Features": {
+    "PowerfulFeatures": "Funzionalità avanzate",
+    "StudyMaterials": "Materiali di studio",
+    "StudyMaterialsdesc": "La sezione HUB contiene diversi libri su geofisica, geologia, calcolo, ecc. Qui troverai le principali fonti per i tuoi studi. La parte sulla geofisica ha più libri perché è la parte principale di questa scienza.",
+    "CalculatorsResources": "Calcolatrici e Risorse",
+    "CalculatorsResourcesdesc": "La nostra sezione Calcolatrici offre una varietà di strumenti per aiutarti a risolvere problemi di geofisica in modo rapido ed efficiente. Puoi anche visitare la pagina delle Risorse per trovare i principali siti web e software di geofisica.",
+    "ScientificPubli": "Pubblicazioni scientifiche",
+    "ScientificPublidesc": "Nella sezione Pubblicazioni troverai varie fonti di articoli, documenti e tesi che trattano argomenti di geofisica. Usa questa sezione per cercare riferimenti o trovare fonti per il tuo lavoro."
+  },
+  "About": {
+    "Title": "Informazioni",
+    "Section1": "Ciao. Benvenuto sul mio sito, GeofisicaHub. Il sito è stato creato nel gennaio 2024 con l'obiettivo di organizzare contenuti di geofisica in un unico posto. Inizialmente era destinato solo al corso di geofisica dell'Università Federale Fluminense. Ma man mano che costruivo il sito, mi sono reso conto che sarebbe stato più interessante se avesse avuto una portata più ampia (anche se gran parte del contenuto riflette ancora le aree enfatizzate dal corso di geofisica dell'UFF). Così, anche senza grandi cambiamenti nella struttura, il sito è ora destinato alla geofisica in generale. È costantemente aggiornato e la versione attuale è la v2.0.0, da maggio 2025.",
+    "Section2": "Attualmente, tutti i contenuti del sito sono disponibili gratuitamente o provengono da fonti gratuite. Alcune funzionalità, come i calcolatori, sono collegate da siti esterni e il loro contenuto è responsabilità di tali fonti. Le risorse e gli articoli provengono da piattaforme che li offrono gratuitamente. Il sito non ha fini di lucro e credo che non dovremmo pagare somme assurde per accedere a qualsiasi tipo di informazione.",
+    "Section3": "Quindi sentiti libero di esplorare il sito, approfitta del contenuto e, se vuoi contribuire al progetto, controlla come farlo nel repository su"
+  },
+  "WhatGeophysics": {
+    "Title": "Cos'è la Geofisica?",
+    "Section1": "La geofisica è la scienza che studia il sottosuolo terrestre e le sue caratteristiche attraverso metodi indiretti basati su varie proprietà fisiche (come resistività, conducibilità elettrica, densità, suscettibilità magnetica e altro). Esplora il sottosuolo dagli strati superficiali a quelli profondi, con l'obiettivo di comprendere la struttura, la composizione, i sistemi e i processi dinamici della Terra.",
+    "Section2": "Inoltre, la geofisica osserva e calcola i movimenti del suolo e del sottosuolo, studia l'origine e l'attività dei vulcani, la curvatura del pianeta e altre caratteristiche geofisiche del globo. Rileva e misura l'intensità di terremoti e tsunami, studia la struttura delle formazioni rocciose e le proprietà fisico-chimiche dei mari. La geofisica è generalmente divisa in Geofisica Pura, che fornisce informazioni sulla struttura e composizione interne della Terra, e Geofisica Applicata, che comprende metodi e tecniche pratiche utilizzati per risolvere problemi reali come l'esplorazione di idrocarburi, minerali e acque sotterranee, oltre a studi ambientali e di ingegneria."
+  },
+  "Applications": {
+    "Title": "Applicazioni",
+    "Section1": "Il geofisico studia le proprietà fisiche della Terra, la sua struttura, composizione e fenomeni dinamici. Il suo ruolo include l'indagine di fenomeni elettrici, magnetici, gravitazionali, sismici e termici, il calcolo dei movimenti del suolo e dei vulcani, la misurazione dell'intensità di terremoti e tsunami e l'analisi della composizione degli oceani e delle formazioni rocciose. A tal fine, utilizza leggi fisiche e matematiche per pianificare ed eseguire indagini geofisiche. Le principali aree di applicazione includono:",
+    "Section2": {
+      "BoxTitle1": "Industria petrolifera e del gas",
+      "BoxDesc1": "Il principale campo della geofisica. La geofisica applicata viene utilizzata per localizzare e caratterizzare i giacimenti petroliferi, principalmente attraverso metodi sismici, ma anche con altri metodi.",
+      "BoxTitle2": "Industria mineraria",
+      "BoxDesc2": "Il secondo settore più importante. I metodi geofisici vengono utilizzati per identificare depositi minerari, ventagli alluvionali, fiumi sotterranei e altro.",
+      "BoxTitle3": "Ingegneria civile",
+      "BoxDesc3": "Utilizzata per valutare le condizioni del sottosuolo per la costruzione. La geotecnica è un'area importante della geologia e della geofisica.",
+      "BoxTitle4": "Tutela ambientale",
+      "BoxDesc4": "Applicata al monitoraggio dell'inquinamento del suolo mediante metodi come la resistività elettrica, la magnetometria e la radiometria."
+    }
+  },
+  "JobMarket": {
+    "Title": "Mercato del lavoro",
+    "Section1": "Il mercato del lavoro in geofisica è in crescita a livello globale, trainato dalla domanda nei settori dell'esplorazione petrolifera, delle risorse minerarie, del monitoraggio ambientale e dell'ingegneria geotecnica. L'attenzione crescente verso lo sviluppo sostenibile ha inoltre aumentato la rilevanza dei metodi geofisici nelle applicazioni ambientali. Gli stipendi iniziali si aggirano solitamente tra i 50.000 € e 70.000 € all'anno, a seconda della regione, del settore e delle dimensioni dell'azienda. In molti paesi, la professione non è ancora formalmente regolamentata, anche se i geofisici lavorano in grandi aziende, istituti di ricerca e enti governativi. Sono in corso iniziative in varie regioni per stabilire un riconoscimento ufficiale e quadri normativi."
+  },
+  "HUB": {
+    "Desc1": "Ogni sezione è piena di",
+    "Desc2": "materiali e risorse educative",
+    "Desc3": "progettate per guidarti nel tuo percorso da geofisico.",
+    "Warning": "Purtroppo, questa è l'ultima pagina tradotta in altre lingue. Le schede sopra contengono libri principalmente in portoghese (e alcuni in inglese), perché non sono riuscito a rendere disponibili tutti i file in inglese. Prima o poi sarà fatto, quindi abbi pazienza."
+  },
+  "Tools": {
+    "Title": "Strumenti",
+    "Subtitle": "Esplora di seguito la collezione di strumenti di geofisica",
+    "ToolsCard": {
+      "OpenLink": "Apri strumento"
+    },
+    "GeofisicaApp": {
+      "Title": "GeofisicaApp",
+      "Desc": "Un'app web interattiva che offre strumenti essenziali per studenti e professionisti della geofisica. Dall'analisi sismica ai calcoli petrofisici, semplifica i flussi di lavoro comuni con un'interfaccia intuitiva."
+    },
+    "Symbolab": {
+      "Title": "Symbolab",
+      "Desc": "Una calcolatrice per matematica simbolica con molte funzionalità utili per chi studia il calcolo. Può calcolare limiti, derivate, integrali, ecc."
+    },
+    "Wolfram": {
+      "Title": "Wolfram|Alpha",
+      "Desc": "Wolfram Alpha è un motore computazionale che fornisce risposte esperte, analisi dei dati e calcoli in scienza, matematica e altro."
+    }
+  }
+}
