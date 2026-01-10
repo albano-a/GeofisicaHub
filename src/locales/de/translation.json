@@ -53,7 +53,12 @@
     "Desc1": "Jeder Abschnitt ist vollgepackt mit",
     "Desc2": "Materialien und Lernressourcen",
     "Desc3": "die deine Reise als Geophysiker begleiten sollen.",
-    "Warning": "Leider ist dies die letzte Seite, die in andere Sprachen übersetzt wurde. Die obenstehenden Karten enthalten Bücher hauptsächlich auf Portugiesisch (und einige auf Englisch), da ich keinen Weg gefunden habe, alle Dateien auf Englisch verfügbar zu machen. Irgendwann wird das passieren – bitte noch etwas Geduld."
+    "Warning": "Leider ist dies die letzte Seite, die in andere Sprachen übersetzt wurde. Die obenstehenden Karten enthalten Bücher hauptsächlich auf Portugiesisch (und einige auf Englisch), da ich keinen Weg gefunden habe, alle Dateien auf Englisch verfügbar zu machen. Irgendwann wird das passieren – bitte noch etwas Geduld.",
+    "Geology": "Geology",
+    "Geophysics": "Geophysics",
+    "Programming": "Programming",
+    "Calculus": "Calculus",
+    "Physics": "Physics"
   },
   "Tools": {
     "Title": "Werkzeuge",

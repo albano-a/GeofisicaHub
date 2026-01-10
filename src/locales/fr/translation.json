@@ -53,7 +53,12 @@
     "Desc1": "Chaque section est remplie de",
     "Desc2": "matériaux et ressources pédagogiques",
     "Desc3": "conçus pour guider votre parcours de géophysicien.",
-    "Warning": "Malheureusement, c'est la dernière page traduite dans d'autres langues. Les cartes ci-dessus contiennent des livres principalement en portugais (avec quelques-uns en anglais), car je n'ai pas trouvé de moyen d'avoir tous les fichiers en anglais. Cela viendra avec le temps, alors soyez patient."
+    "Warning": "Malheureusement, c'est la dernière page traduite dans d'autres langues. Les cartes ci-dessus contiennent des livres principalement en portugais (avec quelques-uns en anglais), car je n'ai pas trouvé de moyen d'avoir tous les fichiers en anglais. Cela viendra avec le temps, alors soyez patient.",
+    "Geology": "Geology",
+    "Geophysics": "Geophysics",
+    "Programming": "Programming",
+    "Calculus": "Calculus",
+    "Physics": "Physics"
   },
   "Tools": {
     "Title": "Outils",

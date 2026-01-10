@@ -1,6 +1,5 @@
 // import { useTranslation } from "react-i18next";
 
-
 type SubjectsCardProps = {
   subject: string;
   description: string;

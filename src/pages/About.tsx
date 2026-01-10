@@ -3,9 +3,15 @@ import OilBarrelTwoToneIcon from "@mui/icons-material/OilBarrelTwoTone";
 import DiamondTwoToneIcon from "@mui/icons-material/DiamondTwoTone";
 import EngineeringTwoToneIcon from "@mui/icons-material/EngineeringTwoTone";
 import ForestTwoToneIcon from "@mui/icons-material/ForestTwoTone";
+import React from "react";
 
 export default function About() {
   const { t } = useTranslation();
+
+  // Set document title
+  React.useEffect(() => {
+    document.title = t("About.Title") + " | GeofisicaHub";
+  }, [t]);
 
   return (
     <>

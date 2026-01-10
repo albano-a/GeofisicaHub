@@ -53,7 +53,12 @@
     "Desc1": "Cada seção está repleta de",
     "Desc2": "materiais e recursos educacionais",
     "Desc3": "projetados para guiar sua jornada como geofísico.",
-    "Warning": "Infelizmente, esta é a última página traduzida para outros idiomas. Os cards acima contêm livros principalmente em português (com alguns em inglês), porque não encontrei uma forma de ter todos os arquivos disponíveis em inglês. Eventualmente isso será resolvido, então aguarde."
+    "Warning": "Infelizmente, esta é a última página traduzida para outros idiomas. Os cards acima contêm livros principalmente em português (com alguns em inglês), porque não encontrei uma forma de ter todos os arquivos disponíveis em inglês. Eventualmente isso será resolvido, então aguarde.",
+    "Geology": "Geologia",
+    "Geophysics": "Geofísica",
+    "Programming": "Programação",
+    "Calculus": "Cálculo",
+    "Physics": "Física"
   },
   "Tools": {
     "Title": "Ferramentas",

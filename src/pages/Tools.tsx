@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import CustomBackdrop from "../components/ToolsCard";
+import React from "react";
 
 const getTools = (t: any) => [
   {
@@ -27,6 +28,10 @@ export default function Tools() {
   const { t } = useTranslation();
   const tools = getTools(t);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  React.useEffect(() => {
+    document.title = t("Tools.Title") + " | GeofisicaHub";
+  }, [t]);
 
   return (
     <>

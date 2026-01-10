@@ -2,9 +2,14 @@ import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import FeatureSection from "../components/FeatureSection";
 import Divider from "@mui/material/Divider";
+import React from "react";
 
 export default function Home() {
   const { t } = useTranslation();
+
+  React.useEffect(() => {
+    document.title = "GeofisicaHub";
+  }, [t]);
 
   return (
     <>

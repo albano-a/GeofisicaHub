@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import SubjectsCard from "../components/SubjectsCard";
-
+import React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 
@@ -35,6 +35,10 @@ const materials = [
 export default function MaterialHub() {
   const { t } = useTranslation();
 
+  React.useEffect(() => {
+    document.title = "HUB | GeofisicaHub";
+  }, [t]);
+
   return (
     <>
       <div className="min-h-screen pb-10 bg-geo-lightbg dark:bg-geo-darkbg">
@@ -57,7 +61,7 @@ export default function MaterialHub() {
               {materials.map((mat) => (
                 <Grid size={{ xs: 12, sm: 6, md: 3, lg: 3 }} key={mat.name}>
                   <SubjectsCard
-                    subject={mat.name}
+                    subject={t(`HUB.${mat.name}`)}
                     description={mat.desc}
                     link={mat.path}
                   />

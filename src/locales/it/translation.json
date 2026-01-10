@@ -53,7 +53,12 @@
     "Desc1": "Ogni sezione è piena di",
     "Desc2": "materiali e risorse educative",
     "Desc3": "progettate per guidarti nel tuo percorso da geofisico.",
-    "Warning": "Purtroppo, questa è l'ultima pagina tradotta in altre lingue. Le schede sopra contengono libri principalmente in portoghese (e alcuni in inglese), perché non sono riuscito a rendere disponibili tutti i file in inglese. Prima o poi sarà fatto, quindi abbi pazienza."
+    "Warning": "Purtroppo, questa è l'ultima pagina tradotta in altre lingue. Le schede sopra contengono libri principalmente in portoghese (e alcuni in inglese), perché non sono riuscito a rendere disponibili tutti i file in inglese. Prima o poi sarà fatto, quindi abbi pazienza.",
+    "Geology": "Geology",
+    "Geophysics": "Geophysics",
+    "Programming": "Programming",
+    "Calculus": "Calculus",
+    "Physics": "Physics"
   },
   "Tools": {
     "Title": "Strumenti",
