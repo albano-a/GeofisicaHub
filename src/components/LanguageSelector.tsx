@@ -30,6 +30,7 @@ const LanguageSelector: React.FC = () => {
 
   const handleChange = (code: string) => {
     i18next.changeLanguage(code);
+    localStorage.setItem("language", code);
     handleClose();
   };
 
@@ -52,7 +53,7 @@ const LanguageSelector: React.FC = () => {
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
         slotProps={{
-          paper: { style: { minWidth: 80 } }
+          paper: { style: { minWidth: 80 } },
         }}
       >
         {LANGUAGES.map(({ code, label, Flag }) => (

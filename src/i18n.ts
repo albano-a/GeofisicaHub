@@ -7,16 +7,18 @@ import es from "./locales/es/translation.json";
 import it from "./locales/it/translation.json";
 import de from "./locales/de/translation.json";
 
+const savedLanguage = localStorage.getItem("language") || "en";
+
 i18n.use(initReactI18next).init({
   resources: {
     en: { translation: en },
     pt: { translation: pt },
-    fr: { translation: fr }, // Adicione outros idiomas conforme necessário
+    fr: { translation: fr },
     es: { translation: es },
     it: { translation: it },
     de: { translation: de },
   },
-  lng: "en", // idioma padrão
+  lng: savedLanguage,
   fallbackLng: "en",
   interpolation: { escapeValue: false },
 });
