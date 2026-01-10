@@ -6,19 +6,19 @@ const getTools = (t: any) => [
   {
     title: t("Tools.GeofisicaApp.Title"),
     description: t("Tools.GeofisicaApp.Desc"),
-    image: "/images/geofisicafirst.png",
+    image: "/tools/geofisicafirst.png",
     link: "https://geofisica.streamlit.app/",
   },
   {
     title: t("Tools.Symbolab.Title"),
     description: t("Tools.Symbolab.Desc"),
-    image: "/math/symbolab_ex.png",
+    image: "/tools/symbolab_ex.png",
     link: "https://symbolab.com/",
   },
   {
     title: t("Tools.Wolfram.Title"),
     description: t("Tools.Wolfram.Desc"),
-    image: "/math/wolfram_ex.png",
+    image: "/tools/wolfram_ex.png",
     link: "https://www.wolframalpha.com/",
   },
 ];

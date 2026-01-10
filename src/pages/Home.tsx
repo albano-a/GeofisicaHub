@@ -14,7 +14,7 @@ export default function Home() {
         <section className="w-full max-w-5xl mx-auto p-10 flex flex-col items-center space-y-10">
           <figure className="w-96 h-96 flex items-center justify-center ">
             <img
-              src="/images/gifs/earth.gif"
+              src="/gifs/earth.gif"
               alt="Earth"
               className="w-full h-full object-contain rounded-full "
             />
@@ -45,7 +45,6 @@ export default function Home() {
         <Divider />
         {/* Features Section */}
         <FeatureSection />
-        
 
         {/* Footer */}
       </div>
