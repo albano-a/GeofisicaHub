@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import FeatureSection from "../components/FeatureSection";
 import Divider from "@mui/material/Divider";
 import React from "react";
-import AdUnit from "../components/AdUnit";
+// import AdUnit from "../components/AdUnit";
 
 export default function Home() {
   const { t } = useTranslation();
