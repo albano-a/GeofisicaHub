@@ -2,8 +2,9 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import CustomBackdrop from "../components/ToolsCard";
 import React from "react";
+import type { TFunction } from "i18next";
 
-const getTools = (t: any) => [
+const getTools = (t: TFunction) => [
   {
     title: t("Tools.GeofisicaApp.Title"),
     description: t("Tools.GeofisicaApp.Desc"),

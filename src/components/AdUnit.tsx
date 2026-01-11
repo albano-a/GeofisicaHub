@@ -13,9 +13,8 @@ export default function AdUnit({
 }: AdUnitProps) {
   useEffect(() => {
     try {
-      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
-        {}
-      );
+      const win = window as Window & { adsbygoogle?: unknown[] };
+      (win.adsbygoogle = win.adsbygoogle || []).push({});
     } catch (e) {
       console.error("AdSense error:", e);
     }
