@@ -1,19 +1,22 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AppRoutes from "./AppRoutes";
+import ErrorBoundary from "./components/ErrorBoundary";
 import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      {/* Main content */}
+    <ErrorBoundary>
       <div>
-        <AppRoutes></AppRoutes>
-        <Analytics />
+        <Navbar />
+        {/* Main content */}
+        <div>
+          <AppRoutes></AppRoutes>
+          <Analytics />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </ErrorBoundary>
   );
 }
 

@@ -1,34 +1,35 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Hub from "./pages/MaterialHub";
-import Tools from "./pages/Tools";
-import Calculus from "./pages/hub/Calculus";
-import Geology from "./pages/hub/Geology";
-import Geophysics from "./pages/hub/Geophysics";
-import Physics from "./pages/hub/Physics";
-import Programming from "./pages/hub/Programming";
+import LoadingSpinner from "./components/LoadingSpinner";
 
-
-// Import your page components here
+// Lazy load all pages for better performance
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Hub = lazy(() => import("./pages/MaterialHub"));
+const Tools = lazy(() => import("./pages/Tools"));
+const Calculus = lazy(() => import("./pages/hub/Calculus"));
+const Geology = lazy(() => import("./pages/hub/Geology"));
+const Geophysics = lazy(() => import("./pages/hub/Geophysics"));
+const Physics = lazy(() => import("./pages/hub/Physics"));
+const Programming = lazy(() => import("./pages/hub/Programming"));
 
 const AppRoutes: React.FC = () => (
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/hub" element={<Hub />} />
-    <Route path="/tools" element={<Tools />} />
-    <Route path="/hub/calculus" element={<Calculus />} />
-    <Route path="/hub/geology" element={<Geology />} />
-    <Route path="/hub/geophysics" element={<Geophysics />} />
-    <Route path="/hub/physics" element={<Physics />} />
-    <Route path="/hub/programming" element={<Programming />} />
-    {/* Add more routes as needed */}
+  <Suspense fallback={<LoadingSpinner />}>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/hub" element={<Hub />} />
+      <Route path="/tools" element={<Tools />} />
+      <Route path="/hub/calculus" element={<Calculus />} />
+      <Route path="/hub/geology" element={<Geology />} />
+      <Route path="/hub/geophysics" element={<Geophysics />} />
+      <Route path="/hub/physics" element={<Physics />} />
+      <Route path="/hub/programming" element={<Programming />} />
+      {/* Add more routes as needed */}
 
-
-    <Route path="*" element={<Home />} />
-  </Routes>
+      <Route path="*" element={<Home />} />
+    </Routes>
+  </Suspense>
 );
 
 export default AppRoutes;
