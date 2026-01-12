@@ -1,99 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"><!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://geofisicahub.com/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://geofisicahub.com/about/about-site/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
+    <loc>https://geofisicahub.com/about</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://geofisicahub.com/about/about-geophysics/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
+    <loc>https://geofisicahub.com/hub</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://geofisicahub.com/tools</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://geofisicahub.com/hub/geophysics</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://geofisicahub.com/about/geophysics-uff/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
+    <loc>https://geofisicahub.com/hub/geology</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://geofisicahub.com/tools/research/articles/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
+    <loc>https://geofisicahub.com/hub/physics</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://geofisicahub.com/tools/calculator/calculator-hub/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
+    <loc>https://geofisicahub.com/hub/calculus</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://geofisicahub.com/tools/calculator/petrocalc/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
+    <loc>https://geofisicahub.com/hub/programming</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/tools/other-tools/resources/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/tools/other-tools/events/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/tools/other-tools/lucky-draw/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/materials/HUB/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/materials/geophysics/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/materials/geology/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/materials/calculus/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/materials/physics/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/materials/programming/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/contact/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/tools/research/papers/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://geofisicahub.com/tools/research/congress/</loc>
-    <lastmod>2026-12-01T15:00:01+00:00</lastmod>
-    <priority>0.64</priority>
   </url>
 </urlset>
