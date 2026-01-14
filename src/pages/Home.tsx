@@ -10,7 +10,33 @@ export default function Home() {
 
   React.useEffect(() => {
     document.title = "GeofisicaHub";
-  }, [t]);
+    const canonicalHref = "https://geofisicahub.com/";
+
+    let canonicalLink = document.querySelector(
+      "link[rel='canonical']"
+    ) as HTMLLinkElement | null;
+
+    if (!canonicalLink) {
+      canonicalLink = document.createElement("link");
+      canonicalLink.setAttribute("rel", "canonical");
+      document.head.appendChild(canonicalLink);
+    }
+
+    canonicalLink.setAttribute("href", canonicalHref);
+
+    let alternateLink = document.querySelector(
+      "link[rel='alternate'][hreflang='x-default']"
+    ) as HTMLLinkElement | null;
+
+    if (!alternateLink) {
+      alternateLink = document.createElement("link");
+      alternateLink.setAttribute("rel", "alternate");
+      alternateLink.setAttribute("hreflang", "x-default");
+      document.head.appendChild(alternateLink);
+    }
+
+    alternateLink.setAttribute("href", canonicalHref);
+  }, []);
 
   return (
     <>
