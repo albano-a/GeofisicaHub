@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ShareButtons from "../components/ShareButtons";
 import PostMetaDisplay from "../components/PostMetaDisplay";
-
+import References from "../components/References";
 export interface PostMeta {
   title: string;
   description: string;
@@ -12,6 +12,7 @@ export interface PostMeta {
   tags: string[];
   posted?: string;
   updated?: string;
+  references?: string[];
 }
 
 // Static globs for each language
@@ -175,6 +176,7 @@ export default function FundamentalsPost() {
             <PostMetaDisplay meta={post.meta} />
             <ShareButtons title={post.meta.title} url={window.location.href} />
             <PostContent />
+            <References references={post.meta.references || []} />
           </Suspense>
         </article>
       </div>

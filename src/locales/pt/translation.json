@@ -61,6 +61,10 @@
     "Calculus": "Cálculo",
     "Physics": "Física"
   },
+  "Posts": {
+    "Title": "Posts",
+    "Description": "Veja os últimos posts do GeofisicaHub."
+  },
   "Tools": {
     "Title": "Ferramentas",
     "Subtitle": "Explore a coleção de ferramentas de Geofísica abaixo",

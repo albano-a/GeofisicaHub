@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { PostMeta } from "../pages/EachPost";
-
+import DateRangeTwoToneIcon from "@mui/icons-material/DateRangeTwoTone";
+import UpdateTwoToneIcon from "@mui/icons-material/UpdateTwoTone";
 interface PostCardProps {
   post: PostMeta;
 }
@@ -26,12 +27,20 @@ export default function PostCard({ post }: PostCardProps) {
             {tag}
           </span>
         ))}
-        <div className="flex gap-2 ml-auto text-xs text-gray-500 dark:text-gray-400">
-          {post.posted && <span>📅 {post.posted}</span>}
-          {post.updated && post.updated !== post.posted && (
-            <span>🔄 {post.updated}</span>
-          )}
-        </div>
+      </div>
+      <div className="flex gap-2 mt-2 text-xs text-gray-500 dark:text-gray-400">
+        {post.posted && (
+          <span className="flex items-center gap-1">
+            <DateRangeTwoToneIcon fontSize="small" sx={{ color: "#1077bc" }} />
+            {post.posted}
+          </span>
+        )}
+        {post.updated && post.updated !== post.posted && (
+          <span className="flex items-center gap-1">
+            <UpdateTwoToneIcon fontSize="small" sx={{ color: "#1077bc" }} />
+            {post.updated}
+          </span>
+        )}
       </div>
     </Link>
   );
