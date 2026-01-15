@@ -3,7 +3,8 @@
     "Home": "Home",
     "About": "About",
     "Hub": "Hub",
-    "Tools": "Tools"
+    "Tools": "Tools",
+    "Posts": "Posts"
   },
   "HomePage": {
     "Alert": "The website has a new look. Check it out!",
@@ -59,6 +60,10 @@
     "Programming": "Programming",
     "Calculus": "Calculus",
     "Physics": "Physics"
+  },
+  "Posts": {
+    "Title": "Posts",
+    "Description": "See the latest posts from GeofisicaHub."
   },
   "Tools": {
     "Title": "Tools",

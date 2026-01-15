@@ -14,15 +14,29 @@ import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
 import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
 import HubTwoToneIcon from "@mui/icons-material/HubTwoTone";
 import BuildTwoToneIcon from "@mui/icons-material/BuildTwoTone";
+import FeedTwoToneIcon from "@mui/icons-material/FeedTwoTone";
 import Brightness4TwoToneIcon from "@mui/icons-material/Brightness4TwoTone";
 import Brightness7TwoToneIcon from "@mui/icons-material/Brightness7TwoTone";
 import LanguageSelector from "./LanguageSelector";
 
-const navItems = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Hub", path: "/hub" },
-  { label: "Tools", path: "/tools" },
+interface NavItem {
+  label: string;
+  path: string;
+  icon: React.ReactNode;
+}
+
+const iconSx = { color: "#1077bc" };
+
+const getNavItems = (): NavItem[] => [
+  { label: "Home", path: "/", icon: <HomeTwoToneIcon sx={iconSx} /> },
+  { label: "About", path: "/about", icon: <InfoTwoToneIcon sx={iconSx} /> },
+  { label: "Hub", path: "/hub", icon: <HubTwoToneIcon sx={iconSx} /> },
+  {
+    label: "Posts",
+    path: "/posts",
+    icon: <FeedTwoToneIcon sx={iconSx} />,
+  },
+  { label: "Tools", path: "/tools", icon: <BuildTwoToneIcon sx={iconSx} /> },
 ];
 
 const Navbar: React.FC = () => {
@@ -31,6 +45,7 @@ const Navbar: React.FC = () => {
   const [darkMode, setDarkMode] = React.useState(
     () => localStorage.getItem("theme") === "dark"
   );
+  const navItems = getNavItems();
 
   React.useEffect(() => {
     if (darkMode) {
@@ -49,37 +64,18 @@ const Navbar: React.FC = () => {
   const drawer = (
     <div className="w-64" role="presentation" onClick={handleDrawerToggle}>
       <List>
-        {navItems.map((item) => {
-          let icon;
-          switch (item.label) {
-            case "Home":
-              icon = <HomeTwoToneIcon sx={{ color: "#1077bc" }} />;
-              break;
-            case "About":
-              icon = <InfoTwoToneIcon sx={{ color: "#1077bc" }} />;
-              break;
-            case "Hub":
-              icon = <HubTwoToneIcon sx={{ color: "#1077bc" }} />;
-              break;
-            case "Tools":
-              icon = <BuildTwoToneIcon sx={{ color: "#1077bc" }} />;
-              break;
-            default:
-              icon = null;
-          }
-          return (
-            <ListItem key={item.label} disablePadding>
-              <ListItemButton component={Link} to={item.path}>
-                {icon}
-                <ListItemText
-                  primary={t(`Navbar.${item.label}`)} //
-                  className="ml-2"
-                  primaryTypographyProps={{ sx: { color: "#1077bc" } }}
-                />
-              </ListItemButton>
-            </ListItem>
-          );
-        })}
+        {navItems.map((item) => (
+          <ListItem key={item.label} disablePadding>
+            <ListItemButton component={Link} to={item.path}>
+              {item.icon}
+              <ListItemText
+                primary={t(`Navbar.${item.label}`)}
+                className="ml-2"
+                primaryTypographyProps={{ sx: { color: "#1077bc" } }}
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
       </List>
       <div className="flex justify-center py-2">
         <LanguageSelector />
@@ -100,42 +96,18 @@ const Navbar: React.FC = () => {
           </Link>
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-4 text-geo-primary dark:text-geo-darkprimary">
-            <Button
-              component={Link}
-              to="/"
-              startIcon={<HomeTwoToneIcon />}
-              className="hover:text-geo-accent capitalize"
-              sx={{ color: "inherit" }}
-            >
-              {t("Navbar.Home")}
-            </Button>
-            <Button
-              component={Link}
-              to="/about"
-              startIcon={<InfoTwoToneIcon />}
-              className="hover:text-geo-accent capitalize"
-              sx={{ color: "inherit" }}
-            >
-              {t("Navbar.About")}
-            </Button>
-            <Button
-              component={Link}
-              to="/hub"
-              startIcon={<HubTwoToneIcon />}
-              className="hover:text-geo-accent capitalize"
-              sx={{ color: "inherit" }}
-            >
-              {t("Navbar.Hub")}
-            </Button>
-            <Button
-              component={Link}
-              to="/tools"
-              startIcon={<BuildTwoToneIcon />}
-              className="hover:text-geo-accent capitalize"
-              sx={{ color: "inherit" }}
-            >
-              {t("Navbar.Tools")}
-            </Button>
+            {navItems.map((item) => (
+              <Button
+                key={item.label}
+                component={Link}
+                to={item.path}
+                startIcon={item.icon}
+                className="hover:text-geo-accent capitalize"
+                sx={{ color: "inherit" }}
+              >
+                {t(`Navbar.${item.label}`)}
+              </Button>
+            ))}
             <IconButton
               sx={{ ml: 0 }}
               onClick={() => setDarkMode((prev) => !prev)}
