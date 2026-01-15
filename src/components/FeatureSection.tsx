@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import BiotechTwoToneIcon from "@mui/icons-material/BiotechTwoTone";
+import HubTwoToneIcon from "@mui/icons-material/HubTwoTone";
+import FeedTwoToneIcon from "@mui/icons-material/FeedTwoTone";
 import CalculateTwoToneIcon from "@mui/icons-material/CalculateTwoTone";
-import LibraryBooksTwoToneIcon from "@mui/icons-material/LibraryBooksTwoTone";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const features = [
     description: "StudyMaterialsdesc",
     icon: (
       <span className="text-geo-primary dark:text-geo-darkprimary">
-        <LibraryBooksTwoToneIcon fontSize="large" color="inherit" />
+        <HubTwoToneIcon fontSize="large" color="inherit" />
       </span>
     ),
     link: "/hub",
@@ -28,14 +28,14 @@ const features = [
     link: "/tools",
   },
   {
-    title: "ScientificPubli",
-    description: "ScientificPublidesc",
+    title: "PostsArea",
+    description: "PostsAreadesc",
     icon: (
       <span className="text-geo-primary dark:text-geo-darkprimary">
-        <BiotechTwoToneIcon fontSize="large" color="inherit" />
+        <FeedTwoToneIcon fontSize="large" color="inherit" />
       </span>
     ),
-    link: "/research",
+    link: "/posts",
   },
 ];
 
@@ -68,6 +68,7 @@ const FeatureSection: React.FC = () => {
                 variant="contained"
                 color="inherit"
                 fullWidth
+                onClick={() => window.scrollTo(0, 0)}
                 sx={{
                   mt: "auto",
                   borderRadius: "10px",

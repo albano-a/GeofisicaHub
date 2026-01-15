@@ -31,7 +31,7 @@ describe("FeatureSection", () => {
     expect(
       screen.getByText("Features.CalculatorsResources")
     ).toBeInTheDocument();
-    expect(screen.getByText("Features.ScientificPubli")).toBeInTheDocument();
+    expect(screen.getByText("Features.PostsArea")).toBeInTheDocument();
   });
 
   it("renders Get Started buttons for each feature", () => {

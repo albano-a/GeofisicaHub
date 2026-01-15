@@ -21,6 +21,8 @@ const routes = [
   "/hub/physics",
   "/hub/calculus",
   "/hub/programming",
+  "/posts",
+  "/posts/welcome-to-geofisicahub",
 ];
 
 // https://vite.dev/config/
@@ -47,5 +49,48 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Vendor libraries
+          vendor: [
+            "react",
+            "react-dom",
+            "react-router-dom",
+            "@mui/material",
+            "@mui/icons-material",
+          ],
+          // UI libraries
+          ui: ["react-icons"],
+          // MDX and content rendering
+          mdx: ["@mdx-js/react", "katex", "react-katex"],
+          // Internationalization
+          i18n: [
+            "react-i18next",
+            "i18next",
+            "i18next-browser-languagedetector",
+          ],
+          // Large components
+          components: [
+            "./src/components/BookCard.tsx",
+            "./src/components/ShareButtons.tsx",
+            "./src/components/PostCard.tsx",
+            "./src/components/PostMetaDisplay.tsx",
+          ],
+          // Pages
+          pages: [
+            "./src/pages/Home.tsx",
+            "./src/pages/About.tsx",
+            "./src/pages/MaterialHub.tsx",
+            "./src/pages/Tools.tsx",
+            "./src/pages/Posts.tsx",
+            "./src/pages/EachPost.tsx",
+          ],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000, // Increase limit to 1000 kB
   },
 });

@@ -14,12 +14,12 @@
   },
   "Features": {
     "PowerfulFeatures": "Powerful Features",
-    "StudyMaterials": "Study Materials",
-    "StudyMaterialsdesc": "The HUB section contains several books on Geophysics, Geology, Calculus, etc. This is where you'll find the main sources for your studies. The Geophysics part has the most books because it's the main part of this science.",
+    "StudyMaterials": "HUB",
+    "StudyMaterialsdesc": "The HUB section contains several books on Geophysics, Geology, Calculus, etc. This is where you'll find the main sources for your studies.",
     "CalculatorsResources": "Calculators and Resources",
     "CalculatorsResourcesdesc": "Our Calculators section offers a variety of tools to help you solve geophysics problems quickly and efficiently. You can also visit the Resources page to find key geophysics websites and software.",
-    "ScientificPubli": "Scientific Publications",
-    "ScientificPublidesc": "In the Publications section, you'll find various sources of articles, papers, and theses covering geophysics topics. Use this section to search for references or find sources for your work."
+    "PostsArea": "Posts",
+    "PostsAreadesc": "In the Posts section, you will find articles and explanations on various geophysics topics, supported by mathematical formulas, images, and references."
   },
   "About": {
     "Title": "About",
