@@ -2,41 +2,29 @@ import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import FeatureSection from "../components/FeatureSection";
 import Divider from "@mui/material/Divider";
-import React from "react";
+import { useSEO } from "../hooks/useSEO";
 // import AdUnit from "../components/AdUnit";
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  React.useEffect(() => {
-    document.title = "GeofisicaHub";
-    const canonicalHref = "https://geofisicahub.com/";
-
-    let canonicalLink = document.querySelector(
-      "link[rel='canonical']"
-    ) as HTMLLinkElement | null;
-
-    if (!canonicalLink) {
-      canonicalLink = document.createElement("link");
-      canonicalLink.setAttribute("rel", "canonical");
-      document.head.appendChild(canonicalLink);
-    }
-
-    canonicalLink.setAttribute("href", canonicalHref);
-
-    let alternateLink = document.querySelector(
-      "link[rel='alternate'][hreflang='x-default']"
-    ) as HTMLLinkElement | null;
-
-    if (!alternateLink) {
-      alternateLink = document.createElement("link");
-      alternateLink.setAttribute("rel", "alternate");
-      alternateLink.setAttribute("hreflang", "x-default");
-      document.head.appendChild(alternateLink);
-    }
-
-    alternateLink.setAttribute("href", canonicalHref);
-  }, []);
+  useSEO({
+    title: "GeofisicaHub | Geophysics & Geoscience Learning Hub",
+    description:
+      "GeofisicaHub: curated free resources and tools for geophysics, geology, physics, calculus and programming students and professionals.",
+    keywords: [
+      "geophysics",
+      "geoscience",
+      "geology",
+      "physics",
+      "calculus",
+      "programming",
+      "educational resources",
+    ],
+    url: "/",
+    type: "website",
+    locale: i18n.language,
+  });
 
   return (
     <>

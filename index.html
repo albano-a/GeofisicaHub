@@ -14,10 +14,17 @@
     />
     <meta
       name="keywords"
-      content="geophysics, geoscience, geology, physics, calculus, programming, educational resources, geofisica"
+      content="geophysics, geoscience, geology, physics, calculus, programming, educational resources, geofisica, seismic, seismology, earth sciences"
     />
     <meta name="author" content="GeofisicaHub" />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <meta
+      name="googlebot"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
     <link rel="canonical" href="https://geofisicahub.com/" />
     <link
       rel="sitemap"
@@ -26,11 +33,18 @@
       href="https://geofisicahub.com/sitemap.xml"
     />
 
+    <!-- Hreflang tags for international SEO -->
     <link
       rel="alternate"
       href="https://geofisicahub.com/"
       hreflang="x-default"
     />
+    <link rel="alternate" href="https://geofisicahub.com/" hreflang="en" />
+    <link rel="alternate" href="https://geofisicahub.com/" hreflang="pt" />
+    <link rel="alternate" href="https://geofisicahub.com/" hreflang="es" />
+    <link rel="alternate" href="https://geofisicahub.com/" hreflang="fr" />
+    <link rel="alternate" href="https://geofisicahub.com/" hreflang="de" />
+    <link rel="alternate" href="https://geofisicahub.com/" hreflang="it" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -48,6 +62,18 @@
       property="og:image"
       content="https://geofisicahub.com/plataforma-petroleo.jpg"
     />
+    <meta
+      property="og:image:alt"
+      content="GeofisicaHub - Geophysics Learning Platform"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="it_IT" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,6 +89,10 @@
       name="twitter:image"
       content="https://geofisicahub.com/plataforma-petroleo.jpg"
     />
+    <meta
+      name="twitter:image:alt"
+      content="GeofisicaHub - Geophysics Learning Platform"
+    />
 
     <!-- Structured data (Organization) -->
     <script type="application/ld+json">
@@ -71,7 +101,45 @@
         "@type": "Organization",
         "name": "GeofisicaHub",
         "url": "https://geofisicahub.com",
-        "logo": "https://geofisicahub.com/plataforma-petroleo.jpg"
+        "logo": "https://geofisicahub.com/plataforma-petroleo.jpg",
+        "sameAs": [],
+        "description": "GeofisicaHub: curated free resources and tools for geophysics, geology, physics, calculus and programming students and professionals."
+      }
+    </script>
+
+    <!-- Structured data (WebSite with SearchAction) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "GeofisicaHub",
+        "url": "https://geofisicahub.com",
+        "description": "Geophysics & Geoscience Learning Hub with curated resources for students and professionals",
+        "inLanguage": ["en", "pt", "es", "fr", "de", "it"],
+        "publisher": {
+          "@type": "Organization",
+          "name": "GeofisicaHub"
+        }
+      }
+    </script>
+
+    <!-- Structured data (EducationalOrganization) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "GeofisicaHub",
+        "url": "https://geofisicahub.com",
+        "description": "Educational platform providing free geophysics, geology, physics, and programming resources",
+        "areaServed": "Worldwide",
+        "availableLanguage": [
+          "English",
+          "Portuguese",
+          "Spanish",
+          "French",
+          "German",
+          "Italian"
+        ]
       }
     </script>
     <!-- Google AdSense -->

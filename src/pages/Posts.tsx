@@ -3,6 +3,8 @@ import React from "react";
 import { getAllPosts } from "./EachPost";
 import type { PostMeta } from "./EachPost";
 import PostCard from "../components/PostCard";
+import Breadcrumb from "../components/Breadcrumb";
+import { useSEO } from "../hooks/useSEO";
 
 export default function Posts() {
   const { t, i18n } = useTranslation();
@@ -19,9 +21,21 @@ export default function Posts() {
     loadPosts();
   }, [i18n.language]);
 
-  React.useEffect(() => {
-    document.title = t("Posts.Title") + " | GeofisicaHub";
-  }, [t]);
+  useSEO({
+    title: "Posts | GeofisicaHub",
+    description:
+      "Explore articles about geophysics fundamentals, seismic methods, and earth sciences. Educational content for students and professionals.",
+    keywords: [
+      "geophysics articles",
+      "seismic methods",
+      "earth sciences",
+      "geology tutorials",
+      "physics fundamentals",
+    ],
+    url: "/posts",
+    type: "website",
+    locale: i18n.language,
+  });
 
   if (loading) {
     return (
@@ -40,9 +54,10 @@ export default function Posts() {
     <>
       <div className="min-h-screen pb-10 bg-geo-lightbg dark:bg-geo-darkbg">
         <section className="w-full max-w-7xl mx-auto p-10 flex flex-col items-center space-y-5">
-          <h2 className="text-4xl md:text-5xl text-center font-bold m-7 bg-gradient-to-r from-geo-accent via-geo-primary to-geo-secondary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient">
+          <Breadcrumb />
+          <h1 className="text-4xl md:text-5xl text-center font-bold m-7 bg-gradient-to-r from-geo-accent via-geo-primary to-geo-secondary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient">
             {t("Posts.Title")}
-          </h2>
+          </h1>
           <p className="text-gray-900 dark:text-white text-xl md:text-2xl text-center font-semibold m-5">
             {t("Posts.Description")}
           </p>

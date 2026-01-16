@@ -5,6 +5,8 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import ShareButtons from "../components/ShareButtons";
 import PostMetaDisplay from "../components/PostMetaDisplay";
 import References from "../components/References";
+import Breadcrumb from "../components/Breadcrumb";
+import { useSEO } from "../hooks/useSEO";
 export interface PostMeta {
   title: string;
   description: string;
@@ -13,6 +15,7 @@ export interface PostMeta {
   posted?: string;
   updated?: string;
   references?: string[];
+  draft?: boolean;
 }
 
 // Static globs for each language
@@ -97,7 +100,9 @@ async function loadPostsForLanguage(
 
 export const getAllPosts = async (lang: string = "en"): Promise<PostMeta[]> => {
   const posts = await loadPostsForLanguage(lang);
-  return Object.values(posts).map((p) => p.meta);
+  return Object.values(posts)
+    .map((p) => p.meta)
+    .filter((post) => !post.draft); // Filter out draft posts
 };
 
 export default function FundamentalsPost() {
@@ -120,11 +125,24 @@ export default function FundamentalsPost() {
     loadPost();
   }, [slug, i18n.language]);
 
-  React.useEffect(() => {
-    if (post) {
-      document.title = `${post.meta.title} | Posts | GeofisicaHub`;
-    }
-  }, [post]);
+  // SEO hook for dynamic meta tags
+  useSEO(
+    post
+      ? {
+          title: post.meta.title,
+          description: post.meta.description,
+          keywords: post.meta.tags,
+          url: `/posts/${post.meta.slug}`,
+          type: "article",
+          publishedTime: post.meta.posted,
+          modifiedTime: post.meta.updated || post.meta.posted,
+          author: "GeofisicaHub",
+          section: "Geophysics Fundamentals",
+          tags: post.meta.tags,
+          locale: i18n.language,
+        }
+      : {}
+  );
 
   if (loading) {
     return (
@@ -136,7 +154,7 @@ export default function FundamentalsPost() {
     );
   }
 
-  if (!post) {
+  if (!post || post.meta.draft) {
     return (
       <section className="py-16 bg-geo-lightbg dark:bg-geo-darkbg transition-colors min-h-screen">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -144,7 +162,7 @@ export default function FundamentalsPost() {
             Post Not Found
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-            The post you're looking for doesn't exist.
+            The post you're looking for doesn't exist or is a draft.
           </p>
           <Link
             to="/posts"
@@ -162,14 +180,7 @@ export default function FundamentalsPost() {
   return (
     <section className="py-16 bg-geo-lightbg dark:bg-geo-darkbg transition-colors min-h-screen">
       <div className="max-w-4xl mx-auto px-4">
-        <nav className="mb-8">
-          <Link
-            to="/posts"
-            className="text-geo-primary dark:text-geo-darkprimary hover:underline"
-          >
-            ← Back to Posts
-          </Link>
-        </nav>
+        <Breadcrumb postTitle={post.meta.title} />
 
         <article className="prose prose-lg dark:prose-invert max-w-none text-justify">
           <Suspense fallback={<LoadingSpinner />}>
