@@ -1,13 +1,14 @@
-import books from "../../assets/books.json";
 import BookCard from "../../components/BookCard";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useAppWriteBooks } from "../../hooks/useAppWriteBooks";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 export default function Calculus() {
   const { i18n } = useTranslation();
   const language = i18n.language === "pt" ? "pt" : "en";
-  const { books, loading, error } = useAppWriteBooks("Calculus", language);
+  const area = "Calculus";
+  const { books, loading, error } = useAppWriteBooks(area, language);
   const { t } = useTranslation();
 
   React.useEffect(() => {
@@ -15,34 +16,34 @@ export default function Calculus() {
   }, [t]);
 
   if (loading) {
-      return (
-        <div className="min-h-screen bg-geo-lightbg dark:bg-geo-darkbg pb-5 flex flex-col items-center justify-center">
-          <LoadingSpinner />
-          <p className="mt-4 text-gray-600 dark:text-gray-400">
-            Loading geophysics books...
-          </p>
+    return (
+      <div className="min-h-screen bg-geo-lightbg dark:bg-geo-darkbg pb-5 flex flex-col items-center justify-center">
+        <LoadingSpinner />
+        <p className="mt-4 text-gray-600 dark:text-gray-400">
+          Loading {area} books...
+        </p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-geo-lightbg dark:bg-geo-darkbg pb-5 flex flex-col items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">
+            Error Loading Books
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="bg-geo-primary dark:bg-geo-darkprimary text-white px-4 py-2 rounded hover:opacity-90"
+          >
+            Try Again
+          </button>
         </div>
-      );
-    }
-  
-    if (error) {
-      return (
-        <div className="min-h-screen bg-geo-lightbg dark:bg-geo-darkbg pb-5 flex flex-col items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">
-              Error Loading Books
-            </h1>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">{error}</p>
-            <button
-              onClick={() => window.location.reload()}
-              className="bg-geo-primary dark:bg-geo-darkprimary text-white px-4 py-2 rounded hover:opacity-90"
-            >
-              Try Again
-            </button>
-          </div>
-        </div>
-      );
-    }
+      </div>
+    );
+  }
 
   return (
     <>

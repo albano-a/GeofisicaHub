@@ -1,16 +1,49 @@
-import books from "../../assets/books.json";
 import BookCard from "../../components/BookCard";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useAppWriteBooks } from "../../hooks/useAppWriteBooks";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 export default function Geology() {
-  const geologyBooks = books.geology;
+  const { i18n } = useTranslation();
+  const lang = i18n.language === "pt" ? "pt" : "en";
+  const area = "Geology";
+  const { books, loading, error } = useAppWriteBooks(area, lang);
   const { t } = useTranslation();
 
   React.useEffect(() => {
     document.title = t("HUB.Geology") + " | GeofisicaHub";
   }, [t]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-geo-lightbg dark:bg-geo-darkbg pb-5 flex flex-col items-center justify-center">
+        <LoadingSpinner />
+        <p className="mt-4 text-gray-600 dark:text-gray-400">
+          Loading {area} books...
+        </p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-geo-lightbg dark:bg-geo-darkbg pb-5 flex flex-col items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">
+            Error Loading Books
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="bg-geo-primary dark:bg-geo-darkprimary text-white px-4 py-2 rounded hover:opacity-90"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -19,12 +52,11 @@ export default function Geology() {
           {t("HUB.Geology")}
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {geologyBooks.map((book, index) => (
+          {books.map((book, index) => (
             <BookCard
               key={index}
               cover={book.cover}
               title={book.title}
-              description={book.description}
               link={book.link}
             />
           ))}
