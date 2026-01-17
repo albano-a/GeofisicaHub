@@ -51,13 +51,14 @@ export default function Calculus() {
         <h1 className="text-4xl py-10 font-bold text-geo-primary dark:text-geo-darkprimary mb-8">
           {t("HUB.Calculus")}
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {books.map((book, index) => (
             <BookCard
               key={index}
               cover={book.cover}
               title={book.title}
-              link={book.link}
+              author={book.author}
+              fileId={book.fileId}
             />
           ))}
         </div>

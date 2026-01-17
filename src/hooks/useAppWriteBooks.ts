@@ -11,7 +11,9 @@ import { Query } from "appwrite";
 export interface Book {
   title: string;
   cover: string;
+  author: string;
   link: string;
+  fileId: string;
 }
 
 export function useAppWriteBooks(area: string, language: string) {
@@ -24,8 +26,14 @@ export function useAppWriteBooks(area: string, language: string) {
       try {
         const queries = [
           Query.or([
-            Query.and([Query.equal("area", area), Query.equal("language", language)]),  // Match selected language
-            Query.and([Query.equal("area", area), Query.equal("language", "en")]),  // Fallback to English
+            Query.and([
+              Query.equal("area", area),
+              Query.equal("language", language),
+            ]), // Match selected language
+            Query.and([
+              Query.equal("area", area),
+              Query.equal("language", "en"),
+            ]), // Fallback to English
           ]),
         ];
         const response = await tablesDB.listRows({
@@ -36,10 +44,12 @@ export function useAppWriteBooks(area: string, language: string) {
         const fetchedBooks: Book[] = response.rows.map((row) => ({
           title: row.title,
           cover: row.cover,
+          author: row.author,
           link: storage.getFileDownload({
             bucketId: BUCKET_ID,
             fileId: row.fileId,
           }),
+          fileId: row.fileId,
         }));
         setBooks(fetchedBooks);
       } catch (err: any) {
