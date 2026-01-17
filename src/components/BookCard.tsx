@@ -1,19 +1,13 @@
-import { useState } from 'react';
-import { Skeleton } from '@mui/material';
+import { useState } from "react";
+import { Skeleton } from "@mui/material";
 
 interface BookCardProps {
   cover: string;
   title: string;
-  description: string;
   link: string;
 }
 
-export default function BookCard({
-  cover,
-  title,
-  description,
-  link,
-}: BookCardProps) {
+export default function BookCard({ cover, title, link }: BookCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   return (
     <a
@@ -29,14 +23,14 @@ export default function BookCard({
             width="100%"
             height="100%"
             className="absolute top-0 left-0"
-            sx={{ borderRadius: '6px' }}
+            sx={{ borderRadius: "6px" }}
           />
         )}
         <img
           src={cover}
           alt={title}
           className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
+            imageLoaded ? "opacity-100" : "opacity-0"
           }`}
           onLoad={() => setImageLoaded(true)}
         />
@@ -44,9 +38,6 @@ export default function BookCard({
       <h2 className="text-lg font-semibold text-geo-primary dark:text-geo-darkprimary ">
         {title}
       </h2>
-      <p className="text-gray-600 dark:text-gray-400 mb-3 text-md line-clamp-3">
-        {description}
-      </p>
     </a>
   );
 }

@@ -5,7 +5,9 @@ import { useAppWriteBooks } from "../../hooks/useAppWriteBooks";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
 export default function Geophysics() {
-  const { books, loading, error } = useAppWriteBooks("geophysics");
+  const { i18n } = useTranslation();
+  const language = i18n.language === "pt" ? "pt" : "en";
+  const { books, loading, error } = useAppWriteBooks("Geophysics", language);
   const { t } = useTranslation();
 
   React.useEffect(() => {
@@ -62,10 +64,9 @@ export default function Geophysics() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {books.map((book, index) => (
               <BookCard
-                key={book.fileId || index}
+                key={index}
                 cover={book.cover}
                 title={book.title}
-                description={book.description}
                 link={book.link}
               />
             ))}

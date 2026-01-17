@@ -2,6 +2,7 @@ import books from "../../assets/books.json";
 import BookCard from "../../components/BookCard";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useAppWriteBooks } from "../../hooks/useAppWriteBooks";
 
 export default function Programming() {
   const programmingBooks = books.programming;
