@@ -4,9 +4,13 @@ import { useSearchParams } from "react-router-dom";
 import { storage, BUCKET_ID } from "../services/appwrite";
 import LoadingSpinner from "./LoadingSpinner";
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Drawer from "@mui/material/Drawer";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import HomeIcon from "@mui/icons-material/Home";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import CloseIcon from "@mui/icons-material/Close";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 
 // Set up PDF.js worker
@@ -26,10 +30,9 @@ const PDFViewer: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [pdfBlob, setPdfBlob] = useState<Blob | null>(null);
-  const [pageInput, setPageInput] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [containerWidth, setContainerWidth] = useState<number>(800);
+  const [outlineOpen, setOutlineOpen] = useState(false);
 
+  const containerWidth = 800;
   const maxWidth = 1200; // Maximum width for PDF pages
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,12 +53,14 @@ const PDFViewer: React.FC = () => {
           bucketId: BUCKET_ID,
           fileId: fileId,
         });
+        console.log("Fetching PDF from URL:", viewUrl);
 
         // Fetch the PDF as a blob
         const response = await fetch(viewUrl, {
           method: "GET",
           mode: "cors",
         });
+        console.log("Fetch response:", response);
 
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -73,43 +78,6 @@ const PDFViewer: React.FC = () => {
     fetchPdf();
   }, [fileId]);
 
-  // Measure container width for responsive PDF sizing
-  useEffect(() => {
-    const updateWidth = () => {
-      if (containerRef.current) {
-        const width = containerRef.current.clientWidth - 32; // Subtract padding
-        setContainerWidth(width);
-      }
-    };
-
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
-
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!numPages) return;
-      if (e.key === "ArrowLeft" && currentPage > 1) {
-        setCurrentPage((prev) => {
-          const next = prev - 1;
-          scrollToPage(next);
-          return next;
-        });
-      } else if (e.key === "ArrowRight" && currentPage < numPages) {
-        setCurrentPage((prev) => {
-          const next = prev + 1;
-          scrollToPage(next);
-          return next;
-        });
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentPage, numPages]); // Ensure dependencies are stable
-
   const scrollToPage = (pageNum: number) => {
     // Ensure target page is mounted before scrolling
     setTimeout(() => {
@@ -118,17 +86,6 @@ const PDFViewer: React.FC = () => {
         pageElement.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }, 120);
-  };
-
-  // Jump to specific page
-  const goToPage = (e: React.FormEvent) => {
-    e.preventDefault();
-    const pageNum = parseInt(pageInput, 10);
-    if (pageNum >= 1 && pageNum <= (numPages || 1)) {
-      setCurrentPage(pageNum);
-      scrollToPage(pageNum);
-    }
-    setPageInput("");
   };
 
   if (!fileId) {
@@ -178,25 +135,44 @@ const PDFViewer: React.FC = () => {
       {/* Fixed Header */}
       <div className="sticky top-0 z-50 bg-geo-lightbg dark:bg-geo-darkbg shadow-md p-4">
         <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4">
-          {/* Back Button */}
-          <Button
-            variant="contained"
-            sx={{
-              borderRadius: "15px",
-              fontFamily: "Poppins",
-            }}
-            onClick={() => window.history.back()}
-            className="!bg-geo-primary hover:!bg-geo-darkprimary dark:!bg-geo-primary dark:!text-geo-lightbg dark:hover:!bg-geo-darkprimary"
-            startIcon={<HomeIcon fontSize="small" />}
-          >
-            Back
-          </Button>
+          <div className="flex items-center gap-4">
+            {/* Back Button */}
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "15px",
+                fontFamily: "Poppins",
+              }}
+              onClick={() => window.history.back()}
+              className="!bg-geo-primary hover:!bg-geo-darkprimary dark:!bg-geo-primary dark:!text-geo-lightbg dark:hover:!bg-geo-darkprimary"
+              startIcon={<HomeIcon fontSize="small" />}
+            >
+              Back
+            </Button>
+
+            {/* Outline Toggle Button */}
+            <Button
+              variant="outlined"
+              sx={{
+                borderRadius: "15px",
+                fontFamily: "Poppins",
+              }}
+              onClick={() => setOutlineOpen(true)}
+              className="!border-geo-primary !text-geo-primary hover:!bg-geo-lightbg dark:!border-geo-darkprimary dark:!text-geo-darkprimary dark:hover:!bg-gray-800"
+              startIcon={<FormatListBulletedIcon fontSize="small" />}
+            >
+              Contents
+            </Button>
+          </div>
         </div>
       </div>
 
       {/* PDF Display Area */}
-      <div className="flex-1 overflow-auto p-4" ref={pdfContainerRef}>
-        <div className="max-w-full mx-auto" ref={containerRef}>
+      <div
+        className="flex-1 overflow-hidden flex flex-col relative"
+        ref={pdfContainerRef}
+      >
+        <div className="w-full h-full flex-1 relative">
           {loading && (
             <div className="flex flex-col items-center justify-center py-24">
               <LoadingSpinner />
@@ -230,7 +206,7 @@ const PDFViewer: React.FC = () => {
 
           {!error && pdfBlob && (
             <div
-              className="bg-geo-lightbg dark:bg-geo-darkbg rounded-xl shadow-lg p-4 flex flex-col items-center gap-6 select-none"
+              className="bg-geo-lightbg dark:bg-geo-darkbg shadow-none p-0 flex flex-col items-stretch w-full h-full"
               style={{ userSelect: "none" }}
             >
               <Document
@@ -239,38 +215,81 @@ const PDFViewer: React.FC = () => {
                 onLoadError={onDocumentLoadError}
                 loading=""
                 options={options}
-                className="flex flex-col items-center gap-6"
+                className="flex flex-col items-center w-full h-full gap-0"
               >
-                {numPages &&
-                  Array.from({ length: numPages }, (_, index) => (
-                    <div
-                      key={`page_${index + 1}`}
-                      data-page-index={index}
-                      ref={(el) => {
-                        pageRefs.current[index] = el;
-                      }}
-                      className="relative w-full"
-                    >
-                      <div className="absolute -top-2 left-2 bg-geo-primary text-white text-xs px-2 py-0.5 rounded-full z-10">
-                        {index + 1}
-                      </div>
-                      <Page
-                        key={`page_${index + 1}`}
-                        pageNumber={index + 1}
-                        width={Math.min(containerWidth, maxWidth)}
-                        renderTextLayer={false}
-                        renderAnnotationLayer={true}
-                        className="shadow-lg"
+                {/* Outline Sidebar (Custom Drawer) */}
+                <div
+                  className={`fixed inset-y-0 left-0 z-[100] w-80 bg-white dark:bg-gray-900 shadow-2xl transform transition-transform duration-300 ease-in-out ${
+                    outlineOpen ? "translate-x-0" : "-translate-x-full"
+                  }`}
+                >
+                  <div className="h-full flex flex-col">
+                    <div className="p-4 flex items-center justify-between border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+                      <Typography
+                        variant="h6"
+                        className="text-gray-800 dark:text-gray-200 font-poppins"
+                      >
+                        Table of Contents
+                      </Typography>
+                      <IconButton
+                        onClick={() => setOutlineOpen(false)}
+                        size="small"
+                      >
+                        <CloseIcon />
+                      </IconButton>
+                    </div>
+                    <div className="flex-1 overflow-y-auto p-4 custom-pdf-outline">
+                      <Outline
+                        onItemClick={({ pageNumber }) => {
+                          scrollToPage(pageNumber);
+                          if (window.innerWidth < 768) {
+                            setOutlineOpen(false);
+                          }
+                        }}
+                        className="custom-pdf-outline"
                       />
                     </div>
-                  ))}
-                <Outline
-                  onItemClick={({ pageNumber }) => {
-                    setCurrentPage(pageNumber);
-                    scrollToPage(pageNumber);
-                  }}
-                  className="mt-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg max-h-96 overflow-auto"
-                />
+                  </div>
+                </div>
+
+                {/* Overlay for mobile */}
+                {outlineOpen && (
+                  <div
+                    className="fixed inset-0 bg-black/50 z-[90]"
+                    onClick={() => setOutlineOpen(false)}
+                  />
+                )}
+
+                {/* Pages Section */}
+                <div
+                  className="flex-1 w-full bg-gray-100 dark:bg-gray-800 p-8 h-full overflow-y-auto"
+                  ref={containerRef}
+                >
+                  <div className="flex flex-col items-center gap-8 max-w-full">
+                    {numPages &&
+                      Array.from({ length: numPages }, (_, index) => (
+                        <div
+                          key={`page_${index + 1}`}
+                          data-page-index={index}
+                          ref={(el) => {
+                            pageRefs.current[index] = el;
+                          }}
+                          className="relative shadow-xl transition-shadow hover:shadow-2xl"
+                        >
+                          <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full z-10 font-medium tracking-wide">
+                            Page {index + 1}
+                          </div>
+                          <Page
+                            key={`page_${index + 1}`}
+                            pageNumber={index + 1}
+                            width={Math.min(containerWidth, maxWidth)}
+                            renderTextLayer={false}
+                            renderAnnotationLayer={true}
+                          />
+                        </div>
+                      ))}
+                  </div>
+                </div>
               </Document>
             </div>
           )}
