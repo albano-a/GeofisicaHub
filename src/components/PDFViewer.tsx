@@ -1,15 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
+import { Document, Page, Outline, pdfjs } from "react-pdf";
 import { useSearchParams } from "react-router-dom";
 import { storage, BUCKET_ID } from "../services/appwrite";
 import LoadingSpinner from "./LoadingSpinner";
 import Button from "@mui/material/Button";
-import ZoomInIcon from "@mui/icons-material/ZoomIn";
-import ZoomOutIcon from "@mui/icons-material/ZoomOut";
 import HomeIcon from "@mui/icons-material/Home";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import "react-pdf/dist/Page/AnnotationLayer.css";
 
-// Set up PDF.js worker from public folder
-pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+// Set up PDF.js worker
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
+// Options for PDF.js to support non-latin characters, JPEG 2000, and standard fonts
+const options = {
+  cMapUrl: `https://unpkg.com/pdfjs-dist@${pdfjs.version}/cmaps/`,
+  standardFontDataUrl: `https://unpkg.com/pdfjs-dist@${pdfjs.version}/standard_fonts/`,
+  wasmUrl: `https://unpkg.com/pdfjs-dist@${pdfjs.version}/wasm/`,
+};
 
 const PDFViewer: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -18,15 +26,15 @@ const PDFViewer: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [pdfBlob, setPdfBlob] = useState<Blob | null>(null);
-  const [scale, setScale] = useState(1.0);
   const [pageInput, setPageInput] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const [containerWidth, setContainerWidth] = useState<number>(800);
-  const [maxPagesToShow, setMaxPagesToShow] = useState(10);
-  const [pendingScrollPage, setPendingScrollPage] = useState<number | null>(
-    null
-  );
+
+  const maxWidth = 1200; // Maximum width for PDF pages
+
   const containerRef = useRef<HTMLDivElement>(null);
   const pageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const pdfContainerRef = useRef<HTMLDivElement>(null);
 
   // Fetch PDF as blob to bypass CORS
   useEffect(() => {
@@ -79,31 +87,46 @@ const PDFViewer: React.FC = () => {
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
-  // Handle pending scroll after loading more pages
+  // Keyboard navigation
   useEffect(() => {
-    if (pendingScrollPage && pendingScrollPage <= maxPagesToShow) {
-      const pageElement = pageRefs.current[pendingScrollPage - 1];
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!numPages) return;
+      if (e.key === "ArrowLeft" && currentPage > 1) {
+        setCurrentPage((prev) => {
+          const next = prev - 1;
+          scrollToPage(next);
+          return next;
+        });
+      } else if (e.key === "ArrowRight" && currentPage < numPages) {
+        setCurrentPage((prev) => {
+          const next = prev + 1;
+          scrollToPage(next);
+          return next;
+        });
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentPage, numPages]); // Ensure dependencies are stable
+
+  const scrollToPage = (pageNum: number) => {
+    // Ensure target page is mounted before scrolling
+    setTimeout(() => {
+      const pageElement = pageRefs.current[pageNum - 1];
       if (pageElement) {
         pageElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        setPendingScrollPage(null);
       }
-    }
-  }, [maxPagesToShow, pendingScrollPage]);
+    }, 120);
+  };
 
   // Jump to specific page
   const goToPage = (e: React.FormEvent) => {
     e.preventDefault();
     const pageNum = parseInt(pageInput, 10);
     if (pageNum >= 1 && pageNum <= (numPages || 1)) {
-      if (pageNum > maxPagesToShow) {
-        setMaxPagesToShow(pageNum);
-        setPendingScrollPage(pageNum);
-      } else {
-        const pageElement = pageRefs.current[pageNum - 1];
-        if (pageElement) {
-          pageElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
+      setCurrentPage(pageNum);
+      scrollToPage(pageNum);
     }
     setPageInput("");
   };
@@ -138,6 +161,7 @@ const PDFViewer: React.FC = () => {
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
     setNumPages(numPages);
     setLoading(false);
+    // Ensure first page(s) are visible/mounted immediately
   }
 
   function onDocumentLoadError(err: Error) {
@@ -145,14 +169,6 @@ const PDFViewer: React.FC = () => {
     setLoading(false);
     console.error("PDF render error:", err);
   }
-
-  const zoomIn = () => {
-    setScale((prev) => Math.min(prev + 0.1, 2.5));
-  };
-
-  const zoomOut = () => {
-    setScale((prev) => Math.max(prev - 0.1, 0.5));
-  };
 
   return (
     <div
@@ -175,75 +191,11 @@ const PDFViewer: React.FC = () => {
           >
             Back
           </Button>
-
-          {/* Page Count & Jump to Page */}
-          {numPages && (
-            <form onSubmit={goToPage} className="flex items-center gap-2">
-              <span className="text-geo-primary dark:text-geo-darkprimary font-medium">
-                {numPages} pages
-              </span>
-              <span className="text-gray-400">|</span>
-              <input
-                type="number"
-                min={1}
-                max={numPages}
-                value={pageInput}
-                onChange={(e) => setPageInput(e.target.value)}
-                placeholder="Go to..."
-                className="w-20 px-2 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-geo-primary"
-              />
-              <Button
-                type="submit"
-                variant="contained"
-                sx={{
-                  borderRadius: "15px",
-                  fontFamily: "Poppins",
-                }}
-                className="!bg-geo-primary hover:!bg-geo-darkprimary dark:!bg-geo-primary dark:!text-geo-lightbg dark:hover:!bg-geo-darkprimary"
-                size="small"
-              >
-                Go
-              </Button>
-            </form>
-          )}
-
-          {/* Zoom Controls */}
-          <div className="flex items-center gap-2">
-            <Button
-              onClick={zoomOut}
-              disabled={scale <= 0.5}
-              variant="contained"
-              sx={{
-                borderRadius: "15px",
-                fontFamily: "Poppins",
-              }}
-              className="!bg-gray-200 dark:!bg-gray-700 !text-gray-700 dark:!text-gray-200 disabled:!opacity-50 disabled:!cursor-not-allowed hover:!bg-gray-300 dark:hover:!bg-gray-600"
-              size="small"
-            >
-              <ZoomOutIcon fontSize="small" />
-            </Button>
-            <span className="text-geo-primary dark:text-geo-darkprimary font-medium min-w-[60px] text-center">
-              {Math.round(scale * 100)}%
-            </span>
-            <Button
-              onClick={zoomIn}
-              disabled={scale >= 2.5}
-              variant="contained"
-              sx={{
-                borderRadius: "15px",
-                fontFamily: "Poppins",
-              }}
-              className="!bg-gray-200 dark:!bg-gray-700 !text-gray-700 dark:!text-gray-200 disabled:!opacity-50 disabled:!cursor-not-allowed hover:!bg-gray-300 dark:hover:!bg-gray-600"
-              size="small"
-            >
-              <ZoomInIcon fontSize="small" />
-            </Button>
-          </div>
         </div>
       </div>
 
       {/* PDF Display Area */}
-      <div className="flex-1 overflow-auto p-4">
+      <div className="flex-1 overflow-auto p-4" ref={pdfContainerRef}>
         <div className="max-w-full mx-auto" ref={containerRef}>
           {loading && (
             <div className="flex flex-col items-center justify-center py-24">
@@ -286,52 +238,40 @@ const PDFViewer: React.FC = () => {
                 onLoadSuccess={onDocumentLoadSuccess}
                 onLoadError={onDocumentLoadError}
                 loading=""
+                options={options}
                 className="flex flex-col items-center gap-6"
               >
                 {numPages &&
-                  Array.from(
-                    { length: Math.min(numPages, maxPagesToShow) },
-                    (_, index) => (
-                      <div
-                        key={`page_${index + 1}`}
-                        ref={(el) => {
-                          pageRefs.current[index] = el;
-                        }}
-                        className="relative"
-                      >
-                        <div className="absolute -top-2 left-2 bg-geo-primary text-white text-xs px-2 py-0.5 rounded-full z-10">
-                          {index + 1}
-                        </div>
-                        <Page
-                          pageNumber={index + 1}
-                          width={containerWidth * scale}
-                          renderTextLayer={false}
-                          renderAnnotationLayer={true}
-                          className="shadow-lg"
-                        />
+                  Array.from({ length: numPages }, (_, index) => (
+                    <div
+                      key={`page_${index + 1}`}
+                      data-page-index={index}
+                      ref={(el) => {
+                        pageRefs.current[index] = el;
+                      }}
+                      className="relative w-full"
+                    >
+                      <div className="absolute -top-2 left-2 bg-geo-primary text-white text-xs px-2 py-0.5 rounded-full z-10">
+                        {index + 1}
                       </div>
-                    )
-                  )}
+                      <Page
+                        key={`page_${index + 1}`}
+                        pageNumber={index + 1}
+                        width={Math.min(containerWidth, maxWidth)}
+                        renderTextLayer={false}
+                        renderAnnotationLayer={true}
+                        className="shadow-lg"
+                      />
+                    </div>
+                  ))}
+                <Outline
+                  onItemClick={({ pageNumber }) => {
+                    setCurrentPage(pageNumber);
+                    scrollToPage(pageNumber);
+                  }}
+                  className="mt-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg max-h-96 overflow-auto"
+                />
               </Document>
-              {numPages && maxPagesToShow < numPages && (
-                <div className="mt-6">
-                  <Button
-                    onClick={() =>
-                      setMaxPagesToShow((prev) =>
-                        Math.min(prev + 10, numPages!)
-                      )
-                    }
-                    variant="contained"
-                    sx={{
-                      borderRadius: "15px",
-                      fontFamily: "Poppins",
-                    }}
-                    className="!bg-geo-primary hover:!bg-geo-darkprimary dark:!bg-geo-primary dark:!text-geo-lightbg dark:hover:!bg-geo-darkprimary"
-                  >
-                    Load More Pages
-                  </Button>
-                </div>
-              )}
             </div>
           )}
         </div>
