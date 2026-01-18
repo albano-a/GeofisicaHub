@@ -3,6 +3,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useAppWriteBooks } from "../../hooks/useAppWriteBooks";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import { useSEO } from "../../hooks/useSEO";
 
 export default function Geology() {
   const { i18n } = useTranslation();
@@ -10,6 +11,15 @@ export default function Geology() {
   const area = "Geology";
   const { books, loading, error } = useAppWriteBooks(area, lang);
   const { t } = useTranslation();
+
+  useSEO({
+    title: t("HUB.Geology"),
+    description: `Free geology resources and books for students and professionals in geophysics and related fields.`,
+    keywords: ["geology", "resources", "books", "geophysics"],
+    url: "/hub/geology",
+    type: "website",
+    locale: i18n.language,
+  });
 
   React.useEffect(() => {
     document.title = t("HUB.Geology") + " | GeofisicaHub";

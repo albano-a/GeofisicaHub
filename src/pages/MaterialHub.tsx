@@ -3,6 +3,7 @@ import SubjectsCard from "../components/SubjectsCard";
 import React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import { useSEO } from "../hooks/useSEO";
 
 const materials = [
   {
@@ -33,7 +34,25 @@ const materials = [
 ];
 
 export default function MaterialHub() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  useSEO({
+    title: "HUB",
+    description:
+      "Explore our collection of educational materials in geophysics, geology, physics, calculus, and programming.",
+    keywords: [
+      "hub",
+      "materials",
+      "geophysics",
+      "geology",
+      "physics",
+      "calculus",
+      "programming",
+    ],
+    url: "/hub",
+    type: "website",
+    locale: i18n.language,
+  });
 
   React.useEffect(() => {
     document.title = "HUB | GeofisicaHub";

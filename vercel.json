@@ -1,3 +1,87 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+  "redirects": [
+    {
+      "source": "/materials/programming/",
+      "destination": "/hub/programming",
+      "permanent": true
+    },
+    {
+      "source": "/materials/geophysics/",
+      "destination": "/hub/geophysics",
+      "permanent": true
+    },
+    {
+      "source": "/materials/geology/",
+      "destination": "/hub/geology",
+      "permanent": true
+    },
+    {
+      "source": "/materials/calculus/",
+      "destination": "/hub/calculus",
+      "permanent": true
+    },
+    {
+      "source": "/materials/physics/",
+      "destination": "/hub/physics",
+      "permanent": true
+    },
+    { "source": "/materials/HUB/", "destination": "/hub", "permanent": true },
+    {
+      "source": "/tools/calculator/calculator-hub/",
+      "destination": "/tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/other-tools/resources/",
+      "destination": "/tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/other-tools/events/",
+      "destination": "/tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/research/papers/",
+      "destination": "/tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/research/articles/",
+      "destination": "/posts",
+      "permanent": true
+    },
+    {
+      "source": "/tools/research/congress/",
+      "destination": "/tools",
+      "permanent": true
+    },
+    { "source": "/contact/", "destination": "/about", "permanent": true },
+    {
+      "source": "/about/about-site/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about/geophysics-uff/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about/about-geophysics/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/tools/calculator/petrocalc/",
+      "destination": "/tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/other-tools/lucky-draw/",
+      "destination": "/tools",
+      "permanent": true
+    }
+  ]
 }

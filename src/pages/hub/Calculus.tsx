@@ -3,6 +3,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useAppWriteBooks } from "../../hooks/useAppWriteBooks";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import { useSEO } from "../../hooks/useSEO";
 
 export default function Calculus() {
   const { i18n } = useTranslation();
@@ -10,6 +11,15 @@ export default function Calculus() {
   const area = "Calculus";
   const { books, loading, error } = useAppWriteBooks(area, language);
   const { t } = useTranslation();
+
+  useSEO({
+    title: t("HUB.Calculus"),
+    description: `Free calculus resources and books for students and professionals in geophysics and related fields.`,
+    keywords: ["calculus", "resources", "books", "geophysics"],
+    url: "/hub/calculus",
+    type: "website",
+    locale: i18n.language,
+  });
 
   React.useEffect(() => {
     document.title = t("HUB.Calculus") + " | GeofisicaHub";

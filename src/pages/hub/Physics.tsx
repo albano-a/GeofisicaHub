@@ -3,6 +3,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useAppWriteBooks } from "../../hooks/useAppWriteBooks";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import { useSEO } from "../../hooks/useSEO";
 
 export default function Physics() {
   const { i18n } = useTranslation();
@@ -10,6 +11,15 @@ export default function Physics() {
   const area = "Physics";
   const { books, loading, error } = useAppWriteBooks(area, language);
   const { t } = useTranslation();
+
+  useSEO({
+    title: t("HUB.Physics"),
+    description: `Free physics resources and books for students and professionals in geophysics and related fields.`,
+    keywords: ["physics", "resources", "books", "geophysics"],
+    url: "/hub/physics",
+    type: "website",
+    locale: i18n.language,
+  });
 
   React.useEffect(() => {
     document.title = t("HUB.Physics") + " | GeofisicaHub";

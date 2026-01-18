@@ -3,6 +3,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useAppWriteBooks } from "../../hooks/useAppWriteBooks";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import { useSEO } from "../../hooks/useSEO";
 
 export default function Programming() {
   const { i18n } = useTranslation();
@@ -10,6 +11,15 @@ export default function Programming() {
   const area = "Programming";
   const { books, loading, error } = useAppWriteBooks(area, lang);
   const { t } = useTranslation();
+
+  useSEO({
+    title: t("HUB.Programming"),
+    description: `Free programming resources and books for students and professionals in geophysics and related fields.`,
+    keywords: ["programming", "resources", "books", "geophysics"],
+    url: "/hub/programming",
+    type: "website",
+    locale: i18n.language,
+  });
 
   React.useEffect(() => {
     document.title = t("HUB.Programming") + " | GeofisicaHub";

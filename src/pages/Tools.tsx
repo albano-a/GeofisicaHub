@@ -3,6 +3,7 @@ import { useState } from "react";
 import CustomBackdrop from "../components/ToolsCard";
 import React from "react";
 import type { TFunction } from "i18next";
+import { useSEO } from "../hooks/useSEO";
 
 const getTools = (t: TFunction) => [
   {
@@ -26,9 +27,19 @@ const getTools = (t: TFunction) => [
 ];
 
 export default function Tools() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const tools = getTools(t);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  useSEO({
+    title: t("Tools.Title"),
+    description:
+      "Explore useful tools for geophysics, geology, physics, calculus, and programming.",
+    keywords: ["tools", "geophysics", "calculators", "resources"],
+    url: "/tools",
+    type: "website",
+    locale: i18n.language,
+  });
 
   React.useEffect(() => {
     document.title = t("Tools.Title") + " | GeofisicaHub";
