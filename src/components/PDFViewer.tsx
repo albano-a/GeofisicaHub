@@ -17,10 +17,10 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjsLib.vers
 // Upper bound so extremely wide screens do not stretch the PDF excessively
 const maxWidth = 1400;
 
-// Zoom levels: 50-120% in 10% steps, then 150-500% in 50% steps
+// Zoom levels: 50-150% in 10% steps, then 150-500% in 50% steps
 const ZOOM_LEVELS = [
-  0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5,
-  5.0,
+  0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 2.0, 2.5,
+  3.0, 3.5, 4.0, 4.5, 5.0,
 ];
 
 interface PDFPageProps {
