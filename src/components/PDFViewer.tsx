@@ -134,6 +134,7 @@ const PDFPage: React.FC<PDFPageProps> = ({
             const renderContext = {
               canvasContext: context,
               viewport: newViewport,
+              canvas: canvas,
             };
 
             renderTaskRef.current = page.render(renderContext);
