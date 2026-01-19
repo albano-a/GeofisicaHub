@@ -545,7 +545,7 @@ const PDFViewer: React.FC = () => {
                 borderRadius: "25px",
                 fontFamily: "Poppins",
               }}
-              onClick={() => window.history.back()}
+              onClick={() => <Link to="/hub" />}
               className=" dark:!text-geo-lightbg"
             >
               <IoMdArrowRoundBack size={24} />
