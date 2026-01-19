@@ -56,10 +56,15 @@
     "Desc3": "designed to guide your journey as a geophysicist.",
     "Warning": "Unfortunately, this is the last page translated into other languages. The cards above contain books that are mostly in Portuguese (with a few in English), because I couldn't find a way to have all the files available in English. Eventually, this will happen, so hold on tight.",
     "Geology": "Geology",
+    "GeologyDesc": "",
     "Geophysics": "Geophysics",
+    "GeophysicsDesc": "",
     "Programming": "Programming",
+    "ProgrammingDesc": "",
     "Calculus": "Calculus",
-    "Physics": "Physics"
+    "CalculusDesc": "",
+    "Physics": "Physics",
+    "PhysicsDesc": ""
   },
   "Posts": {
     "Title": "Posts",

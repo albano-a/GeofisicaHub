@@ -4,6 +4,7 @@ import CustomBackdrop from "../components/ToolsCard";
 import React from "react";
 import type { TFunction } from "i18next";
 import { useSEO } from "../hooks/useSEO";
+import Breadcrumb from "../components/Breadcrumb";
 
 const getTools = (t: TFunction) => [
   {
@@ -49,6 +50,9 @@ export default function Tools() {
     <>
       <div className="min-h-screen pb-10 bg-geo-lightbg dark:bg-geo-darkbg">
         <section className="w-full max-w-7xl mx-auto p-10 flex flex-col items-center space-y-5">
+          <div className="w-full flex justify-start">
+            <Breadcrumb />
+          </div>
           <h1 className="text-4xl md:text-5xl text-center font-bold m-7 bg-gradient-to-r from-geo-accent via-geo-primary to-geo-secondary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient">
             {t("Tools.Title")} {/* Tools */}
           </h1>

@@ -4,9 +4,18 @@ import DiamondTwoToneIcon from "@mui/icons-material/DiamondTwoTone";
 import EngineeringTwoToneIcon from "@mui/icons-material/EngineeringTwoTone";
 import ForestTwoToneIcon from "@mui/icons-material/ForestTwoTone";
 import React from "react";
+import Breadcrumb from "../components/Breadcrumb";
+import { useSEO } from "../hooks/useSEO";
 
 export default function About() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  useSEO({
+    title: t("About.Title"),
+    description: t("About.Section1"),
+    url: "/about",
+    locale: i18n.language,
+  });
 
   // Set document title
   React.useEffect(() => {
@@ -17,6 +26,9 @@ export default function About() {
     <>
       <div className="min-h-screen pb-10 bg-geo-lightbg dark:bg-geo-darkbg">
         <section className="w-full mx-auto p-10 flex flex-col items-center space-y-10">
+          <div className="w-full max-w-3xl flex justify-start">
+            <Breadcrumb />
+          </div>
           <div className="flex flex-col items-center justify-center ">
             <h1 className="text-4xl md:text-5xl text-center font-bold text-geo-primary dark:text-geo-darkprimary mt-10">
               {t("About.Title")}
