@@ -2,8 +2,9 @@
   "Navbar": {
     "Home": "Home",
     "About": "Chi siamo",
-    "Hub": "Hub",
-    "Tools": "Strumenti"
+    "Hub": "Centro di Apprendimento",
+    "Tools": "Strumenti",
+    "Posts": "Articoli"
   },
   "HomePage": {
     "Alert": "Il sito ha un nuovo aspetto. Dai un'occhiata!",
@@ -54,11 +55,16 @@
     "Desc2": "materiali e risorse educative",
     "Desc3": "progettate per guidarti nel tuo percorso da geofisico.",
     "Warning": "Purtroppo, questa è l'ultima pagina tradotta in altre lingue. Le schede sopra contengono libri principalmente in portoghese (e alcuni in inglese), perché non sono riuscito a rendere disponibili tutti i file in inglese. Prima o poi sarà fatto, quindi abbi pazienza.",
-    "Geology": "Geology",
-    "Geophysics": "Geophysics",
-    "Programming": "Programming",
-    "Calculus": "Calculus",
-    "Physics": "Physics"
+    "Geology": "Geologia",
+    "GeologyDesc": "Libri gratuiti di Geologia per studenti e professionisti.",
+    "Geophysics": "Geofisica",
+    "GeophysicsDesc": "Libri gratuiti di Geofisica per studenti e professionisti.",
+    "Programming": "Programmazione",
+    "ProgrammingDesc": "Libri gratuiti di Programmazione per studenti e professionisti.",
+    "Calculus": "Calcolo",
+    "CalculusDesc": "Libri gratuiti di Calcolo per studenti e professionisti.",
+    "Physics": "Fisica",
+    "PhysicsDesc": "Libri gratuiti di Fisica per studenti e professionisti."
   },
   "Posts": {
     "Title": "Posts",

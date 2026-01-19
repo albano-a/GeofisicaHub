@@ -69,7 +69,7 @@ export default function Geology() {
             {t("HUB.Geology")}
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-2xl">
-            Free geology resources and books for students and professionals.
+            {t("HUB.GeologyDesc")}
           </p>
         </section>
 

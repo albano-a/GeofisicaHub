@@ -69,7 +69,7 @@ export default function Calculus() {
             {t("HUB.Calculus")}
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-2xl">
-            Free calculus resources and books for students and professionals.
+            {t("HUB.CalculusDesc")}
           </p>
         </section>
 

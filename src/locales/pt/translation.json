@@ -4,7 +4,7 @@
     "About": "Sobre",
     "Hub": "Hub",
     "Tools": "Ferramentas",
-    "Posts": "Posts"
+    "Posts": "Artigos"
   },
   "HomePage": {
     "Alert": "O site está de cara nova. Confira!",
@@ -56,10 +56,15 @@
     "Desc3": "projetados para guiar sua jornada como geofísico.",
     "Warning": "Infelizmente, esta é a última página traduzida para outros idiomas. Os cards acima contêm livros principalmente em português (com alguns em inglês), porque não encontrei uma forma de ter todos os arquivos disponíveis em inglês. Eventualmente isso será resolvido, então aguarde.",
     "Geology": "Geologia",
+    "GeologyDesc": "Livros gratuitos de Geologia para estudantes e profissionais.",
     "Geophysics": "Geofísica",
+    "GeophysicsDesc": "Livros gratuitos de Geofísica para estudantes e profissionais.",
     "Programming": "Programação",
+    "ProgrammingDesc": "Livros gratuitos de Programação para estudantes e profissionais.",
     "Calculus": "Cálculo",
-    "Physics": "Física"
+    "CalculusDesc": "Livros gratuitos de Cálculo para estudantes e profissionais.",
+    "Physics": "Física",
+    "PhysicsDesc": "Livros gratuitos de Física para estudantes e profissionais."
   },
   "Posts": {
     "Title": "Posts",

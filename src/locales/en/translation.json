@@ -56,15 +56,15 @@
     "Desc3": "designed to guide your journey as a geophysicist.",
     "Warning": "Unfortunately, this is the last page translated into other languages. The cards above contain books that are mostly in Portuguese (with a few in English), because I couldn't find a way to have all the files available in English. Eventually, this will happen, so hold on tight.",
     "Geology": "Geology",
-    "GeologyDesc": "",
+    "GeologyDesc": "Free Geology books for students and professionals.",
     "Geophysics": "Geophysics",
-    "GeophysicsDesc": "",
+    "GeophysicsDesc": "Free Geophysics books for students and professionals.",
     "Programming": "Programming",
-    "ProgrammingDesc": "",
+    "ProgrammingDesc": "Free Programming books for students and professionals.",
     "Calculus": "Calculus",
-    "CalculusDesc": "",
+    "CalculusDesc": "Free Calculus books for students and professionals.",
     "Physics": "Physics",
-    "PhysicsDesc": ""
+    "PhysicsDesc": "Free Physics books for students and professionals."
   },
   "Posts": {
     "Title": "Posts",
@@ -88,5 +88,19 @@
       "Title": "Wolfram|Alpha",
       "Desc": "Wolfram Alpha is a computational engine that provides expert-level answers, data analysis, and calculations across science, math, and more."
     }
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "hub": "Learning Hub",
+    "tools": "Tools",
+    "posts": "Posts"
+  },
+  "subjects": {
+    "geophysics": "Geophysics",
+    "geology": "Geology",
+    "physics": "Physics",
+    "calculus": "Calculus",
+    "programming": "Programming"
   }
 }

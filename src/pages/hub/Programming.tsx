@@ -69,7 +69,7 @@ export default function Programming() {
             {t("HUB.Programming")}
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-2xl">
-            Free programming resources and books for students and professionals.
+            {t("HUB.ProgrammingDesc")}
           </p>
         </section>
 

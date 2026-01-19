@@ -2,8 +2,9 @@
   "Navbar": {
     "Home": "Accueil",
     "About": "À propos",
-    "Hub": "Hub",
-    "Tools": "Outils"
+    "Hub": "Centre d'Apprentissage",
+    "Tools": "Outils",
+    "Posts": "Articles"
   },
   "HomePage": {
     "Alert": "Le site a un nouveau look. Jetez-y un œil !",
@@ -54,11 +55,16 @@
     "Desc2": "matériaux et ressources pédagogiques",
     "Desc3": "conçus pour guider votre parcours de géophysicien.",
     "Warning": "Malheureusement, c'est la dernière page traduite dans d'autres langues. Les cartes ci-dessus contiennent des livres principalement en portugais (avec quelques-uns en anglais), car je n'ai pas trouvé de moyen d'avoir tous les fichiers en anglais. Cela viendra avec le temps, alors soyez patient.",
-    "Geology": "Geology",
-    "Geophysics": "Geophysics",
-    "Programming": "Programming",
-    "Calculus": "Calculus",
-    "Physics": "Physics"
+    "Geology": "Géologie",
+    "GeologyDesc": "Livres gratuits de géologie pour étudiants et professionnels.",
+    "Geophysics": "Géophysique",
+    "GeophysicsDesc": "Livres gratuits de géophysique pour étudiants et professionnels.",
+    "Programming": "Programmation",
+    "ProgrammingDesc": "Livres gratuits de programmation pour étudiants et professionnels.",
+    "Calculus": "Calcul",
+    "CalculusDesc": "Livres gratuits de calcul pour étudiants et professionnels.",
+    "Physics": "Physique",
+    "PhysicsDesc": "Livres gratuits de physique pour étudiants et professionnels."
   },
   "Posts": {
     "Title": "Posts",

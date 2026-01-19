@@ -54,11 +54,16 @@
     "Desc2": "Materialien und Lernressourcen",
     "Desc3": "die deine Reise als Geophysiker begleiten sollen.",
     "Warning": "Leider ist dies die letzte Seite, die in andere Sprachen übersetzt wurde. Die obenstehenden Karten enthalten Bücher hauptsächlich auf Portugiesisch (und einige auf Englisch), da ich keinen Weg gefunden habe, alle Dateien auf Englisch verfügbar zu machen. Irgendwann wird das passieren – bitte noch etwas Geduld.",
-    "Geology": "Geology",
-    "Geophysics": "Geophysics",
-    "Programming": "Programming",
-    "Calculus": "Calculus",
-    "Physics": "Physics"
+    "Geology": "Geologie",
+    "GeologyDesc": "Kostenlose Geologie-Bücher für Studierende und Fachleute.",
+    "Geophysics": "Geophysik",
+    "GeophysicsDesc": "Kostenlose Geophysik-Bücher für Studierende und Fachleute.",
+    "Programming": "Programmierung",
+    "ProgrammingDesc": "Kostenlose Programmierbücher für Studierende und Fachleute.",
+    "Calculus": "Analysis",
+    "CalculusDesc": "Kostenlose Analysis-Bücher für Studierende und Fachleute.",
+    "Physics": "Physik",
+    "PhysicsDesc": "Kostenlose Physik-Bücher für Studierende und Fachleute."
   },
   "Posts": {
     "Title": "Posts",

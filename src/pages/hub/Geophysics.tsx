@@ -31,7 +31,7 @@ export default function Geophysics() {
       <div className="min-h-screen bg-geo-lightbg dark:bg-geo-darkbg pb-5 flex flex-col items-center justify-center">
         <LoadingSpinner />
         <p className="mt-4 text-gray-600 dark:text-gray-400">
-          Loading geophysics books...
+          {t("HUB.GeophysicsDesc")}
         </p>
       </div>
     );
@@ -68,8 +68,7 @@ export default function Geophysics() {
             {t("HUB.Geophysics")}
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-2xl">
-            Explore our curated collection of essential geophysics resources,
-            from seismic exploration to earth physics.
+            {t("HUB.GeophysicsDesc")}
           </p>
         </section>
 

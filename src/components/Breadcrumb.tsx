@@ -26,7 +26,7 @@ export default function Breadcrumb({
 
     const pathSegments = location.pathname.split("/").filter(Boolean);
     const breadcrumbs: BreadcrumbItem[] = [
-      { label: t("nav.home", "Home"), href: "/" },
+      { label: t("Navbar.home", "Home"), href: "/" },
     ];
 
     let currentPath = "";
@@ -40,31 +40,31 @@ export default function Breadcrumb({
       // Translate common segments
       switch (segment) {
         case "posts":
-          label = t("nav.posts", "Posts");
+          label = t("Navbar.Posts", "Posts");
           break;
         case "hub":
-          label = t("nav.hub", "Learning Hub");
+          label = t("Navbar.Hub", "Learning Hub");
           break;
         case "tools":
-          label = t("nav.tools", "Tools");
+          label = t("Navbar.Tools", "Tools");
           break;
         case "about":
-          label = t("nav.about", "About");
+          label = t("Navbar.About", "About");
           break;
         case "geophysics":
-          label = t("subjects.geophysics", "Geophysics");
+          label = t("HUB.Geophysics", "Geophysics");
           break;
         case "geology":
-          label = t("subjects.geology", "Geology");
+          label = t("HUB.Geology", "Geology");
           break;
         case "physics":
-          label = t("subjects.physics", "Physics");
+          label = t("HUB.Physics", "Physics");
           break;
         case "calculus":
-          label = t("subjects.calculus", "Calculus");
+          label = t("HUB.Calculus", "Calculus");
           break;
         case "programming":
-          label = t("subjects.programming", "Programming");
+          label = t("HUB.Programming", "Programming");
           break;
         default:
           // For post slugs, use postTitle if provided, otherwise format the slug
