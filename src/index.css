@@ -10,14 +10,16 @@
 }
 
 .react-pdf__Page {
-  max-width: calc(100% - 2em);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1em;
+  max-width: 100%;
+  margin: 0 0 1em 0;
+  background: transparent !important;
+  box-shadow: none;
 }
 
 .react-pdf__Page__canvas {
   max-width: 100%;
   height: auto !important;
+  display: block;
 }
 
 /* Custom PDF Outline Styles */
