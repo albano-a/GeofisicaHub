@@ -1,15 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as pdfjsLib from "pdfjs-dist";
-import { useSearchParams } from "react-router-dom";
+import * as pdfjsViewer from "pdfjs-dist/web/pdf_viewer";
+import { Link, useSearchParams } from "react-router-dom";
 import { storage, BUCKET_ID } from "../services/appwrite";
 import LoadingSpinner from "./LoadingSpinner";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import HomeIcon from "@mui/icons-material/Home";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import CloseIcon from "@mui/icons-material/Close";
 import { FiZoomIn, FiZoomOut, FiRotateCcw } from "react-icons/fi";
+// Import annotation layer CSS
+import "pdfjs-dist/web/pdf_viewer.css";
 
 // Set up PDF.js worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
@@ -19,8 +22,8 @@ const maxWidth = 1400;
 
 // Zoom levels: 50-150% in 10% steps, then 150-500% in 50% steps
 const ZOOM_LEVELS = [
-  0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 2.0, 2.5,
-  3.0, 3.5, 4.0, 4.5, 5.0,
+  0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5,
+  2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0,
 ];
 
 interface PDFPageProps {
@@ -28,6 +31,9 @@ interface PDFPageProps {
   pdf: pdfjsLib.PDFDocumentProxy;
   scale: number;
   containerWidth: number;
+  onVisible: (pageNumber: number) => void;
+  eventBus: any;
+  linkService: any;
 }
 
 const PDFPage: React.FC<PDFPageProps> = ({
@@ -35,12 +41,15 @@ const PDFPage: React.FC<PDFPageProps> = ({
   pdf,
   scale,
   containerWidth,
+  onVisible,
+  eventBus,
+  linkService,
 }) => {
   const [viewport, setViewport] = useState<any>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pageHostRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const renderTaskRef = useRef<any>(null);
+  const pageViewRef = useRef<any>(null);
   const [pageAspectRatio, setPageAspectRatio] = useState<number>(1.414); // Default A4ish
 
   // Intersection Observer to detect visibility
@@ -48,9 +57,14 @@ const PDFPage: React.FC<PDFPageProps> = ({
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
+        // Only update page number if it's > 50% visible to reduce jitter
+        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+          onVisible(pageNumber);
+        }
       },
       {
-        rootMargin: "200% 0px", // Pre-render when 2 screens away
+        rootMargin: "200% 0px", // Keep pre-rendering margin
+        threshold: [0, 0.5], // Trigger at 0 (for render) and 0.5 (for page count)
       },
     );
 
@@ -61,27 +75,25 @@ const PDFPage: React.FC<PDFPageProps> = ({
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [onVisible, pageNumber]);
 
   // Render Page
   useEffect(() => {
     // 1. If not visible or no PDF, cleanup and return
     if (!isVisible || !pdf) {
-      if (renderTaskRef.current) {
-        renderTaskRef.current.cancel();
-        renderTaskRef.current = null;
-      }
-      // Clear canvas to free memory
-      if (canvasRef.current) {
-        const ctx = canvasRef.current.getContext("2d");
-        if (ctx) {
-          ctx.clearRect(
-            0,
-            0,
-            canvasRef.current.width,
-            canvasRef.current.height,
-          );
+      // Destroy any existing PDFPageView
+      try {
+        if (
+          pageViewRef.current &&
+          typeof pageViewRef.current.destroy === "function"
+        ) {
+          pageViewRef.current.destroy();
         }
+      } catch (err) {
+        console.error("Error destroying page view:", err);
+      }
+      if (pageHostRef.current) {
+        pageHostRef.current.innerHTML = "";
       }
       return;
     }
@@ -90,11 +102,18 @@ const PDFPage: React.FC<PDFPageProps> = ({
 
     const render = async () => {
       try {
+        console.log(`Rendering page ${pageNumber}`);
         const page = await pdf.getPage(pageNumber);
+        console.log(`Page ${pageNumber} fetched:`, page);
+
         if (!active) return;
 
         // Determine viewport
         const unscaledViewport = page.getViewport({ scale: 1 });
+        console.log(
+          `Unscaled viewport for page ${pageNumber}:`,
+          unscaledViewport,
+        );
         setPageAspectRatio(unscaledViewport.height / unscaledViewport.width);
 
         // Calculate fit scale
@@ -106,41 +125,74 @@ const PDFPage: React.FC<PDFPageProps> = ({
         const totalScale = fitScale * scale;
 
         const newViewport = page.getViewport({ scale: totalScale });
+        console.log(`Viewport for page ${pageNumber}:`, newViewport);
         setViewport(newViewport);
 
-        if (canvasRef.current) {
-          const canvas = canvasRef.current;
-          const context = canvas.getContext("2d");
+        // Use PDFPageView from pdfjs viewer which will create canvas, textLayer and annotationLayer
+        if (pageHostRef.current) {
+          // Clean up any previous view to avoid stacking multiple .page elements
+          if (
+            pageViewRef.current &&
+            typeof pageViewRef.current.destroy === "function"
+          ) {
+            try {
+              pageViewRef.current.destroy();
+            } catch (e) {
+              console.warn("Failed to destroy existing pageView:", e);
+            }
+            pageViewRef.current = null;
+          }
+          pageHostRef.current.innerHTML = "";
 
-          if (context) {
-            // Handle HiDPI
-            const pixelRatio = window.devicePixelRatio || 1;
-            canvas.width = newViewport.width * pixelRatio;
-            canvas.height = newViewport.height * pixelRatio;
-            canvas.style.width = `${newViewport.width}px`;
-            canvas.style.height = `${newViewport.height}px`;
+          // Render at device pixel ratio for crisp output:
+          // create a base viewport (scale:1) and ask PDFPageView to render at totalScale * pixelRatio
+          const pixelRatio = Math.max(window.devicePixelRatio || 1, 1);
+          const baseViewport = page.getViewport({ scale: 1 });
+          const pageView = new (pdfjsViewer as any).PDFPageView({
+            container: pageHostRef.current,
+            id: pageNumber,
+            defaultViewport: baseViewport,
+            scale: totalScale * pixelRatio,
+            eventBus: eventBus,
+            linkService: linkService,
+            textLayerMode: 1,
+            annotationLayerFactory: null,
+            enhanceTextSelection: true,
+            useOnlyCssZoom: false,
+          });
 
-            context.scale(pixelRatio, pixelRatio);
-
-            // Cancel any previous render task
-            if (renderTaskRef.current) {
-              try {
-                renderTaskRef.current.cancel();
-              } catch (e) {
-                // Ignore cancel errors
-              }
+          pageViewRef.current = pageView;
+          pageView.setPdfPage(page);
+          console.log(`Drawing page ${pageNumber}`);
+          await pageView.draw();
+          // Ensure the generated .page and canvas match our computed viewport exactly.
+          try {
+            const pageEl = pageHostRef.current.querySelector(".page");
+            if (pageEl) {
+              // Force relative positioning and explicit pixel size
+              pageEl.style.position = "relative";
+              pageEl.style.width = `${Math.round(newViewport.width)}px`;
+              pageEl.style.height = `${Math.round(newViewport.height)}px`;
             }
 
-            const renderContext = {
-              canvasContext: context,
-              viewport: newViewport,
-              canvas: canvas,
-            };
-
-            renderTaskRef.current = page.render(renderContext);
-
-            await renderTaskRef.current.promise;
+            const canvas = pageHostRef.current.querySelector("canvas");
+            if (canvas) {
+              // Let PDF.js control the canvas pixel buffer; only enforce CSS sizing
+              canvas.style.width = "100%";
+              canvas.style.height = "100%";
+              // Ensure wrapper doesn't overflow and matches our computed viewport
+              const wrapper = canvas.parentElement as HTMLElement | null;
+              if (wrapper) {
+                wrapper.style.width = `${Math.round(newViewport.width)}px`;
+                wrapper.style.height = `${Math.round(newViewport.height)}px`;
+                wrapper.style.overflow = "hidden";
+              }
+            }
+          } catch (err) {
+            console.warn("Failed to normalize page/canvas sizing:", err);
           }
+
+          console.log(`Page ${pageNumber} drawn successfully`);
         }
       } catch (e: any) {
         if (e.name !== "RenderingCancelledException") {
@@ -153,8 +205,16 @@ const PDFPage: React.FC<PDFPageProps> = ({
 
     return () => {
       active = false;
-      if (renderTaskRef.current) {
-        renderTaskRef.current.cancel();
+      if (
+        pageViewRef.current &&
+        typeof pageViewRef.current.destroy === "function"
+      ) {
+        try {
+          pageViewRef.current.destroy();
+        } catch (e) {
+          console.error("Error destroying page view on cleanup:", e);
+        }
+        pageViewRef.current = null;
       }
     };
   }, [isVisible, pdf, pageNumber, scale, containerWidth]);
@@ -173,13 +233,32 @@ const PDFPage: React.FC<PDFPageProps> = ({
       style={{
         width: viewport ? viewport.width : widthPx,
         height: viewport ? viewport.height : heightPx,
+        overflow: "hidden", // clip any overflowing canvas or layers
         marginBottom: "2rem",
       }}
     >
-      <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full z-10 font-medium tracking-wide pointer-events-none">
-        Page {pageNumber}
+      <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full z-10 font-medium tracking-wide pointer-events-none">
+        {pageNumber}
       </div>
-      <canvas ref={canvasRef} className="block w-full h-full" />
+
+      {/* Host element where PDFPageView will render canvas, text and annotation layers */}
+      <div
+        ref={pageHostRef}
+        className="w-full h-full pdf-page-host"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: 1,
+          width: "100%",
+          height: "100%",
+          // Force override of .page class styles from pdf_viewer.css and prevent overflow
+          border: "none",
+          margin: "0",
+          boxShadow: "none",
+          overflow: "hidden",
+        }}
+      />
     </div>
   );
 };
@@ -197,11 +276,17 @@ const PDFViewer: React.FC = () => {
   const [outline, setOutline] = useState<any[]>([]);
 
   const [outlineOpen, setOutlineOpen] = useState(false);
-  const [scale, setScale] = useState(1.0);
+  const [scale, setScale] = useState(0.5);
   const [containerWidth, setContainerWidth] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [inputPage, setInputPage] = useState<string>("1");
 
   const containerRef = useRef<HTMLDivElement>(null);
   const pdfContainerRef = useRef<HTMLDivElement>(null);
+  const eventBusRef = useRef<any>(new (pdfjsViewer as any).EventBus());
+  const linkServiceRef = useRef<any>(
+    new (pdfjsViewer as any).PDFLinkService({ eventBus: eventBusRef.current }),
+  );
 
   // Measure available width for PDF pages
   useEffect(() => {
@@ -252,6 +337,18 @@ const PDFViewer: React.FC = () => {
         setPdfDocument(pdf);
         setNumPages(pdf.numPages);
 
+        // Wire link service to the loaded document so annotations/internal links work
+        try {
+          if (
+            linkServiceRef.current &&
+            typeof linkServiceRef.current.setDocument === "function"
+          ) {
+            linkServiceRef.current.setDocument(pdf);
+          }
+        } catch (e) {
+          // ignore if linking fails
+        }
+
         // 4. Get Outline
         const outlineData = await pdf.getOutline();
         setOutline(outlineData || []);
@@ -286,7 +383,76 @@ const PDFViewer: React.FC = () => {
     });
   };
 
-  const handleResetZoom = () => setScale(1.0);
+  const handleResetZoom = () => setScale(0.5);
+
+  const handlePageChange = (e: React.FormEvent) => {
+    e.preventDefault();
+    const page = parseInt(inputPage);
+    if (page >= 1 && page <= numPages) {
+      const el = document.getElementById(`pdf-page-${page}`);
+      if (el) {
+        el.scrollIntoView({ behavior: "auto", block: "start" });
+        setCurrentPage(page);
+      }
+    } else {
+      setInputPage(currentPage.toString());
+    }
+  };
+
+  const handlePageVisible = (pageNumber: number) => {
+    // Only update if the page is significantly different to avoid jitter
+    // We actually want the *most* visible page, but for now,
+    // the intersection observer triggers on 'entry'.
+    // A simple approximation is fine for lazy loading, but for the counter
+    // we might want a more precise observer on the main container.
+    // However, for simplicity, let's update current page when a page enters viewport
+    // and is close to the center.
+    // Better yet: we just update it.
+    setCurrentPage(pageNumber);
+    if (document.activeElement?.id !== "page-input") {
+      setInputPage(pageNumber.toString());
+    }
+  };
+
+  // Handle visibility with a IntersectionObserver for the MAIN container
+  // identifying which page is CENTERED in the view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the entry with the highest intersection ratio
+        const visibleEntry = entries.reduce((prev, current) => {
+          return prev.intersectionRatio > current.intersectionRatio
+            ? prev
+            : current;
+        });
+
+        if (
+          visibleEntry.isIntersecting &&
+          visibleEntry.intersectionRatio > 0.1
+        ) {
+          // Extract page number from ID
+          const id = visibleEntry.target.id;
+          const num = parseInt(id.replace("pdf-page-", ""));
+          if (!isNaN(num)) {
+            // Only update if it's the dominant page
+            handlePageVisible(num);
+          }
+        }
+      },
+      {
+        root: null, // viewport
+        threshold: [0.1, 0.5, 0.9], // Check at different visibility levels
+      },
+    );
+
+    // We can't observe from inside the component easily if we want to compare ALL pages.
+    // Actually, passing onVisible up is fine, but the "wonkiness" comes from
+    // multiple observers firing at once.
+    // Let's stick to the local observer but with a high threshold.
+    // If we want "middle of screen", we use rootMargin.
+
+    // ... reverting to local observer with better logic ...
+  }, []);
 
   // Helper to render outline recursively
   const renderOutlineItems = (items: any[]) => {
@@ -347,14 +513,14 @@ const PDFViewer: React.FC = () => {
             No file ID provided.
           </p>
           <Button
-            onClick={() => window.history.back()}
+            onClick={() => <Link to="/hub" />}
             variant="contained"
             sx={{
               borderRadius: "15px",
               fontFamily: "Poppins",
             }}
             className="!bg-geo-primary hover:!bg-geo-darkprimary dark:!bg-geo-primary dark:!text-geo-lightbg dark:hover:!bg-geo-darkprimary"
-            startIcon={<HomeIcon fontSize="small" />}
+            startIcon={<IoMdArrowRoundBack size={18} />}
           >
             Go Back
           </Button>
@@ -370,39 +536,59 @@ const PDFViewer: React.FC = () => {
     >
       {/* Fixed Header */}
       <div className="sticky top-0 z-50 bg-geo-lightbg dark:bg-geo-darkbg shadow-md p-4">
-        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
+        <div className="max-w-5xl mx-auto flex items-center justify-between relative">
+          <div className="flex items-center gap-4 z-10">
             {/* Back Button */}
             <Button
-              variant="contained"
+              variant="text"
               sx={{
-                borderRadius: "15px",
+                borderRadius: "25px",
                 fontFamily: "Poppins",
               }}
               onClick={() => window.history.back()}
-              className="!bg-geo-primary hover:!bg-geo-darkprimary dark:!bg-geo-primary dark:!text-geo-lightbg dark:hover:!bg-geo-darkprimary"
-              startIcon={<HomeIcon fontSize="small" />}
+              className=" dark:!text-geo-lightbg"
             >
-              Back
+              <IoMdArrowRoundBack size={24} />
             </Button>
 
             {/* Outline Toggle Button */}
             <Button
-              variant="outlined"
+              variant="text"
               sx={{
-                borderRadius: "15px",
+                borderRadius: "25px",
                 fontFamily: "Poppins",
               }}
               onClick={() => setOutlineOpen(true)}
-              className="!border-geo-primary !text-geo-primary hover:!bg-geo-lightbg dark:!border-geo-darkprimary dark:!text-geo-darkprimary dark:hover:!bg-gray-800"
-              startIcon={<FormatListBulletedIcon fontSize="small" />}
+              className=" !text-geo-primary  dark:!border-geo-darkprimary dark:!text-geo-darkprimary"
             >
-              Contents
+              <FormatListBulletedIcon fontSize="small" />
             </Button>
           </div>
 
+          {/* Page Navigation - ABSOLUTE CENTER */}
+          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0">
+            {numPages > 0 && (
+              <form
+                onSubmit={handlePageChange}
+                className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 shadow-sm"
+              >
+                <input
+                  id="page-input"
+                  type="text"
+                  value={inputPage}
+                  onChange={(e) => setInputPage(e.target.value)}
+                  onBlur={() => setInputPage(currentPage.toString())}
+                  className="w-10 text-center bg-transparent border-none focus:ring-0 text-sm font-medium text-gray-700 dark:text-gray-200 p-0"
+                />
+                <span className="text-gray-400 dark:text-gray-500 text-sm">
+                  / {numPages}
+                </span>
+              </form>
+            )}
+          </div>
+
           {/* Zoom Controls */}
-          <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 rounded-full px-3 py-1 border border-gray-300 dark:border-gray-700 shadow-sm">
+          <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 rounded-full px-3 py-1 border border-gray-300 dark:border-gray-700 shadow-sm z-10">
             <IconButton
               onClick={handleZoomOut}
               disabled={scale <= ZOOM_LEVELS[0]}
@@ -530,6 +716,9 @@ const PDFViewer: React.FC = () => {
                       pdf={pdfDocument}
                       scale={scale}
                       containerWidth={containerWidth}
+                      onVisible={handlePageVisible}
+                      eventBus={eventBusRef.current}
+                      linkService={linkServiceRef.current}
                     />
                   ))}
                 </div>
