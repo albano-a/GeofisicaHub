@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import * as pdfjsLib from "pdfjs-dist";
-import * as pdfjsViewer from "pdfjs-dist/web/pdf_viewer";
 import { Link, useSearchParams } from "react-router-dom";
 import { storage, BUCKET_ID } from "../services/appwrite";
 import LoadingSpinner from "./LoadingSpinner";
@@ -14,8 +12,32 @@ import { FiZoomIn, FiZoomOut, FiRotateCcw } from "react-icons/fi";
 // Import annotation layer CSS
 import "pdfjs-dist/web/pdf_viewer.css";
 
+import * as pdfjsLib from "pdfjs-dist";
+import * as pdfjsViewer from "pdfjs-dist/web/pdf_viewer";
+
 // Set up PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
+// Runtime fallback: prefer CDN-provided globals when present (helps dev/build compatibility)
+const pdfLib: any =
+  typeof (window as any).pdfjsLib !== "undefined"
+    ? (window as any).pdfjsLib
+    : pdfjsLib;
+const pdfViewerLib: any =
+  typeof (window as any).pdfjsViewer !== "undefined"
+    ? (window as any).pdfjsViewer
+    : (pdfjsViewer as any);
+
+// Set up PDF.js worker (use CDN worker path if available)
+try {
+  const workerPath =
+    typeof pdfLib?.version === "string"
+      ? `//unpkg.com/pdfjs-dist@${pdfLib.version}/build/pdf.worker.min.mjs`
+      : `//unpkg.com/pdfjs-dist/build/pdf.worker.min.mjs`;
+  if (pdfLib && pdfLib.GlobalWorkerOptions) {
+    pdfLib.GlobalWorkerOptions.workerSrc = workerPath;
+  }
+} catch (e) {
+  // ignore
+}
 
 // Upper bound so extremely wide screens do not stretch the PDF excessively
 const maxWidth = 1400;
@@ -28,7 +50,7 @@ const ZOOM_LEVELS = [
 
 interface PDFPageProps {
   pageNumber: number;
-  pdf: pdfjsLib.PDFDocumentProxy;
+  pdf: any; // PDFDocumentProxy (use any to avoid missing-global type errors in CI)
   scale: number;
   containerWidth: number;
   onVisible: (pageNumber: number) => void;
@@ -148,7 +170,7 @@ const PDFPage: React.FC<PDFPageProps> = ({
           // create a base viewport (scale:1) and ask PDFPageView to render at totalScale * pixelRatio
           const pixelRatio = Math.max(window.devicePixelRatio || 1, 1);
           const baseViewport = page.getViewport({ scale: 1 });
-          const pageView = new (pdfjsViewer as any).PDFPageView({
+          const pageView = new pdfViewerLib.PDFPageView({
             container: pageHostRef.current,
             id: pageNumber,
             defaultViewport: baseViewport,
@@ -167,7 +189,9 @@ const PDFPage: React.FC<PDFPageProps> = ({
           await pageView.draw();
           // Ensure the generated .page and canvas match our computed viewport exactly.
           try {
-            const pageEl = pageHostRef.current.querySelector(".page");
+            const pageEl = pageHostRef.current.querySelector(
+              ".page",
+            ) as HTMLElement | null;
             if (pageEl) {
               // Force relative positioning and explicit pixel size
               pageEl.style.position = "relative";
@@ -270,8 +294,7 @@ const PDFViewer: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const [pdfDocument, setPdfDocument] =
-    useState<pdfjsLib.PDFDocumentProxy | null>(null);
+  const [pdfDocument, setPdfDocument] = useState<any | null>(null);
   const [numPages, setNumPages] = useState<number>(0);
   const [outline, setOutline] = useState<any[]>([]);
 
@@ -283,9 +306,9 @@ const PDFViewer: React.FC = () => {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const pdfContainerRef = useRef<HTMLDivElement>(null);
-  const eventBusRef = useRef<any>(new (pdfjsViewer as any).EventBus());
+  const eventBusRef = useRef<any>(new pdfViewerLib.EventBus());
   const linkServiceRef = useRef<any>(
-    new (pdfjsViewer as any).PDFLinkService({ eventBus: eventBusRef.current }),
+    new pdfViewerLib.PDFLinkService({ eventBus: eventBusRef.current }),
   );
 
   // Measure available width for PDF pages
@@ -331,7 +354,7 @@ const PDFViewer: React.FC = () => {
         const url = URL.createObjectURL(blob);
 
         // 3. Load Document with PDF.js
-        const loadingTask = pdfjsLib.getDocument(url);
+        const loadingTask = pdfLib.getDocument(url);
         const pdf = await loadingTask.promise;
 
         setPdfDocument(pdf);
