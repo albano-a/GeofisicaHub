@@ -439,43 +439,43 @@ const PDFViewer: React.FC = () => {
 
   // Handle visibility with a IntersectionObserver for the MAIN container
   // identifying which page is CENTERED in the view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Find the entry with the highest intersection ratio
-        const visibleEntry = entries.reduce((prev, current) => {
-          return prev.intersectionRatio > current.intersectionRatio
-            ? prev
-            : current;
-        });
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       // Find the entry with the highest intersection ratio
+  //       const visibleEntry = entries.reduce((prev, current) => {
+  //         return prev.intersectionRatio > current.intersectionRatio
+  //           ? prev
+  //           : current;
+  //       });
 
-        if (
-          visibleEntry.isIntersecting &&
-          visibleEntry.intersectionRatio > 0.1
-        ) {
-          // Extract page number from ID
-          const id = visibleEntry.target.id;
-          const num = parseInt(id.replace("pdf-page-", ""));
-          if (!isNaN(num)) {
-            // Only update if it's the dominant page
-            handlePageVisible(num);
-          }
-        }
-      },
-      {
-        root: null, // viewport
-        threshold: [0.1, 0.5, 0.9], // Check at different visibility levels
-      },
-    );
+  //       if (
+  //         visibleEntry.isIntersecting &&
+  //         visibleEntry.intersectionRatio > 0.1
+  //       ) {
+  //         // Extract page number from ID
+  //         const id = visibleEntry.target.id;
+  //         const num = parseInt(id.replace("pdf-page-", ""));
+  //         if (!isNaN(num)) {
+  //           // Only update if it's the dominant page
+  //           handlePageVisible(num);
+  //         }
+  //       }
+  //     },
+  //     {
+  //       root: null, // viewport
+  //       threshold: [0.1, 0.5, 0.9], // Check at different visibility levels
+  //     },
+  //   );
 
-    // We can't observe from inside the component easily if we want to compare ALL pages.
-    // Actually, passing onVisible up is fine, but the "wonkiness" comes from
-    // multiple observers firing at once.
-    // Let's stick to the local observer but with a high threshold.
-    // If we want "middle of screen", we use rootMargin.
+  //   // We can't observe from inside the component easily if we want to compare ALL pages.
+  //   // Actually, passing onVisible up is fine, but the "wonkiness" comes from
+  //   // multiple observers firing at once.
+  //   // Let's stick to the local observer but with a high threshold.
+  //   // If we want "middle of screen", we use rootMargin.
 
-    // ... reverting to local observer with better logic ...
-  }, []);
+  //   // ... reverting to local observer with better logic ...
+  // }, []);
 
   // Helper to render outline recursively
   const renderOutlineItems = (items: any[]) => {
