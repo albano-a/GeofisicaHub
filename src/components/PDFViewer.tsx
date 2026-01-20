@@ -1,22 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { storage, BUCKET_ID } from "../services/appwrite";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { FiZoomIn, FiZoomOut, FiRotateCcw } from "react-icons/fi";
 import LoadingSpinner from "./LoadingSpinner";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { IoMdArrowRoundBack } from "react-icons/io";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import CloseIcon from "@mui/icons-material/Close";
-import { FiZoomIn, FiZoomOut, FiRotateCcw } from "react-icons/fi";
-// Import annotation layer CSS
+import PDFPage from "./PDFPage";
+
 import "pdfjs-dist/web/pdf_viewer.css";
 
 import * as pdfjsLib from "pdfjs-dist";
 import * as pdfjsViewer from "pdfjs-dist/web/pdf_viewer";
 
-// Set up PDF.js worker
-// Runtime fallback: prefer CDN-provided globals when present (helps dev/build compatibility)
 const pdfLib: any =
   typeof (window as any).pdfjsLib !== "undefined"
     ? (window as any).pdfjsLib
@@ -39,253 +38,10 @@ try {
   // ignore
 }
 
-// Upper bound so extremely wide screens do not stretch the PDF excessively
-const maxWidth = 1400;
-
-// Zoom levels: 50-150% in 10% steps, then 150-500% in 50% steps
 const ZOOM_LEVELS = [
   0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5,
   2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0,
 ];
-
-interface PDFPageProps {
-  pageNumber: number;
-  pdf: any; // PDFDocumentProxy (use any to avoid missing-global type errors in CI)
-  scale: number;
-  containerWidth: number;
-  onVisible: (pageNumber: number) => void;
-  eventBus: any;
-  linkService: any;
-}
-
-const PDFPage: React.FC<PDFPageProps> = ({
-  pageNumber,
-  pdf,
-  scale,
-  containerWidth,
-  onVisible,
-  eventBus,
-  linkService,
-}) => {
-  const [viewport, setViewport] = useState<any>(null);
-  const pageHostRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const pageViewRef = useRef<any>(null);
-  const [pageAspectRatio, setPageAspectRatio] = useState<number>(1.414); // Default A4ish
-
-  // Intersection Observer to detect visibility
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-        // Only update page number if it's > 50% visible to reduce jitter
-        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-          onVisible(pageNumber);
-        }
-      },
-      {
-        rootMargin: "200% 0px", // Keep pre-rendering margin
-        threshold: [0, 0.5], // Trigger at 0 (for render) and 0.5 (for page count)
-      },
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [onVisible, pageNumber]);
-
-  // Render Page
-  useEffect(() => {
-    // 1. If not visible or no PDF, cleanup and return
-    if (!isVisible || !pdf) {
-      // Destroy any existing PDFPageView
-      try {
-        if (
-          pageViewRef.current &&
-          typeof pageViewRef.current.destroy === "function"
-        ) {
-          pageViewRef.current.destroy();
-        }
-      } catch (err) {
-        console.error("Error destroying page view:", err);
-      }
-      if (pageHostRef.current) {
-        pageHostRef.current.innerHTML = "";
-      }
-      return;
-    }
-
-    let active = true;
-
-    const render = async () => {
-      try {
-        console.log(`Rendering page ${pageNumber}`);
-        const page = await pdf.getPage(pageNumber);
-        console.log(`Page ${pageNumber} fetched:`, page);
-
-        if (!active) return;
-
-        // Determine viewport
-        const unscaledViewport = page.getViewport({ scale: 1 });
-        console.log(
-          `Unscaled viewport for page ${pageNumber}:`,
-          unscaledViewport,
-        );
-        setPageAspectRatio(unscaledViewport.height / unscaledViewport.width);
-
-        // Calculate fit scale
-        const targetWidth = containerWidth
-          ? Math.min(containerWidth, maxWidth)
-          : maxWidth;
-
-        const fitScale = targetWidth / unscaledViewport.width;
-        const totalScale = fitScale * scale;
-
-        const newViewport = page.getViewport({ scale: totalScale });
-        console.log(`Viewport for page ${pageNumber}:`, newViewport);
-        setViewport(newViewport);
-
-        // Use PDFPageView from pdfjs viewer which will create canvas, textLayer and annotationLayer
-        if (pageHostRef.current) {
-          // Clean up any previous view to avoid stacking multiple .page elements
-          if (
-            pageViewRef.current &&
-            typeof pageViewRef.current.destroy === "function"
-          ) {
-            try {
-              pageViewRef.current.destroy();
-            } catch (e) {
-              console.warn("Failed to destroy existing pageView:", e);
-            }
-            pageViewRef.current = null;
-          }
-          pageHostRef.current.innerHTML = "";
-
-          // Render at device pixel ratio for crisp output:
-          // create a base viewport (scale:1) and ask PDFPageView to render at totalScale * pixelRatio
-          const pixelRatio = Math.max(window.devicePixelRatio || 1, 1);
-          const baseViewport = page.getViewport({ scale: 1 });
-          const pageView = new pdfViewerLib.PDFPageView({
-            container: pageHostRef.current,
-            id: pageNumber,
-            defaultViewport: baseViewport,
-            scale: totalScale * pixelRatio,
-            eventBus: eventBus,
-            linkService: linkService,
-            textLayerMode: 1,
-            annotationLayerFactory: null,
-            enhanceTextSelection: true,
-            useOnlyCssZoom: false,
-          });
-
-          pageViewRef.current = pageView;
-          pageView.setPdfPage(page);
-          console.log(`Drawing page ${pageNumber}`);
-          await pageView.draw();
-          // Ensure the generated .page and canvas match our computed viewport exactly.
-          try {
-            const pageEl = pageHostRef.current.querySelector(
-              ".page",
-            ) as HTMLElement | null;
-            if (pageEl) {
-              // Force relative positioning and explicit pixel size
-              pageEl.style.position = "relative";
-              pageEl.style.width = `${Math.round(newViewport.width)}px`;
-              pageEl.style.height = `${Math.round(newViewport.height)}px`;
-            }
-
-            const canvas = pageHostRef.current.querySelector("canvas");
-            if (canvas) {
-              // Let PDF.js control the canvas pixel buffer; only enforce CSS sizing
-              canvas.style.width = "100%";
-              canvas.style.height = "100%";
-              // Ensure wrapper doesn't overflow and matches our computed viewport
-              const wrapper = canvas.parentElement as HTMLElement | null;
-              if (wrapper) {
-                wrapper.style.width = `${Math.round(newViewport.width)}px`;
-                wrapper.style.height = `${Math.round(newViewport.height)}px`;
-                wrapper.style.overflow = "hidden";
-              }
-            }
-          } catch (err) {
-            console.warn("Failed to normalize page/canvas sizing:", err);
-          }
-
-          console.log(`Page ${pageNumber} drawn successfully`);
-        }
-      } catch (e: any) {
-        if (e.name !== "RenderingCancelledException") {
-          console.error(`Error rendering page ${pageNumber}:`, e);
-        }
-      }
-    };
-
-    render();
-
-    return () => {
-      active = false;
-      if (
-        pageViewRef.current &&
-        typeof pageViewRef.current.destroy === "function"
-      ) {
-        try {
-          pageViewRef.current.destroy();
-        } catch (e) {
-          console.error("Error destroying page view on cleanup:", e);
-        }
-        pageViewRef.current = null;
-      }
-    };
-  }, [isVisible, pdf, pageNumber, scale, containerWidth]);
-
-  // Dimensions for placeholder
-  const widthPx = containerWidth
-    ? Math.min(containerWidth, maxWidth) * scale
-    : maxWidth * scale;
-  const heightPx = widthPx * pageAspectRatio;
-
-  return (
-    <div
-      ref={containerRef}
-      id={`pdf-page-${pageNumber}`}
-      className="relative shadow-xl transition-shadow hover:shadow-2xl bg-white dark:bg-gray-800 mx-auto"
-      style={{
-        width: viewport ? viewport.width : widthPx,
-        height: viewport ? viewport.height : heightPx,
-        overflow: "hidden", // clip any overflowing canvas or layers
-        marginBottom: "2rem",
-      }}
-    >
-      <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full z-10 font-medium tracking-wide pointer-events-none">
-        {pageNumber}
-      </div>
-
-      {/* Host element where PDFPageView will render canvas, text and annotation layers */}
-      <div
-        ref={pageHostRef}
-        className="w-full h-full pdf-page-host"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 1,
-          width: "100%",
-          height: "100%",
-          // Force override of .page class styles from pdf_viewer.css and prevent overflow
-          border: "none",
-          margin: "0",
-          boxShadow: "none",
-          overflow: "hidden",
-        }}
-      />
-    </div>
-  );
-};
 
 const PDFViewer: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -295,17 +51,18 @@ const PDFViewer: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const [pdfDocument, setPdfDocument] = useState<any | null>(null);
-  const [numPages, setNumPages] = useState<number>(0);
+  const [numPages, setNumPages] = useState<number>(0); // Number of pages
   const [outline, setOutline] = useState<any[]>([]);
 
   const [outlineOpen, setOutlineOpen] = useState(false);
   const [scale, setScale] = useState(0.5);
   const [containerWidth, setContainerWidth] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [inputPage, setInputPage] = useState<string>("1");
+  const [inputPage, setInputPage] = useState<string>("1"); // For controlled input, but it needs to be connected to numPages and currentPage
 
   const containerRef = useRef<HTMLDivElement>(null);
   const pdfContainerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const eventBusRef = useRef<any>(new pdfViewerLib.EventBus());
   const linkServiceRef = useRef<any>(
     new pdfViewerLib.PDFLinkService({ eventBus: eventBusRef.current }),
@@ -359,6 +116,7 @@ const PDFViewer: React.FC = () => {
 
         setPdfDocument(pdf);
         setNumPages(pdf.numPages);
+        console.log(`[DEBUG] PDF loaded with ${pdf.numPages} pages.`);
 
         // Wire link service to the loaded document so annotations/internal links work
         try {
@@ -387,30 +145,121 @@ const PDFViewer: React.FC = () => {
     loadPdf();
   }, [fileId]);
 
-  const handleZoomIn = () => {
+  const changeZoom = (newScaleCalculator: (prev: number) => number) => {
+    if (!containerRef.current) return;
+
+    const container = containerRef.current;
+    
+    // Find the page currently at the top of the viewport (more reliable than state)
+    let anchorPage = currentPage; 
+    let anchorEl: HTMLElement | null = null;
+    
+    // Optimization: check current page first, then scan if needed
+    const currentEl = document.getElementById(`pdf-page-${currentPage}`);
+    if (currentEl) {
+       const rect = currentEl.getBoundingClientRect();
+       const containerRect = container.getBoundingClientRect();
+       // If the current page is largely visible or near the top
+       if (rect.top <= containerRect.top + containerRect.height && rect.bottom >= containerRect.top) {
+          anchorEl = currentEl;
+       }
+    }
+    
+    // Fallback scan if currentPage isn't the one at the top
+    if (!anchorEl || anchorEl.offsetTop > container.scrollTop + container.clientHeight) {
+        // Find the first page that crosses the scrollTop line
+        for (let i = 1; i <= numPages; i++) {
+             const el = document.getElementById(`pdf-page-${i}`);
+             if (el) {
+                 if (el.offsetTop + el.clientHeight > container.scrollTop) {
+                     anchorPage = i;
+                     anchorEl = el;
+                     break;
+                 }
+             }
+        }
+    } else {
+        anchorPage = currentPage;
+    }
+
+    let relativeOffsetRatio = 0;
+    let shouldUseAnchor = false;
+
+    if (anchorEl) {
+      const pageTop = anchorEl.offsetTop;
+      const pageHeight = anchorEl.clientHeight;
+      const offsetInPage = container.scrollTop - pageTop;
+      
+      if (pageHeight > 0) {
+        relativeOffsetRatio = offsetInPage / pageHeight;
+        shouldUseAnchor = true;
+      }
+    }
+
+    // Fallback variables
+    const oldScrollTop = container.scrollTop;
+    const oldScrollHeight = container.scrollHeight;
+    const scrollRatio = oldScrollTop / oldScrollHeight;
+
     setScale((prev) => {
-      const next = ZOOM_LEVELS.find((z) => z > prev + 0.001);
-      return next ?? prev;
+      const nxt = newScaleCalculator(prev);
+      if (nxt === prev) return prev;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          if (containerRef.current) {
+            const newContainer = containerRef.current;
+            
+            if (shouldUseAnchor) {
+              const newAnchorEl = document.getElementById(
+                `pdf-page-${anchorPage}`,
+              );
+              if (newAnchorEl) {
+                const newPageTop = newAnchorEl.offsetTop;
+                const newPageHeight = newAnchorEl.clientHeight;
+                
+                newContainer.scrollTop =
+                  newPageTop + relativeOffsetRatio * newPageHeight;
+                return;
+              }
+            }
+
+            // Fallback
+            const newScrollHeight = newContainer.scrollHeight;
+            newContainer.scrollTop = scrollRatio * newScrollHeight;
+          }
+        });
+      });
+
+      return nxt;
     });
   };
-
+  const handleZoomIn = () => {
+    changeZoom((prev) => {
+      const nxt = ZOOM_LEVELS.find((z) => z > prev + 0.001);
+      return nxt || prev;
+    });
+  };
   const handleZoomOut = () => {
-    setScale((prev) => {
-      // Find the largest level strictly less than current scale
+    changeZoom((prev) => {
+      let nxt = prev;
       for (let i = ZOOM_LEVELS.length - 1; i >= 0; i--) {
         if (ZOOM_LEVELS[i] < prev - 0.001) {
-          return ZOOM_LEVELS[i];
+          nxt = ZOOM_LEVELS[i];
+          break;
         }
       }
-      return prev;
+      return nxt;
     });
   };
-
-  const handleResetZoom = () => setScale(0.5);
+  const handleResetZoom = () => {
+    changeZoom(() => 0.5);
+  };
 
   const handlePageChange = (e: React.FormEvent) => {
     e.preventDefault();
     const page = parseInt(inputPage);
+    console.log(`[DEBUG] Current input page: ${inputPage}, parsed: ${page}`);
     if (page >= 1 && page <= numPages) {
       const el = document.getElementById(`pdf-page-${page}`);
       if (el) {
@@ -420,62 +269,15 @@ const PDFViewer: React.FC = () => {
     } else {
       setInputPage(currentPage.toString());
     }
+    inputRef.current?.blur();
   };
 
   const handlePageVisible = (pageNumber: number) => {
-    // Only update if the page is significantly different to avoid jitter
-    // We actually want the *most* visible page, but for now,
-    // the intersection observer triggers on 'entry'.
-    // A simple approximation is fine for lazy loading, but for the counter
-    // we might want a more precise observer on the main container.
-    // However, for simplicity, let's update current page when a page enters viewport
-    // and is close to the center.
-    // Better yet: we just update it.
     setCurrentPage(pageNumber);
     if (document.activeElement?.id !== "page-input") {
       setInputPage(pageNumber.toString());
     }
   };
-
-  // Handle visibility with a IntersectionObserver for the MAIN container
-  // identifying which page is CENTERED in the view
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       // Find the entry with the highest intersection ratio
-  //       const visibleEntry = entries.reduce((prev, current) => {
-  //         return prev.intersectionRatio > current.intersectionRatio
-  //           ? prev
-  //           : current;
-  //       });
-
-  //       if (
-  //         visibleEntry.isIntersecting &&
-  //         visibleEntry.intersectionRatio > 0.1
-  //       ) {
-  //         // Extract page number from ID
-  //         const id = visibleEntry.target.id;
-  //         const num = parseInt(id.replace("pdf-page-", ""));
-  //         if (!isNaN(num)) {
-  //           // Only update if it's the dominant page
-  //           handlePageVisible(num);
-  //         }
-  //       }
-  //     },
-  //     {
-  //       root: null, // viewport
-  //       threshold: [0.1, 0.5, 0.9], // Check at different visibility levels
-  //     },
-  //   );
-
-  //   // We can't observe from inside the component easily if we want to compare ALL pages.
-  //   // Actually, passing onVisible up is fine, but the "wonkiness" comes from
-  //   // multiple observers firing at once.
-  //   // Let's stick to the local observer but with a high threshold.
-  //   // If we want "middle of screen", we use rootMargin.
-
-  //   // ... reverting to local observer with better logic ...
-  // }, []);
 
   // Helper to render outline recursively
   const renderOutlineItems = (items: any[]) => {
@@ -596,6 +398,7 @@ const PDFViewer: React.FC = () => {
                 className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 shadow-sm"
               >
                 <input
+                  ref={inputRef}
                   id="page-input"
                   type="text"
                   value={inputPage}
