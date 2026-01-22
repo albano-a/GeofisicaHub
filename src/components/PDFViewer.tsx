@@ -42,6 +42,7 @@ const ZOOM_LEVELS = [
   0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5,
   2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0,
 ];
+const INIT_SCALE = 0.5;
 
 const PDFViewer: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -63,6 +64,7 @@ const PDFViewer: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const pdfContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const pendZoomRef = useRef<number | null>(null);
   const eventBusRef = useRef<any>(new pdfViewerLib.EventBus());
   const linkServiceRef = useRef<any>(
     new pdfViewerLib.PDFLinkService({ eventBus: eventBusRef.current }),
@@ -145,115 +147,31 @@ const PDFViewer: React.FC = () => {
     loadPdf();
   }, [fileId]);
 
-  const changeZoom = (newScaleCalculator: (prev: number) => number) => {
-    if (!containerRef.current) return;
-
-    const container = containerRef.current;
-    
-    // Find the page currently at the top of the viewport (more reliable than state)
-    let anchorPage = currentPage; 
-    let anchorEl: HTMLElement | null = null;
-    
-    // Optimization: check current page first, then scan if needed
-    const currentEl = document.getElementById(`pdf-page-${currentPage}`);
-    if (currentEl) {
-       const rect = currentEl.getBoundingClientRect();
-       const containerRect = container.getBoundingClientRect();
-       // If the current page is largely visible or near the top
-       if (rect.top <= containerRect.top + containerRect.height && rect.bottom >= containerRect.top) {
-          anchorEl = currentEl;
-       }
-    }
-    
-    // Fallback scan if currentPage isn't the one at the top
-    if (!anchorEl || anchorEl.offsetTop > container.scrollTop + container.clientHeight) {
-        // Find the first page that crosses the scrollTop line
-        for (let i = 1; i <= numPages; i++) {
-             const el = document.getElementById(`pdf-page-${i}`);
-             if (el) {
-                 if (el.offsetTop + el.clientHeight > container.scrollTop) {
-                     anchorPage = i;
-                     anchorEl = el;
-                     break;
-                 }
-             }
-        }
-    } else {
-        anchorPage = currentPage;
-    }
-
-    let relativeOffsetRatio = 0;
-    let shouldUseAnchor = false;
-
-    if (anchorEl) {
-      const pageTop = anchorEl.offsetTop;
-      const pageHeight = anchorEl.clientHeight;
-      const offsetInPage = container.scrollTop - pageTop;
-      
-      if (pageHeight > 0) {
-        relativeOffsetRatio = offsetInPage / pageHeight;
-        shouldUseAnchor = true;
-      }
-    }
-
-    // Fallback variables
-    const oldScrollTop = container.scrollTop;
-    const oldScrollHeight = container.scrollHeight;
-    const scrollRatio = oldScrollTop / oldScrollHeight;
+  const handleZoom = (type: "in" | "out" | "reset") => {
+    const targetPage = currentPage;
 
     setScale((prev) => {
-      const nxt = newScaleCalculator(prev);
-      if (nxt === prev) return prev;
+      let next = prev;
+
+      if (type === "reset") next = INIT_SCALE;
+      else if (type === "in")
+        next = ZOOM_LEVELS.find((z) => z > prev + 0.001) || prev;
+      else
+        next = [...ZOOM_LEVELS].reverse().find((z) => z < prev - 0.001) || prev;
+
+      if (next === prev) return prev;
 
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          if (containerRef.current) {
-            const newContainer = containerRef.current;
-            
-            if (shouldUseAnchor) {
-              const newAnchorEl = document.getElementById(
-                `pdf-page-${anchorPage}`,
-              );
-              if (newAnchorEl) {
-                const newPageTop = newAnchorEl.offsetTop;
-                const newPageHeight = newAnchorEl.clientHeight;
-                
-                newContainer.scrollTop =
-                  newPageTop + relativeOffsetRatio * newPageHeight;
-                return;
-              }
-            }
-
-            // Fallback
-            const newScrollHeight = newContainer.scrollHeight;
-            newContainer.scrollTop = scrollRatio * newScrollHeight;
+          const pageEl = document.getElementById(`pdf-page-${targetPage}`);
+          if (pageEl) {
+            pageEl.scrollIntoView({ block: "start" });
           }
         });
       });
 
-      return nxt;
+      return next;
     });
-  };
-  const handleZoomIn = () => {
-    changeZoom((prev) => {
-      const nxt = ZOOM_LEVELS.find((z) => z > prev + 0.001);
-      return nxt || prev;
-    });
-  };
-  const handleZoomOut = () => {
-    changeZoom((prev) => {
-      let nxt = prev;
-      for (let i = ZOOM_LEVELS.length - 1; i >= 0; i--) {
-        if (ZOOM_LEVELS[i] < prev - 0.001) {
-          nxt = ZOOM_LEVELS[i];
-          break;
-        }
-      }
-      return nxt;
-    });
-  };
-  const handleResetZoom = () => {
-    changeZoom(() => 0.5);
   };
 
   const handlePageChange = (e: React.FormEvent) => {
@@ -416,7 +334,7 @@ const PDFViewer: React.FC = () => {
           {/* Zoom Controls */}
           <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 rounded-full px-3 py-1 border border-gray-300 dark:border-gray-700 shadow-sm z-10">
             <IconButton
-              onClick={handleZoomOut}
+              onClick={() => handleZoom("out")}
               disabled={scale <= ZOOM_LEVELS[0]}
               size="small"
               title="Zoom Out"
@@ -427,7 +345,7 @@ const PDFViewer: React.FC = () => {
               {Math.round(scale * 100)}%
             </span>
             <IconButton
-              onClick={handleZoomIn}
+              onClick={() => handleZoom("in")}
               disabled={scale >= ZOOM_LEVELS[ZOOM_LEVELS.length - 1]}
               size="small"
               title="Zoom In"
@@ -436,7 +354,7 @@ const PDFViewer: React.FC = () => {
             </IconButton>
             <div className="w-px h-4 bg-gray-300 dark:bg-gray-600 mx-1"></div>
             <IconButton
-              onClick={handleResetZoom}
+              onClick={() => handleZoom("reset")}
               size="small"
               title="Reset Zoom"
             >
