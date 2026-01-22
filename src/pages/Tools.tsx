@@ -3,6 +3,8 @@ import { useState } from "react";
 import CustomBackdrop from "../components/ToolsCard";
 import React from "react";
 import type { TFunction } from "i18next";
+import { useSEO } from "../hooks/useSEO";
+import Breadcrumb from "../components/Breadcrumb";
 
 const getTools = (t: TFunction) => [
   {
@@ -26,9 +28,19 @@ const getTools = (t: TFunction) => [
 ];
 
 export default function Tools() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const tools = getTools(t);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  useSEO({
+    title: t("Tools.Title"),
+    description:
+      "Explore useful tools for geophysics, geology, physics, calculus, and programming.",
+    keywords: ["tools", "geophysics", "calculators", "resources"],
+    url: "/tools",
+    type: "website",
+    locale: i18n.language,
+  });
 
   React.useEffect(() => {
     document.title = t("Tools.Title") + " | GeofisicaHub";
@@ -38,6 +50,9 @@ export default function Tools() {
     <>
       <div className="min-h-screen pb-10 bg-geo-lightbg dark:bg-geo-darkbg">
         <section className="w-full max-w-7xl mx-auto p-10 flex flex-col items-center space-y-5">
+          <div className="w-full flex justify-start">
+            <Breadcrumb />
+          </div>
           <h1 className="text-4xl md:text-5xl text-center font-bold m-7 bg-gradient-to-r from-geo-accent via-geo-primary to-geo-secondary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient">
             {t("Tools.Title")} {/* Tools */}
           </h1>

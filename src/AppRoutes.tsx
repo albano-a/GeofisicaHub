@@ -12,6 +12,9 @@ const Geology = lazy(() => import("./pages/hub/Geology"));
 const Geophysics = lazy(() => import("./pages/hub/Geophysics"));
 const Physics = lazy(() => import("./pages/hub/Physics"));
 const Programming = lazy(() => import("./pages/hub/Programming"));
+const Posts = lazy(() => import("./pages/Posts"));
+const EachPost = lazy(() => import("./pages/EachPost"));
+const PDFViewer = lazy(() => import("./components/PDFViewer"));
 
 const AppRoutes: React.FC = () => (
   <Suspense fallback={<LoadingSpinner />}>
@@ -20,11 +23,14 @@ const AppRoutes: React.FC = () => (
       <Route path="/about" element={<About />} />
       <Route path="/hub" element={<Hub />} />
       <Route path="/tools" element={<Tools />} />
+      <Route path="/posts" element={<Posts />} />
+      <Route path="/posts/:slug" element={<EachPost />} />
       <Route path="/hub/calculus" element={<Calculus />} />
       <Route path="/hub/geology" element={<Geology />} />
       <Route path="/hub/geophysics" element={<Geophysics />} />
       <Route path="/hub/physics" element={<Physics />} />
       <Route path="/hub/programming" element={<Programming />} />
+      <Route path="/viewer" element={<PDFViewer />} />
       {/* Add more routes as needed */}
 
       <Route path="*" element={<Home />} />

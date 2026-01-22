@@ -3,7 +3,8 @@
     "Home": "Home",
     "About": "About",
     "Hub": "Hub",
-    "Tools": "Tools"
+    "Tools": "Tools",
+    "Posts": "Posts"
   },
   "HomePage": {
     "Alert": "The website has a new look. Check it out!",
@@ -13,12 +14,12 @@
   },
   "Features": {
     "PowerfulFeatures": "Powerful Features",
-    "StudyMaterials": "Study Materials",
-    "StudyMaterialsdesc": "The HUB section contains several books on Geophysics, Geology, Calculus, etc. This is where you'll find the main sources for your studies. The Geophysics part has the most books because it's the main part of this science.",
+    "StudyMaterials": "HUB",
+    "StudyMaterialsdesc": "The HUB section contains several books on Geophysics, Geology, Calculus, etc. This is where you'll find the main sources for your studies.",
     "CalculatorsResources": "Calculators and Resources",
     "CalculatorsResourcesdesc": "Our Calculators section offers a variety of tools to help you solve geophysics problems quickly and efficiently. You can also visit the Resources page to find key geophysics websites and software.",
-    "ScientificPubli": "Scientific Publications",
-    "ScientificPublidesc": "In the Publications section, you'll find various sources of articles, papers, and theses covering geophysics topics. Use this section to search for references or find sources for your work."
+    "PostsArea": "Posts",
+    "PostsAreadesc": "In the Posts section, you will find articles and explanations on various geophysics topics, supported by mathematical formulas, images, and references."
   },
   "About": {
     "Title": "About",
@@ -54,11 +55,22 @@
     "Desc2": "materials and educational resources",
     "Desc3": "designed to guide your journey as a geophysicist.",
     "Warning": "Unfortunately, this is the last page translated into other languages. The cards above contain books that are mostly in Portuguese (with a few in English), because I couldn't find a way to have all the files available in English. Eventually, this will happen, so hold on tight.",
+    "BookCount": "Books Available",
     "Geology": "Geology",
+    "GeologyDesc": "Free Geology books for students and professionals.",
     "Geophysics": "Geophysics",
+    "GeophysicsDesc": "Free Geophysics books for students and professionals.",
     "Programming": "Programming",
+    "ProgrammingDesc": "Free Programming books for students and professionals.",
     "Calculus": "Calculus",
-    "Physics": "Physics"
+    "CalculusDesc": "Free Calculus books for students and professionals.",
+    "Physics": "Physics",
+    "PhysicsDesc": "Free Physics books for students and professionals.",
+    "Search": "Search..."
+  },
+  "Posts": {
+    "Title": "Posts",
+    "Description": "See the latest posts from GeofisicaHub."
   },
   "Tools": {
     "Title": "Tools",
@@ -78,5 +90,19 @@
       "Title": "Wolfram|Alpha",
       "Desc": "Wolfram Alpha is a computational engine that provides expert-level answers, data analysis, and calculations across science, math, and more."
     }
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "hub": "Learning Hub",
+    "tools": "Tools",
+    "posts": "Posts"
+  },
+  "subjects": {
+    "geophysics": "Geophysics",
+    "geology": "Geology",
+    "physics": "Physics",
+    "calculus": "Calculus",
+    "programming": "Programming"
   }
 }

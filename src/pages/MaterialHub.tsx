@@ -3,6 +3,8 @@ import SubjectsCard from "../components/SubjectsCard";
 import React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import { useSEO } from "../hooks/useSEO";
+import Breadcrumb from "../components/Breadcrumb";
 
 const materials = [
   {
@@ -33,7 +35,25 @@ const materials = [
 ];
 
 export default function MaterialHub() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  useSEO({
+    title: "HUB",
+    description:
+      "Explore our collection of educational materials in geophysics, geology, physics, calculus, and programming.",
+    keywords: [
+      "hub",
+      "materials",
+      "geophysics",
+      "geology",
+      "physics",
+      "calculus",
+      "programming",
+    ],
+    url: "/hub",
+    type: "website",
+    locale: i18n.language,
+  });
 
   React.useEffect(() => {
     document.title = "HUB | GeofisicaHub";
@@ -43,6 +63,9 @@ export default function MaterialHub() {
     <>
       <div className="min-h-screen pb-10 bg-geo-lightbg dark:bg-geo-darkbg">
         <section className="w-full max-w-7xl mx-auto p-10 flex flex-col items-center space-y-5">
+          <div className="w-full flex justify-start">
+            <Breadcrumb />
+          </div>
           <Box sx={{ flexGrow: 1, py: 6, px: { xs: 2, sm: 6 } }}>
             <h1 className="text-4xl md:text-5xl text-center font-bold m-7 bg-gradient-to-r from-geo-accent via-geo-primary to-geo-secondary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient">
               HUB

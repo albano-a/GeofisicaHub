@@ -3,7 +3,8 @@
     "Home": "Inicio",
     "About": "Acerca de",
     "Hub": "Hub",
-    "Tools": "Herramientas"
+    "Tools": "Herramientas",
+    "Posts": "Posts"
   },
   "HomePage": {
     "Alert": "El sitio web tiene un nuevo aspecto. ¡Échale un vistazo!",
@@ -17,8 +18,8 @@
     "StudyMaterialsdesc": "La sección HUB contiene varios libros sobre geofísica, geología, cálculo, etc. Aquí encontrarás las principales fuentes para tus estudios. La parte de geofísica tiene más libros porque es la parte principal de esta ciencia.",
     "CalculatorsResources": "Calculadoras y Recursos",
     "CalculatorsResourcesdesc": "Nuestra sección de Calculadoras ofrece una variedad de herramientas para ayudarte a resolver problemas de geofísica de manera rápida y eficiente. También puedes visitar la página de Recursos para encontrar los principales sitios web y programas de geofísica.",
-    "ScientificPubli": "Publicaciones científicas",
-    "ScientificPublidesc": "En la sección de Publicaciones encontrarás varias fuentes de artículos, trabajos y tesis sobre temas de geofísica. Usa esta sección para buscar referencias o encontrar fuentes para tu trabajo."
+    "PostsArea": "Posts",
+    "PostsAreadesc": "En la sección de Posts, encontrarás artículos y explicaciones sobre diversos temas de geofísica, con soporte para fórmulas matemáticas, imágenes y referencias."
   },
   "About": {
     "Title": "Acerca de",
@@ -54,11 +55,20 @@
     "Desc2": "materiales y recursos educativos",
     "Desc3": "diseñados para guiar tu camino como geofísico.",
     "Warning": "Desafortunadamente, esta es la última página traducida a otros idiomas. Las tarjetas de arriba contienen libros principalmente en portugués (y algunos en inglés), porque no encontré una forma de tener todos los archivos disponibles en inglés. Eventualmente eso cambiará, así que ten paciencia.",
-    "Geology": "Geology",
-    "Geophysics": "Geophysics",
-    "Programming": "Programming",
-    "Calculus": "Calculus",
-    "Physics": "Physics"
+    "Geology": "Geología",
+    "GeologyDesc": "Libros gratuitos de Geología para estudiantes y profesionales.",
+    "Geophysics": "Geofísica",
+    "GeophysicsDesc": "Libros gratuitos de Geofísica para estudiantes y profesionales.",
+    "Programming": "Programación",
+    "ProgrammingDesc": "Libros gratuitos de Programación para estudiantes y profesionales.",
+    "Calculus": "Cálculo",
+    "CalculusDesc": "Libros gratuitos de Cálculo para estudiantes y profesionales.",
+    "Physics": "Física",
+    "PhysicsDesc": "Libros gratuitos de Física para estudiantes y profesionales."
+  },
+  "Posts": {
+    "Title": "Posts",
+    "Description": "Ve los últimos posts de GeofisicaHub."
   },
   "Tools": {
     "Title": "Herramientas",
