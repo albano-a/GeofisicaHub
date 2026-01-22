@@ -147,30 +147,25 @@ const PDFViewer: React.FC = () => {
     loadPdf();
   }, [fileId]);
 
+  useEffect(() => {
+    const maintainPosition = () => {
+      const pageEl = document.getElementById(`pdf-page-${currentPage}`);
+      if (pageEl) {
+        pageEl.scrollIntoView({ block: "start" });
+      }
+    };
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(maintainPosition);
+    });
+  }, [scale]); // Intentionally omitting currentPage to avoid snapping during scroll
+
   const handleZoom = (type: "in" | "out" | "reset") => {
-    const targetPage = currentPage;
-
     setScale((prev) => {
-      let next = prev;
-
-      if (type === "reset") next = INIT_SCALE;
-      else if (type === "in")
-        next = ZOOM_LEVELS.find((z) => z > prev + 0.001) || prev;
-      else
-        next = [...ZOOM_LEVELS].reverse().find((z) => z < prev - 0.001) || prev;
-
-      if (next === prev) return prev;
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          const pageEl = document.getElementById(`pdf-page-${targetPage}`);
-          if (pageEl) {
-            pageEl.scrollIntoView({ block: "start" });
-          }
-        });
-      });
-
-      return next;
+      if (type === "reset") return INIT_SCALE;
+      if (type === "in")
+        return ZOOM_LEVELS.find((z) => z > prev + 0.001) || prev;
+      return [...ZOOM_LEVELS].reverse().find((z) => z < prev - 0.001) || prev;
     });
   };
 
