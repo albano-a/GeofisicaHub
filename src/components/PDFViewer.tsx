@@ -64,7 +64,6 @@ const PDFViewer: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const pdfContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const pendZoomRef = useRef<number | null>(null);
   const eventBusRef = useRef<any>(new pdfViewerLib.EventBus());
   const linkServiceRef = useRef<any>(
     new pdfViewerLib.PDFLinkService({ eventBus: eventBusRef.current }),
