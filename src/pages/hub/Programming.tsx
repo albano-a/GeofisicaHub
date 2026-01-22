@@ -9,6 +9,8 @@ import Breadcrumb from "../../components/Breadcrumb";
 
 import Metrics from "../../components/Metrics";
 
+type SortOpt = "name-asc" | "name-desc" | "date-asc" | "date-desc";
+
 export default function Programming() {
   const { t, i18n } = useTranslation();
   const language = i18n.language === "pt" ? "pt" : "en";
@@ -16,6 +18,7 @@ export default function Programming() {
   const { books, loading, error } = useAppWriteBooks(area, language);
 
   const [searchQuery, setSearchQuery] = useState("");
+  const [sortOption, setSortOption] = useState<SortOpt>("name-asc");
 
   // Filter books based on search query (title or author, case-insensitive)
   const filteredBooks = books.filter(
@@ -23,6 +26,15 @@ export default function Programming() {
       book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       book.author.toLowerCase().includes(searchQuery.toLowerCase()),
   );
+
+  const sortedBooks = [...filteredBooks].sort((a, b) => {
+    if (sortOption === "name-asc") return a.title.localeCompare(b.title);
+    if (sortOption === "name-desc") return b.title.localeCompare(a.title);
+    // For date, since no date field, sort by title
+    if (sortOption === "date-asc") return a.title.localeCompare(b.title);
+    if (sortOption === "date-desc") return b.title.localeCompare(a.title);
+    return 0;
+  });
 
   useSEO({
     title: t("HUB.Programming"),
@@ -131,8 +143,10 @@ export default function Programming() {
 
         <Metrics
           label={t("HUB.BookCount")}
-          value={filteredBooks.length}
+          value={filteredBooks.length} // Update to show filtered count
           onSearchChange={setSearchQuery}
+          onSortChange={setSortOption}
+          showSort={true}
         />
 
         <Divider
@@ -162,7 +176,7 @@ export default function Programming() {
         ) : (
           <div className="w-full max-w-[1600px] px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-              {filteredBooks.map((book, index) => (
+              {sortedBooks.map((book, index) => (
                 <div
                   key={index}
                   className="transform hover:-translate-y-2 transition-transform duration-300 h-full"
