@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { storage, BUCKET_ID } from "../services/appwrite";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { FiZoomIn, FiZoomOut, FiRotateCcw } from "react-icons/fi";
@@ -68,6 +68,7 @@ const PDFViewer: React.FC = () => {
   const linkServiceRef = useRef<any>(
     new pdfViewerLib.PDFLinkService({ eventBus: eventBusRef.current }),
   );
+  const navigate = useNavigate();
 
   // Measure available width for PDF pages
   useEffect(() => {
@@ -250,7 +251,7 @@ const PDFViewer: React.FC = () => {
             No file ID provided.
           </p>
           <Button
-            onClick={() => <Link to="/hub" />}
+            onClick={() => navigate("/hub")}
             variant="contained"
             sx={{
               borderRadius: "15px",
@@ -282,7 +283,7 @@ const PDFViewer: React.FC = () => {
                 borderRadius: "25px",
                 fontFamily: "Poppins",
               }}
-              onClick={() => <Link to="/hub" />}
+              onClick={() => navigate("/hub")}
               className=" dark:!text-geo-lightbg"
             >
               <IoMdArrowRoundBack size={24} />
