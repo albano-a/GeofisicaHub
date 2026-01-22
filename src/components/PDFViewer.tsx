@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { storage, BUCKET_ID } from "../services/appwrite";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { FiZoomIn, FiZoomOut, FiRotateCcw } from "react-icons/fi";

@@ -1,18 +1,28 @@
 import BookCard from "../../components/BookCard";
-import React from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAppWriteBooks } from "../../hooks/useAppWriteBooks";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import { Skeleton } from "@mui/material";
 import { useSEO } from "../../hooks/useSEO";
 import Divider from "@mui/material/Divider";
 import Breadcrumb from "../../components/Breadcrumb";
 
+import Metrics from "../../components/Metrics";
+
 export default function Programming() {
-  const { i18n } = useTranslation();
-  const lang = i18n.language === "pt" ? "pt" : "en";
+  const { t, i18n } = useTranslation();
+  const language = i18n.language === "pt" ? "pt" : "en";
   const area = "Programming";
-  const { books, loading, error } = useAppWriteBooks(area, lang);
-  const { t } = useTranslation();
+  const { books, loading, error } = useAppWriteBooks(area, language);
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Filter books based on search query (title or author, case-insensitive)
+  const filteredBooks = books.filter(
+    (book) =>
+      book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      book.author.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
 
   useSEO({
     title: t("HUB.Programming"),
@@ -23,17 +33,63 @@ export default function Programming() {
     locale: i18n.language,
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.title = t("HUB.Programming") + " | GeofisicaHub";
   }, [t]);
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-geo-lightbg dark:bg-geo-darkbg pb-5 flex flex-col items-center justify-center">
-        <LoadingSpinner />
-        <p className="mt-4 text-gray-600 dark:text-gray-400">
-          Loading {area} books...
-        </p>
+      <div className="min-h-screen bg-geo-lightbg dark:bg-geo-darkbg pb-10 flex flex-col items-center">
+        {/* Header Section consistent with MaterialHub */}
+        <section className="w-full max-w-7xl mx-auto pt-12 pb-6 px-4 flex flex-col items-center space-y-4">
+          <div className="w-full">
+            <Breadcrumb />
+          </div>
+          <h1 className="text-4xl md:text-5xl pb-2 text-center font-bold bg-gradient-to-r from-geo-accent via-geo-primary to-geo-secondary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient">
+            {t("HUB.Programming")}
+          </h1>
+          <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-2xl">
+            {t("HUB.ProgrammingDesc")}
+          </p>
+        </section>
+
+        <Divider
+          sx={{
+            width: { xs: "80%", md: "66%" },
+            opacity: 0.6,
+            mb: 5,
+            borderColor: "gray.300",
+            ".dark &": { borderColor: "gray.600" },
+          }}
+        />
+
+        {/* Skeleton Content Section */}
+        <div className="w-full max-w-[1600px] px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <div
+                key={index}
+                className="transform hover:-translate-y-2 transition-transform duration-300 h-full"
+              >
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 h-full flex flex-col">
+                  <Skeleton
+                    variant="rectangular"
+                    width="100%"
+                    height={450}
+                    className="mb-4"
+                  />
+                  <Skeleton
+                    variant="text"
+                    width="80%"
+                    height={24}
+                    className="mb-2"
+                  />
+                  <Skeleton variant="text" width="60%" height={20} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
@@ -65,13 +121,19 @@ export default function Programming() {
           <div className="w-full">
             <Breadcrumb />
           </div>
-          <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-geo-accent via-geo-primary to-geo-secondary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient">
+          <h1 className="text-4xl md:text-5xl pb-2 text-center font-bold bg-gradient-to-r from-geo-accent via-geo-primary to-geo-secondary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient">
             {t("HUB.Programming")}
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-2xl">
             {t("HUB.ProgrammingDesc")}
           </p>
         </section>
+
+        <Metrics
+          label={t("HUB.BookCount")}
+          value={filteredBooks.length}
+          onSearchChange={setSearchQuery}
+        />
 
         <Divider
           sx={{
@@ -84,19 +146,23 @@ export default function Programming() {
         />
 
         {/* Content Section */}
-        {books.length === 0 ? (
+        {filteredBooks.length === 0 ? (
           <div className="text-center py-20 px-4">
             <p className="text-gray-600 dark:text-gray-400 mb-4 text-xl">
-              No books available yet.
+              {searchQuery
+                ? "No books match your search."
+                : "No books available yet."}
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-500">
-              Books will appear here once uploaded to the AppWrite bucket.
+              {searchQuery
+                ? "Try a different search term."
+                : "Books will appear here once uploaded to the AppWrite bucket."}
             </p>
           </div>
         ) : (
           <div className="w-full max-w-[1600px] px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-              {books.map((book, index) => (
+              {filteredBooks.map((book, index) => (
                 <div
                   key={index}
                   className="transform hover:-translate-y-2 transition-transform duration-300 h-full"

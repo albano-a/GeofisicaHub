@@ -64,7 +64,9 @@
     "Calculus": "Cálculo",
     "CalculusDesc": "Livros gratuitos de Cálculo para estudantes e profissionais.",
     "Physics": "Física",
-    "PhysicsDesc": "Livros gratuitos de Física para estudantes e profissionais."
+    "PhysicsDesc": "Livros gratuitos de Física para estudantes e profissionais.",
+    "BookCount": "Livros Disponíveis",
+    "Search": "Procurar..."
   },
   "Posts": {
     "Title": "Posts",

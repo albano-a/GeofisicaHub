@@ -16,6 +16,20 @@ export interface Book {
   fileId: string;
 }
 
+export const getBookCount = async (area: string): Promise<number> => {
+  try {
+    const response = await tablesDB.listRows({
+      databaseId: DATABASE_ID,
+      tableId: COLLECTION_ID,
+      queries: [Query.equal("area", area)],
+    });
+    return response.total;
+  } catch (err) {
+    console.error("Error fetching book count:", err);
+    return 0;
+  }
+};
+
 export function useAppWriteBooks(area: string, language: string) {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
