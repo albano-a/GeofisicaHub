@@ -15,6 +15,9 @@ const Programming = lazy(() => import("./pages/hub/Programming"));
 const Posts = lazy(() => import("./pages/Posts"));
 const EachPost = lazy(() => import("./pages/EachPost"));
 const PDFViewer = lazy(() => import("./components/PDFViewer"));
+const Login = lazy(() => import("./pages/Login"));
+const Admin = lazy(() => import("./pages/Admin"));
+const ProtectedRoute = lazy(() => import("./components/ProtectedRoute"));
 
 const AppRoutes: React.FC = () => (
   <Suspense fallback={<LoadingSpinner />}>
@@ -31,6 +34,15 @@ const AppRoutes: React.FC = () => (
       <Route path="/hub/physics" element={<Physics />} />
       <Route path="/hub/programming" element={<Programming />} />
       <Route path="/viewer" element={<PDFViewer />} />
+      <Route path="/login" element={<Login />} />
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute>
+            <Admin />
+          </ProtectedRoute>
+        }
+      />
       {/* Add more routes as needed */}
 
       <Route path="*" element={<Home />} />

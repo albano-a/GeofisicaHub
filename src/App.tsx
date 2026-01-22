@@ -3,19 +3,22 @@ import Footer from "./components/Footer";
 import AppRoutes from "./AppRoutes";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { Analytics } from "@vercel/analytics/react";
+import { AuthProvider } from "./contexts/AuthContext";
 
 function App() {
   return (
     <ErrorBoundary>
-      <div>
-        <Navbar />
-        {/* Main content */}
+      <AuthProvider>
         <div>
-          <AppRoutes></AppRoutes>
-          <Analytics />
+          <Navbar />
+          {/* Main content */}
+          <div>
+            <AppRoutes></AppRoutes>
+            <Analytics />
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </AuthProvider>
     </ErrorBoundary>
   );
 }
