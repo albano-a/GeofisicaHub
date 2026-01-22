@@ -30,7 +30,6 @@ import {
   Alert,
   Chip,
   FormControl,
-  InputLabel,
   Select,
   MenuItem,
   TablePagination,
