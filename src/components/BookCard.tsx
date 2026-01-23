@@ -4,6 +4,11 @@ import PersonIcon from "@mui/icons-material/Person";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import { COVER_BUCKET_ID } from "../services/appwrite";
+
+// AppWrite configuration for image URLs
+const APPWRITE_ENDPOINT = import.meta.env.VITE_APPWRITE_ENDPOINT;
+const APPWRITE_PROJECT_ID = import.meta.env.VITE_APPWRITE_PROJECT_ID;
 
 interface BookCardProps {
   cover: string;
@@ -20,6 +25,18 @@ export default function BookCard({
 }: BookCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
+
+  // Helper to check if cover is a URL
+  function isUrl(str: string) {
+    return /^https?:\/\//i.test(str);
+  }
+
+  // If cover is a URL, use it directly. If not, treat as Appwrite file ID
+  let coverSrc = cover;
+  if (!isUrl(cover)) {
+    // Construct Appwrite preview URL for cover images
+    coverSrc = `${APPWRITE_ENDPOINT}/storage/buckets/${COVER_BUCKET_ID}/files/${cover}/preview?project=${APPWRITE_PROJECT_ID}`;
+  }
 
   return (
     <a
@@ -44,7 +61,7 @@ export default function BookCard({
           </div>
         ) : (
           <img
-            src={cover}
+            src={coverSrc}
             alt={title}
             className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
               imageLoaded ? "opacity-100" : "opacity-0"
