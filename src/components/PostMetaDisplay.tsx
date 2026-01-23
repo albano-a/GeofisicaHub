@@ -45,13 +45,13 @@ export default function PostMetaDisplay({
       {/* Post dates */}
       <div className="flex gap-4 text-sm font-semibold text-geo-primary dark:text-geo-darkprimary mt-6 mb-1 justify-center items-center">
         {meta.posted && (
-          <span>
+          <span className="font-mono">
             <DateRangeTwoToneIcon fontSize="small" sx={{ color: "#1077bc" }} />{" "}
             Posted: {meta.posted}
           </span>
         )}
         {meta.updated && meta.updated !== meta.posted && (
-          <span>
+          <span className="font-mono">
             <UpdateTwoToneIcon fontSize="small" sx={{ color: "#1077bc" }} />{" "}
             Updated: {meta.updated}
           </span>

@@ -4,25 +4,13 @@ description: "This is a draft post that should not appear in the posts list"
 slug: "draft-post-example"
 posted: "15/01/2026"
 tags: ["draft", "example"]
-references: [
-    "Draft, D. S. (2026). How to make a draft post.",
-]
 draft: true
 ---
-
-import CodeBlock from "../../../components/CodeBlock";
 
 This is a draft post. It should not appear in the posts list because `draft: true`.
 
 You can use this as a template for draft posts that you're working on but don't want to publish yet.
 
-
-<CodeBlock code={`import numpy as np
-import matplotlib.pyplot as plt
-
-x = np.linspace(0, 30, 300)
-y = np.sin(x)
-
-plt.plot(x, y)
-plt.title("Sine Wave")
-`} language="py" />
+```jsx live
+export default function App(){ return <button onClick={()=>alert('ok')}>Click</button> }
+```

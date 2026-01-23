@@ -63,7 +63,7 @@ const postsCache: Record<
 > = {};
 
 async function loadPostsForLanguage(
-  lang: string
+  lang: string,
 ): Promise<
   Record<string, { component: React.LazyExoticComponent<any>; meta: PostMeta }>
 > {
@@ -89,7 +89,7 @@ async function loadPostsForLanguage(
   // If no posts for this language, try English as fallback
   if (Object.keys(posts).length === 0 && lang !== "en") {
     console.warn(
-      `No posts found for language ${lang}, falling back to English`
+      `No posts found for language ${lang}, falling back to English`,
     );
     return loadPostsForLanguage("en");
   }
@@ -141,7 +141,7 @@ export default function FundamentalsPost() {
           tags: post.meta.tags,
           locale: i18n.language,
         }
-      : {}
+      : {},
   );
 
   if (loading) {
