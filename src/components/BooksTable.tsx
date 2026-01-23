@@ -7,7 +7,6 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
   Box,
   Typography,
   Card,
@@ -15,8 +14,23 @@ import {
   IconButton,
   Chip,
   TablePagination,
+  Avatar,
 } from "@mui/material";
 import { MdEdit, MdDelete, MdBook, MdRefresh } from "react-icons/md";
+import { COVER_BUCKET_ID } from "../services/appwrite";
+
+const APPWRITE_ENDPOINT = import.meta.env.VITE_APPWRITE_ENDPOINT;
+const APPWRITE_PROJECT_ID = import.meta.env.VITE_APPWRITE_PROJECT_ID;
+
+function isUrl(str: string) {
+  return /^https?:\/\//i.test(str);
+}
+
+function getCoverSrc(cover: string | undefined | null) {
+  if (!cover) return undefined;
+  if (isUrl(cover)) return cover;
+  return `${APPWRITE_ENDPOINT}/storage/buckets/${COVER_BUCKET_ID}/files/${cover}/preview?project=${APPWRITE_PROJECT_ID}`;
+}
 
 interface Book {
   $id: string;
@@ -50,53 +64,146 @@ const BooksTable: React.FC<BooksTableProps> = ({
   onEdit,
   onDelete,
 }) => {
+  const areaColors = {
+    default: { bg: "#1077bc", text: "#fff" },
+    tech: { bg: "#3b82f6", text: "#fff" },
+    science: { bg: "#10b981", text: "#fff" },
+    arts: { bg: "#f59e0b", text: "#fff" },
+    business: { bg: "#8b5cf6", text: "#fff" },
+  };
+
+  const getAreaColor = (area: string) => {
+    const key = area.toLowerCase();
+    return areaColors[key as keyof typeof areaColors] || areaColors.default;
+  };
+
   return (
-    <>
-      <Card className="shadow-lg">
-        <CardContent className="p-6">
-          <Box className="flex items-center gap-2 mb-4">
-            <Typography
-              variant="h5"
-              className="font-semibold flex items-center gap-2"
-            >
-              <MdBook className="text-geo-primary dark:text-geo-darkprimary" />
-              Books Collection ({books.length})
-            </Typography>
+    <Box sx={{ maxWidth: "100%", mx: "auto" }}>
+      <Card
+        elevation={0}
+        sx={{
+          border: "1px solid #e5e7eb",
+          borderRadius: "16px",
+          overflow: "hidden",
+        }}
+      >
+        <CardContent sx={{ p: 0 }}>
+          <Box
+            sx={{
+              p: 3,
+              borderBottom: "1px solid #e5e7eb",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+              <Box
+                sx={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: "12px",
+                  background:
+                    "linear-gradient(135deg, #1077bc 0%, #0d5a8f 100%)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 4px 12px rgba(16, 119, 188, 0.3)",
+                }}
+              >
+                <MdBook style={{ fontSize: 24, color: "#fff" }} />
+              </Box>
+              <Box>
+                <Typography
+                  variant="h5"
+                  sx={{ fontWeight: 700, color: "#1e293b" }}
+                >
+                  Books Collection
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#64748b", mt: 0.5 }}>
+                  {books.length} {books.length === 1 ? "book" : "books"} in
+                  library
+                </Typography>
+              </Box>
+            </Box>
             <Button
               variant="outlined"
               startIcon={<MdRefresh />}
               onClick={onRefresh}
               sx={{
-                borderRadius: "12px",
+                borderRadius: "10px",
                 textTransform: "none",
                 fontWeight: 600,
-                ml: 2,
+                borderColor: "#1077bc",
+                color: "#1077bc",
+                "&:hover": {
+                  borderColor: "#0d5a8f",
+                  backgroundColor: "#f0f9ff",
+                },
               }}
             >
               Refresh
             </Button>
           </Box>
 
-          <TableContainer component={Paper} className="rounded-lg shadow-sm">
-            <Table>
+          <TableContainer>
+            <Table sx={{ minWidth: 800 }}>
               <TableHead>
-                <TableRow className="bg-geo-primary dark:bg-geo-primary">
-                  <TableCell className="font-semibold text-white">
+                <TableRow sx={{ backgroundColor: "#f8fafc" }}>
+                  <TableCell
+                    sx={{
+                      fontWeight: 700,
+                      color: "#475569",
+                      fontSize: "0.875rem",
+                      py: 2,
+                    }}
+                  >
                     Title
                   </TableCell>
-                  <TableCell className="font-semibold text-white">
+                  <TableCell
+                    sx={{
+                      fontWeight: 700,
+                      color: "#475569",
+                      fontSize: "0.875rem",
+                    }}
+                  >
                     Author
                   </TableCell>
-                  <TableCell className="font-semibold text-white">
+                  <TableCell
+                    sx={{
+                      fontWeight: 700,
+                      color: "#475569",
+                      fontSize: "0.875rem",
+                    }}
+                  >
                     Area
                   </TableCell>
-                  <TableCell className="font-semibold text-white">
+                  <TableCell
+                    sx={{
+                      fontWeight: 700,
+                      color: "#475569",
+                      fontSize: "0.875rem",
+                    }}
+                  >
                     Language
                   </TableCell>
-                  <TableCell className="font-semibold text-white">
+                  <TableCell
+                    sx={{
+                      fontWeight: 700,
+                      color: "#475569",
+                      fontSize: "0.875rem",
+                    }}
+                  >
                     Year
                   </TableCell>
-                  <TableCell className="font-semibold text-white">
+                  <TableCell
+                    sx={{
+                      fontWeight: 700,
+                      color: "#475569",
+                      fontSize: "0.875rem",
+                    }}
+                  >
                     Actions
                   </TableCell>
                 </TableRow>
@@ -104,103 +211,213 @@ const BooksTable: React.FC<BooksTableProps> = ({
               <TableBody>
                 {books
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((book) => (
-                    <TableRow
-                      key={book.$id}
-                      className="hover:bg-gray-50 dark:hover:bg-gray-800"
-                    >
-                      <TableCell className="font-medium">
-                        {book.title}
-                      </TableCell>
-                      <TableCell>{book.author}</TableCell>
-                      <TableCell>
-                        <Chip
-                          label={book.area}
-                          size="small"
-                          sx={{
-                            backgroundColor: "#1077bc",
-                            color: "white",
-                            fontWeight: 500,
-                          }}
-                        />
-                      </TableCell>
-                      <TableCell>
-                        <Chip
-                          label={
-                            book.language === "en" ? "English" : "Portuguese"
-                          }
-                          size="small"
-                          variant="outlined"
-                          sx={{
-                            borderColor: "#1077bc",
-                            color: "#1077bc",
-                          }}
-                        />
-                      </TableCell>
-                      <TableCell>{book.year}</TableCell>
-                      <TableCell>
-                        <Box className="flex gap-1">
-                          <IconButton
-                            onClick={() => onEdit(book)}
-                            size="small"
+                  .map((book, idx) => {
+                    const areaClr = getAreaColor(book.area);
+                    return (
+                      <TableRow
+                        key={book.$id}
+                        sx={{
+                          "&:hover": {
+                            backgroundColor: "#f8fafc",
+                            transition: "all 0.2s ease",
+                          },
+                          borderBottom:
+                            idx ===
+                            books.slice(
+                              page * rowsPerPage,
+                              page * rowsPerPage + rowsPerPage,
+                            ).length -
+                              1
+                              ? "none"
+                              : "1px solid #f1f5f9",
+                        }}
+                      >
+                        <TableCell>
+                          <Box
                             sx={{
-                              color: "#f59e0b",
-                              "&:hover": { backgroundColor: "#fef3c7" },
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 2,
                             }}
                           >
-                            <MdEdit />
-                          </IconButton>
-                          <IconButton
-                            onClick={() => onDelete(book)}
+                            <Avatar
+                              src={getCoverSrc(book.cover)}
+                              variant="rounded"
+                              sx={{
+                                width: 40,
+                                height: 56,
+                                boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                                border: "1px solid #e5e7eb",
+                              }}
+                            >
+                              <MdBook />
+                            </Avatar>
+                            <Typography
+                              sx={{
+                                fontWeight: 600,
+                                color: "#1e293b",
+                                fontSize: "0.9375rem",
+                              }}
+                            >
+                              {book.title}
+                            </Typography>
+                          </Box>
+                        </TableCell>
+                        <TableCell>
+                          <Typography
+                            sx={{ color: "#64748b", fontSize: "0.9375rem" }}
+                          >
+                            {book.author}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Chip
+                            label={book.area}
                             size="small"
                             sx={{
-                              color: "#dc2626",
-                              "&:hover": { backgroundColor: "#fecaca" },
+                              backgroundColor: areaClr.bg,
+                              color: areaClr.text,
+                              fontWeight: 600,
+                              fontSize: "0.8125rem",
+                              borderRadius: "8px",
+                              height: "28px",
+                            }}
+                          />
+                        </TableCell>
+                        <TableCell>
+                          <Chip
+                            label={
+                              book.language === "en" ? "English" : "Portuguese"
+                            }
+                            size="small"
+                            sx={{
+                              backgroundColor: "#f1f5f9",
+                              color: "#475569",
+                              fontWeight: 500,
+                              fontSize: "0.8125rem",
+                              borderRadius: "8px",
+                              height: "28px",
+                            }}
+                          />
+                        </TableCell>
+                        <TableCell>
+                          <Typography
+                            sx={{
+                              color: "#64748b",
+                              fontSize: "0.9375rem",
+                              fontWeight: 500,
                             }}
                           >
-                            <MdDelete />
-                          </IconButton>
-                        </Box>
-                      </TableCell>
-                    </TableRow>
-                  ))}
+                            {book.year}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Box sx={{ display: "flex", gap: 0.5 }}>
+                            <IconButton
+                              onClick={() => onEdit(book)}
+                              size="small"
+                              sx={{
+                                color: "#f59e0b",
+                                backgroundColor: "#fef3c7",
+                                borderRadius: "8px",
+                                width: 32,
+                                height: 32,
+                                "&:hover": {
+                                  backgroundColor: "#fde68a",
+                                  transform: "scale(1.05)",
+                                },
+                                transition: "all 0.2s ease",
+                              }}
+                            >
+                              <MdEdit size={16} />
+                            </IconButton>
+                            <IconButton
+                              onClick={() => onDelete(book)}
+                              size="small"
+                              sx={{
+                                color: "#dc2626",
+                                backgroundColor: "#fecaca",
+                                borderRadius: "8px",
+                                width: 32,
+                                height: 32,
+                                "&:hover": {
+                                  backgroundColor: "#fca5a5",
+                                  transform: "scale(1.05)",
+                                },
+                                transition: "all 0.2s ease",
+                              }}
+                            >
+                              <MdDelete size={16} />
+                            </IconButton>
+                          </Box>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
               </TableBody>
             </Table>
           </TableContainer>
 
           {books.length === 0 && (
-            <Box className="text-center py-12">
-              <MdBook className="text-6xl text-gray-300 mx-auto mb-4" />
-              <Typography variant="h6" className="text-gray-500">
-                No books found. Add your first book above.
+            <Box sx={{ textAlign: "center", py: 12 }}>
+              <Box
+                sx={{
+                  width: 80,
+                  height: 80,
+                  borderRadius: "20px",
+                  background:
+                    "linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  mx: "auto",
+                  mb: 3,
+                }}
+              >
+                <MdBook style={{ fontSize: 40, color: "#94a3b8" }} />
+              </Box>
+              <Typography
+                variant="h6"
+                sx={{ color: "#64748b", fontWeight: 600, mb: 1 }}
+              >
+                No books yet
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#94a3b8" }}>
+                Add your first book to get started
               </Typography>
             </Box>
           )}
         </CardContent>
       </Card>
 
-      <TablePagination
-        rowsPerPageOptions={[5, 10, 25]}
-        component="div"
-        count={books.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={onPageChange}
-        onRowsPerPageChange={onRowsPerPageChange}
-        labelRowsPerPage="Books per page"
-        sx={{
-          borderTop: "1px solid #e0e0e0",
-          "& .MuiTablePagination-toolbar": {
-            gap: "16px",
-          },
-          "& .MuiSelect-select": {
-            display: "flex",
-            alignItems: "center",
-            paddingY: "10px",
-          },
-        }}
-      />
-    </>
+      <Box sx={{ mt: 2 }}>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={books.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={onPageChange}
+          onRowsPerPageChange={onRowsPerPageChange}
+          labelRowsPerPage="Books per page"
+          sx={{
+            backgroundColor: "#fff",
+            border: "1px solid #e5e7eb",
+            borderRadius: "12px",
+            "& .MuiTablePagination-toolbar": {
+              gap: 2,
+              px: 2,
+            },
+            "& .MuiSelect-select": {
+              display: "flex",
+              alignItems: "center",
+              py: 1.25,
+              borderRadius: "8px",
+            },
+          }}
+        />
+      </Box>
+    </Box>
   );
 };
 
