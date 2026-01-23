@@ -19,8 +19,10 @@ import {
   DialogTitle,
   Alert,
   Snackbar,
+  useMediaQuery,
 } from "@mui/material";
-import { MdDelete, MdLogout, MdBook } from "react-icons/md";
+import { useTheme } from "@mui/material/styles";
+import { MdAdd, MdDelete, MdLogout, MdBook } from "react-icons/md";
 import BookForm from "../components/BookForm";
 import BooksTable from "../components/BooksTable";
 interface Book {
@@ -65,6 +67,12 @@ export default function Admin() {
     coverFile: null as File | null,
     pdfFile: null as File | null,
   });
+
+  const [formOpen, setFormOpen] = useState(false);
+
+  // Keep hooks in the same order across renders
+  const theme = useTheme();
+  const fullScreenDialog = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
     fetchBooks();
@@ -214,6 +222,11 @@ export default function Admin() {
     setSnackbar({ ...snackbar, open: false });
   };
 
+  const handleFormCancel = () => {
+    resetForm();
+    setFormOpen(false);
+  };
+
   const startEdit = (book: Book) => {
     clearMessages();
     setEditingBook(book);
@@ -226,6 +239,7 @@ export default function Admin() {
       coverFile: null,
       pdfFile: null,
     });
+    setFormOpen(true);
   };
 
   if (loading) {
@@ -255,20 +269,40 @@ export default function Admin() {
               Admin Panel - Manage Books
             </Typography>
           </Box>
-          <Button
-            variant="contained"
-            startIcon={<MdLogout />}
-            onClick={logout}
-            sx={{
-              backgroundColor: "#dc2626",
-              "&:hover": { backgroundColor: "#b91c1c" },
-              borderRadius: "12px",
-              textTransform: "none",
-              fontWeight: 600,
-            }}
-          >
-            Logout
-          </Button>
+
+          <Box className="flex items-center gap-3">
+            <Button
+              variant="outlined"
+              startIcon={<MdAdd />}
+              onClick={() => {
+                clearMessages();
+                resetForm();
+                setFormOpen(true);
+              }}
+              sx={{
+                borderRadius: "12px",
+                textTransform: "none",
+                fontWeight: 600,
+                mr: 1,
+              }}
+            >
+              Add Book
+            </Button>
+            <Button
+              variant="contained"
+              startIcon={<MdLogout />}
+              onClick={logout}
+              sx={{
+                backgroundColor: "#dc2626",
+                "&:hover": { backgroundColor: "#b91c1c" },
+                borderRadius: "12px",
+                textTransform: "none",
+                fontWeight: 600,
+              }}
+            >
+              Logout
+            </Button>
+          </Box>
         </Box>
 
         {/* Success/Error Messages */}
@@ -291,26 +325,41 @@ export default function Admin() {
           </Alert>
         )}
 
-        {/* Add/Edit Form */}
-        <BookForm
-          form={form}
-          submitting={submitting}
-          editingBook={!!editingBook}
-          onChange={(field, value) =>
-            setForm((prev) => ({ ...prev, [field]: value }))
-          }
-          onFileChange={(field, file) =>
-            setForm((prev) => ({ ...prev, [field]: file }))
-          }
-          onSubmit={handleSubmit}
-          onCancel={resetForm}
-        />
+        {/* Add/Edit Form (now in dialog) */}
+        <Dialog
+          open={formOpen}
+          onClose={handleFormCancel}
+          maxWidth="md"
+          fullWidth
+          fullScreen={fullScreenDialog}
+        >
+          <DialogTitle>{editingBook ? "Edit Book" : "Add Book"}</DialogTitle>
+          <DialogContent>
+            <BookForm
+              form={form}
+              submitting={submitting}
+              editingBook={!!editingBook}
+              onChange={(field, value) =>
+                setForm((prev) => ({ ...prev, [field]: value }))
+              }
+              onFileChange={(field, file) =>
+                setForm((prev) => ({ ...prev, [field]: file }))
+              }
+              onSubmit={async (e) => {
+                await handleSubmit(e);
+                setFormOpen(false);
+              }}
+              onCancel={handleFormCancel}
+            />
+          </DialogContent>
+        </Dialog>
 
         {/* Books List */}
         <BooksTable
           books={books}
           page={page}
           rowsPerPage={rowsPerPage}
+          loading={loading}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
           onRefresh={fetchBooks}

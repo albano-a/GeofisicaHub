@@ -15,6 +15,7 @@ import {
   Chip,
   TablePagination,
   Avatar,
+  Skeleton,
 } from "@mui/material";
 import { MdEdit, MdDelete, MdBook, MdRefresh } from "react-icons/md";
 import { COVER_BUCKET_ID } from "../services/appwrite";
@@ -47,6 +48,7 @@ interface BooksTableProps {
   books: Book[];
   page: number;
   rowsPerPage: number;
+  loading?: boolean;
   onPageChange: (event: unknown, newPage: number) => void;
   onRowsPerPageChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onRefresh: () => void;
@@ -58,6 +60,7 @@ const BooksTable: React.FC<BooksTableProps> = ({
   books,
   page,
   rowsPerPage,
+  loading = false,
   onPageChange,
   onRowsPerPageChange,
   onRefresh,
@@ -209,25 +212,13 @@ const BooksTable: React.FC<BooksTableProps> = ({
                 </TableRow>
               </TableHead>
               <TableBody>
-                {books
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((book, idx) => {
-                    const areaClr = getAreaColor(book.area);
-                    return (
+                {loading
+                  ? Array.from({ length: rowsPerPage || 5 }).map((_, idx) => (
                       <TableRow
-                        key={book.$id}
+                        key={`skeleton-${idx}`}
                         sx={{
-                          "&:hover": {
-                            backgroundColor: "#f8fafc",
-                            transition: "all 0.2s ease",
-                          },
                           borderBottom:
-                            idx ===
-                            books.slice(
-                              page * rowsPerPage,
-                              page * rowsPerPage + rowsPerPage,
-                            ).length -
-                              1
+                            idx === (rowsPerPage || 5) - 1
                               ? "none"
                               : "1px solid #f1f5f9",
                         }}
@@ -240,120 +231,200 @@ const BooksTable: React.FC<BooksTableProps> = ({
                               gap: 2,
                             }}
                           >
-                            <Avatar
-                              src={getCoverSrc(book.cover)}
-                              variant="rounded"
-                              sx={{
-                                width: 40,
-                                height: 56,
-                                boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                                border: "1px solid #e5e7eb",
-                              }}
-                            >
-                              <MdBook />
-                            </Avatar>
-                            <Typography
-                              sx={{
-                                fontWeight: 600,
-                                color: "#1e293b",
-                                fontSize: "0.9375rem",
-                              }}
-                            >
-                              {book.title}
-                            </Typography>
+                            <Skeleton
+                              variant="rectangular"
+                              width={40}
+                              height={56}
+                              sx={{ borderRadius: 1 }}
+                            />
+                            <Box sx={{ width: "60%" }}>
+                              <Skeleton width="80%" height={18} />
+                              <Skeleton
+                                width="40%"
+                                height={14}
+                                sx={{ mt: 0.5 }}
+                              />
+                            </Box>
                           </Box>
                         </TableCell>
                         <TableCell>
-                          <Typography
-                            sx={{ color: "#64748b", fontSize: "0.9375rem" }}
-                          >
-                            {book.author}
-                          </Typography>
+                          <Skeleton width="80%" height={16} />
                         </TableCell>
                         <TableCell>
-                          <Chip
-                            label={book.area}
-                            size="small"
-                            sx={{
-                              backgroundColor: areaClr.bg,
-                              color: areaClr.text,
-                              fontWeight: 600,
-                              fontSize: "0.8125rem",
-                              borderRadius: "8px",
-                              height: "28px",
-                            }}
-                          />
+                          <Skeleton width={80} height={28} />
                         </TableCell>
                         <TableCell>
-                          <Chip
-                            label={
-                              book.language === "en" ? "English" : "Portuguese"
-                            }
-                            size="small"
-                            sx={{
-                              backgroundColor: "#f1f5f9",
-                              color: "#475569",
-                              fontWeight: 500,
-                              fontSize: "0.8125rem",
-                              borderRadius: "8px",
-                              height: "28px",
-                            }}
-                          />
+                          <Skeleton width={80} height={28} />
                         </TableCell>
                         <TableCell>
-                          <Typography
-                            sx={{
-                              color: "#64748b",
-                              fontSize: "0.9375rem",
-                              fontWeight: 500,
-                            }}
-                          >
-                            {book.year}
-                          </Typography>
+                          <Skeleton width={40} height={16} />
                         </TableCell>
                         <TableCell>
                           <Box sx={{ display: "flex", gap: 0.5 }}>
-                            <IconButton
-                              onClick={() => onEdit(book)}
-                              size="small"
-                              sx={{
-                                color: "#f59e0b",
-                                backgroundColor: "#fef3c7",
-                                borderRadius: "8px",
-                                width: 32,
-                                height: 32,
-                                "&:hover": {
-                                  backgroundColor: "#fde68a",
-                                  transform: "scale(1.05)",
-                                },
-                                transition: "all 0.2s ease",
-                              }}
-                            >
-                              <MdEdit size={16} />
-                            </IconButton>
-                            <IconButton
-                              onClick={() => onDelete(book)}
-                              size="small"
-                              sx={{
-                                color: "#dc2626",
-                                backgroundColor: "#fecaca",
-                                borderRadius: "8px",
-                                width: 32,
-                                height: 32,
-                                "&:hover": {
-                                  backgroundColor: "#fca5a5",
-                                  transform: "scale(1.05)",
-                                },
-                                transition: "all 0.2s ease",
-                              }}
-                            >
-                              <MdDelete size={16} />
-                            </IconButton>
+                            <Skeleton
+                              variant="circular"
+                              width={32}
+                              height={32}
+                            />
+                            <Skeleton
+                              variant="circular"
+                              width={32}
+                              height={32}
+                            />
                           </Box>
                         </TableCell>
                       </TableRow>
-                    );
-                  })}
+                    ))
+                  : books
+                      .slice(
+                        page * rowsPerPage,
+                        page * rowsPerPage + rowsPerPage,
+                      )
+                      .map((book, idx) => {
+                        const areaClr = getAreaColor(book.area);
+                        return (
+                          <TableRow
+                            key={book.$id}
+                            sx={{
+                              "&:hover": {
+                                backgroundColor: "#f8fafc",
+                                transition: "all 0.2s ease",
+                              },
+                              borderBottom:
+                                idx ===
+                                books.slice(
+                                  page * rowsPerPage,
+                                  page * rowsPerPage + rowsPerPage,
+                                ).length -
+                                  1
+                                  ? "none"
+                                  : "1px solid #f1f5f9",
+                            }}
+                          >
+                            <TableCell>
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: 2,
+                                }}
+                              >
+                                <Avatar
+                                  src={getCoverSrc(book.cover)}
+                                  variant="rounded"
+                                  sx={{
+                                    width: 40,
+                                    height: 56,
+                                    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                                    border: "1px solid #e5e7eb",
+                                  }}
+                                >
+                                  <MdBook />
+                                </Avatar>
+                                <Typography
+                                  sx={{
+                                    fontWeight: 600,
+                                    color: "#1e293b",
+                                    fontSize: "0.9375rem",
+                                  }}
+                                >
+                                  {book.title}
+                                </Typography>
+                              </Box>
+                            </TableCell>
+                            <TableCell>
+                              <Typography
+                                sx={{ color: "#64748b", fontSize: "0.9375rem" }}
+                              >
+                                {book.author}
+                              </Typography>
+                            </TableCell>
+                            <TableCell>
+                              <Chip
+                                label={book.area}
+                                size="small"
+                                sx={{
+                                  backgroundColor: areaClr.bg,
+                                  color: areaClr.text,
+                                  fontWeight: 600,
+                                  fontSize: "0.8125rem",
+                                  borderRadius: "8px",
+                                  height: "28px",
+                                }}
+                              />
+                            </TableCell>
+                            <TableCell>
+                              <Chip
+                                label={
+                                  book.language === "en"
+                                    ? "English"
+                                    : "Portuguese"
+                                }
+                                size="small"
+                                sx={{
+                                  backgroundColor: "#f1f5f9",
+                                  color: "#475569",
+                                  fontWeight: 500,
+                                  fontSize: "0.8125rem",
+                                  borderRadius: "8px",
+                                  height: "28px",
+                                }}
+                              />
+                            </TableCell>
+                            <TableCell>
+                              <Typography
+                                sx={{
+                                  color: "#64748b",
+                                  fontSize: "0.9375rem",
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {book.year}
+                              </Typography>
+                            </TableCell>
+                            <TableCell>
+                              <Box sx={{ display: "flex", gap: 0.5 }}>
+                                <IconButton
+                                  onClick={() => onEdit(book)}
+                                  size="small"
+                                  sx={{
+                                    color: "#f59e0b",
+                                    backgroundColor: "#fef3c7",
+                                    borderRadius: "8px",
+                                    width: 32,
+                                    height: 32,
+                                    "&:hover": {
+                                      backgroundColor: "#fde68a",
+                                      transform: "scale(1.05)",
+                                    },
+                                    transition: "all 0.2s ease",
+                                  }}
+                                >
+                                  <MdEdit size={16} />
+                                </IconButton>
+                                <IconButton
+                                  onClick={() => onDelete(book)}
+                                  size="small"
+                                  sx={{
+                                    color: "#dc2626",
+                                    backgroundColor: "#fecaca",
+                                    borderRadius: "8px",
+                                    width: 32,
+                                    height: 32,
+                                    "&:hover": {
+                                      backgroundColor: "#fca5a5",
+                                      transform: "scale(1.05)",
+                                    },
+                                    transition: "all 0.2s ease",
+                                  }}
+                                >
+                                  <MdDelete size={16} />
+                                </IconButton>
+                              </Box>
+                            </TableCell>
+                          </TableRow>
+                        );
+                      })}
               </TableBody>
             </Table>
           </TableContainer>
