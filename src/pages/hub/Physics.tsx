@@ -65,6 +65,8 @@ export default function Physics() {
           </p>
         </section>
 
+        <Metrics loading showSort />
+
         <Divider
           sx={{
             width: { xs: "80%", md: "66%" },
@@ -75,6 +77,8 @@ export default function Physics() {
           }}
         />
 
+        
+
         {/* Skeleton Content Section */}
         <div className="w-full max-w-[1600px] px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
@@ -83,21 +87,37 @@ export default function Physics() {
                 key={index}
                 className="transform hover:-translate-y-2 transition-transform duration-300 h-full"
               >
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 h-full flex flex-col">
-                  <Skeleton
-                    variant="rectangular"
-                    width="100%"
-                    height={450}
-                    className="mb-4"
-                  />
-                  <Skeleton
-                    variant="text"
-                    width="80%"
-                    height={24}
-                    className="mb-2"
-                  />
-                  <Skeleton variant="text" width="60%" height={20} />
-                </div>
+                <a className="group flex flex-col h-full max-w-[280px] pointer-events-none">
+                  <div className="relative aspect-[2/3] overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+                    <Skeleton
+                      variant="rectangular"
+                      width="100%"
+                      height="100%"
+                      className="absolute inset-0"
+                      sx={{ bgcolor: "rgba(0,0,0,0.06)" }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  </div>
+
+                  <div className="flex flex-col gap-2 mt-4 px-2 py-3 rounded-lg backdrop-blur-sm">
+                    <Skeleton
+                      variant="text"
+                      width="80%"
+                      height={24}
+                      className="mb-2"
+                    />
+
+                    <div className="flex items-center gap-1">
+                      <Skeleton
+                        variant="circular"
+                        width={20}
+                        height={20}
+                        className="mr-2"
+                      />
+                      <Skeleton variant="text" width="60%" height={16} />
+                    </div>
+                  </div>
+                </a>
               </div>
             ))}
           </div>

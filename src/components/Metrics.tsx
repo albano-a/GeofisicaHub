@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Skeleton } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
@@ -21,15 +22,17 @@ function Metrics({
   onFilterClick,
   showSort = false,
   showFilter = false,
+  loading = false,
 }: {
-  label: string;
-  value: string | number;
-  onSearchChange: (query: string) => void;
+  label?: string;
+  value?: string | number;
+  onSearchChange?: (query: string) => void;
   searchPlaceholder?: string;
   onSortChange?: (sort: SortOpt) => void;
   onFilterClick?: () => void;
   showSort?: boolean;
   showFilter?: boolean;
+  loading?: boolean;
 }) {
   const { t } = useTranslation();
   const [srchVal, setSrchVal] = useState("");
@@ -38,12 +41,12 @@ function Metrics({
 
   const handleSrch = (val: string) => {
     setSrchVal(val);
-    onSearchChange(val);
+    onSearchChange?.(val);
   };
 
   const handleClr = () => {
     setSrchVal("");
-    onSearchChange("");
+    onSearchChange?.("");
   };
 
   const handleSortClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -64,6 +67,44 @@ function Metrics({
     { val: "date-asc", lbl: "Date (Oldest)" },
     { val: "date-desc", lbl: "Date (Newest)" },
   ];
+
+  if (loading) {
+    return (
+      <div className="w-full max-w-7xl mx-auto mb-8 px-4">
+        <div className="bg-gradient-to-r from-white to-gray-50 dark:from-gray-800 dark:to-gray-850 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-6 shrink-0">
+              <div className="flex flex-col">
+                <Skeleton
+                  variant="text"
+                  width={120}
+                  height={12}
+                  className="mb-2"
+                />
+                <Skeleton variant="text" width={120} height={36} />
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 flex-1 w-full md:w-auto max-w-2xl">
+              <div className="flex-1 relative">
+                <Skeleton variant="rectangular" height={40} width="100%" />
+              </div>
+
+              {showSort && (
+                <>
+                  <Skeleton variant="circular" width={40} height={40} />
+                </>
+              )}
+
+              {showFilter && (
+                <Skeleton variant="circular" width={40} height={40} />
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full max-w-7xl mx-auto mb-8 px-4">
