@@ -16,9 +16,10 @@ export interface PostMeta {
   updated?: string;
   references?: string[];
   draft?: boolean;
+  readingTime?: number; // minutes
 }
 
-// Static globs for each language
+// Static globs for each language (compiled modules)
 const postModulesEn = import.meta.glob<{
   frontmatter: PostMeta;
   default: React.ComponentType;
@@ -43,6 +44,32 @@ const postModulesIt = import.meta.glob<{
   frontmatter: PostMeta;
   default: React.ComponentType;
 }>("./posts/it/*.mdx", { eager: true });
+
+// Raw text globs so we can compute reading time by counting words
+const postModulesEnRaw = import.meta.glob("./posts/en/*.mdx", {
+  eager: true,
+  as: "raw",
+}) as Record<string, string>;
+const postModulesPtRaw = import.meta.glob("./posts/pt/*.mdx", {
+  eager: true,
+  as: "raw",
+}) as Record<string, string>;
+const postModulesEsRaw = import.meta.glob("./posts/es/*.mdx", {
+  eager: true,
+  as: "raw",
+}) as Record<string, string>;
+const postModulesFrRaw = import.meta.glob("./posts/fr/*.mdx", {
+  eager: true,
+  as: "raw",
+}) as Record<string, string>;
+const postModulesDeRaw = import.meta.glob("./posts/de/*.mdx", {
+  eager: true,
+  as: "raw",
+}) as Record<string, string>;
+const postModulesItRaw = import.meta.glob("./posts/it/*.mdx", {
+  eager: true,
+  as: "raw",
+}) as Record<string, string>;
 
 const languageModules: Record<
   string,
@@ -78,11 +105,40 @@ async function loadPostsForLanguage(
   const modules = languageModules[lang];
 
   if (modules) {
-    Object.entries(modules).forEach(([_, moduleExports]) => {
+    // Pick the raw source map for this language so we can compute reading time
+    const rawMap: Record<string, string> | undefined = {
+      en: postModulesEnRaw,
+      pt: postModulesPtRaw,
+      es: postModulesEsRaw,
+      fr: postModulesFrRaw,
+      de: postModulesDeRaw,
+      it: postModulesItRaw,
+    }[lang];
+
+    Object.entries(modules).forEach(([path, moduleExports]) => {
       const meta = moduleExports.frontmatter as PostMeta;
       const Component = moduleExports.default;
       const LazyComponent = lazy(() => Promise.resolve({ default: Component }));
-      posts[meta.slug] = { component: LazyComponent, meta };
+
+      // Compute reading time from raw MDX text if available
+      let readingTime: number | undefined = undefined;
+      try {
+        const raw = rawMap ? rawMap[path] : undefined;
+        if (raw) {
+          const words = raw
+            .split(/\s+/)
+            .filter((word) => word.length > 0).length;
+          const wordsPerMinute = 200; // average read speed
+          readingTime = Math.max(1, Math.ceil(words / wordsPerMinute));
+        }
+      } catch (e) {
+        console.log(`Error computing reading time: ${e}`);
+      }
+
+      posts[meta.slug] = {
+        component: LazyComponent,
+        meta: { ...meta, readingTime },
+      };
     });
   }
 

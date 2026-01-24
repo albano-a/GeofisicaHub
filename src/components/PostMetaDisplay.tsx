@@ -56,6 +56,12 @@ export default function PostMetaDisplay({
             Updated: {meta.updated}
           </span>
         )}
+
+        {meta.readingTime && (
+          <span className="font-mono ml-2 inline-flex items-center gap-1 bg-geo-primary/10 dark:bg-geo-darkprimary/20 text-geo-primary dark:text-geo-darkprimary px-2 py-1 rounded-full text-sm">
+            ⏱ {meta.readingTime} min read
+          </span>
+        )}
       </div>
     </div>
   );

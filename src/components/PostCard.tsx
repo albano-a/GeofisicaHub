@@ -28,17 +28,24 @@ export default function PostCard({ post }: PostCardProps) {
           </span>
         ))}
       </div>
-      <div className="flex gap-2 mt-2 text-xs text-gray-500 dark:text-gray-400">
+      <div className="flex gap-2 mt-2 text-xs text-gray-500 dark:text-gray-400 items-center">
         {post.posted && (
           <span className="flex items-center gap-1">
             <DateRangeTwoToneIcon fontSize="small" sx={{ color: "#1077bc" }} />
             {post.posted}
           </span>
         )}
+
         {post.updated && post.updated !== post.posted && (
           <span className="flex items-center gap-1">
             <UpdateTwoToneIcon fontSize="small" sx={{ color: "#1077bc" }} />
             {post.updated}
+          </span>
+        )}
+
+        {post.readingTime && (
+          <span className="ml-auto inline-flex items-center gap-1 bg-geo-primary/10 dark:bg-geo-darkprimary/20 text-geo-primary dark:text-geo-darkprimary px-2 py-1 rounded-full text-xs">
+            ⏱ {post.readingTime} min read
           </span>
         )}
       </div>

@@ -4,7 +4,7 @@ description: "Explaining the marine seismic acquisition process."
 slug: "marine-seismic-acquisition-explained"
 posted: "23/01/2026"
 tags: ["seismic", "acquisition", "geophysics"]
-draft: true
+draft: false
 ---
 
 import Math from '../../../components/Math'
@@ -57,15 +57,15 @@ There are two types of body waves: **P waves** (primary) and **S waves** (second
 
 P waves can propagate through solids, liquids, and gases. The particle motion occurs in the same direction as wave propagation. Their velocity depends on the stiffness and density of the medium and can be expressed as
 
-<Math math="V_p = \sqrt{\frac{k + \frac{4}{3}\mu}{\rho}}" block={true} />
+<Math f="V_p = \sqrt{\frac{k + \frac{4}{3}\mu}{\rho}}" block />
 
-where <Math math="k" /> is the bulk modulus, <Math math="\mu" /> is the shear modulus, and <Math math="\rho" /> is the density of the medium.
+where <Math f="k" /> is the bulk modulus, <Math f="\mu" /> is the shear modulus, and <Math f="\rho" /> is the density of the medium.
 
 S waves behave differently. They can propagate only through solids. Particle motion is perpendicular to the direction of wave propagation, similar to the motion of a shaken rope. Their velocity is given by
 
-<Math math="V_s = \sqrt{\frac{\mu}{\rho}}" block={true} />
+<Math f="V_s = \sqrt{\frac{\mu}{\rho}}" block />
 
-where <Math math="\mu" /> is the shear modulus and <Math math="\rho" /> is the density. S waves are always slower than P waves.
+where <Math f="\mu" /> is the shear modulus and <Math f="\rho" /> is the density. S waves are always slower than P waves.
 
 The second main class of seismic waves is **surface waves**, which propagate along the free surface of the Earth. They are divided into **Rayleigh (R)** waves and **Love (L)** waves according to their particle motion. These waves carry strong energy but usually interfere with seismic exploration data rather than contribute useful information.
 
@@ -75,4 +75,18 @@ However, modern systems such as ocean bottom cables, ocean bottom seismometers, 
 
 
 ### Reflection from an Interface
-When the compressional wave strikes an interface separating two media with *different propagation velocities and densities*, some certain part of the incident energy is reflected from the boundary back into the upper medium, while the remaining part is transmitted into teh underlying media.
+When the compressional wave strikes an interface separating two media with *different propagation velocities and densities*, some certain part of the incident energy is reflected from the boundary back into the upper medium, while the remaining part is transmitted into teh underlying media. Seismic waves are reflected from the interfaces that separate two media of different acoustic impedances defined by:
+
+<Math f="Z = \rho V" block />
+
+where <Math f="Z" /> is the acoustic impedance, <Math f="\rho" /> is density, and <Math f="V" /> is the velocity of the medium.
+
+The reflection coefficient of a given interface is
+
+<Math f="R = \frac{Z_2 - Z_1}{Z_2 + Z_1}" block />
+
+and the transmission coefficient is
+
+<Math f="T = \frac{2Z_1}{Z_2 + Z_1}" block />
+
+where <Math f="Z_1" /> and <Math f="Z_2" /> are the acoustic impedances of the upper and lower media, respectively. The amplitude of the reflected portion of the incident wave is <Math f="A_r = R \cdot A_0" /> and the transmitted wave amplitude is <Math f="A_t = T \cdot A_0" /> where <Math f="A_0" /> is the amplitude of the incident wave. The sum of the reflected and trasnmitted amplitude equals to the incident wave amplitude.
