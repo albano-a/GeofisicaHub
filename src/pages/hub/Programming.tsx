@@ -80,7 +80,7 @@ export default function Programming() {
         {/* Skeleton Content Section */}
         <div className="w-full max-w-[1600px] px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-            {Array.from({ length: 5 }).map((_, index) => (
+            {Array.from({ length: 3 }).map((_, index) => (
               <div
                 key={index}
                 className="transform hover:-translate-y-2 transition-transform duration-300 h-full"

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import React from "react";
-import { getAllPosts } from "./EachPost";
-import type { PostMeta } from "./EachPost";
+import { getAllPosts } from "../services/loadPosts";
+import type { PostMeta } from "../services/loadPosts";
 import PostCard from "../components/PostCard";
 import Breadcrumb from "../components/Breadcrumb";
 import { useSEO } from "../hooks/useSEO";

@@ -42,12 +42,6 @@ export default function PostCard({ post }: PostCardProps) {
             {post.updated}
           </span>
         )}
-
-        {post.readingTime && (
-          <span className="ml-auto inline-flex items-center gap-1 bg-geo-primary/10 dark:bg-geo-darkprimary/20 text-geo-primary dark:text-geo-darkprimary px-2 py-1 rounded-full text-xs">
-            ⏱ {post.readingTime} min read
-          </span>
-        )}
       </div>
     </Link>
   );

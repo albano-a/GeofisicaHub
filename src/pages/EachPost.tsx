@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ShareButtons from "../components/ShareButtons";
@@ -7,172 +7,25 @@ import PostMetaDisplay from "../components/PostMetaDisplay";
 import References from "../components/References";
 import Breadcrumb from "../components/Breadcrumb";
 import { useSEO } from "../hooks/useSEO";
-export interface PostMeta {
-  title: string;
-  description: string;
-  slug: string;
-  tags: string[];
-  posted?: string;
-  updated?: string;
-  references?: string[];
-  draft?: boolean;
-  readingTime?: number; // minutes
-}
-
-// Static globs for each language (compiled modules)
-const postModulesEn = import.meta.glob<{
-  frontmatter: PostMeta;
-  default: React.ComponentType;
-}>("./posts/en/*.mdx", { eager: true });
-const postModulesPt = import.meta.glob<{
-  frontmatter: PostMeta;
-  default: React.ComponentType;
-}>("./posts/pt/*.mdx", { eager: true });
-const postModulesEs = import.meta.glob<{
-  frontmatter: PostMeta;
-  default: React.ComponentType;
-}>("./posts/es/*.mdx", { eager: true });
-const postModulesFr = import.meta.glob<{
-  frontmatter: PostMeta;
-  default: React.ComponentType;
-}>("./posts/fr/*.mdx", { eager: true });
-const postModulesDe = import.meta.glob<{
-  frontmatter: PostMeta;
-  default: React.ComponentType;
-}>("./posts/de/*.mdx", { eager: true });
-const postModulesIt = import.meta.glob<{
-  frontmatter: PostMeta;
-  default: React.ComponentType;
-}>("./posts/it/*.mdx", { eager: true });
-
-// Raw text globs so we can compute reading time by counting words
-const postModulesEnRaw = import.meta.glob("./posts/en/*.mdx", {
-  eager: true,
-  as: "raw",
-}) as Record<string, string>;
-const postModulesPtRaw = import.meta.glob("./posts/pt/*.mdx", {
-  eager: true,
-  as: "raw",
-}) as Record<string, string>;
-const postModulesEsRaw = import.meta.glob("./posts/es/*.mdx", {
-  eager: true,
-  as: "raw",
-}) as Record<string, string>;
-const postModulesFrRaw = import.meta.glob("./posts/fr/*.mdx", {
-  eager: true,
-  as: "raw",
-}) as Record<string, string>;
-const postModulesDeRaw = import.meta.glob("./posts/de/*.mdx", {
-  eager: true,
-  as: "raw",
-}) as Record<string, string>;
-const postModulesItRaw = import.meta.glob("./posts/it/*.mdx", {
-  eager: true,
-  as: "raw",
-}) as Record<string, string>;
-
-const languageModules: Record<
-  string,
-  Record<string, { frontmatter: PostMeta; default: React.ComponentType }>
-> = {
-  en: postModulesEn,
-  pt: postModulesPt,
-  es: postModulesEs,
-  fr: postModulesFr,
-  de: postModulesDe,
-  it: postModulesIt,
-};
-
-// Cache for loaded posts by language
-const postsCache: Record<
-  string,
-  Record<string, { component: React.LazyExoticComponent<any>; meta: PostMeta }>
-> = {};
-
-async function loadPostsForLanguage(
-  lang: string,
-): Promise<
-  Record<string, { component: React.LazyExoticComponent<any>; meta: PostMeta }>
-> {
-  if (postsCache[lang]) return postsCache[lang];
-
-  const posts: Record<
-    string,
-    { component: React.LazyExoticComponent<any>; meta: PostMeta }
-  > = {};
-  const mods = languageModules[lang];
-  console.warn(`Mods: ${mods}`);
-
-  if (!mods) {
-    if (lang !== "en") {
-      console.warn(
-        `No posts found for language ${lang}, falling back to English`,
-      );
-      return loadPostsForLanguage("en");
-    }
-    postsCache[lang] = posts;
-    return posts;
-  }
-
-  const rawMap = {
-    en: postModulesEnRaw,
-    pt: postModulesPtRaw,
-    es: postModulesEsRaw,
-    fr: postModulesFrRaw,
-    de: postModulesDeRaw,
-    it: postModulesItRaw,
-  }[lang];
-
-  console.warn(`Raw map: ${rawMap}`);
-
-  for (const [path, modExp] of Object.entries(mods)) {
-    const meta = modExp.frontmatter as PostMeta;
-    console.warn(`Meta is ${meta}`);
-
-    const lzComp = lazy(() => Promise.resolve({ default: modExp.default }));
-    let rdTime: number | undefined;
-
-    try {
-      const raw = rawMap?.[path];
-      console.warn(`This is for the fucking AI, raw is equal to?:::: ${raw}`);
-      if (raw) {
-        const wds = raw.split(/\s+/).filter((w) => w.length > 0).length;
-        rdTime = Math.max(1, Math.ceil(wds / 200));
-      }
-    } catch (e) {
-      console.log(`Error computing reading time: ${e}`);
-    }
-
-    posts[meta.slug] = {
-      component: lzComp,
-      meta: { ...meta, readingTime: rdTime },
-    };
-  }
-
-  postsCache[lang] = posts;
-  return posts;
-}
-
-export const getAllPosts = async (lang: string = "en"): Promise<PostMeta[]> => {
-  const posts = await loadPostsForLanguage(lang);
-  return Object.values(posts)
-    .map((p) => p.meta)
-    .filter((post) => !post.draft); // Filter out draft posts
-};
+import type { PostMeta } from "../services/loadPosts";
+import { loadPostsForLanguage } from "../services/loadPosts";
 
 export default function FundamentalsPost() {
   const { slug } = useParams<{ slug: string }>();
   const { i18n } = useTranslation();
-  const [post, setPost] = React.useState<{
+  const [post, setPost] = useState<{
     component: React.LazyExoticComponent<any>;
     meta: PostMeta;
   } | null>(null);
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const loadPost = async () => {
-      if (!slug) return;
+      if (!slug) {
+        return;
+      }
       setLoading(true);
+      
       const posts = await loadPostsForLanguage(i18n.language);
       setPost(posts[slug] || null);
       setLoading(false);
