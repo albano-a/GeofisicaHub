@@ -1,4 +1,4 @@
-import type { PostMeta } from "../pages/EachPost";
+import type { PostMeta } from "../services/loadPosts";
 import DateRangeTwoToneIcon from "@mui/icons-material/DateRangeTwoTone";
 import UpdateTwoToneIcon from "@mui/icons-material/UpdateTwoTone";
 
