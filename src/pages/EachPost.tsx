@@ -94,60 +94,59 @@ async function loadPostsForLanguage(
 ): Promise<
   Record<string, { component: React.LazyExoticComponent<any>; meta: PostMeta }>
 > {
-  if (postsCache[lang]) {
-    return postsCache[lang];
-  }
+  if (postsCache[lang]) return postsCache[lang];
 
   const posts: Record<
     string,
     { component: React.LazyExoticComponent<any>; meta: PostMeta }
   > = {};
-  const modules = languageModules[lang];
+  const mods = languageModules[lang];
+  console.warn(`Mods: ${mods}`);
 
-  if (modules) {
-    // Pick the raw source map for this language so we can compute reading time
-    const rawMap: Record<string, string> | undefined = {
-      en: postModulesEnRaw,
-      pt: postModulesPtRaw,
-      es: postModulesEsRaw,
-      fr: postModulesFrRaw,
-      de: postModulesDeRaw,
-      it: postModulesItRaw,
-    }[lang];
-
-    Object.entries(modules).forEach(([path, moduleExports]) => {
-      const meta = moduleExports.frontmatter as PostMeta;
-      const Component = moduleExports.default;
-      const LazyComponent = lazy(() => Promise.resolve({ default: Component }));
-
-      // Compute reading time from raw MDX text if available
-      let readingTime: number | undefined = undefined;
-      try {
-        const raw = rawMap ? rawMap[path] : undefined;
-        if (raw) {
-          const words = raw
-            .split(/\s+/)
-            .filter((word) => word.length > 0).length;
-          const wordsPerMinute = 200; // average read speed
-          readingTime = Math.max(1, Math.ceil(words / wordsPerMinute));
-        }
-      } catch (e) {
-        console.log(`Error computing reading time: ${e}`);
-      }
-
-      posts[meta.slug] = {
-        component: LazyComponent,
-        meta: { ...meta, readingTime },
-      };
-    });
+  if (!mods) {
+    if (lang !== "en") {
+      console.warn(
+        `No posts found for language ${lang}, falling back to English`,
+      );
+      return loadPostsForLanguage("en");
+    }
+    postsCache[lang] = posts;
+    return posts;
   }
 
-  // If no posts for this language, try English as fallback
-  if (Object.keys(posts).length === 0 && lang !== "en") {
-    console.warn(
-      `No posts found for language ${lang}, falling back to English`,
-    );
-    return loadPostsForLanguage("en");
+  const rawMap = {
+    en: postModulesEnRaw,
+    pt: postModulesPtRaw,
+    es: postModulesEsRaw,
+    fr: postModulesFrRaw,
+    de: postModulesDeRaw,
+    it: postModulesItRaw,
+  }[lang];
+
+  console.warn(`Raw map: ${rawMap}`);
+
+  for (const [path, modExp] of Object.entries(mods)) {
+    const meta = modExp.frontmatter as PostMeta;
+    console.warn(`Meta is ${meta}`);
+
+    const lzComp = lazy(() => Promise.resolve({ default: modExp.default }));
+    let rdTime: number | undefined;
+
+    try {
+      const raw = rawMap?.[path];
+      console.warn(`This is for the fucking AI, raw is equal to?:::: ${raw}`);
+      if (raw) {
+        const wds = raw.split(/\s+/).filter((w) => w.length > 0).length;
+        rdTime = Math.max(1, Math.ceil(wds / 200));
+      }
+    } catch (e) {
+      console.log(`Error computing reading time: ${e}`);
+    }
+
+    posts[meta.slug] = {
+      component: lzComp,
+      meta: { ...meta, readingTime: rdTime },
+    };
   }
 
   postsCache[lang] = posts;

@@ -30,6 +30,7 @@ export default defineConfig({
   plugins: [
     mdx({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+      providerImportSource: "@mdx-js/react", // Ensure MDX components are properly imported
     }),
     react(),
     Sitemap({
@@ -92,5 +93,8 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000, // Increase limit to 1000 kB
+  },
+  optimizeDeps: {
+    include: ["@mdx-js/react"], // Ensure MDX dependencies are optimized
   },
 });
