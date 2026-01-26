@@ -4,6 +4,7 @@ import AppRoutes from "./AppRoutes";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from "./contexts/AuthContext";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <div>
             <AppRoutes></AppRoutes>
             <Analytics />
+            <SpeedInsights />
           </div>
           <Footer />
         </div>
