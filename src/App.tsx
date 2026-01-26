@@ -4,7 +4,7 @@ import AppRoutes from "./AppRoutes";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from "./contexts/AuthContext";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   return (
