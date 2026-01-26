@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from "./contexts/AuthContext";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
-function App() {
+export default function App() {
   return (
     <ErrorBoundary>
       <AuthProvider>
@@ -24,5 +24,3 @@ function App() {
     </ErrorBoundary>
   );
 }
-
-export default App;
