@@ -1,35 +1,42 @@
 /**
- * Script to upload PDFs from D:\Livros\GeofisicaHub\Cálculo\pt to AppWrite bucket
- * Run with: npx ts-node upload_pdfs.ts
+ * Upload local PDF files to the configured Appwrite bucket.
+ * Required env vars: VITE_APPWRITE_ENDPOINT, VITE_APPWRITE_PROJECT_ID,
+ * VITE_APPWRITE_BUCKET_ID, UPLOAD_PDFS_DIR.
+ * Optional env var: APPWRITE_API_KEY.
+ *
+ * Run with: npx ts-node scripts/upload_pdfs.ts
  */
 
 import { config } from "dotenv";
 config();
 
-import { Client, Storage, ID } from "appwrite";
-import { InputFile } from "node-appwrite/file"; // Correct import for Node.js
+import { Client, Storage, ID } from "node-appwrite";
+import { InputFile } from "node-appwrite/file";
 import { readdir, readFile } from "fs/promises";
 import { join } from "path";
 
-// Load environment variables
-const endpoint = process.env.VITE_APPWRITE_ENDPOINT as string;
-const projectId = process.env.VITE_APPWRITE_PROJECT_ID as string;
-const bucketId = process.env.VITE_APPWRITE_BUCKET_ID as string;
+const endpoint = process.env.VITE_APPWRITE_ENDPOINT;
+const projectId = process.env.VITE_APPWRITE_PROJECT_ID;
+const bucketId = process.env.VITE_APPWRITE_BUCKET_ID;
+const apiKey = process.env.APPWRITE_API_KEY;
+const dirPath = process.env.UPLOAD_PDFS_DIR;
 
-if (!endpoint || !projectId || !bucketId) {
+if (!endpoint || !projectId || !bucketId || !dirPath) {
   console.error("Missing environment variables. Check your .env file.");
   process.exit(1);
 }
 
 const client = new Client().setEndpoint(endpoint).setProject(projectId);
+if (apiKey) {
+  client.setKey(apiKey);
+}
+
 const storage = new Storage(client);
 
 async function uploadPdfs() {
-  const dirPath = "D:\\Livros\\GeofisicaHub\\Física\\en"; // Windows path
-
   try {
     const files = await readdir(dirPath);
-    const pdfFiles = files.filter((file) => file.endsWith(".pdf"));
+    const pdfFiles = files.filter((file) => file.toLowerCase().endsWith(".pdf"));
 
     if (pdfFiles.length === 0) {
       console.log("No PDF files found in the directory.");
@@ -44,7 +51,11 @@ async function uploadPdfs() {
       const fileId = ID.unique();
       const inputFile = InputFile.fromBuffer(buffer, fileName);
 
-      await storage.createFile(bucketId, fileId, inputFile); // Note: Using deprecated positional args; update to object style if needed
+      await storage.createFile({
+        bucketId,
+        fileId,
+        file: inputFile,
+      });
       console.log(`Uploaded: ${fileName} (ID: ${fileId})`);
     }
 

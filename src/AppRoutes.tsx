@@ -18,6 +18,7 @@ const PDFViewer = lazy(() => import("./components/PDFViewer"));
 const Login = lazy(() => import("./pages/Login"));
 const Admin = lazy(() => import("./pages/Admin"));
 const ProtectedRoute = lazy(() => import("./components/ProtectedRoute"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const AppRoutes: React.FC = () => (
   <Suspense fallback={<LoadingSpinner />}>
@@ -45,7 +46,7 @@ const AppRoutes: React.FC = () => (
       />
       {/* Add more routes as needed */}
 
-      <Route path="*" element={<Home />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </Suspense>
 );
