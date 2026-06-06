@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+
+const getErrorMessage = (error: unknown, fallback: string) =>
+  error instanceof Error ? error.message : fallback;
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -14,8 +17,8 @@ export default function Login() {
     try {
       await login(email, password);
       navigate("/admin");
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(getErrorMessage(err, "Unable to log in"));
     }
   };
 

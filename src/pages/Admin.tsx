@@ -8,7 +8,7 @@ import {
   COLLECTION_ID,
 } from "../services/appwrite";
 import { Query } from "appwrite";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 import {
   Button,
   Box,
@@ -25,6 +25,7 @@ import { useTheme } from "@mui/material/styles";
 import { MdAdd, MdDelete, MdLogout, MdBook } from "react-icons/md";
 import BookForm from "../components/BookForm";
 import BooksTable from "../components/BooksTable";
+
 interface Book {
   $id: string;
   title: string;
@@ -35,6 +36,9 @@ interface Book {
   fileId: string;
   year: number;
 }
+
+const getErrorMessage = (error: unknown, fallback: string) =>
+  error instanceof Error ? error.message : fallback;
 
 export default function Admin() {
   const { logout } = useAuth();
@@ -100,7 +104,7 @@ export default function Admin() {
       });
       console.log("Fetched books:", response.documents);
       setBooks(response.documents as unknown as Book[]);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error fetching books:", error);
       setError("Failed to load books. Please try again.");
     } finally {
@@ -170,9 +174,9 @@ export default function Admin() {
 
       fetchBooks();
       resetForm();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error saving book:", error);
-      setError(error.message || "Failed to save book. Please try again.");
+      setError(getErrorMessage(error, "Failed to save book. Please try again."));
     } finally {
       setSubmitting(false);
     }
@@ -191,9 +195,11 @@ export default function Admin() {
       setSuccess("Book deleted successfully!");
       fetchBooks();
       setDeleteDialog({ open: false, book: null });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error deleting book:", error);
-      setError(error.message || "Failed to delete book. Please try again.");
+      setError(
+        getErrorMessage(error, "Failed to delete book. Please try again."),
+      );
       setDeleteDialog({ open: false, book: null });
     }
   };

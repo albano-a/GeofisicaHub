@@ -49,8 +49,9 @@ async function uploadPdfs() {
     }
 
     console.log("All PDFs uploaded successfully.");
-  } catch (error: any) {
-    console.error("Upload failed:", error.message);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    console.error("Upload failed:", message);
   }
 }
 

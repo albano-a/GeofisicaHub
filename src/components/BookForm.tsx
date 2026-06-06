@@ -36,7 +36,10 @@ interface BookFormProps {
   };
   submitting: boolean;
   editingBook: boolean;
-  onChange: (field: string, value: any) => void;
+  onChange: (
+    field: "title" | "author" | "area" | "language" | "year",
+    value: string | number,
+  ) => void;
   onFileChange: (field: string, file: File | null) => void;
   onSubmit: (e: React.FormEvent) => void;
   onCancel: () => void;

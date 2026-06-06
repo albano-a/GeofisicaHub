@@ -2,27 +2,24 @@ import React, { useState, useEffect, useRef } from "react";
 // Import annotation layer CSS
 import "pdfjs-dist/web/pdf_viewer.css";
 
-import * as pdfjsLib from "pdfjs-dist";
-import * as pdfjsViewer from "pdfjs-dist/web/pdf_viewer";
-
-const pdfLib: any =
-  typeof (window as any).pdfjsLib !== "undefined"
-    ? (window as any).pdfjsLib
-    : pdfjsLib;
-const pdfViewerLib: any =
-  typeof (window as any).pdfjsViewer !== "undefined"
-    ? (window as any).pdfjsViewer
-    : (pdfjsViewer as any);
+import { GlobalWorkerOptions } from "pdfjs-dist";
+import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+import { PDFPageView } from "pdfjs-dist/web/pdf_viewer.mjs";
+import type {
+  PDFDocumentProxy,
+  PDFPageProxy,
+} from "pdfjs-dist/types/src/display/api";
+import type { PageViewport } from "pdfjs-dist/types/src/display/display_utils";
+import type { EventBus } from "pdfjs-dist/types/web/event_utils";
+import type { PDFLinkService } from "pdfjs-dist/types/web/pdf_link_service";
+import type {
+  PDFPageView as PDFPageViewType,
+  PDFPageViewOptions,
+} from "pdfjs-dist/types/web/pdf_page_view";
 
 try {
-  const workerPath =
-    typeof pdfLib?.version === "string"
-      ? `//unpkg.com/pdfjs-dist@${pdfLib.version}/build/pdf.worker.min.mjs`
-      : `//unpkg.com/pdfjs-dist/build/pdf.worker.min.mjs`;
-  if (pdfLib && pdfLib.GlobalWorkerOptions) {
-    pdfLib.GlobalWorkerOptions.workerSrc = workerPath;
-  }
-} catch (e) {
+  GlobalWorkerOptions.workerSrc = workerSrc;
+} catch {
   // ignore
 }
 
@@ -30,12 +27,12 @@ const maxWidth = 1400;
 
 interface PDFPageProps {
   pageNumber: number;
-  pdf: any; // PDFDocumentProxy (use any to avoid missing-global type errors in CI)
+  pdf: PDFDocumentProxy;
   scale: number;
   containerWidth: number;
   onVisible: (pageNumber: number) => void;
-  eventBus: any;
-  linkService: any;
+  eventBus: EventBus;
+  linkService: PDFLinkService;
 }
 
 const PDFPage: React.FC<PDFPageProps> = ({
@@ -47,11 +44,11 @@ const PDFPage: React.FC<PDFPageProps> = ({
   eventBus,
   linkService,
 }) => {
-  const [viewport, setViewport] = useState<any>(null);
+  const [viewport, setViewport] = useState<PageViewport | null>(null);
   const pageHostRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const pageViewRef = useRef<any>(null);
+  const pageViewRef = useRef<PDFPageViewType | null>(null);
   const [pageAspectRatio, setPageAspectRatio] = useState<number>(1.414); // Default A4ish
 
   // Intersection Observer to detect visibility
@@ -142,7 +139,12 @@ const PDFPage: React.FC<PDFPageProps> = ({
           // create a base viewport (scale:1) and ask PDFPageView to render at totalScale * pixelRatio
           const pixelRatio = Math.max(window.devicePixelRatio || 1, 1);
           const baseViewport = page.getViewport({ scale: 1 });
-          const pageView = new pdfViewerLib.PDFPageView({
+          const pageViewOptions: PDFPageViewOptions & {
+            linkService: PDFLinkService;
+            annotationLayerFactory: null;
+            enhanceTextSelection: boolean;
+            useOnlyCssZoom: boolean;
+          } = {
             container: pageHostRef.current,
             id: pageNumber,
             defaultViewport: baseViewport,
@@ -153,10 +155,11 @@ const PDFPage: React.FC<PDFPageProps> = ({
             annotationLayerFactory: null,
             enhanceTextSelection: true,
             useOnlyCssZoom: false,
-          });
+          };
+          const pageView = new PDFPageView(pageViewOptions);
 
           pageViewRef.current = pageView;
-          pageView.setPdfPage(page);
+          pageView.setPdfPage(page as PDFPageProxy);
           await pageView.draw();
           // Ensure the generated .page and canvas match our computed viewport exactly.
           try {
@@ -187,8 +190,11 @@ const PDFPage: React.FC<PDFPageProps> = ({
             console.warn("Failed to normalize page/canvas sizing:", err);
           }
         }
-      } catch (e: any) {
-        if (e.name !== "RenderingCancelledException") {
+      } catch (e: unknown) {
+        if (
+          !(e instanceof Error) ||
+          e.name !== "RenderingCancelledException"
+        ) {
           console.error(`Error rendering page ${pageNumber}:`, e);
         }
       }
@@ -210,7 +216,7 @@ const PDFPage: React.FC<PDFPageProps> = ({
         pageViewRef.current = null;
       }
     };
-  }, [isVisible, pdf, pageNumber, scale, containerWidth]);
+  }, [isVisible, pdf, pageNumber, scale, containerWidth, eventBus, linkService]);
 
   // Dimensions for placeholder
   const widthPx = containerWidth

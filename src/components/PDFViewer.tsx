@@ -13,28 +13,26 @@ import PDFPage from "./PDFPage";
 
 import "pdfjs-dist/web/pdf_viewer.css";
 
-import * as pdfjsLib from "pdfjs-dist";
-import * as pdfjsViewer from "pdfjs-dist/web/pdf_viewer";
+import { GlobalWorkerOptions, getDocument } from "pdfjs-dist";
+import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+import { EventBus, PDFLinkService } from "pdfjs-dist/web/pdf_viewer.mjs";
+import type {
+  PDFDocumentProxy,
+  RefProxy,
+} from "pdfjs-dist/types/src/display/api";
+import type { EventBus as EventBusType } from "pdfjs-dist/types/web/event_utils";
+import type { PDFLinkService as PDFLinkServiceType } from "pdfjs-dist/types/web/pdf_link_service";
 
-const pdfLib: any =
-  typeof (window as any).pdfjsLib !== "undefined"
-    ? (window as any).pdfjsLib
-    : pdfjsLib;
-const pdfViewerLib: any =
-  typeof (window as any).pdfjsViewer !== "undefined"
-    ? (window as any).pdfjsViewer
-    : (pdfjsViewer as any);
+interface PDFOutlineItem {
+  title: string;
+  dest: string | unknown[] | null;
+  items?: PDFOutlineItem[];
+}
 
 // Set up PDF.js worker (use CDN worker path if available)
 try {
-  const workerPath =
-    typeof pdfLib?.version === "string"
-      ? `//unpkg.com/pdfjs-dist@${pdfLib.version}/build/pdf.worker.min.mjs`
-      : `//unpkg.com/pdfjs-dist/build/pdf.worker.min.mjs`;
-  if (pdfLib && pdfLib.GlobalWorkerOptions) {
-    pdfLib.GlobalWorkerOptions.workerSrc = workerPath;
-  }
-} catch (e) {
+  GlobalWorkerOptions.workerSrc = workerSrc;
+} catch {
   // ignore
 }
 
@@ -51,9 +49,9 @@ const PDFViewer: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const [pdfDocument, setPdfDocument] = useState<any | null>(null);
+  const [pdfDocument, setPdfDocument] = useState<PDFDocumentProxy | null>(null);
   const [numPages, setNumPages] = useState<number>(0); // Number of pages
-  const [outline, setOutline] = useState<any[]>([]);
+  const [outline, setOutline] = useState<PDFOutlineItem[]>([]);
 
   const [outlineOpen, setOutlineOpen] = useState(false);
   const [scale, setScale] = useState(0.5);
@@ -64,9 +62,10 @@ const PDFViewer: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const pdfContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const eventBusRef = useRef<any>(new pdfViewerLib.EventBus());
-  const linkServiceRef = useRef<any>(
-    new pdfViewerLib.PDFLinkService({ eventBus: eventBusRef.current }),
+  const currentPageRef = useRef(currentPage);
+  const eventBusRef = useRef<EventBusType>(new EventBus());
+  const linkServiceRef = useRef<PDFLinkServiceType>(
+    new PDFLinkService({ eventBus: eventBusRef.current }),
   );
   const navigate = useNavigate();
 
@@ -113,7 +112,7 @@ const PDFViewer: React.FC = () => {
         const url = URL.createObjectURL(blob);
 
         // 3. Load Document with PDF.js
-        const loadingTask = pdfLib.getDocument(url);
+        const loadingTask = getDocument(url);
         const pdf = await loadingTask.promise;
 
         setPdfDocument(pdf);
@@ -128,16 +127,16 @@ const PDFViewer: React.FC = () => {
           ) {
             linkServiceRef.current.setDocument(pdf);
           }
-        } catch (e) {
+        } catch {
           // ignore if linking fails
         }
 
         // 4. Get Outline
         const outlineData = await pdf.getOutline();
-        setOutline(outlineData || []);
+        setOutline((outlineData || []) as PDFOutlineItem[]);
 
         setLoading(false);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("PDF load error:", err);
         setError("Failed to load PDF. Please check permissions.");
         setLoading(false);
@@ -148,8 +147,14 @@ const PDFViewer: React.FC = () => {
   }, [fileId]);
 
   useEffect(() => {
+    currentPageRef.current = currentPage;
+  }, [currentPage]);
+
+  useEffect(() => {
     const maintainPosition = () => {
-      const pageEl = document.getElementById(`pdf-page-${currentPage}`);
+      const pageEl = document.getElementById(
+        `pdf-page-${currentPageRef.current}`,
+      );
       if (pageEl) {
         pageEl.scrollIntoView({ block: "start" });
       }
@@ -158,7 +163,7 @@ const PDFViewer: React.FC = () => {
     requestAnimationFrame(() => {
       requestAnimationFrame(maintainPosition);
     });
-  }, [scale]); // Intentionally omitting currentPage to avoid snapping during scroll
+  }, [scale]);
 
   const handleZoom = (type: "in" | "out" | "reset") => {
     setScale((prev) => {
@@ -193,7 +198,7 @@ const PDFViewer: React.FC = () => {
   };
 
   // Helper to render outline recursively
-  const renderOutlineItems = (items: any[]) => {
+  const renderOutlineItems = (items: PDFOutlineItem[]) => {
     return (
       <ul className="pl-4 custom-pdf-outline">
         {items.map((item, idx) => (
@@ -202,12 +207,12 @@ const PDFViewer: React.FC = () => {
               onClick={async () => {
                 if (pdfDocument && item.dest) {
                   try {
-                    let dest = item.dest;
-                    if (typeof dest === "string") {
-                      dest = await pdfDocument.getDestination(dest);
-                    }
+                    const dest =
+                      typeof item.dest === "string"
+                        ? await pdfDocument.getDestination(item.dest)
+                        : item.dest;
                     if (Array.isArray(dest)) {
-                      const ref = dest[0];
+                      const ref = dest[0] as RefProxy;
                       const pageIndex = await pdfDocument.getPageIndex(ref);
 
                       // Scroll to element
