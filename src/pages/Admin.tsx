@@ -8,7 +8,7 @@ import {
   COLLECTION_ID,
 } from "../services/appwrite";
 import { Query } from "appwrite";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 import {
   Button,
   Box,
@@ -25,6 +25,7 @@ import { useTheme } from "@mui/material/styles";
 import { MdAdd, MdDelete, MdLogout, MdBook } from "react-icons/md";
 import BookForm from "../components/BookForm";
 import BooksTable from "../components/BooksTable";
+
 interface Book {
   $id: string;
   title: string;
@@ -35,6 +36,66 @@ interface Book {
   fileId: string;
   year: number;
 }
+
+interface BookFormState {
+  title: string;
+  author: string;
+  area: string;
+  language: string;
+  year: number;
+  coverFile: File | null;
+  pdfFile: File | null;
+}
+
+const getErrorMessage = (error: unknown, fallback: string) =>
+  error instanceof Error ? error.message : fallback;
+
+const COVER_MAX_BYTES = 5 * 1024 * 1024;
+const PDF_MAX_BYTES = 500 * 1024 * 1024;
+
+const initialForm: BookFormState = {
+  title: "",
+  author: "",
+  area: "Geophysics",
+  language: "en",
+  year: new Date().getFullYear(),
+  coverFile: null,
+  pdfFile: null,
+};
+
+const formatFileSize = (bytes: number) => {
+  const mb = bytes / (1024 * 1024);
+  return `${mb.toFixed(mb >= 10 ? 0 : 1)} MB`;
+};
+
+const validateFile = (
+  field: "coverFile" | "pdfFile",
+  file: File | null,
+): string | null => {
+  if (!file) return null;
+
+  if (field === "coverFile") {
+    if (!file.type.startsWith("image/")) {
+      return "Cover must be an image file.";
+    }
+    if (file.size > COVER_MAX_BYTES) {
+      return `Cover must be ${formatFileSize(COVER_MAX_BYTES)} or smaller.`;
+    }
+  }
+
+  if (field === "pdfFile") {
+    const isPdf =
+      file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf");
+    if (!isPdf) {
+      return "Book file must be a PDF.";
+    }
+    if (file.size > PDF_MAX_BYTES) {
+      return `PDF must be ${formatFileSize(PDF_MAX_BYTES)} or smaller.`;
+    }
+  }
+
+  return null;
+};
 
 export default function Admin() {
   const { logout } = useAuth();
@@ -58,15 +119,7 @@ export default function Admin() {
     message: "",
     severity: "success" as "success" | "error",
   });
-  const [form, setForm] = useState({
-    title: "",
-    author: "",
-    area: "Geophysics",
-    language: "en",
-    year: 2000,
-    coverFile: null as File | null,
-    pdfFile: null as File | null,
-  });
+  const [form, setForm] = useState<BookFormState>(initialForm);
 
   const [formOpen, setFormOpen] = useState(false);
 
@@ -100,7 +153,7 @@ export default function Admin() {
       });
       console.log("Fetched books:", response.documents);
       setBooks(response.documents as unknown as Book[]);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error fetching books:", error);
       setError("Failed to load books. Please try again.");
     } finally {
@@ -108,10 +161,57 @@ export default function Admin() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const hasUnsavedFormChanges = () => {
+    if (form.coverFile || form.pdfFile) return true;
+
+    if (editingBook) {
+      return (
+        form.title !== editingBook.title ||
+        form.author !== editingBook.author ||
+        form.area !== editingBook.area ||
+        form.language !== editingBook.language ||
+        form.year !== editingBook.year
+      );
+    }
+
+    return (
+      form.title !== initialForm.title ||
+      form.author !== initialForm.author ||
+      form.area !== initialForm.area ||
+      form.language !== initialForm.language ||
+      form.year !== initialForm.year
+    );
+  };
+
+  const validateForm = () => {
+    if (!form.title.trim()) return "Title is required.";
+    if (!form.author.trim()) return "Author is required.";
+    if (!form.area) return "Area is required.";
+    if (!form.language) return "Language is required.";
+    if (form.year < 1800 || form.year > 2100) {
+      return "Year must be between 1800 and 2100.";
+    }
+    if (!editingBook && !form.pdfFile) {
+      return "PDF file is required when adding a new book.";
+    }
+
+    return (
+      validateFile("coverFile", form.coverFile) ||
+      validateFile("pdfFile", form.pdfFile)
+    );
+  };
+
+  const handleSubmit = async (e: React.FormEvent): Promise<boolean> => {
     e.preventDefault();
     setError("");
     setSuccess("");
+
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      return false;
+    }
+
     setSubmitting(true);
 
     try {
@@ -168,11 +268,14 @@ export default function Admin() {
         });
       }
 
-      fetchBooks();
+      await fetchBooks();
       resetForm();
-    } catch (error: any) {
+      setFormOpen(false);
+      return true;
+    } catch (error: unknown) {
       console.error("Error saving book:", error);
-      setError(error.message || "Failed to save book. Please try again.");
+      setError(getErrorMessage(error, "Failed to save book. Please try again."));
+      return false;
     } finally {
       setSubmitting(false);
     }
@@ -189,25 +292,19 @@ export default function Admin() {
         deleteDialog.book.$id,
       );
       setSuccess("Book deleted successfully!");
-      fetchBooks();
+      await fetchBooks();
       setDeleteDialog({ open: false, book: null });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error deleting book:", error);
-      setError(error.message || "Failed to delete book. Please try again.");
+      setError(
+        getErrorMessage(error, "Failed to delete book. Please try again."),
+      );
       setDeleteDialog({ open: false, book: null });
     }
   };
 
   const resetForm = () => {
-    setForm({
-      title: "",
-      author: "",
-      area: "",
-      language: "en",
-      year: 2024,
-      coverFile: null,
-      pdfFile: null,
-    });
+    setForm(initialForm);
     setEditingBook(null);
     setError("");
     setSuccess("");
@@ -223,8 +320,29 @@ export default function Admin() {
   };
 
   const handleFormCancel = () => {
+    if (hasUnsavedFormChanges()) {
+      const shouldDiscard = window.confirm(
+        "Discard unsaved changes to this book?",
+      );
+      if (!shouldDiscard) return;
+    }
     resetForm();
     setFormOpen(false);
+  };
+
+  const handleDialogClose = () => {
+    if (submitting) return;
+    handleFormCancel();
+  };
+
+  const handleFileChange = (field: "coverFile" | "pdfFile", file: File | null) => {
+    const validationError = validateFile(field, file);
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+    setError("");
+    setForm((prev) => ({ ...prev, [field]: file }));
   };
 
   const startEdit = (book: Book) => {
@@ -328,13 +446,19 @@ export default function Admin() {
         {/* Add/Edit Form (now in dialog) */}
         <Dialog
           open={formOpen}
-          onClose={handleFormCancel}
+          onClose={handleDialogClose}
           maxWidth="md"
           fullWidth
           fullScreen={fullScreenDialog}
         >
           <DialogTitle>{editingBook ? "Edit Book" : "Add Book"}</DialogTitle>
           <DialogContent>
+            {submitting && (
+              <Alert severity="info" className="mb-4 rounded-lg">
+                Saving book and uploading files. Keep this tab open until it
+                finishes.
+              </Alert>
+            )}
             <BookForm
               form={form}
               submitting={submitting}
@@ -342,13 +466,8 @@ export default function Admin() {
               onChange={(field, value) =>
                 setForm((prev) => ({ ...prev, [field]: value }))
               }
-              onFileChange={(field, file) =>
-                setForm((prev) => ({ ...prev, [field]: file }))
-              }
-              onSubmit={async (e) => {
-                await handleSubmit(e);
-                setFormOpen(false);
-              }}
+              onFileChange={handleFileChange}
+              onSubmit={handleSubmit}
               onCancel={handleFormCancel}
             />
           </DialogContent>

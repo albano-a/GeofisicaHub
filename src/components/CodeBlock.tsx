@@ -48,13 +48,15 @@ export default function CodeBlock({ code, lang, language }: Props) {
     const incomingRaw = (lang ?? language ?? "").toString();
     const incoming = incomingRaw.trim().toLowerCase();
     const mappedLang = languageMap[incoming] ?? incoming;
-    // Prism's languages object is untyped; use any to access by key.
-    const languagesAny = Prism.languages as any;
+    const languages = Prism.languages as Record<
+      string,
+      Prism.Grammar | undefined
+    >;
     const grammar =
-      mappedLang && languagesAny[mappedLang]
-        ? languagesAny[mappedLang]
-        : mappedLang && languagesAny[mappedLang.split("-")[0]]
-          ? languagesAny[mappedLang.split("-")[0]]
+      mappedLang && languages[mappedLang]
+        ? languages[mappedLang]
+        : mappedLang && languages[mappedLang.split("-")[0]]
+          ? languages[mappedLang.split("-")[0]]
           : null;
 
     try {
@@ -65,7 +67,7 @@ export default function CodeBlock({ code, lang, language }: Props) {
         // No grammar available: output plain text safely
         codeRef.current.textContent = code;
       }
-    } catch (err) {
+    } catch {
       codeRef.current.textContent = code;
     }
   }, [code, lang, language]);

@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 import LoadingSpinner from "./LoadingSpinner"; // Assuming you have this
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({

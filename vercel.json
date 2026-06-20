@@ -1,5 +1,5 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/materials/programming/",

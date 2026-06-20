@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import React, { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ShareButtons from "../components/ShareButtons";
@@ -7,16 +7,13 @@ import PostMetaDisplay from "../components/PostMetaDisplay";
 import References from "../components/References";
 import Breadcrumb from "../components/Breadcrumb";
 import { useSEO } from "../hooks/useSEO";
-import type { PostMeta } from "../services/loadPosts";
+import type { LoadedPost } from "../services/loadPosts";
 import { loadPostsForLanguage } from "../services/loadPosts";
 
 export default function FundamentalsPost() {
   const { slug } = useParams<{ slug: string }>();
   const { i18n } = useTranslation();
-  const [post, setPost] = useState<{
-    component: React.LazyExoticComponent<any>;
-    meta: PostMeta;
-  } | null>(null);
+  const [post, setPost] = useState<LoadedPost | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

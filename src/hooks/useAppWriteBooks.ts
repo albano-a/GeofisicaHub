@@ -16,6 +16,9 @@ export interface Book {
   fileId: string;
 }
 
+const getErrorMessage = (error: unknown, fallback: string) =>
+  error instanceof Error ? error.message : fallback;
+
 export const getBookCount = async (area: string): Promise<number> => {
   try {
     const response = await tablesDB.listRows({
@@ -55,19 +58,22 @@ export function useAppWriteBooks(area: string, language: string) {
           tableId: COLLECTION_ID,
           queries: queries,
         });
-        const fetchedBooks: Book[] = response.rows.map((row) => ({
-          title: row.title,
-          cover: row.cover,
-          author: row.author,
-          link: storage.getFileDownload({
-            bucketId: BUCKET_ID,
-            fileId: row.fileId,
-          }),
-          fileId: row.fileId,
-        }));
+        const fetchedBooks: Book[] = response.rows.map((row) => {
+          const book = row as Record<string, string>;
+          return {
+            title: book.title,
+            cover: book.cover,
+            author: book.author,
+            link: storage.getFileDownload({
+              bucketId: BUCKET_ID,
+              fileId: book.fileId,
+            }),
+            fileId: book.fileId,
+          };
+        });
         setBooks(fetchedBooks);
-      } catch (err: any) {
-        setError(err.message || "Failed to fetch books");
+      } catch (err: unknown) {
+        setError(getErrorMessage(err, "Failed to fetch books"));
       } finally {
         setLoading(false);
       }

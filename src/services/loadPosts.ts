@@ -11,35 +11,44 @@ export interface PostMeta {
   draft?: boolean;
 }
 
+type PostComponent = React.ComponentType<Record<string, never>>;
+
+interface PostModule {
+  frontmatter: PostMeta;
+  default: PostComponent;
+}
+
+export interface LoadedPost {
+  component: React.LazyExoticComponent<PostComponent>;
+  meta: PostMeta;
+}
+
 const postModulesEn = import.meta.glob<{
   frontmatter: PostMeta;
-  default: React.ComponentType;
+  default: PostComponent;
 }>("../pages/posts/en/*.mdx", { eager: true });
 const postModulesPt = import.meta.glob<{
   frontmatter: PostMeta;
-  default: React.ComponentType;
+  default: PostComponent;
 }>("../pages/posts/pt/*.mdx", { eager: true });
 const postModulesEs = import.meta.glob<{
   frontmatter: PostMeta;
-  default: React.ComponentType;
+  default: PostComponent;
 }>("../pages/posts/es/*.mdx", { eager: true });
 const postModulesFr = import.meta.glob<{
   frontmatter: PostMeta;
-  default: React.ComponentType;
+  default: PostComponent;
 }>("../pages/posts/fr/*.mdx", { eager: true });
 const postModulesDe = import.meta.glob<{
   frontmatter: PostMeta;
-  default: React.ComponentType;
+  default: PostComponent;
 }>("../pages/posts/de/*.mdx", { eager: true });
 const postModulesIt = import.meta.glob<{
   frontmatter: PostMeta;
-  default: React.ComponentType;
+  default: PostComponent;
 }>("../pages/posts/it/*.mdx", { eager: true });
 
-const languageModules: Record<
-  string,
-  Record<string, { frontmatter: PostMeta; default: React.ComponentType }>
-> = {
+const languageModules: Record<string, Record<string, PostModule>> = {
   en: postModulesEn,
   pt: postModulesPt,
   es: postModulesEs,
@@ -48,22 +57,14 @@ const languageModules: Record<
   it: postModulesIt,
 };
 
-const postsCache: Record<
-  string,
-  Record<string, { component: React.LazyExoticComponent<any>; meta: PostMeta }>
-> = {};
+const postsCache: Record<string, Record<string, LoadedPost>> = {};
 
 export async function loadPostsForLanguage(
   lang: string,
-): Promise<
-  Record<string, { component: React.LazyExoticComponent<any>; meta: PostMeta }>
-> {
+): Promise<Record<string, LoadedPost>> {
   if (postsCache[lang]) return postsCache[lang];
 
-  const posts: Record<
-    string,
-    { component: React.LazyExoticComponent<any>; meta: PostMeta }
-  > = {};
+  const posts: Record<string, LoadedPost> = {};
   const mods = languageModules[lang];
 
   if (!mods) {
@@ -77,7 +78,7 @@ export async function loadPostsForLanguage(
     return posts;
   }
 
-  for (const [_, modExp] of Object.entries(mods)) {
+  for (const [, modExp] of Object.entries(mods)) {
     const meta = modExp.frontmatter as PostMeta;
     const lzComp = lazy(() => Promise.resolve({ default: modExp.default }));
 
