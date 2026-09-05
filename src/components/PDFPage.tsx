@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-// Import annotation layer CSS
 import "pdfjs-dist/web/pdf_viewer.css";
 
-import { GlobalWorkerOptions } from "pdfjs-dist";
-import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import { PDFPageView } from "pdfjs-dist/web/pdf_viewer.mjs";
 import type {
   PDFDocumentProxy,
@@ -16,12 +13,6 @@ import type {
   PDFPageView as PDFPageViewType,
   PDFPageViewOptions,
 } from "pdfjs-dist/types/web/pdf_page_view";
-
-try {
-  GlobalWorkerOptions.workerSrc = workerSrc;
-} catch {
-  // ignore
-}
 
 const maxWidth = 1400;
 
@@ -228,16 +219,17 @@ const PDFPage: React.FC<PDFPageProps> = ({
     <div
       ref={containerRef}
       id={`pdf-page-${pageNumber}`}
-      className="relative shadow-xl transition-shadow hover:shadow-2xl bg-white dark:bg-gray-800 mx-auto"
+      className="relative bg-white mx-auto"
       style={{
         width: viewport ? viewport.width : widthPx,
         height: viewport ? viewport.height : heightPx,
-        overflow: "hidden", // clip any overflowing canvas or layers
-        marginBottom: "2rem",
+        overflow: "hidden",
+        marginBottom: "12px",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.25), 0 1px 3px rgba(0,0,0,0.15)",
       }}
     >
       {/* Page Number Badge */}
-      <div className="absolute bottom-4 right-4  text-black text-xs px-3 py-1  z-10 font-medium tracking-wide pointer-events-none">
+      <div className="absolute bottom-2 right-2 text-gray-400 text-[10px] px-1.5 py-0.5 z-10 font-medium pointer-events-none select-none bg-white/60 rounded">
         {pageNumber}
       </div>
 
